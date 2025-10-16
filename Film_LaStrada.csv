@@ -1,4 +1,14 @@
-Inventory Number,Title,Director,Production Company,Country,Language,Year,Duration,Length (meters),Gauge,Color,Sound,Work Type
-S.00541,La strada,Fellini, Federico,Ponti De Laurentis [It],IT,ITA,1954,108,3220,35mm,B/W,Sound,Fiction (film)
-D.34225,La strada,Fellini, Federico,Ponti De Laurentis [It],IT,ITA,1954,108,,,B/W,Sound,Fiction (film)
-D.32996,La strada,Fellini, Federico,Ponti De Laurentis [It],IT,ITA,1954,108,,,B/W,Sound,Fiction (film)
+Italian_Field,FIAF_Field,Value
+Titolo originale,Original Title,Strada, la
+Titolo italiano,National Title (in Italy),Strada, la
+Regia,Director,"Fellini, Federico"
+Produzione,Production Company / Sponsor,Ponti De Laurentis [It]
+Nazione,Country of Origin,IT
+Lingua,Language,ITA
+Anno 1° proiez. Ita.,Year of First Public Release,1954
+Lunghezza,Length,3220 mt
+Durata,Duration,108
+Formato,Gauge / Format,36
+Colore,Colour,B/N
+Suono,Sound,Sonoro
+Tipologia,Work Type,Fiction (film)
