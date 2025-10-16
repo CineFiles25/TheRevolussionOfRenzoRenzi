@@ -1,2 +1,4 @@
-Inventory Number,Author,Title,Date,Subject,Technique,Measurements,Support,Color,Conservation State,State Description,Collection / Fund,Provenance,Rights,Digital Documentation
-S.00541,"Fellini Federico","La strada",1954,"Cinema; Italy; Post-War; Marginalization; Love; Journey; Gelsomina; Zampanò","16mm Positive Film","Reel: 400 meters; Duration: 108 minutes","Cellulose nitrate (original) / Cellulose acetate (copy)","B/W",Fair,"Light fading, superficial scratches, intact","Italian Cinema Collection",Acquired from the Delta Film archive, 1980,"© Pathé","la_strada_s00541_reel.jpg; URL: https://archivio.cinetecadibologna.it/film/la-strada/S.00541"
+Inventory Number,Title,Director,Production Company,Country,Language,Year,Duration,Length (meters),Gauge,Color,Sound,Work Type
+S.00541,La strada,Fellini, Federico,Ponti De Laurentis [It],IT,ITA,1954,108,3220,35mm,B/W,Sound,Fiction (film)
+D.34225,La strada,Fellini, Federico,Ponti De Laurentis [It],IT,ITA,1954,108,,,B/W,Sound,Fiction (film)
+D.32996,La strada,Fellini, Federico,Ponti De Laurentis [It],IT,ITA,1954,108,,,B/W,Sound,Fiction (film)
