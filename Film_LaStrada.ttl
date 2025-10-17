@@ -1,0 +1,21 @@
+@prefix fiaf: <https://fiaf.github.io/film-related-materials/objects/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+
+wd:Q174267 a fiaf:Film ;
+    dcterms:title "Strada, la" ;
+    fiaf:originalTitle "Strada, la" ;
+    fiaf:director wd:Q13975 ;
+    fiaf:productionCompany "Ponti De Laurentis [It]; Renzo Renzi" ;
+    fiaf:countryOfOrigin "IT" ;
+    fiaf:language "ITA" ;
+    fiaf:yearOfFirstRelease "1954" ;
+    fiaf:length "3220 mt" ;
+    fiaf:duration "108" ;
+    fiaf:gauge "35" ;
+    fiaf:color "B/N" ;
+    fiaf:sound "Sonoro" ;
+    fiaf:workType "Fiction (film)" .
+
+wd:Q13975 a fiaf:Person ;
+    dcterms:title "Fellini, Federico" .
