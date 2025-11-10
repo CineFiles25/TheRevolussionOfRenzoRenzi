@@ -19,47 +19,68 @@ nsDict = {
     "dc": dc,
     "dcterms": dcterms,
     "crm": crm
-} # dict makes it easier to manage multiple namespaces and modify them
+}
 
 def graph_bindings():
-    for prefix, ns in nsDict.items(): # items to iterate over key-value pairs
+    for prefix, ns in nsDict.items():
         g.bind(prefix, ns)
     return g
 
 # ENTITIES 
 
+library = URIRef(renzi + "renziLibrary")
 renzoRenzi = URIRef(renzi + "renzoRenzi")
-g.add((renzoRenzi, OWL.sameAs, URIRef("http://viaf.org/viaf/40486517")))
 
+g.add((renzoRenzi, OWL.sameAs, URIRef("http://viaf.org/viaf/40486517")))
 
 # DATA INGESTION
 
-library = URIRef(renzi + "renziLibrary")
-renziLibrary = read_csv("csv/library.csv", keep_default_na=False, encoding="utf-8")
+renziLibrary = read_csv("../csv/library.csv", keep_default_na=False, encoding="utf-8"
+                        # dtype={
+                        #     "Id ISIL": "string",
+                        #     "Name": "string",
+                        #     "Alt Title": "string",
+                        #     "Original Function": "string",
+                        #     "Owner": "string",
+                        #     "Completion Of Work": "string",     # gYear-like values; use string to preserve format
+                        #     "Library Founded": "string",       # gYear-like values
+                        #     "Address": "string",
+                        #     "City": "string",
+                        #     "Country": "string",
+                        #     "Coordinates": "string",
+                        #     "Website": "string",
+                        #     "Structure Type": "string",
+                        #     "Area": "float",
+                        #     "Seats": "Int64",                  # nullable integer dtype
+                        #     "Audio System": "string",
+                        #     "Video System": "string",
+                        #     "Named After": "string"
+                        # }
+                        )
+
+g = graph_bindings()
 
 for _, row in renziLibrary.iterrows():
-    g.add((library, dc.identifier, Literal(row["Id ISIL"], datatype=XSD.string)))
-    g.add((library, schema.name, Literal(row["Name"], datatype=XSD.string)))
-    g.add((library, schema.alternateName, Literal(row["Alt Title"], datatype=XSD.string)))
-    g.add((library, RDF.type, URIRef()))
-    g.add((library, schema.additionalType, Literal(row["Original Function"], datatype=XSD.string)))
-    g.add((library, schema.owner, Literal(row["Owner"], datatype=XSD.string)))
+    g.add((library, RDF.type, URIRef(schema + "Library")))
+    g.add((library, dc.identifier, Literal(row["Id ISIL"])))
+    g.add((library, schema.name, Literal(row["Name"])))
+    g.add((library, schema.alternateName, Literal(row["Alt Title"])))
+    g.add((library, schema.additionalType, Literal(row["Original Function"])))
+    g.add((library, schema.owner, Literal(row["Owner"])))
     g.add((library, schema.date, Literal(row["Completion Of Work"], datatype=XSD.gYear)))
     g.add((library, schema.foundingDate, Literal(row["Library Founded"], datatype=XSD.gYear)))
-    g.add((library, schema.address, Literal(row["Address"], datatype=XSD.string)))
-    g.add((library, schema.addressLocality, Literal(row["City"], datatype=XSD.string)))
-    g.add((library, schema.addressCountry, Literal(row["Country"], datatype=XSD.string)))
-    g.add((library, schema.geo, Literal(row["Coordinates"], datatype=XSD.string)))
+    g.add((library, schema.address, Literal(row["Address"])))
+    g.add((library, schema.addressLocality, Literal(row["City"])))
+    g.add((library, schema.addressCountry, Literal(row["Country"])))
+    g.add((library, schema.geo, Literal(row["Coordinates"])))
     g.add((library, schema.url, Literal(row["Website"], datatype=XSD.anyURI)))
-    g.add((library, schema.additionalType, Literal(row["Structure Type"], datatype=XSD.string)))
+    g.add((library, schema.additionalType, Literal(row["Structure Type"])))
     g.add((library, schema.floorSize, Literal(row["Area"], datatype=XSD.float)))
     g.add((library, dc.description, Literal(row["Seats"], datatype=XSD.integer)))
-    g.add((library, dc.description, Literal(row["Audio System"], datatype=XSD.string)))
-    g.add((library, dc.description, Literal(row["Video System"], datatype=XSD.string)))
-    g.add((library, schema.honorificPrefix, Literal(row["Named After"], datatype=XSD.string))) # da modificare forse 
+    g.add((library, dc.description, Literal(row["Audio System"])))
+    g.add((library, dc.description, Literal(row["Video System"])))
+    g.add((renzoRenzi, schema.honorificPrefix, Literal(row["Named After"])))
     
 # SERIALIZATION
 
-graph_bindings()
-g.serialize(format="turtle", destination="renziLibrary.ttl") 
-# for serializing the graph into a turtle file bc graphs are objects that get lost if not stored
+g.serialize(format="turtle", destination="../ttl/renziLibrary.ttl") 
