@@ -35,7 +35,7 @@ g.add((renzoRenzi, OWL.sameAs, URIRef("http://viaf.org/viaf/40486517")))
 # DATA INGESTION
 
 library = URIRef(renzi + "renziLibrary")
-renziLibrary = read_csv("library.csv", keep_default_na=False, encoding="utf-8")
+renziLibrary = read_csv("csv/library.csv", keep_default_na=False, encoding="utf-8")
 
 for _, row in renziLibrary.iterrows():
     g.add((library, dc.identifier, Literal(row["Id ISIL"], datatype=XSD.string)))
