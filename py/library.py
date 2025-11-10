@@ -1,4 +1,4 @@
-import csv 
+import pandas as pd
 from pandas import read_csv
 from rdflib import Namespace, Graph, RDF, URIRef, OWL, Literal, XSD, RDFS, FOAF
 
@@ -36,7 +36,7 @@ g.add((renzoRenzi, OWL.sameAs, URIRef("http://viaf.org/viaf/40486517")))
 
 # DATA INGESTION
 
-renziLibrary = read_csv("../csv/library.csv", keep_default_na=False, encoding="utf-8"
+renziLibrary = pd.read_csv("../csv/library.csv", keep_default_na=False, encoding="utf-8")
                         # dtype={
                         #     "Id ISIL": "string",
                         #     "Name": "string",
@@ -57,7 +57,7 @@ renziLibrary = read_csv("../csv/library.csv", keep_default_na=False, encoding="u
                         #     "Video System": "string",
                         #     "Named After": "string"
                         # }
-                        )
+                        
 
 g = graph_bindings()
 
