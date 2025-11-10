@@ -60,5 +60,6 @@ for _, row in renziLibrary.iterrows():
     
 # SERIALIZATION
 
+graph_bindings()
 g.serialize(format="turtle", destination="renziLibrary.ttl") 
 # for serializing the graph into a turtle file bc graphs are objects that get lost if not stored
