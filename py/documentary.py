@@ -31,8 +31,8 @@ def graph_bindings():
 
 # ENTITIES
 
-quandoIlPoèDolce = URIRef(renzi + "quandoIlPoèDolce")
-renzoRenzi = URIRef(renzi + "renzoRenzi")
+documentary = URIRef(renzi + "quandoIlPoèDolce")
+renzoRenzi = URIRef(renzi + "renzoRenzi") #
 
 # g.add((renzoRenzi, OWL.sameAs, URIRef("http://viaf.org/viaf/40486517")))
 
@@ -43,27 +43,27 @@ quandoIlPoèDolce = pd.read_csv("../csv/documentary.csv", keep_default_na=False,
 g = graph_bindings()
 
 for _, row in quandoIlPoèDolce.iterrows():
-    g.add((quandoIlPoèDolce, RDF.type, URIRef(schema.Movie)))
-    g.add((quandoIlPoèDolce, dc.title, Literal(row["Title"])))
-    g.add((quandoIlPoèDolce, schema.alternateName, Literal(row["Alt Title"])))
-    g.add((quandoIlPoèDolce, schema.director, Literal(row["Director"])))
-    g.add((quandoIlPoèDolce, schema.author, Literal(row["Screenwriter"])))
-    g.add((quandoIlPoèDolce, schema.edition, Literal(row["Edition"])))
-    g.add((quandoIlPoèDolce, schema.genre, Literal(row["Type"])))
-    g.add((quandoIlPoèDolce, schema.countryOfOrigin, Literal(row["Country"])))    
-    g.add((quandoIlPoèDolce, schema.productionCompany, Literal(row["Production Company"])))    
-    g.add((quandoIlPoèDolce, schema.datePublished, Literal(row["Year"], datatype=XSD.gYear)))
-    g.add((quandoIlPoèDolce, schema.duration, Literal(row["Running Time"])))
-    g.add((quandoIlPoèDolce, schema.color, Literal(row["Color"])))
-    g.add((quandoIlPoèDolce, schema.encodingFormat, Literal(row["Film Type"])))
-    g.add((quandoIlPoèDolce, schema.frameRate, Literal(row["Frame Rate"])))
-    g.add((quandoIlPoèDolce, schema.contentSize, Literal(row["Film Length"])))    
-    g.add((quandoIlPoèDolce, schema.sound, Literal(row["Sound"])))
-    g.add((quandoIlPoèDolce, schema.inLanguage, Literal(row["Language"])))
-    g.add((quandoIlPoèDolce, schema.about, Literal(row["Subject"])))
-    g.add((quandoIlPoèDolce, schema.spatialCoverage, Literal(row["Filming Location"])))
-    g.add((quandoIlPoèDolce, schema.musicBy, Literal(row["Music Composer"])))
-    g.add((quandoIlPoèDolce, schema.contentRating, Literal(row["Certificate"])))
+    g.add((documentary, RDF.type, URIRef(schema + "Movie")))
+    g.add((documentary, dc.title, Literal(row["Title"])))
+    g.add((documentary, schema.alternateName, Literal(row["Alt Title"])))
+    g.add((documentary, schema.director, Literal(row["Director"])))
+    g.add((documentary, schema.author, Literal(row["Screenwriter"])))
+    g.add((documentary, schema.edition, Literal(row["Edition"])))
+    g.add((documentary, schema.genre, Literal(row["Type"])))
+    g.add((documentary, schema.countryOfOrigin, Literal(row["Country"])))    
+    g.add((documentary, schema.productionCompany, Literal(row["Production Company"])))    
+    g.add((documentary, schema.datePublished, Literal(row["Year"], datatype=XSD.gYear)))
+    g.add((documentary, schema.duration, Literal(row["Running Time"])))
+    g.add((documentary, schema.color, Literal(row["Color"])))
+    g.add((documentary, schema.encodingFormat, Literal(row["Film Type"])))
+    g.add((documentary, schema.frameRate, Literal(row["Frame Rate"])))
+    g.add((documentary, schema.contentSize, Literal(row["Film Length"])))    
+    g.add((documentary, schema.sound, Literal(row["Sound"])))
+    g.add((documentary, schema.inLanguage, Literal(row["Language"])))
+    g.add((documentary, schema.about, Literal(row["Subject"])))
+    g.add((documentary, schema.spatialCoverage, Literal(row["Filming Location"])))
+    g.add((documentary, schema.musicBy, Literal(row["Music Composer"])))
+    g.add((documentary, schema.contentRating, Literal(row["Certificate"])))
     
 # SERIALIZATION
 
