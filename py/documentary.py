@@ -32,7 +32,7 @@ def graph_bindings():
 # ENTITIES
 
 documentary = URIRef(renzi + "quandoIlPoèDolce")
-renzoRenzi = URIRef(renzi + "renzoRenzi") #
+renzoRenzi = URIRef(renzi + "renzoRenzi") 
 
 # g.add((renzoRenzi, OWL.sameAs, URIRef("http://viaf.org/viaf/40486517")))
 
