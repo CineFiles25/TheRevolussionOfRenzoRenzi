@@ -43,7 +43,9 @@ renziLibrary = pd.read_csv("../csv/library.csv", keep_default_na=False, encoding
 g = graph_bindings()
 
 for _, row in renziLibrary.iterrows():
-    g.add((library, RDF.type, URIRef(schema + "Library")))
+    # g.add((library, RDF.type, URIRef(schema + "Library")))
+    # g.add((library, RDF.type, URIRef(foaf + "Organization")))
+    g.add((library, OWL.sameAs, URIRef("https://isni.org/isni/0000000459141457")))
     g.add((library, dc.identifier, Literal(row["Id ISIL"])))
     g.add((library, schema.name, Literal(row["Name"])))
     g.add((library, schema.alternateName, Literal(row["Alt Title"])))
