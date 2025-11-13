@@ -67,6 +67,6 @@ for _, row in quandoIlPoèDolce.iterrows():
     
 # SERIALIZATION
 
-g.serialize(format="turtle", destination="../ttl/quandoIlPoèDolce.ttl")
+g.serialize(format="turtle", destination="../ttl/documentary.ttl")
 
-print("CSV converted to RDF/XML!")
+print("CSV converted and serialized to ../ttl/documentary.ttl")
