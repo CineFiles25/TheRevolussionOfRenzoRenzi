@@ -1,17 +1,17 @@
 subject,predicate,object,object_type,note
-cineteca,dcterms:hasPart,biblioteca,iri,Cineteca include Biblioteca
-biblioteca,dcterms:hasPart,fondo,iri,Biblioteca conserva Fondo
-fondo,dcterms:hasPart,libro,iri,Fondo contiene Libro
-libro,dcterms:hasPart,tei,iri,Libro contiene TEI
-fondo,dcterms:hasPart,foto,iri,Fondo contiene Foto
-fondo,dcterms:hasPart,caricatura,iri,Fondo contiene Caricatura
-fondo,dcterms:hasPart,video,iri,Fondo contiene Videointervista
-fondo,dcterms:hasPart,ost,iri,Fondo contiene Colonna sonora
-renzi,dcterms:relation,film,iri,Renzi interpreta/commenta il film
-libro,dcterms:subject,film,iri,Il libro riguarda il film
-tei,schema:about,film,iri,Il TEI rappresenta il film
-foto,schema:about,ricezione,iri,La foto documenta la ricezione pubblica
-caricatura,foaf:depicts,renzi,iri,La caricatura rappresenta Renzi
-video,schema:about,memoria,iri,Il video testimonia la memoria orale
-fellini,dcterms:creator,film,iri,Fellini autore del film
-caricatura,prov:wasAttributedTo,fellini,iri,Caricatura attribuita a Fellini
+cineteca,dcterms:hasPart,renzi_library,iri,Cineteca includes the library
+renzi_library,dcterms:hasPart,renzi_collection,iri,The library preserves the collection
+renzi_collection,dcterms:hasPart,first_fellini_book,iri,The collection contains the book
+first_fellini_book,dcterms:hasPart,lastrada_screenplay_tei,iri,The book contains the TEI excerpt
+renzi_collection,dcterms:hasPart,fulgor_photo,iri,The collection contains the photograph
+renzi_collection,dcterms:hasPart,fellini_to_renzi_caricature,iri,The collection contains the caricature
+renzi_collection,dcterms:hasPart,renzi_interview_2000,iri,The collection contains the video interview
+renzi_collection,dcterms:hasPart,la_strada_soundtrack,iri,The collection contains the soundtrack
+renzo_renzi,dcterms:relation,la_strada_film,iri,Renzo Renzi interprets/comments on the film
+first_fellini_book,dcterms:subject,la_strada_film,iri,The book concerns the film
+lastrada_screenplay_tei,schema:about,la_strada_film,iri,The TEI excerpt represents the film
+fulgor_photo,schema:about,public_reception,iri,The photograph documents the public reception
+fellini_to_renzi_caricature,foaf:depicts,renzo_renzi,iri,The caricature depicts Renzo Renzi
+renzi_interview_2000,schema:about,renzi_oral_memory,iri,The video interview documents Renzi’s oral memory
+federico_fellini,dcterms:creator,la_strada_film,iri,Federico Fellini is the creator of the film
+fellini_to_renzi_caricature,prov:wasAttributedTo,federico_fellini,iri,The caricature is attributed to Federico Fellini
