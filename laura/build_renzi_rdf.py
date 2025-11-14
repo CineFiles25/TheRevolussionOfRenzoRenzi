@@ -4,23 +4,29 @@ from pathlib import Path
 from rdflib import Graph, Namespace, URIRef, Literal
 from rdflib.namespace import RDF, RDFS, DCTERMS, FOAF
 
-# ===== CONFIGURAZIONE DI BASE =============================================
+# ============================================================================
+# CONFIGURATION
+# ============================================================================
 
-# CSV in input
+# Input CSV files
 ENTITIES_CSV = Path("entities_renzi.csv")
 TRIPLES_CSV  = Path("triples_renzi.csv")
 
-# RDF in output
+# Output Turtle file
 OUTPUT_TTL = Path("renzi.ttl")
 
-# Namespace di base
-BASE_NS   = "http://example.org/renzi/"
+# Base namespace for all local entities (prefix ":")
+BASE_NS = "http://example.org/renzi/"
 
-# Altri namespace usati
+# Additional namespaces
 SCHEMA = Namespace("https://schema.org/")
 SKOS   = Namespace("http://www.w3.org/2004/02/skos/core#")
 PROV   = Namespace("http://www.w3.org/ns/prov#")
 
+
+# ============================================================================
+# GRAPH INITIALIZATION
+# ============================================================================
 
 def init_graph() -> Graph:
     g = Graph()
@@ -30,18 +36,21 @@ def init_graph() -> Graph:
     g.bind("skos", SKOS)
     g.bind("prov", PROV)
     g.bind("rdfs", RDFS)
-    g.bind("", Namespace(BASE_NS))  # prefisso ":" implicito
+    g.bind("", Namespace(BASE_NS))  # default prefix ":"
     return g
 
+
+# ============================================================================
+# CSV READERS
+# ============================================================================
 
 def read_entities(path: Path):
     entities = []
     with path.open(encoding="utf-8") as f:
         reader = csv.DictReader(f)
         for row in reader:
-            if not row.get("id"):
-                continue
-            entities.append(row)
+            if row.get("id"):
+                entities.append(row)
     return entities
 
 
@@ -50,41 +59,50 @@ def read_triples(path: Path):
     with path.open(encoding="utf-8") as f:
         reader = csv.DictReader(f)
         for row in reader:
-            if not (row.get("subject") and row.get("predicate") and row.get("object")):
-                continue
-            triples.append(row)
+            if row.get("subject") and row.get("predicate") and row.get("object"):
+                triples.append(row)
     return triples
 
 
+# ============================================================================
+# CURIE RESOLUTION
+# ============================================================================
+
 def resolve_curie(curie: str) -> URIRef:
     if ":" not in curie:
-        # caso limite: restituisce l'URI così com'è
         return URIRef(curie)
 
-    pref, local = curie.split(":", 1)
+    prefix, local = curie.split(":", 1)
 
-    if pref == "schema":
+    if prefix == "schema":
         return SCHEMA[local]
-    if pref == "skos":
+    if prefix == "skos":
         return SKOS[local]
-    if pref == "prov":
+    if prefix == "prov":
         return PROV[local]
-    if pref == "foaf":
+    if prefix == "foaf":
         return FOAF[local]
-    if pref == "dcterms":
+    if prefix == "dcterms":
         return DCTERMS[local]
-    if pref == "rdfs":
+    if prefix == "rdfs":
         return RDFS[local]
 
-    # fallback generico
+    # Generic fallback
     return URIRef(curie)
 
 
+# ============================================================================
+# GRAPH CONSTRUCTION
+# ============================================================================
+
 def build_graph(entities, triples) -> Graph:
+    """
+    Build the RDF graph from the entities list and the triples list.
+    """
     g = init_graph()
     BASE = Namespace(BASE_NS)
 
-    # === ENTITÀ ===
+    # --- ENTITIES ---
     for row in entities:
         sid   = (row.get("id") or "").strip()
         label = (row.get("label") or "").strip()
@@ -97,7 +115,7 @@ def build_graph(entities, triples) -> Graph:
         if label:
             g.add((subj, RDFS.label, Literal(label)))
 
-    # === TRIPLE ===
+    # --- TRIPLES ---
     for row in triples:
         s = (row.get("subject") or "").strip()
         p = (row.get("predicate") or "").strip()
@@ -117,19 +135,23 @@ def build_graph(entities, triples) -> Graph:
     return g
 
 
+# ============================================================================
+# MAIN
+# ============================================================================
+
 def main():
-    print(f"[INFO] Leggo entità da {ENTITIES_CSV}")
+    print(f"[INFO] Reading entities from {ENTITIES_CSV}")
     entities = read_entities(ENTITIES_CSV)
 
-    print(f"[INFO] Leggo triple da {TRIPLES_CSV}")
+    print(f"[INFO] Reading triples from {TRIPLES_CSV}")
     triples = read_triples(TRIPLES_CSV)
 
-    print("[INFO] Costruisco il grafo RDF…")
+    print("[INFO] Building RDF graph…")
     g = build_graph(entities, triples)
 
-    print(f"[INFO] Serializzo in {OUTPUT_TTL}")
+    print(f"[INFO] Serializing to {OUTPUT_TTL}")
     g.serialize(destination=str(OUTPUT_TTL), format="turtle")
-    print("[OK] Fatto.")
+    print("[OK] Done.")
 
 
 if __name__ == "__main__":
