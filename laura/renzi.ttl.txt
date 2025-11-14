@@ -1,0 +1,67 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf:    <http://xmlns.com/foaf/0.1/> .
+@prefix schema:  <https://schema.org/> .
+@prefix skos:    <http://www.w3.org/2004/02/skos/core#> .
+@prefix prov:    <http://www.w3.org/ns/prov#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix :        <http://example.org/renzi/> .
+
+:cineteca a schema:Organization ;
+    rdfs:label "Cineteca di Bologna" .
+
+:biblioteca a schema:Library ;
+    rdfs:label "Biblioteca Renzo Renzi" .
+
+:fondo a schema:Collection ;
+    rdfs:label "Fondo Renzi" .
+
+:libro a schema:CreativeWork ;
+    rdfs:label "Libro \"Il primo Fellini\"" .
+
+:tei a schema:CreativeWork ;
+    rdfs:label "Sceneggiatura / Sequenza I (TEI)" .
+
+:foto a schema:ImageObject ;
+    rdfs:label "Fotografia Fulgor" .
+
+:caricatura a schema:VisualArtwork ;
+    rdfs:label "Caricatura Fellini→Renzi" .
+
+:video a schema:CreativeWork ;
+    rdfs:label "Videointervista 2000" .
+
+:ost a schema:CreativeWork ;
+    rdfs:label "Colonna sonora \"La Strada\"" .
+
+:film a schema:Movie ;
+    rdfs:label "Film \"La Strada\"" .
+
+:renzi a foaf:Person ;
+    rdfs:label "Renzo Renzi" .
+
+:fellini a foaf:Person ;
+    rdfs:label "Federico Fellini" .
+
+:ricezione a skos:Concept ;
+    rdfs:label "Ricezione pubblica" .
+
+:memoria a skos:Concept ;
+    rdfs:label "Memoria orale di Renzi" .
+
+:cineteca dcterms:hasPart :biblioteca .
+:biblioteca dcterms:hasPart :fondo .
+:fondo dcterms:hasPart :libro .
+:libro dcterms:hasPart :tei .
+:fondo dcterms:hasPart :foto .
+:fondo dcterms:hasPart :caricatura .
+:fondo dcterms:hasPart :video .
+:fondo dcterms:hasPart :ost .
+
+:renzi dcterms:relation :film .
+:libro dcterms:subject :film .
+:tei schema:about :film .
+:foto schema:about :ricezione .
+:caricatura foaf:depicts :renzi .
+:video schema:about :memoria .
+:fellini dcterms:creator :film .
+:caricatura prov:wasAttributedTo :fellini .
