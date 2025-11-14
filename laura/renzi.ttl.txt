@@ -9,59 +9,59 @@
 :cineteca a schema:Organization ;
     rdfs:label "Cineteca di Bologna" .
 
-:biblioteca a schema:Library ;
-    rdfs:label "Biblioteca Renzo Renzi" .
+:renzi_library a schema:Library ;
+    rdfs:label "Renzo Renzi Library" .
 
-:fondo a schema:Collection ;
-    rdfs:label "Fondo Renzi" .
+:renzi_collection a schema:Collection ;
+    rdfs:label "Renzo Renzi Collection" .
 
-:libro a schema:CreativeWork ;
-    rdfs:label "Libro \"Il primo Fellini\"" .
+:first_fellini_book a schema:CreativeWork ;
+    rdfs:label "Book \"Il primo Fellini\"" .
 
-:tei a schema:CreativeWork ;
-    rdfs:label "Sceneggiatura / Sequenza I (TEI)" .
+:lastrada_screenplay_tei a schema:CreativeWork ;
+    rdfs:label "Screenplay / Sequence I (TEI)" .
 
-:foto a schema:ImageObject ;
-    rdfs:label "Fotografia Fulgor" .
+:fulgor_photo a schema:ImageObject ;
+    rdfs:label "Fulgor Photograph" .
 
-:caricatura a schema:VisualArtwork ;
-    rdfs:label "Caricatura Fellini→Renzi" .
+:fellini_to_renzi_caricature a schema:VisualArtwork ;
+    rdfs:label "Fellini→Renzi Caricature" .
 
-:video a schema:CreativeWork ;
-    rdfs:label "Videointervista 2000" .
+:renzi_interview_2000 a schema:CreativeWork ;
+    rdfs:label "Renzo Renzi Video Interview (2000)" .
 
-:ost a schema:CreativeWork ;
-    rdfs:label "Colonna sonora \"La Strada\"" .
+:la_strada_soundtrack a schema:CreativeWork ;
+    rdfs:label "Soundtrack \"La Strada\"" .
 
-:film a schema:Movie ;
+:la_strada_film a schema:Movie ;
     rdfs:label "Film \"La Strada\"" .
 
-:renzi a foaf:Person ;
+:renzo_renzi a foaf:Person ;
     rdfs:label "Renzo Renzi" .
 
-:fellini a foaf:Person ;
+:federico_fellini a foaf:Person ;
     rdfs:label "Federico Fellini" .
 
-:ricezione a skos:Concept ;
-    rdfs:label "Ricezione pubblica" .
+:public_reception a skos:Concept ;
+    rdfs:label "Public Reception" .
 
-:memoria a skos:Concept ;
-    rdfs:label "Memoria orale di Renzi" .
+:renzi_oral_memory a skos:Concept ;
+    rdfs:label "Renzi's Oral Memory" .
 
-:cineteca dcterms:hasPart :biblioteca .
-:biblioteca dcterms:hasPart :fondo .
-:fondo dcterms:hasPart :libro .
-:libro dcterms:hasPart :tei .
-:fondo dcterms:hasPart :foto .
-:fondo dcterms:hasPart :caricatura .
-:fondo dcterms:hasPart :video .
-:fondo dcterms:hasPart :ost .
+:cineteca dcterms:hasPart :renzi_library .
+:renzi_library dcterms:hasPart :renzi_collection .
+:renzi_collection dcterms:hasPart :first_fellini_book .
+:first_fellini_book dcterms:hasPart :lastrada_screenplay_tei .
+:renzi_collection dcterms:hasPart :fulgor_photo .
+:renzi_collection dcterms:hasPart :fellini_to_renzi_caricature .
+:renzi_collection dcterms:hasPart :renzi_interview_2000 .
+:renzi_collection dcterms:hasPart :la_strada_soundtrack .
 
-:renzi dcterms:relation :film .
-:libro dcterms:subject :film .
-:tei schema:about :film .
-:foto schema:about :ricezione .
-:caricatura foaf:depicts :renzi .
-:video schema:about :memoria .
-:fellini dcterms:creator :film .
-:caricatura prov:wasAttributedTo :fellini .
+:renzo_renzi dcterms:relation :la_strada_film .
+:first_fellini_book dcterms:subject :la_strada_film .
+:lastrada_screenplay_tei schema:about :la_strada_film .
+:fulgor_photo schema:about :public_reception .
+:fellini_to_renzi_caricature foaf:depicts :renzo_renzi .
+:renzi_interview_2000 schema:about :renzi_oral_memory .
+:federico_fellini dcterms:creator :la_strada_film .
+:fellini_to_renzi_caricature prov:wasAttributedTo :federico_fellini .
