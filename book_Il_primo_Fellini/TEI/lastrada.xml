@@ -1,0 +1,284 @@
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>La strada — Sequenza I</title>
+        <respStmt>
+          <resp>Trascrizione e annotazione</resp>
+          <name>Laura Bortoli</name>
+        </respStmt>
+      </titleStmt>
+      <publicationStmt>
+        <p>Uso didattico per esame (Text Encoding; Knowledge Organization). Diritti del testo: Cineteca di Bologna.</p>
+      </publicationStmt>
+      <sourceDesc>
+        <bibl>
+          <title level="m">Il primo Fellini: Lo sceicco bianco – I vitelloni – La strada – Il bidone</title>
+          <author>Federico Fellini</author>
+          <editor>Renzo Renzi</editor>
+          <publisher>Cappelli</publisher>
+          <date when="1969">1969</date>
+        </bibl>
+      </sourceDesc>
+    </fileDesc>
+
+    <profileDesc>
+      <langUsage>
+        <language ident="it">Italiano</language>
+      </langUsage>
+      <particDesc>
+        <listPerson>
+          <person xml:id="gelsomina"><persName>Gelsomina</persName></person>
+          <person xml:id="zampano"><persName>Zampanò</persName></person>
+          <person xml:id="madre"><persName>Madre di Gelsomina</persName></person>
+          <person xml:id="bambine"><persName>Bambine</persName></person>
+          <person xml:id="bimbapiccola"><persName>Bambina più piccola</persName></person>
+          <person xml:id="bimbagrande"><persName>Bambina più grande</persName></person>
+          <person xml:id="donna"><persName>Donna</persName></person>
+        </listPerson>
+        <listPlace>
+          <place xml:id="spiaggia"><placeName>spiaggia</placeName></place>
+          <place xml:id="brughiera"><placeName>brughiera</placeName></place>
+          <place xml:id="capanna"><placeName>capanna di Gelsomina</placeName></place>
+          <place xml:id="strada"><placeName>strada costiera</placeName></place>
+        </listPlace>
+      </particDesc>
+    </profileDesc>
+
+    <revisionDesc>
+      <change when="2025-11-03">Prima codifica dell'estratto (fino alla partenza in motocicletta).</change>
+    </revisionDesc>
+  </teiHeader>
+
+  <text xml:lang="it">
+    <body>
+
+      <!-- SCENA 1 -->
+      <div type="scene" xml:id="seq1" n="1">
+        <head>PRIMO TEMPO — Sequenza I</head>
+        <head type="logline">Zampanò compra per diecimila lire circa una ragazza un po’ matta che si chiama Gelsomina, e di notte parte con lei.</head>
+
+        <stage type="setting" where="#spiaggia #brughiera">Esterno spiaggia e brughiera. Giorno.</stage>
+
+        <p>In fondo ad una brughiera deserta, costeggiante una lunghissima spiaggia orlata di spume bianche, si distingue una figuretta femminile, che avanza tra i bassi cespugli recando qualcosa. Voci di bambine gridano un richiamo.</p>
+
+        <sp who="#bambine">
+          <speaker>Voci bambine</speaker>
+          <p>Gelsomina! ... Gelsomina! …</p>
+        </sp>
+
+        <p>Quattro bimbette tra i sei e gli otto anni, scalze, vestite di stracci, si dirigono correndo verso la ragazza che avanza dal fondo, seguitando a chiamarla.</p>
+
+        <sp who="#bambine">
+          <speaker>Bambine</speaker>
+          <p>Gelsomina! ... Gelsomina! ...</p>
+        </sp>
+
+        <p>La ragazza che avanza è, come le bimbe, scalza e vestita di stracci. Ha una strana espressione, tra grave e svagata, sul volto mutevole. Reca sotto il braccio alcune legne che ha raccolte; i richiami delle bimbe non la inducono affatto ad affrettare il passo.</p>
+
+        <sp who="#bambine">
+          <speaker>Bambine</speaker>
+          <p>Dice la mamma di andare subito... È venuto un uomo... Dice di andare subito...</p>
+        </sp>
+
+        <sp who="#gelsomina">
+          <speaker>Gelsomina</speaker>
+          <p>Chi è? ...</p>
+        </sp>
+
+        <sp who="#bimbapiccola">
+          <speaker>Bambina più piccola</speaker>
+          <p>Un uomo, grosso, grande...</p>
+        </sp>
+
+        <sp who="#bimbagrande">
+          <speaker>Bambina più grande</speaker>
+          <p>Dice che Rosa è morta...</p>
+        </sp>
+
+        <stage type="direction">Gelsomina si mette a correre.</stage>
+        <stage type="transition">DISSOLVENZA INCROCIATA.</stage>
+      </div>
+
+      <!-- SCENA 2 -->
+      <div type="scene" xml:id="seq1-sc2" n="2">
+        <stage type="setting" where="#capanna">Esterno. Capanna di Gelsomina. Giorno.</stage>
+
+        <p>Gelsomina, con le due sorelline, giunge correndo davanti alla sua casa. La casa di Gelsomina è una capanna di assi, allineata con molte altre simili sulla fila di dune che limitano una lunghissima spiaggia semideserta...</p>
+
+        <sp who="#madre">
+          <speaker>Madre</speaker>
+          <p>Gelsomina! ...</p>
+        </sp>
+
+        <sp who="#madre">
+          <speaker>Madre</speaker>
+          <p>Ti ricordi Zampanò, che prese Rosa?...</p>
+        </sp>
+
+        <sp who="#madre">
+          <speaker>Madre</speaker>
+          <stage type="direction">(poi, subito, piangendo)</stage>
+          <p>Povera figlia mia! ... Non vedrò mai nemmeno dove l’hanno sotterrata!</p>
+        </sp>
+
+        <sp who="#madre">
+          <speaker>Madre</speaker>
+          <stage type="direction">(di nuovo a Gelsomina)</stage>
+          <p>È morta... poverina... È morta... Era così bella, così brava, sapeva fare tutto... tutto!</p>
+        </sp>
+
+        <sp who="#madre">
+          <speaker>Madre</speaker>
+          <stage type="direction">Rivolgendosi a Zampanò.</stage>
+          <p>Vedete, Zampanò, come le somiglia quest’altra figlia mia... Questa è Gelsomina. Ah! come siamo disgraziati... Io, Zampanò, ve l’ho detto, questa non è come la Rosa. Questa, poverina, è tanto buona... ma se mangia tutti i giorni cambia anche testa... Ci vuoi andare con Zampanò?</p>
+        </sp>
+
+        <sp who="#madre">
+          <speaker>Madre</speaker>
+          <stage type="direction">Rivolgendosi a Gelsomina.</stage>
+          <p>Al posto di Rosa? T'insegna un mestiere anche a te... guadagni qualcosa anche te e qui in casa è una bocca di meno da sfamare...</p>
+        </sp>
+
+        <p>Ricomincia ad abbracciare e baciare Gelsomina, con un impeto di sincero — ma sempre sgangherato — scoramento amaro.</p>
+
+        <sp who="#madre">
+          <speaker>Madre</speaker>
+          <p>Eh, Gelsomina? Zampanò è buono sai? Ti tratta bene, ti porta in giro per il mondo, canti, balli, e poi vedi cosa mi ha dato, Gelsomina? Mi ha dato diecimila lire! Guarda ce le ho qui... Diecimila lire! Devo fare aggiustare il tetto e queste creature mangiano un po’... Ma perché ci ha lasciato vostro padre! Gelsomina mia! Tu sei già grande un lavoro non I'hai mai fatto, non è mica colpa tua, poverina, se non sei come le altre ragazze... Non vuoi un po' aiutare la tua mamma? E voi le insegnerete un mestiere, vero Zampanò?</p>
+        </sp>
+
+        <p>Gelsomina, che ha sempre ascoltato con gli occhi gonfi di lacrime per la morte della sorella, ora ha un lieve sussulto; alza stupefatta, turbata, lo sguardo su sua madre, poi lo volge su Zampanò. La madre continua. Gelsomina tace sempre, turbatissima. Zampanò dice con una cordialità tutta esteriore, da imbonitore:</p>
+
+        <sp who="#zampano">
+          <speaker>Zampanò</speaker>
+          <p>Sicuro! Faccio imparare persino ai cani io...</p>
+        </sp>
+
+        <p>Toglie di tasca del denaro, lo porge ad una delle ragazzine con l’atto e tono di grandiosità istrionica:</p>
+
+        <sp who="#zampano">
+          <speaker>Zampanò</speaker>
+          <p>Ehi, bambini, andate a comprare un chilo di salame, mezzo chilo di formaggio e due fiaschi di vino. Sono fatto così, io, tenete, avanti, andate.</p>
+        </sp>
+
+        <p>Ma Gelsomina, che fino ad ora è rimasta silenziosa, turbata, a occhi bassi, ora si volge verso la spiaggia e senza dir parola si allontana. La madre la chiama, allarmata e lamentosa.</p>
+
+        <sp who="#madre">
+          <speaker>Madre</speaker>
+          <p>Gelsomina! ... ma perché fai così? Vieni qui...</p>
+        </sp>
+
+        <p>Gelsomina non risponde. Si piega su sé stessa accovacciandosi sui talloni, e rimane così, con lo sguardo vagante sulle onde. Di nuovo si sente la voce della madre che la chiama.</p>
+
+        <sp who="#madre">
+          <speaker>Madre (fuori campo)</speaker>
+          <p>Gelsomina! …</p>
+        </sp>
+
+        <p>Gelsomina non accenna a rispondere. Il suo volto mutevole passa con rapidità da un’ansia lacrimosa a una breve risatina infantile; poi torna ad incupirsi...</p>
+
+        <stage type="transition">DISSOLVENZA INCROCIATA.</stage>
+      </div>
+
+      <!-- SCENA 3 -->
+      <div type="scene" xml:id="seq1-sc3" n="3">
+        <stage type="setting" where="#capanna">Esterno. Capanna di Gelsomina. Giorno.</stage>
+
+        <p>Gelsomina seguita dalle sorelline e dalla madre si avvia rapidamente per raggiungere il carrozzone di Zampanò. Una donna le si fa incontro e le chiede:</p>
+
+        <sp who="#donna">
+          <speaker>Donna</speaker>
+          <p>Te ne vai, Gelsomina?...</p>
+        </sp>
+
+        <sp who="#gelsomina">
+          <speaker>Gelsomina</speaker>
+          <stage type="direction">(con stonata baldanzosità)</stage>
+          <p>Parto. Me ne vado.</p>
+        </sp>
+
+        <sp who="#donna">
+          <speaker>Donna</speaker>
+          <p>Dove vai?...</p>
+        </sp>
+
+        <sp who="#gelsomina">
+          <speaker>Gelsomina</speaker>
+          <p>Vado in giro, a lavorare... M'insegno un mestiere, poi mando i soldi a casa... Faccio anch’io l’artista... Vado a lavorare anch’io come Rosa...</p>
+          <stage type="direction">(si interrompe bruscamente, come se il nome di Rosa l’avesse ridestata alla realtà, si incupisce)</stage>
+        </sp>
+
+        <sp who="#donna">
+          <speaker>Donna</speaker>
+          <p>E quando torni?...</p>
+        </sp>
+
+        <p>Gelsomina non risponde subito, smarrita; improvvisamente spaventata, si volge a guardare sua madre.</p>
+
+        <sp who="#gelsomina">
+          <speaker>Gelsomina</speaker>
+          <stage type="direction">(smarrita)</stage>
+          <p>Quando torno?...</p>
+        </sp>
+
+        <p>Tace qualche istante; poi si mette a correre verso la motocicletta, inconsultamente, come per sfuggire alla paura e al pianto. La madre le grida, querula, improvvisamente angosciata:</p>
+
+        <sp who="#madre">
+          <speaker>Madre</speaker>
+          <p>Non ci andare!... Figlia mia, non ci andare!...</p>
+        </sp>
+
+        <p>Raggiunge Gelsomina, e prende ad abbracciarla e a stringerla, in modo eccessivo, sgangherato, lamentandosi e piangendo. Poi Gelsomina si china ad abbracciare le sorelline.</p>
+
+        <sp who="#madre">
+          <speaker>Madre</speaker>
+          <p>Non voglio che te ne vai!... La mia creatura!... La mia figliola!</p>
+        </sp>
+
+        <p>Zampanò, vicino al carrozzone, si appresta a partire e grida a Gelsomina e alla madre per sollecitarne il commiato.</p>
+
+        <sp who="#zampano">
+          <speaker>Zampanò</speaker>
+          <p>Ho detto che torniamo presto!</p>
+        </sp>
+
+        <p>Gelsomina si mette a correre verso Zampanò. La madre e le sorelline la rincorrono salutandola. Gelsomina si arresta, si volta verso di loro e con atteggiamento buffonesco fa un saluto militare.</p>
+
+        <sp who="#gelsomina">
+          <speaker>Gelsomina</speaker>
+          <p>Partenza!</p>
+        </sp>
+
+        <sp who="#madre">
+          <speaker>Madre</speaker>
+          <stage type="direction">(agitando uno scialle)</stage>
+          <p>La tua roba — Gelsomina, il tuo scialle, il tuo scialle.</p>
+        </sp>
+
+        <p>Zampanò ha già avviato il motore ed invita bruscamente Gelsomina a salire sulla roulotte.</p>
+
+        <sp who="#zampano">
+          <speaker>Zampanò</speaker>
+          <p>Salta dentro!</p>
+        </sp>
+
+        <p>Gelsomina ha un attimo di smarrimento poi sale rapidamente sulla motocarrozzetta. La madre sempre più angosciata grida:</p>
+
+        <sp who="#madre">
+          <speaker>Madre</speaker>
+          <p>Figlia mia! Povera figlia mia!</p>
+        </sp>
+
+        <p>Il veicolo infila a forte velocità la lunga strada deserta, seguito per un breve tratto dalle sorelline di Gelsomina che continuano a salutare. Gelsomina dall’apertura posteriore del motociclo risponde loro agitando la mano, poi con le lacrime agli occhi e con grande tristezza abbassa lentamente il tendone.</p>
+        <stage type="transition">DISSOLVENZA.</stage>
+      </div>
+
+      <!-- SCENA 4 -->
+      <div type="scene" xml:id="seq1-sc4" n="4">
+        <stage type="setting" where="#strada">Esterno. Strada costiera. Giorno.</stage>
+        <p>La motocicletta cammina a forte andatura lasciandosi alle spalle le ultime baracche che costeggiano la strada.</p>
+      </div>
+
+    </body>
+  </text>
+</TEI>
