@@ -52,6 +52,7 @@ renzi/
 │── renzi.ttl # Automatically generated RDF output
 │
 │── book_Il_primo_Fellini/
+│ │──la_strada_sequence1.md
 │ │── TEI/
 │ │ └── lastrada.xml
 │ │── HTML/
@@ -109,5 +110,6 @@ book_Il_primo_Fellini/HTML/lastrada.html
 **Laura Bortoli**  
 Master’s Degree in Digital Humanities & Digital Knowledge  
 University of Bologna; a.y. 2024/2025
+
 
 
