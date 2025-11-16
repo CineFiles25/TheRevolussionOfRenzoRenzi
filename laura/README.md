@@ -1,5 +1,5 @@
-# Renzi Sub-Collection  
-### *Information Science and Cultural Heritage*   
+# Renzi Collection  
+### *Information Science and Cultural Heritage Project*   
 *Master’s Degree in Digital Humanities & Digital Knowledge — University of Bologna*
 
 ---
@@ -109,4 +109,5 @@ book_Il_primo_Fellini/HTML/lastrada.html
 **Laura Bortoli**  
 Master’s Degree in Digital Humanities & Digital Knowledge  
 University of Bologna; a.y. 2024/2025
+
 
