@@ -1,76 +1,75 @@
-Renzi Sub-Collection
-Knowledge Organization & Information Science - Semester Project
+# Renzi Sub-Collection  
+### *Knowledge Organization & Information Science — Semester Project*  
+**Information Science & Cultural Heritage (Tomasi & Daquino)**  
+*Master’s Degree in Digital Humanities & Digital Knowledge — University of Bologna*
 
-Information Science & Cultural Heritage (Tomasi & Daquino)
-Master’s Degree in Digital Humanities & Digital Knowledge - University of Bologna
+---
 
-Overview
+## Overview
+This module contains the work related to five cultural heritage items from the **Cineteca di Bologna**, selected and curated by **Laura Bortoli**.  
+These items belong to the *Renzo Renzi* archival context and are used to explore:
 
-This module contains the work related to five cultural heritage items from the Cineteca di Bologna, selected and curated by Laura Bortoli.
-These items belong to the Renzo Renzi archival context and are used to explore:
+- metadata standards  
+- conceptual modeling  
+- TEI encoding  
+- Linked Data representation  
+- RDF graph generation from CSV  
 
-metadata standards
+---
 
-conceptual modeling
+## Selected Items
 
-TEI encoding
+- **Book — “Il primo Fellini”** → *ISBD(G)*  
+- **TEI-encoded excerpt** from *La Strada* (Sequence I)  
+- **Photograph “Fulgor”** → *Scheda F*  
+- **Caricature of Renzo Renzi by Federico Fellini** → *OA*  
+- **Video interview “Renzo Renzi & Columbus Film” (2000)** → *FIAF*  
+- **Soundtrack of “La Strada”** → *ISBD(NBM)*  
 
-Linked Data representation
+---
 
-RDF graph generation from CSV
-
-Selected Items
-
-Book — “Il primo Fellini” → ISBD(G)
-
-TEI-encoded excerpt from La Strada (Sequence I)
-
-Photograph “Fulgor” → Scheda F
-
-Caricature of Renzo Renzi by Federico Fellini → OA
-
-Video interview “Renzo Renzi & Columbus Film” (2000) → FIAF
-
-Soundtrack of “La Strada” → ISBD(NBM)
-
-Objectives
-
+## Objectives
 This sub-collection aims to produce:
 
-A conceptual model (Graffoo) describing relationships among all items
-
-A coherent CSV dataset as the authoritative metadata source
-
-A Python pipeline that automatically generates RDF/Turtle
-
-A final Turtle file (renzi.ttl) integrated into the group knowledge graph
-
-A TEI → HTML transformation, demonstrating textual encoding and publication
+1. **A conceptual model (Graffoo)** describing relationships among all items  
+2. **A coherent CSV dataset** as the authoritative metadata source  
+3. **A Python pipeline** that automatically generates RDF/Turtle  
+4. **A final Turtle file (`renzi.ttl`)** integrated into the group knowledge graph  
+5. **A TEI → HTML transformation**, demonstrating textual encoding and publication
 
 This workflow ensures transparency, reproducibility, and alignment with Linked Open Data principles.
 
-Folder Structure
+---
+
+## Folder Structure
+
+
+
 renzi/
-│── entities_renzi.csv            # Authority list of entities
-│── triples_renzi.csv             # Semantic relationships between entities
-│── build_renzi_rdf.py            # Main Python script (rdflib)
-│── compare_ttl.py                # Compares two Turtle graphs
-│── renzi.ttl                     # Automatically generated RDF output
+│── entities_renzi.csv # Authority list of entities
+│── triples_renzi.csv # Semantic relationships between entities
+│── build_renzi_rdf.py # Main Python script (rdflib)
+│── compare_ttl.py # Compares two Turtle graphs
+│── renzi.ttl # Automatically generated RDF output
 │
 │── book_Il_primo_Fellini/
-│   │── TEI/
-│   │   └── lastrada.xml
-│   │── HTML/
-│   │   └── lastrada.html
-│   │── XSLT/
-│   │   └── tei2html_lastrada.xsl
-│   └── scripts/
-│       └── tei_to_html.py
+│ │── TEI/
+│ │ └── lastrada.xml
+│ │── HTML/
+│ │ └── lastrada.html
+│ │── XSLT/
+│ │ └── tei2html_lastrada.xsl
+│ └── scripts/
+│ └── tei_to_html.py
 
-RDF Generation
+
+---
+
+## RDF Generation
 
 Run the following command to generate the RDF/Turtle representation:
 
+```bash
 python build_renzi_rdf.py
 
 
@@ -107,4 +106,4 @@ Author
 
 Laura Bortoli
 Master’s Degree in Digital Humanities & Digital Knowledge
-University of Bologna - a.y. 2024/2025
+University of Bologna — a.y. 2024/2025
