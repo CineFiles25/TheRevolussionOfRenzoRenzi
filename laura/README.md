@@ -1,6 +1,5 @@
 # Renzi Sub-Collection  
-### *Knowledge Organization & Information Science — Semester Project*  
-**Information Science & Cultural Heritage (Tomasi & Daquino)**  
+### *Knowledge Organization & Information Science Project*   
 *Master’s Degree in Digital Humanities & Digital Knowledge — University of Bologna*
 
 ---
@@ -43,7 +42,7 @@ This workflow ensures transparency, reproducibility, and alignment with Linked O
 
 ## Folder Structure
 
-
+```
 
 renzi/
 │── entities_renzi.csv # Authority list of entities
@@ -62,48 +61,51 @@ renzi/
 │ └── scripts/
 │ └── tei_to_html.py
 
+```
 
 ---
 
 ## RDF Generation
 
 Run the following command to generate the RDF/Turtle representation:
-
-```bash
+```
 python build_renzi_rdf.py
-
-
+```
 The output will be:
-
+```
 renzi.ttl
-
-
-Note: The Turtle file is always generated automatically from the CSV source.
+```
+**Note**: The Turtle file is always generated automatically from the CSV source.
 No manual edits are performed to ensure reproducibility.
 
-TEI → HTML Transformation
+---
 
-The TEI excerpt of La Strada can be transformed into HTML using:
+## TEI → HTML Transformation
 
+The TEI excerpt of *La Strada* can be transformed into HTML using:
+```
 python tei_to_html.py
-
-
-The XSLT stylesheet (tei2html_lastrada.xsl) defines the transformation rules.
+```
+The XSLT stylesheet (```tei2html_lastrada.xsl```) defines the transformation rules.
 
 The resulting file is saved as:
-
+```
 book_Il_primo_Fellini/HTML/lastrada.html
+```
+---
 
-Notes
+## Notes
 
-This sub-collection will be integrated into the group’s global knowledge graph.
+• This sub-collection will be integrated into the group’s global knowledge graph.
 
-All metadata choices follow the standards and methodologies discussed during the course.
+• All metadata choices follow the standards and methodologies discussed during the course.
 
-The workflow always follows: CSV → Python → RDF, never the opposite.
+• The workflow always follows: **CSV** → **Python** → **RDF**, never the opposite.
 
-Author
+---
 
-Laura Bortoli
-Master’s Degree in Digital Humanities & Digital Knowledge
-University of Bologna — a.y. 2024/2025
+## Author
+
+**Laura Bortoli**  
+Master’s Degree in Digital Humanities & Digital Knowledge  
+University of Bologna; a.y. 2024/2025
