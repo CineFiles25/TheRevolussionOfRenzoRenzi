@@ -1,7 +1,7 @@
 subject,predicate,object,object_type,note
 cineteca,dcterms:hasPart,renzi_library,iri,The Cineteca includes the library
 renzi_library,dcterms:hasPart,renzi_collection,iri,The library contains the Renzo Renzi Collection
-renzi_collection,dcterms:hasPart,first_fellini_book,iri,The collection includes the book "Il primo Fellini"
+renzi_collection,dcterms:hasPart,first_fellini_book,iri,"The collection includes the book ""Il primo Fellini"""
 first_fellini_book,dcterms:hasPart,lastrada_screenplay_tei,iri,The book contains the TEI excerpt
 renzi_collection,dcterms:hasPart,fulgor_photo,iri,The collection includes the photograph
 renzi_collection,dcterms:hasPart,caricatura_fellini_renzi,iri,The collection includes the caricature
