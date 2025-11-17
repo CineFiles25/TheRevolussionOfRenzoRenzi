@@ -7,14 +7,13 @@
 @prefix schema: <https://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 
-rrr:caricature_fellini_renzi a schema:VisualArtwork ;
-    rdfs:label "Fellini → Renzi Caricature" .
-
 rrr:cineteca a schema:Organization ;
     rdfs:label "Cineteca di Bologna" ;
     dcterms:hasPart rrr:renzi_library .
 
-rrr:caricatura_fellini_renzi prov:wasAttributedTo rrr:federico_fellini ;
+rrr:caricature_fellini_renzi a schema:VisualArtwork ;
+    rdfs:label "Fellini → Renzi Caricature" ;
+    prov:wasAttributedTo rrr:federico_fellini ;
     foaf:depicts rrr:renzo_renzi .
 
 rrr:federico_fellini a foaf:Person ;
@@ -23,19 +22,19 @@ rrr:federico_fellini a foaf:Person ;
     owl:sameAs <https://www.wikidata.org/wiki/Q3083> .
 
 rrr:first_fellini_book a schema:CreativeWork ;
-    rdfs:label "Book \"Il primo Fellini\"" ;
+    rdfs:label "Book 'Il primo Fellini'" ;
     dcterms:hasPart rrr:lastrada_screenplay_tei ;
     dcterms:subject rrr:la_strada_film .
 
 rrr:fulgor_photo a schema:ImageObject ;
-    rdfs:label "Fulgor Photograph" ;
+    rdfs:label "Fulgur Photograph" ;
     schema:about rrr:public_reception .
 
 rrr:la_strada_soundtrack a schema:CreativeWork ;
-    rdfs:label "Soundtrack \"La Strada\"" .
+    rdfs:label "Soundtrack 'La Strada'" .
 
 rrr:lastrada_screenplay_tei a schema:CreativeWork ;
-    rdfs:label "Screenplay / La Strada (Sequence I, TEI)" ;
+    rdfs:label "Screenplay 'La Strada' – Sequence I (TEI)" ;
     schema:about rrr:la_strada_film .
 
 rrr:public_reception a skos:Concept ;
@@ -43,7 +42,7 @@ rrr:public_reception a skos:Concept ;
 
 rrr:renzi_collection a schema:Collection ;
     rdfs:label "Renzo Renzi Collection" ;
-    dcterms:hasPart rrr:caricatura_fellini_renzi,
+    dcterms:hasPart rrr:caricature_fellini_renzi,
         rrr:first_fellini_book,
         rrr:fulgor_photo,
         rrr:la_strada_soundtrack,
@@ -66,4 +65,5 @@ rrr:renzo_renzi a foaf:Person ;
     owl:sameAs <https://it.wikipedia.org/wiki/Renzo_Renzi> .
 
 rrr:la_strada_film a schema:Movie ;
-    rdfs:label "Film \"La Strada\"" .
+    rdfs:label "Film 'La Strada'" .
+
