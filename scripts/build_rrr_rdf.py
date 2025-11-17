@@ -6,9 +6,6 @@ from rdflib.namespace import RDF, RDFS, DCTERMS, FOAF, SKOS
 
 # === PATHS =====================================================
 
-# run this script from the ROOT of the repo:
-#   python py/build_rrr_rdf.py
-
 ENTITIES_CSV = Path("csv/rrr_entities.csv")
 TRIPLES_CSV  = Path("csv/rrr_triples.csv")
 OUTPUT_TTL   = Path("ttl/rrr.ttl")
@@ -128,4 +125,5 @@ OUTPUT_TTL.parent.mkdir(parents=True, exist_ok=True)
 g.serialize(OUTPUT_TTL, format="turtle")
 
 print(f"RDF graph written to {OUTPUT_TTL} with {len(g)} triples.")
+
 
