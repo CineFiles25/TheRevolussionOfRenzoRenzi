@@ -51,8 +51,8 @@ renziLibrary = pd.read_csv("../csv/library.csv", keep_default_na=False, encoding
 g = graph_bindings()
 
 for _, row in renziLibrary.iterrows():
-    g.add((library, RDF.type, URIRef(schema + "Library")))
-    # g.add((library, RDF.type, URIRef(foaf + "Organization")))
+    g.add((library, RDF.type, schema.Library))
+    g.add((library, RDFS.subClassOf, FOAF.Organization))
     g.add((library, OWL.sameAs, URIRef("https://isni.org/isni/0000000459141457")))
     g.add((library, dc.identifier, Literal(row["Id ISIL"])))
     g.add((library, schema.name, Literal(row["Name"])))
@@ -71,7 +71,7 @@ for _, row in renziLibrary.iterrows():
     g.add((library, schema.seatingCapacity, Literal(row["Seats"], datatype=XSD.integer)))
     g.add((library, dc.description, Literal(row["Audio System"])))
     g.add((library, dc.description, Literal(row["Video System"])))
-    g.add((renzoRenzi, schema.honorificPrefix, Literal(row["Named After"])))
+    g.add((renzoRenzi, schema.honorificPrefix, library))
     
 # SERIALIZATION
 

@@ -15,7 +15,7 @@ crm = Namespace("http://www.cidoc-crm.org/cidoc-crm/")
 foaf = Namespace("http://xmlns.com/foaf/0.1/")
 fiaf = Namespace("https://fiaf.github.io/film-related-materials/objects/")
 
-# GRAPH CREATION
+# GRAPH CREATION : a list of tuples (subj, pred, obj)
 
 g = Graph()
 
@@ -51,7 +51,8 @@ quandoIlPoèDolce = pd.read_csv("../csv/documentary.csv", keep_default_na=False,
 g = graph_bindings()
 
 for _, row in quandoIlPoèDolce.iterrows():
-    g.add((documentary, RDF.type, URIRef(schema + "Movie")))
+    g.add((documentary, RDF.type, schema.Movie))
+    g.add((documentary, RDFS.subClassOf, schema.CreativeWork))
     g.add((documentary, dc.title, Literal(row["Title"])))
     g.add((documentary, schema.alternateName, Literal(row["Alt Title"])))
     g.add((documentary, schema.director, Literal(row["Director"])))
