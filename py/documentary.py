@@ -4,7 +4,7 @@ from rdflib import Namespace, Graph, RDF, URIRef, OWL, Literal, XSD, RDFS, FOAF
 
 # NAMESPACES
 
-renzi = Namespace("https://github.com/CineFiles25/informational-science-and-cultural-heritage")
+rrr = Namespace("https://github.com/CineFiles25/informational-science-and-cultural-heritage")
 rdf = Namespace("http://www.w3.org/1999/02/22-rdf-syntax-ns#")
 rdfs = Namespace("http://www.w3.org/2000/01/rdf-schema#")
 owl = Namespace("http://www.w3.org/2002/07/owl#")
@@ -19,8 +19,8 @@ fiaf = Namespace("https://fiaf.github.io/film-related-materials/objects/")
 
 g = Graph()
 
-nsDict = { 
-    "renzi": renzi,   
+ns_dict = { 
+    "renzi": rrr,   
     "rdf": rdf,
     "rdfs": rdfs,
     "owl": owl,
@@ -33,30 +33,30 @@ nsDict = {
 }
 
 def graph_bindings():
-    for prefix, ns in nsDict.items():
+    for prefix, ns in ns_dict.items():
         g.bind(prefix, ns)
     return g
 
 # ENTITIES
 
-documentary = URIRef(renzi + "quandoIlPoèDolce")
-renzoRenzi = URIRef(renzi + "renzoRenzi") 
+documentary = URIRef(rrr + "quando_il_po_è_dolce")
+renzo_renzi = URIRef(rrr + "renzo_renzi") 
 
-# g.add((renzoRenzi, OWL.sameAs, URIRef("http://viaf.org/viaf/40486517")))
+# g.add((renzo_renzi, OWL.sameAs, URIRef("http://viaf.org/viaf/40486517")))
 
 # MAPPING TO ONTOLOGIES
 
-quandoIlPoèDolce = pd.read_csv("../csv/documentary.csv", keep_default_na=False, encoding="utf-8")
+quando_il_po_è_dolce = pd.read_csv("../csv/documentary.csv", keep_default_na=False, encoding="utf-8")
 
 g = graph_bindings()
 
-for _, row in quandoIlPoèDolce.iterrows():
-    g.add((documentary, RDF.type, schema.Movie))
-    g.add((documentary, RDFS.subClassOf, schema.CreativeWork))
+for _, row in quando_il_po_è_dolce.iterrows():
+    g.add((documentary, RDF.type, URIRef(schema + "Movie")))
+    g.add((documentary, RDFS.subClassOf, URIRef(schema + "CreativeWork")))
     g.add((documentary, dc.title, Literal(row["Title"])))
     g.add((documentary, schema.alternateName, Literal(row["Alt Title"])))
-    g.add((documentary, schema.director, Literal(row["Director"])))
-    g.add((documentary, schema.author, Literal(row["Screenwriter"])))
+    g.add((documentary, schema.director, renzo_renzi))
+    g.add((documentary, schema.author, renzo_renzi))
     g.add((documentary, schema.edition, Literal(row["Edition"])))
     g.add((documentary, schema.genre, Literal(row["Type"])))
     g.add((documentary, schema.countryOfOrigin, Literal(row["Country"])))    
@@ -78,4 +78,4 @@ for _, row in quandoIlPoèDolce.iterrows():
 
 g.serialize(format="turtle", destination="../ttl/documentary.ttl")
 
-print("CSV converted and serialized to ../ttl/documentary.ttl")
+print("CSV converted to TTL!")
