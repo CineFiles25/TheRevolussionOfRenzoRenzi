@@ -1,158 +1,130 @@
-import csv
 from pathlib import Path
+import csv
 
 from rdflib import Graph, Namespace, URIRef, Literal
-from rdflib.namespace import RDF, RDFS, DCTERMS, FOAF
+from rdflib.namespace import RDF, RDFS, DCTERMS, FOAF, SKOS
 
-# ============================================================================
-# CONFIGURATION
-# ============================================================================
+# === PATHS =====================================================
 
-# Input CSV files
-ENTITIES_CSV = Path("entities_renzi.csv")
-TRIPLES_CSV  = Path("triples_renzi.csv")
+# run this script from the ROOT of the repo:
+#   python py/build_rrr_rdf.py
 
-# Output Turtle file
-OUTPUT_TTL = Path("renzi.ttl")
+ENTITIES_CSV = Path("csv/entities_renzi.csv")
+TRIPLES_CSV  = Path("csv/triples_renzi.csv")
+OUTPUT_TTL   = Path("ttl/rrr.ttl")
 
-# Base namespace for all local entities (prefix ":")
-BASE_NS = "http://example.org/renzi/"
+# === NAMESPACES ================================================
 
-# Additional namespaces
+# base namespaces
+RRR    = Namespace("https://example.org/rrr/")
 SCHEMA = Namespace("https://schema.org/")
-SKOS   = Namespace("http://www.w3.org/2004/02/skos/core#")
 PROV   = Namespace("http://www.w3.org/ns/prov#")
 
+g = Graph()
 
-# ============================================================================
-# GRAPH INITIALIZATION
-# ============================================================================
+g.bind("rrr", RRR)
+g.bind("schema", SCHEMA)
+g.bind("dcterms", DCTERMS)
+g.bind("foaf", FOAF)
+g.bind("skos", SKOS)
+g.bind("prov", PROV)
+g.bind("rdf", RDF)
+g.bind("rdfs", RDFS)
 
-def init_graph() -> Graph:
-    g = Graph()
-    g.bind("dcterms", DCTERMS)
-    g.bind("foaf", FOAF)
-    g.bind("schema", SCHEMA)
-    g.bind("skos", SKOS)
-    g.bind("prov", PROV)
-    g.bind("rdfs", RDFS)
-    g.bind("", Namespace(BASE_NS))  # default prefix ":"
-    return g
-
-
-# ============================================================================
-# CSV READERS
-# ============================================================================
-
-def read_entities(path: Path):
-    entities = []
-    with path.open(encoding="utf-8") as f:
-        reader = csv.DictReader(f)
-        for row in reader:
-            if row.get("id"):
-                entities.append(row)
-    return entities
-
-
-def read_triples(path: Path):
-    triples = []
-    with path.open(encoding="utf-8") as f:
-        reader = csv.DictReader(f)
-        for row in reader:
-            if row.get("subject") and row.get("predicate") and row.get("object"):
-                triples.append(row)
-    return triples
-
-
-# ============================================================================
-# CURIE RESOLUTION
-# ============================================================================
-
-def resolve_curie(curie: str) -> URIRef:
-    if ":" not in curie:
-        return URIRef(curie)
-
-    prefix, local = curie.split(":", 1)
+# small helper to resolve "prefix:LocalName" into a URIRef
+def resolve_qname(qname: str) -> URIRef | None:
+    if ":" not in qname:
+        return None
+    prefix, local = qname.split(":", 1)
+    prefix = prefix.strip()
+    local = local.strip()
 
     if prefix == "schema":
         return SCHEMA[local]
+    if prefix == "dcterms":
+        return DCTERMS[local]
+    if prefix == "foaf":
+        return FOAF[local]
     if prefix == "skos":
         return SKOS[local]
     if prefix == "prov":
         return PROV[local]
-    if prefix == "foaf":
-        return FOAF[local]
-    if prefix == "dcterms":
-        return DCTERMS[local]
-    if prefix == "rdfs":
-        return RDFS[local]
 
-    # Generic fallback
-    return URIRef(curie)
+    # unknown namespace
+    return None
 
 
-# ============================================================================
-# GRAPH CONSTRUCTION
-# ============================================================================
+# === STEP 1: LOAD ENTITIES =====================================
 
-def build_graph(entities, triples) -> Graph:
-    """
-    Build the RDF graph from the entities list and the triples list.
-    """
-    g = init_graph()
-    BASE = Namespace(BASE_NS)
+id_to_uri: dict[str, URIRef] = {}
 
-    # --- ENTITIES ---
-    for row in entities:
-        sid   = (row.get("id") or "").strip()
-        label = (row.get("label") or "").strip()
-        cls   = (row.get("class") or "").strip() or "schema:Thing"
+with ENTITIES_CSV.open(encoding="utf-8", newline="") as f:
+    reader = csv.DictReader(f)
+    for row in reader:
+        ent_id = (row.get("id") or "").strip()
+        label  = (row.get("label") or "").strip()
+        cls    = (row.get("class") or "").strip()
+        uri    = (row.get("uri") or "").strip()
+        same_as = (row.get("sameAs") or "").strip()
 
-        subj = BASE[sid]
-        cls_uri = resolve_curie(cls)
+        if not ent_id:
+            continue
 
-        g.add((subj, RDF.type, cls_uri))
+        # if an explicit URI is given, use it; otherwise mint one with the RRR namespace
+        if uri:
+            subj = URIRef(uri)
+        else:
+            subj = RRR[ent_id]
+
+        id_to_uri[ent_id] = subj
+
+        # rdf:type from the "class" column (e.g. schema:CreativeWork, foaf:Person, skos:Concept)
+        if cls:
+            cls_uri = resolve_qname(cls)
+            if cls_uri is not None:
+                g.add((subj, RDF.type, cls_uri))
+
+        # rdfs:label from the "label" column
         if label:
             g.add((subj, RDFS.label, Literal(label)))
 
-    # --- TRIPLES ---
-    for row in triples:
-        s = (row.get("subject") or "").strip()
-        p = (row.get("predicate") or "").strip()
-        o = (row.get("object") or "").strip()
-        otype = (row.get("object_type") or "iri").strip().lower()
+        # optional sameAs
+        if same_as:
+            g.add((subj, URIRef("http://www.w3.org/2002/07/owl#sameAs"), URIRef(same_as)))
 
-        subj = BASE[s]
-        pred = resolve_curie(p)
 
-        if otype == "iri":
-            obj = BASE[o]
+# === STEP 2: LOAD TRIPLES ======================================
+
+with TRIPLES_CSV.open(encoding="utf-8", newline="") as f:
+    reader = csv.DictReader(f)
+    for row in reader:
+        subj_id  = (row.get("subject") or "").strip()
+        pred_qn  = (row.get("predicate") or "").strip()
+        obj_id   = (row.get("object") or "").strip()
+        obj_type = (row.get("object_type") or "").strip().lower() or "iri"
+
+        if not subj_id or not pred_qn or not obj_id:
+            continue
+
+        subj = id_to_uri.get(subj_id, RRR[subj_id])
+        pred = resolve_qname(pred_qn)
+        if pred is None:
+            # you can print a warning here if you like:
+            # print(f"Unknown predicate namespace: {pred_qn}")
+            continue
+
+        if obj_type == "iri":
+            obj = id_to_uri.get(obj_id, RRR[obj_id])
         else:
-            obj = Literal(o)
+            # fallback: treat as literal
+            obj = Literal(obj_id)
 
         g.add((subj, pred, obj))
 
-    return g
 
+# === STEP 3: SERIALIZE =========================================
 
-# ============================================================================
-# MAIN
-# ============================================================================
+OUTPUT_TTL.parent.mkdir(parents=True, exist_ok=True)
+g.serialize(OUTPUT_TTL, format="turtle")
 
-def main():
-    print(f"[INFO] Reading entities from {ENTITIES_CSV}")
-    entities = read_entities(ENTITIES_CSV)
-
-    print(f"[INFO] Reading triples from {TRIPLES_CSV}")
-    triples = read_triples(TRIPLES_CSV)
-
-    print("[INFO] Building RDF graph…")
-    g = build_graph(entities, triples)
-
-    print(f"[INFO] Serializing to {OUTPUT_TTL}")
-    g.serialize(destination=str(OUTPUT_TTL), format="turtle")
-    print("[OK] Done.")
-
-
-if __name__ == "__main__":
-    main()
+print(f"RDF graph written to {OUTPUT_TTL} with {len(g)} triples.")
