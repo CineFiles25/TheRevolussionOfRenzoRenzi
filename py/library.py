@@ -19,7 +19,7 @@ fiaf = Namespace("https://fiaf.github.io/film-related-materials/objects/")
 
 g = Graph()
 
-nsDict = { 
+ns_dict = { 
     "rrr": rrr,   
     "rdf": rdf,
     "rdfs": rdfs,
@@ -33,24 +33,24 @@ nsDict = {
 }
 
 def graph_bindings():
-    for prefix, ns in nsDict.items():
+    for prefix, ns in ns_dict.items():
         g.bind(prefix, ns)
     return g
 
 # ENTITIES 
 
-library = URIRef(rrr + "renziLibrary")
-renzoRenzi = URIRef(rrr + "renzoRenzi")
+library = URIRef(rrr + "renzi_library")
+renzo_renzi = URIRef(rrr + "renzo_renzi")
 
 # g.add((renzoRenzi, OWL.sameAs, URIRef("http://viaf.org/viaf/40486517"))) ?
 
 # MAPPING TO ONTOLOGIES 
 
-renziLibrary = pd.read_csv("../csv/library.csv", keep_default_na=False, encoding="utf-8")
+renzi_library = pd.read_csv("../csv/library.csv", keep_default_na=False, encoding="utf-8")
 
 g = graph_bindings()
 
-for _, row in renziLibrary.iterrows():
+for _, row in renzi_library.iterrows():
     g.add((library, RDF.type, schema.Library))
     g.add((library, RDFS.subClassOf, schema.CivicStructure))
     g.add((library, OWL.sameAs, URIRef("https://isni.org/isni/0000000459141457")))
@@ -71,10 +71,10 @@ for _, row in renziLibrary.iterrows():
     g.add((library, schema.seatingCapacity, Literal(row["Seats"], datatype=XSD.integer)))
     g.add((library, dc.description, Literal(row["Audio System"])))
     g.add((library, dc.description, Literal(row["Video System"])))
-    g.add((renzoRenzi, schema.honorificPrefix, library))
+    g.add((renzo_renzi, schema.honorificPrefix, library))
     
 # SERIALIZATION
 
-g.serialize(format="turtle", destination="../ttl/renziLibrary.ttl") 
+g.serialize(format="turtle", destination="../ttl/renzi_library.ttl") 
 
 print("CSV converted to TTL!")
