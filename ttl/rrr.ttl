@@ -67,4 +67,3 @@ rrr:renzo_renzi a foaf:Person ;
 
 rrr:la_strada_film a schema:Movie ;
     rdfs:label "Film \"La Strada\"" .
-
