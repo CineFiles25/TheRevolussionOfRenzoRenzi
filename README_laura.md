@@ -22,12 +22,12 @@ The work encompasses:
 
 ## Selected Items
 
-**1a. Book — Il primo Fellini** → ISBD(G)
-**1b. TEI-encoded excerpt — La Strada, Sequence I**
-**2.  Photograph “Fulgor” (Fellini & Masina at the premiere)** → Scheda F
-**3.  Caricature of Renzo Renzi by Federico Fellini** → Scheda OA
-**4.  Video interview: Renzo Renzi & Columbus Film (2000)** → FIAF
-**5.  Soundtrack of La Strada** → ISBD(NBM)
+  **1a.  Book — Il primo Fellini** → ISBD(G)   
+  **1b.  TEI-encoded excerpt — La Strada, Sequence I**   
+  **2.   Photograph “Fulgor” (Fellini & Masina at the premiere)** → Scheda F    
+  **3.   Caricature of Renzo Renzi by Federico Fellini** → Scheda OA   
+  **4.   Video interview: Renzo Renzi & Columbus Film (2000)** → FIAF  
+  **5.   Soundtrack of La Strada** → ISBD(NBM)
 
 ---
 
@@ -122,4 +122,5 @@ This sub-collection extends that idea into a modern semantic framework.
 
 **Laura Bortoli**  
 Master’s Degree in Digital Humanities & Digital Knowledge  
+
 University of Bologna — a.y. 2025/2026
