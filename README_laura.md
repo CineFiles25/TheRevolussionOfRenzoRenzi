@@ -50,7 +50,6 @@ This workflow ensures transparency, reproducibility, and alignment with Linked O
 ---
 
 ## Folder Structure
-
 ```
 
 renzi/
@@ -73,9 +72,7 @@ renzi/
     ├── compare_ttl.py
     └── tei_to_html.py
 
-
 ```
-
 ---
 
 ## RDF Generation
@@ -124,3 +121,4 @@ This sub-collection extends that idea into a modern semantic framework.
 Master’s Degree in Digital Humanities & Digital Knowledge  
 
 University of Bologna — a.y. 2025/2026
+
