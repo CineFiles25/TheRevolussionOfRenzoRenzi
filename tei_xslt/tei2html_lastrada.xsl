@@ -6,6 +6,7 @@
 
   <xsl:output method="html" encoding="UTF-8" indent="yes"/>
 
+  <!-- ROOT TEMPLATE -->
   <xsl:template match="/">
     <html lang="it">
       <head>
@@ -29,8 +30,11 @@
             border: 1px solid #ddd;
             border-radius: 8px;
           }
-          .scene > h2 {
-            margin-top: 0;
+          .logline {
+            font-style: italic;
+            color: #555;
+            margin-top: 0.25rem;
+            margin-bottom: 0.75rem;
           }
           .stage {
             font-style: italic;
@@ -43,6 +47,12 @@
             font-weight: 600;
             text-transform: uppercase;
             margin-right: 0.4rem;
+          }
+          .pb {
+            font-size: 0.8rem;
+            color: #888;
+            float: right;
+            margin-left: 0.5rem;
           }
         </style>
       </head>
@@ -62,43 +72,80 @@
     </html>
   </xsl:template>
 
+  <!-- BODY -->
   <xsl:template match="tei:body">
     <xsl:apply-templates/>
   </xsl:template>
 
+  <!-- SCENES -->
   <xsl:template match="tei:div[@type='scene']">
     <section class="scene">
-      <xsl:if test="tei:head">
-        <h2><xsl:value-of select="tei:head"/></h2>
-      </xsl:if>
       <xsl:apply-templates/>
     </section>
   </xsl:template>
 
-  <xsl:template match="tei:head[not(parent::tei:div[@type='scene'])]">
+  <!-- HEADINGS -->
+  <!-- Logline -->
+  <xsl:template match="tei:head[@type='logline']">
+    <p class="logline">
+      <xsl:apply-templates/>
+    </p>
+  </xsl:template>
+
+  <!-- Other heads -->
+  <xsl:template match="tei:head[not(@type='logline')]">
     <h2><xsl:apply-templates/></h2>
   </xsl:template>
 
+  <!-- STAGE DIRECTIONS -->
   <xsl:template match="tei:stage">
     <p class="stage">
       <xsl:apply-templates/>
     </p>
   </xsl:template>
 
+  <!-- PAGE BREAKS -->
+  <xsl:template match="tei:pb">
+    <span class="pb">
+      <xsl:text>p. </xsl:text>
+      <xsl:value-of select="@n"/>
+    </span>
+  </xsl:template>
+
+  <!-- SPEECHES -->
   <xsl:template match="tei:sp">
-    <p class="speech">
+    <div class="speech">
+      <xsl:apply-templates/>
+    </div>
+  </xsl:template>
+
+  <!-- First paragraph inside a speech: print the speaker name -->
+  <xsl:template match="tei:sp/tei:p[1]">
+    <p>
       <span class="speaker">
-        <xsl:value-of select="normalize-space(tei:speaker)"/>
+        <xsl:value-of select="normalize-space(../tei:speaker)"/>
       </span>
       <xsl:text> </xsl:text>
-      <xsl:apply-templates select="tei:p"/>
+      <xsl:apply-templates/>
     </p>
   </xsl:template>
 
-  <xsl:template match="tei:p">
+  <!-- Following paragraphs inside the same speech -->
+  <xsl:template match="tei:sp/tei:p[position() &gt; 1]">
+    <p>
+      <xsl:apply-templates/>
+    </p>
+  </xsl:template>
+
+  <!-- Do not print tei:speaker separately -->
+  <xsl:template match="tei:speaker"/>
+
+  <!-- Normal paragraphs (outside speeches) -->
+  <xsl:template match="tei:p[not(parent::tei:sp)]">
     <p><xsl:apply-templates/></p>
   </xsl:template>
 
+  <!-- Plain text -->
   <xsl:template match="text()">
     <xsl:value-of select="."/>
   </xsl:template>
