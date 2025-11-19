@@ -123,6 +123,51 @@ body {
   font-size: 0.9rem;
 }
 
+/* ---------- Hero photograph ---------- */
+
+.hero-photo {
+  margin-top: 1.5rem;
+}
+
+.hero-photo figure {
+  margin: 0;
+}
+
+.hero-photo img {
+  width: 100%;
+  max-width: 520px;
+  display: block;
+  border-radius: 14px;
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.25);
+}
+
+.hero-photo figcaption {
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  color: #7c6b57;
+  font-style: italic;
+}
+
+/* su schermi grandi, sposta la foto a destra dell’intestazione */
+@media (min-width: 900px) {
+  .header-inner {
+    display: grid;
+    grid-template-columns: minmax(0, 2.2fr) minmax(0, 1.4fr);
+    align-items: center;
+    column-gap: 2.5rem;
+  }
+
+  .site-nav {
+    grid-column: 1 / -1;
+    margin-top: 1.5rem;
+  }
+
+  .hero-photo {
+    margin-top: 0;
+  }
+}
+
+
 /* ---------- Lists & special elements ---------- */
 
 .item-list li::marker {
@@ -198,3 +243,4 @@ a:hover {
     gap: 0.4rem 0.9rem;
   }
 }
+
