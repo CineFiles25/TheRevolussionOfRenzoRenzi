@@ -92,10 +92,10 @@ The conceptual model must be expressed with a **graphical representation** (Graf
 
 | Entity | Authority link |
 |--------|----------------|
-| Renzo Renzi | VIAF: http://viaf.org/viaf/40486517 — http://viaf.org/viaf/40486517 |
-| Federico Fellini | VIAF: http://viaf.org/viaf/76315386 — http://viaf.org/viaf/76315386 |
-| Cineteca di Bologna | VIAF: http://viaf.org/viaf/124960346 — http://viaf.org/viaf/124960346 |
-| Bologna (place) | VIAF: http://viaf.org/viaf/257723025 — http://viaf.org/viaf/257723025 |
+| Renzo Renzi | VIAF: http://viaf.org/viaf/40486517 — Wikidata: https://www.wikidata.org/wiki/Q56179169 |
+| Federico Fellini | VIAF: http://viaf.org/viaf/76315386 — Wikidata: https://www.wikidata.org/wiki/Q7371 |
+| Cineteca di Bologna | VIAF: http://viaf.org/viaf/124960346 — Wikidata: https://www.wikidata.org/wiki/Q1092493 |
+| Bologna (place) | VIAF: http://viaf.org/viaf/257723025 — Wikidata: https://www.wikidata.org/wiki/Q1891 |
 
 ---
 
@@ -302,3 +302,4 @@ Published via GitHub Pages.
 # END OF DOCUMENTATION  
 
 This file is intended for instructor evaluation and internal transparency about the project workflow.
+
