@@ -2,7 +2,7 @@ from pathlib import Path
 import csv
 
 from rdflib import Graph, Namespace, URIRef, Literal
-from rdflib.namespace import RDF, RDFS, DCTERMS, FOAF, SKOS
+from rdflib.namespace import RDF, RDFS, DCTERMS, FOAF, SKOS, OWL
 
 # === PATHS =====================================================
 
@@ -12,8 +12,7 @@ OUTPUT_TTL   = Path("ttl/rrr.ttl")
 
 # === NAMESPACES ================================================
 
-# base namespaces
-RRR    = Namespace("https://example.org/rrr/")
+RRR    = Namespace("https://cinefiles25.github.io/renzi/")
 SCHEMA = Namespace("https://schema.org/")
 PROV   = Namespace("http://www.w3.org/ns/prov#")
 
@@ -27,8 +26,8 @@ g.bind("skos", SKOS)
 g.bind("prov", PROV)
 g.bind("rdf", RDF)
 g.bind("rdfs", RDFS)
+g.bind("owl", OWL)
 
-# small helper to resolve "prefix:LocalName" into a URIRef
 def resolve_qname(qname: str) -> URIRef | None:
     if ":" not in qname:
         return None
@@ -46,8 +45,10 @@ def resolve_qname(qname: str) -> URIRef | None:
         return SKOS[local]
     if prefix == "prov":
         return PROV[local]
+    if prefix == "owl":
+        return OWL[local]
 
-    # unknown namespace
+    print(f"[WARN] Unknown prefix in predicate: {qname}")
     return None
 
 
@@ -62,32 +63,30 @@ with ENTITIES_CSV.open(encoding="utf-8", newline="") as f:
         label  = (row.get("label") or "").strip()
         cls    = (row.get("class") or "").strip()
         uri    = (row.get("uri") or "").strip()
-        same_as = (row.get("sameAs") or "").strip()
+        same_as_raw = (row.get("sameAs") or "").strip()
 
         if not ent_id:
             continue
 
-        # if an explicit URI is given, use it; otherwise mint one with the RRR namespace
-        if uri:
-            subj = URIRef(uri)
-        else:
-            subj = RRR[ent_id]
-
+        subj = URIRef(uri) if uri else RRR[ent_id]
         id_to_uri[ent_id] = subj
 
-        # rdf:type from the "class" column (e.g. schema:CreativeWork, foaf:Person, skos:Concept)
         if cls:
             cls_uri = resolve_qname(cls)
-            if cls_uri is not None:
+            if cls_uri:
                 g.add((subj, RDF.type, cls_uri))
+            else:
+                print(f"[WARN] Unknown class for entity {ent_id}: {cls}")
 
-        # rdfs:label from the "label" column
         if label:
             g.add((subj, RDFS.label, Literal(label)))
 
-        # optional sameAs
-        if same_as:
-            g.add((subj, URIRef("http://www.w3.org/2002/07/owl#sameAs"), URIRef(same_as)))
+        # handle multiple sameAs separated by ;
+        if same_as_raw:
+            for same_as in same_as_raw.split(";"):
+                same_as = same_as.strip()
+                if same_as:
+                    g.add((subj, OWL.sameAs, URIRef(same_as)))
 
 
 # === STEP 2: LOAD TRIPLES ======================================
@@ -97,24 +96,24 @@ with TRIPLES_CSV.open(encoding="utf-8", newline="") as f:
     for row in reader:
         subj_id  = (row.get("subject") or "").strip()
         pred_qn  = (row.get("predicate") or "").strip()
-        obj_id   = (row.get("object") or "").strip()
+        obj_val  = (row.get("object") or "").strip()
         obj_type = (row.get("object_type") or "").strip().lower() or "iri"
 
-        if not subj_id or not pred_qn or not obj_id:
+        if not subj_id or not pred_qn or not obj_val:
             continue
 
         subj = id_to_uri.get(subj_id, RRR[subj_id])
         pred = resolve_qname(pred_qn)
-        if pred is None:
-            # you can print a warning here if you like:
-            # print(f"Unknown predicate namespace: {pred_qn}")
+        if not pred:
             continue
 
         if obj_type == "iri":
-            obj = id_to_uri.get(obj_id, RRR[obj_id])
+            obj = id_to_uri.get(obj_val, RRR[obj_val])
+        elif obj_type == "literal":
+            obj = Literal(obj_val)
         else:
-            # fallback: treat as literal
-            obj = Literal(obj_id)
+            print(f"[WARN] Unknown object_type '{obj_type}', treating as literal.")
+            obj = Literal(obj_val)
 
         g.add((subj, pred, obj))
 
@@ -125,5 +124,3 @@ OUTPUT_TTL.parent.mkdir(parents=True, exist_ok=True)
 g.serialize(OUTPUT_TTL, format="turtle")
 
 print(f"RDF graph written to {OUTPUT_TTL} with {len(g)} triples.")
-
-
