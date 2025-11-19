@@ -155,7 +155,7 @@ These were used only *for conceptual modelling and semantic alignment*, not for 
 Color code used internally:  
 - **Laura → orange**  
 - **Claudia → purple**  
-- **River → blue**
+- **Chen → blue**
 
 <img width="600" height="632" alt="Screenshot 2025-11-20 001157" src="https://github.com/user-attachments/assets/bdead909-2afe-4346-946a-b0e3540a7a42" />
 
@@ -310,6 +310,7 @@ Published via GitHub Pages.
 # END OF DOCUMENTATION  
 
 This file is intended for instructor evaluation and internal transparency about the project workflow.
+
 
 
 
