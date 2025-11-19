@@ -28,13 +28,30 @@
       </langUsage>
       <particDesc>
         <listPerson>
-          <person xml:id="gelsomina"><persName>Gelsomina</persName></person>
-          <person xml:id="zampano"><persName>Zampanò</persName></person>
-          <person xml:id="madre"><persName>Madre di Gelsomina</persName></person>
-          <person xml:id="bambine"><persName>Bambine</persName></person>
-          <person xml:id="bimbapiccola"><persName>Bambina più piccola</persName></person>
-          <person xml:id="bimbagrande"><persName>Bambina più grande</persName></person>
-          <person xml:id="donna"><persName>Donna</persName></person>
+          <person xml:id="gelsomina">
+            <persName type="role">Gelsomina</persName>
+            <persName type="actor" ref="https://viaf.org/viaf/37021297">Giulietta Masina</persName>
+          </person>
+          <person xml:id="zampano">
+            <persName type="role">Zampanò</persName>
+            <persName type="actor" ref="https://viaf.org/viaf/14775572">Anthony Quinn</persName>
+          </person>
+          <person xml:id="madre">
+            <persName type="role">Madre di Gelsomina</persName>
+            <persName type="actor" ref="https://viaf.org/viaf/161276276">Anna Primula</persName>
+          </person>
+          <person xml:id="bambine">
+            <persName>Bambine</persName>
+          </person>
+          <person xml:id="bimbapiccola">
+            <persName>Bambina più piccola</persName>
+          </person>
+          <person xml:id="bimbagrande">
+            <persName>Bambina più grande</persName>
+          </person>
+          <person xml:id="donna">
+            <persName>Donna</persName>
+          </person>
         </listPerson>
         <listPlace>
           <place xml:id="spiaggia"><placeName>spiaggia</placeName></place>
@@ -53,18 +70,23 @@
   <text xml:lang="it">
     <body>
 
+      <pb n="183"/>
+
       <!-- SCENA 1 -->
       <div type="scene" xml:id="seq1" n="1">
         <head>PRIMO TEMPO — Sequenza I</head>
         <head type="logline">Zampanò compra per diecimila lire circa una ragazza un po’ matta che si chiama Gelsomina, e di notte parte con lei.</head>
 
-        <stage type="setting" where="#spiaggia #brughiera">Esterno spiaggia e brughiera. Giorno.</stage>
+        <stage type="setting">
+          <placeName ref="#spiaggia">Esterno spiaggia</placeName> e
+          <placeName ref="#brughiera">brughiera</placeName>. Giorno.
+        </stage>
 
         <p>In fondo ad una brughiera deserta, costeggiante una lunghissima spiaggia orlata di spume bianche, si distingue una figuretta femminile, che avanza tra i bassi cespugli recando qualcosa. Voci di bambine gridano un richiamo.</p>
 
         <sp who="#bambine">
           <speaker>Voci bambine</speaker>
-          <p>Gelsomina! ... Gelsomina! …</p>
+          <p>Gelsomina! ... Gelsomina! ...</p>
         </sp>
 
         <p>Quattro bimbette tra i sei e gli otto anni, scalze, vestite di stracci, si dirigono correndo verso la ragazza che avanza dal fondo, seguitando a chiamarla.</p>
@@ -96,15 +118,23 @@
           <p>Dice che Rosa è morta...</p>
         </sp>
 
-        <stage type="direction">Gelsomina si mette a correre.</stage>
-        <stage type="transition">DISSOLVENZA INCROCIATA.</stage>
+        <stage type="direction">
+          <p>Gelsomina si mette a correre.</p>
+        </stage>
+        <stage type="transition">
+          <p>DISSOLVENZA INCROCIATA.</p>
+        </stage>
       </div>
 
       <!-- SCENA 2 -->
       <div type="scene" xml:id="seq1-sc2" n="2">
         <stage type="setting" where="#capanna">Esterno. Capanna di Gelsomina. Giorno.</stage>
 
-        <p>Gelsomina, con le due sorelline, giunge correndo davanti alla sua casa. La casa di Gelsomina è una capanna di assi, allineata con molte altre simili sulla fila di dune che limitano una lunghissima spiaggia semideserta...</p>
+        <p>Gelsomina, con le due sorelline, giunge correndo davanti alla sua casa. La casa di Gelsomina è una capanna di assi, allineata con molte altre simili sulla fila di dune che limitano una lunghissima spiaggia semideserta. Davanti alla capanna, su una specie di terrazzino ottenuto con dei reci-</p>
+        
+        <pb n="184"/>
+
+        <p>-pienti di latta, ci sono: la madre di Gelsomina, un uomo alto, massiccio, greve, indossante una giacca di cuoio, e le altre sorelline di Gelsomina: quattro bimbe fra i cinque e i dodici anni. La madre, che tiene in braccio un bambino, & una donnetta sfinita dalla miseria, sgangheratamente e pateticamente lamentosa. Subito, come vede Gelsomina, la chiama.</p>
 
         <sp who="#madre">
           <speaker>Madre</speaker>
@@ -118,25 +148,33 @@
 
         <sp who="#madre">
           <speaker>Madre</speaker>
-          <stage type="direction">(poi, subito, piangendo)</stage>
+          <stage type="direction">
+            <p>(poi, subito, piangendo)</p>
+          </stage>
           <p>Povera figlia mia! ... Non vedrò mai nemmeno dove l’hanno sotterrata!</p>
         </sp>
 
         <sp who="#madre">
           <speaker>Madre</speaker>
-          <stage type="direction">(di nuovo a Gelsomina)</stage>
+          <stage type="direction">
+            <p>(di nuovo a Gelsomina)</p>
+          </stage>
           <p>È morta... poverina... È morta... Era così bella, così brava, sapeva fare tutto... tutto!</p>
         </sp>
 
         <sp who="#madre">
           <speaker>Madre</speaker>
-          <stage type="direction">Rivolgendosi a Zampanò.</stage>
+          <stage type="direction">
+            <p>Rivolgendosi a Zampanò.</p>
+          </stage>
           <p>Vedete, Zampanò, come le somiglia quest’altra figlia mia... Questa è Gelsomina. Ah! come siamo disgraziati... Io, Zampanò, ve l’ho detto, questa non è come la Rosa. Questa, poverina, è tanto buona... ma se mangia tutti i giorni cambia anche testa... Ci vuoi andare con Zampanò?</p>
         </sp>
 
         <sp who="#madre">
           <speaker>Madre</speaker>
-          <stage type="direction">Rivolgendosi a Gelsomina.</stage>
+          <stage type="direction">
+            <p>Rivolgendosi a Gelsomina.</p>
+          </stage>
           <p>Al posto di Rosa? T'insegna un mestiere anche a te... guadagni qualcosa anche te e qui in casa è una bocca di meno da sfamare...</p>
         </sp>
 
@@ -144,7 +182,7 @@
 
         <sp who="#madre">
           <speaker>Madre</speaker>
-          <p>Eh, Gelsomina? Zampanò è buono sai? Ti tratta bene, ti porta in giro per il mondo, canti, balli, e poi vedi cosa mi ha dato, Gelsomina? Mi ha dato diecimila lire! Guarda ce le ho qui... Diecimila lire! Devo fare aggiustare il tetto e queste creature mangiano un po’... Ma perché ci ha lasciato vostro padre! Gelsomina mia! Tu sei già grande un lavoro non I'hai mai fatto, non è mica colpa tua, poverina, se non sei come le altre ragazze... Non vuoi un po' aiutare la tua mamma? E voi le insegnerete un mestiere, vero Zampanò?</p>
+          <p>Eh, Gelsomina? Zampanò è buono sai? Ti tratta bene, ti porta in giro per il mondo, canti, balli, e poi vedi cosa mi ha dato, Gelsomina? Mi ha dato diecimila lire! Guarda ce le ho qui... Diecimila lire! Devo fare aggiustare il tetto e queste creature mangiano un po’... Ma perché ci ha lasciato vostro padre! Gelsomina mia! Tu sei già grande un lavoro non l’hai mai fatto, non è mica colpa tua, poverina, se non sei come le altre ragazze... Non vuoi un po' aiutare la tua mamma? E voi le insegnerete un mestiere, vero Zampanò?</p>
         </sp>
 
         <p>Gelsomina, che ha sempre ascoltato con gli occhi gonfi di lacrime per la morte della sorella, ora ha un lieve sussulto; alza stupefatta, turbata, lo sguardo su sua madre, poi lo volge su Zampanò. La madre continua. Gelsomina tace sempre, turbatissima. Zampanò dice con una cordialità tutta esteriore, da imbonitore:</p>
@@ -177,11 +215,16 @@
 
         <p>Gelsomina non accenna a rispondere. Il suo volto mutevole passa con rapidità da un’ansia lacrimosa a una breve risatina infantile; poi torna ad incupirsi...</p>
 
-        <stage type="transition">DISSOLVENZA INCROCIATA.</stage>
+        <stage type="transition">
+          <p>DISSOLVENZA INCROCIATA.</p>
+        </stage>
       </div>
+
+      <pb n="185"/>
 
       <!-- SCENA 3 -->
       <div type="scene" xml:id="seq1-sc3" n="3">
+
         <stage type="setting" where="#capanna">Esterno. Capanna di Gelsomina. Giorno.</stage>
 
         <p>Gelsomina seguita dalle sorelline e dalla madre si avvia rapidamente per raggiungere il carrozzone di Zampanò. Una donna le si fa incontro e le chiede:</p>
@@ -193,7 +236,9 @@
 
         <sp who="#gelsomina">
           <speaker>Gelsomina</speaker>
-          <stage type="direction">(con stonata baldanzosità)</stage>
+          <stage type="direction">
+            <p>(con stonata baldanzosità)</p>
+          </stage>
           <p>Parto. Me ne vado.</p>
         </sp>
 
@@ -205,7 +250,9 @@
         <sp who="#gelsomina">
           <speaker>Gelsomina</speaker>
           <p>Vado in giro, a lavorare... M'insegno un mestiere, poi mando i soldi a casa... Faccio anch’io l’artista... Vado a lavorare anch’io come Rosa...</p>
-          <stage type="direction">(si interrompe bruscamente, come se il nome di Rosa l’avesse ridestata alla realtà, si incupisce)</stage>
+          <stage type="direction">
+            <p>(si interrompe bruscamente, come se il nome di Rosa l’avesse ridestata alla realtà, si incupisce)</p>
+          </stage>
         </sp>
 
         <sp who="#donna">
@@ -217,7 +264,9 @@
 
         <sp who="#gelsomina">
           <speaker>Gelsomina</speaker>
-          <stage type="direction">(smarrita)</stage>
+          <stage type="direction">
+            <p>(smarrita)</p>
+          </stage>
           <p>Quando torno?...</p>
         </sp>
 
@@ -251,7 +300,9 @@
 
         <sp who="#madre">
           <speaker>Madre</speaker>
-          <stage type="direction">(agitando uno scialle)</stage>
+          <stage type="direction">
+            <p>(agitando uno scialle)</p>
+          </stage>
           <p>La tua roba — Gelsomina, il tuo scialle, il tuo scialle.</p>
         </sp>
 
@@ -270,11 +321,17 @@
         </sp>
 
         <p>Il veicolo infila a forte velocità la lunga strada deserta, seguito per un breve tratto dalle sorelline di Gelsomina che continuano a salutare. Gelsomina dall’apertura posteriore del motociclo risponde loro agitando la mano, poi con le lacrime agli occhi e con grande tristezza abbassa lentamente il tendone.</p>
-        <stage type="transition">DISSOLVENZA.</stage>
+
+        <stage type="transition">
+          <p>DISSOLVENZA.</p>
+        </stage>
       </div>
+      
+      <pb n="186"/>
 
       <!-- SCENA 4 -->
       <div type="scene" xml:id="seq1-sc4" n="4">
+
         <stage type="setting" where="#strada">Esterno. Strada costiera. Giorno.</stage>
         <p>La motocicletta cammina a forte andatura lasciandosi alle spalle le ultime baracche che costeggiano la strada.</p>
       </div>
