@@ -2,7 +2,7 @@ id,label,class,uri,sameAs
 cineteca,Cineteca di Bologna,schema:Organization,https://cinefiles25.github.io/renzi/org/cineteca_di_bologna,http://viaf.org/viaf/124960346
 renzi_library,Renzo Renzi Library,schema:Library,https://cinefiles25.github.io/renzi/place/renzo_renzi_library,
 renzi_collection,Renzo Renzi Collection,schema:Collection,https://cinefiles25.github.io/renzi/collection/renzo_renzi_collection,
-first_fellini_book,Book 'Il primo Fellini',schema:Book,https://cinefiles25.github.io/renzi/work/first_fellini_book,
+first_fellini_book,Book 'Il primo Fellini',schema:Book,https://cinefiles25.github.io/renzi/work/first_fellini_book,https://opac.sbn.it/bid/ITICCUSBL0105676
 lastrada_screenplay_tei,Screenplay 'La Strada' – Sequence I (TEI),schema:CreativeWork,https://cinefiles25.github.io/renzi/work/lastrada_screenplay_tei,
 photo_lastrada_01,"Premiere of 'La Strada' at Cinema Fulgor",schema:ImageObject,https://cinefiles25.github.io/renzi/work/photo_lastrada_01,
 caricature_fellini_renzi,Fellini → Renzi Caricature,schema:VisualArtwork,https://cinefiles25.github.io/renzi/work/caricature_fellini_renzi,
@@ -18,3 +18,4 @@ columbus_film,Columbus Film,schema:Organization,https://cinefiles25.github.io/re
 cinema_fulgor,Cinema Fulgor,schema:CivicStructure,https://cinefiles25.github.io/renzi/place/cinema_fulgor,https://www.wikidata.org/wiki/Q36839368
 public_reception,Public Reception,skos:Concept,https://cinefiles25.github.io/renzi/concept/public_reception,
 renzi_oral_memory,Renzo Renzi Oral Memory,skos:Concept,https://cinefiles25.github.io/renzi/concept/renzi_oral_memory,
+
