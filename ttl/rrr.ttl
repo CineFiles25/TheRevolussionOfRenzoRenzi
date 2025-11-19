@@ -3,67 +3,103 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix rrr: <https://example.org/rrr/> .
 @prefix schema: <https://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 
-rrr:cineteca a schema:Organization ;
+<https://cinefiles25.github.io/renzi/org/cineteca_di_bologna> a schema:Organization ;
     rdfs:label "Cineteca di Bologna" ;
-    dcterms:hasPart rrr:renzi_library .
+    dcterms:hasPart <https://cinefiles25.github.io/renzi/place/renzo_renzi_library> ;
+    owl:sameAs <http://viaf.org/viaf/124960346> .
 
-rrr:caricature_fellini_renzi a schema:VisualArtwork ;
-    rdfs:label "Fellini → Renzi Caricature" ;
-    prov:wasAttributedTo rrr:federico_fellini ;
-    foaf:depicts rrr:renzo_renzi .
+<https://cinefiles25.github.io/renzi/org/columbus_film> a schema:Organization ;
+    rdfs:label "Columbus Film" .
 
-rrr:federico_fellini a foaf:Person ;
-    rdfs:label "Federico Fellini" ;
-    dcterms:creator rrr:la_strada_film ;
-    owl:sameAs <https://www.wikidata.org/wiki/Q3083> .
+<https://cinefiles25.github.io/renzi/person/libero_grandi> a foaf:Person ;
+    rdfs:label "Libero Grandi" ;
+    owl:sameAs <http://1995-2015.undo.net/it/mostra/3960> .
 
-rrr:first_fellini_book a schema:CreativeWork ;
-    rdfs:label "Book 'Il primo Fellini'" ;
-    dcterms:hasPart rrr:lastrada_screenplay_tei ;
-    dcterms:subject rrr:la_strada_film .
+<https://cinefiles25.github.io/renzi/collection/renzo_renzi_collection> a schema:Collection ;
+    rdfs:label "Renzo Renzi Collection" ;
+    dcterms:hasPart <https://cinefiles25.github.io/renzi/work/caricature_fellini_renzi>,
+        <https://cinefiles25.github.io/renzi/work/first_fellini_book>,
+        <https://cinefiles25.github.io/renzi/work/la_strada_soundtrack_original>,
+        <https://cinefiles25.github.io/renzi/work/lastrada_screenplay_tei>,
+        <https://cinefiles25.github.io/renzi/work/photo_lastrada_01>,
+        <https://cinefiles25.github.io/renzi/work/renzi_interview_2000> .
 
-rrr:fulgor_photo a schema:ImageObject ;
-    rdfs:label "Fulgur Photograph" ;
-    schema:about rrr:public_reception .
-
-rrr:la_strada_soundtrack a schema:CreativeWork ;
-    rdfs:label "Soundtrack 'La Strada'" .
-
-rrr:lastrada_screenplay_tei a schema:CreativeWork ;
-    rdfs:label "Screenplay 'La Strada' – Sequence I (TEI)" ;
-    schema:about rrr:la_strada_film .
-
-rrr:public_reception a skos:Concept ;
+<https://cinefiles25.github.io/renzi/concept/public_reception> a skos:Concept ;
     rdfs:label "Public Reception" .
 
-rrr:renzi_collection a schema:Collection ;
-    rdfs:label "Renzo Renzi Collection" ;
-    dcterms:hasPart rrr:caricature_fellini_renzi,
-        rrr:first_fellini_book,
-        rrr:fulgor_photo,
-        rrr:la_strada_soundtrack,
-        rrr:renzi_interview_2000 .
-
-rrr:renzi_interview_2000 a schema:CreativeWork ;
-    rdfs:label "Renzo Renzi Video Interview (2000)" ;
-    schema:about rrr:renzi_oral_memory .
-
-rrr:renzi_library a schema:Library ;
-    rdfs:label "Renzo Renzi Library" ;
-    dcterms:hasPart rrr:renzi_collection .
-
-rrr:renzi_oral_memory a skos:Concept ;
+<https://cinefiles25.github.io/renzi/concept/renzi_oral_memory> a skos:Concept ;
     rdfs:label "Renzo Renzi Oral Memory" .
 
-rrr:renzo_renzi a foaf:Person ;
+<https://cinefiles25.github.io/renzi/person/giulietta_masina> a foaf:Person ;
+    rdfs:label "Giulietta Masina" ;
+    owl:sameAs <http://viaf.org/viaf/37021297> .
+
+<https://cinefiles25.github.io/renzi/person/nino_rota> a foaf:Person ;
+    rdfs:label "Nino Rota" ;
+    owl:sameAs <http://viaf.org/viaf/88980189> .
+
+<https://cinefiles25.github.io/renzi/place/bologna> a schema:Place ;
+    rdfs:label "Bologna" ;
+    owl:sameAs <https://www.wikidata.org/wiki/Q1891> .
+
+<https://cinefiles25.github.io/renzi/place/cinema_fulgor> a schema:CivicStructure ;
+    rdfs:label "Cinema Fulgor" ;
+    owl:sameAs <https://www.wikidata.org/wiki/Q36839368> .
+
+<https://cinefiles25.github.io/renzi/work/caricature_fellini_renzi> a schema:VisualArtwork ;
+    rdfs:label "Fellini → Renzi Caricature" ;
+    prov:wasAttributedTo <https://cinefiles25.github.io/renzi/person/renzo_renzi> ;
+    foaf:depicts <https://cinefiles25.github.io/renzi/person/federico_fellini> ;
+    schema:creator <https://cinefiles25.github.io/renzi/person/renzo_renzi> ;
+    schema:locationCreated <https://cinefiles25.github.io/renzi/place/renzo_renzi_library> .
+
+<https://cinefiles25.github.io/renzi/work/first_fellini_book> a schema:Book ;
+    rdfs:label "Book 'Il primo Fellini'" ;
+    dcterms:subject <https://cinefiles25.github.io/renzi/work/la_strada_film> ;
+    owl:sameAs <https://opac.sbn.it/bid/ITICCUSBL0105676> ;
+    schema:locationCreated <https://cinefiles25.github.io/renzi/place/renzo_renzi_library> .
+
+<https://cinefiles25.github.io/renzi/work/la_strada_soundtrack_original> a schema:MusicRecording ;
+    rdfs:label "Soundtrack 'La Strada' – Original Release" ;
+    schema:about <https://cinefiles25.github.io/renzi/work/la_strada_film> ;
+    schema:creator <https://cinefiles25.github.io/renzi/person/nino_rota> ;
+    schema:locationCreated <https://cinefiles25.github.io/renzi/place/renzo_renzi_library> .
+
+<https://cinefiles25.github.io/renzi/work/lastrada_screenplay_tei> a schema:CreativeWork ;
+    rdfs:label "Screenplay 'La Strada' – Sequence I (TEI)" ;
+    schema:about <https://cinefiles25.github.io/renzi/work/la_strada_film> .
+
+<https://cinefiles25.github.io/renzi/work/photo_lastrada_01> a schema:ImageObject ;
+    rdfs:label "Premiere of 'La Strada' at Cinema Fulgor" ;
+    foaf:depicts <https://cinefiles25.github.io/renzi/person/federico_fellini>,
+        <https://cinefiles25.github.io/renzi/person/giulietta_masina> ;
+    schema:about <https://cinefiles25.github.io/renzi/concept/public_reception> ;
+    schema:contentLocation <https://cinefiles25.github.io/renzi/place/cinema_fulgor> ;
+    schema:locationCreated <https://cinefiles25.github.io/renzi/place/renzo_renzi_library> .
+
+<https://cinefiles25.github.io/renzi/work/renzi_interview_2000> a schema:VideoObject ;
+    rdfs:label "Renzo Renzi Video Interview (2000)" ;
+    schema:about <https://cinefiles25.github.io/renzi/concept/renzi_oral_memory>,
+        <https://cinefiles25.github.io/renzi/work/la_strada_film> ;
+    schema:locationCreated <https://cinefiles25.github.io/renzi/place/bologna> .
+
+<https://cinefiles25.github.io/renzi/person/renzo_renzi> a foaf:Person ;
     rdfs:label "Renzo Renzi" ;
-    dcterms:relation rrr:la_strada_film ;
-    owl:sameAs <https://it.wikipedia.org/wiki/Renzo_Renzi> .
+    dcterms:relation <https://cinefiles25.github.io/renzi/work/la_strada_film> ;
+    owl:sameAs <http://viaf.org/viaf/40486517> .
 
-rrr:la_strada_film a schema:Movie ;
-    rdfs:label "Film 'La Strada'" .
+<https://cinefiles25.github.io/renzi/person/federico_fellini> a foaf:Person ;
+    rdfs:label "Federico Fellini" ;
+    owl:sameAs <http://viaf.org/viaf/76315386> .
 
+<https://cinefiles25.github.io/renzi/place/renzo_renzi_library> a schema:Library ;
+    rdfs:label "Renzo Renzi Library" ;
+    dcterms:hasPart <https://cinefiles25.github.io/renzi/collection/renzo_renzi_collection> .
+
+<https://cinefiles25.github.io/renzi/work/la_strada_film> a schema:Movie ;
+    rdfs:label "Film 'La Strada'" ;
+    dcterms:creator <https://cinefiles25.github.io/renzi/person/federico_fellini> ;
+    owl:sameAs <https://www.wikidata.org/wiki/Q18402> .
