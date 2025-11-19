@@ -6,17 +6,17 @@ Information Science and Cultural Heritage – University of Bologna (2024–2025
 
 ## TO DO LIST
 
-✔️ choose 15 objects from different institutions and types  
-✔️ identify metadata standards used by providers  
-✔️ list all objects + standards  
-✔️ contact Cineteca di Bologna for object information  
-✔️ divide the work across team members  
-✔️ decide modelling practices  
-✔️ create all CSV files  
-✔️ produce TEI/XML sample + XSLT  
-✔️ convert CSV to RDF (Python)  
-✔️ produce RDF dataset for all items  
-✔️ build the website  
+✓ choose 15 objects from different institutions and types  
+✓ identify metadata standards used by providers  
+✓ list all objects + standards  
+✓ contact Cineteca di Bologna for object information  
+✓ divide the work across team members  
+✓ decide modelling practices  
+✓ create all CSV files  
+✓ produce TEI/XML sample + XSLT  
+✓ convert CSV to RDF (Python)  
+✓ produce RDF dataset for all items  
+✓ build the website  
 
 ---
 
@@ -64,12 +64,12 @@ Create a *formal* presentation of the domain using **existing ontologies**:
 The conceptual model must be expressed with a **graphical representation** (Grafoo-like diagram).
 
 ### 6. **Create the Deliverables**
-- ✔ CSV files (one table per item)  
-- ✔ TEI/XML sample  
-- ✔ XML→HTML transformation (XSLT)  
-- ✔ XML→RDF transformation (Python)  
-- ✔ RDF dataset for all items  
-- ✔ Website
+- ✓ CSV files (one table per item)  
+- ✓ TEI/XML sample  
+- ✓ XML→HTML transformation (XSLT)  
+- ✓ XML→RDF transformation (Python)  
+- ✓ RDF dataset for all items  
+- ✓ Website
 
 ---
 
@@ -92,10 +92,10 @@ The conceptual model must be expressed with a **graphical representation** (Graf
 
 | Entity | Authority link |
 |--------|----------------|
-| Renzo Renzi | VIAF: http://viaf.org/viaf/40486517 — Wikidata Q3838172 |
-| Federico Fellini | VIAF: http://viaf.org/viaf/76315386 |
-| Cineteca di Bologna | VIAF: http://viaf.org/viaf/124960346 |
-| Bologna (place) | VIAF: http://viaf.org/viaf/257723025 |
+| Renzo Renzi | VIAF: http://viaf.org/viaf/40486517 — http://viaf.org/viaf/40486517 |
+| Federico Fellini | VIAF: http://viaf.org/viaf/76315386 — http://viaf.org/viaf/76315386 |
+| Cineteca di Bologna | VIAF: http://viaf.org/viaf/124960346 — http://viaf.org/viaf/124960346 |
+| Bologna (place) | VIAF: http://viaf.org/viaf/257723025 — http://viaf.org/viaf/257723025 |
 
 ---
 
@@ -300,4 +300,5 @@ Published via GitHub Pages.
 ---
 
 # END OF DOCUMENTATION  
+
 This file is intended for instructor evaluation and internal transparency about the project workflow.
