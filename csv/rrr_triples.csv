@@ -2,16 +2,30 @@ subject,predicate,object,object_type,note
 cineteca,dcterms:hasPart,renzi_library,iri,Cineteca includes the library
 renzi_library,dcterms:hasPart,renzi_collection,iri,The library preserves the collection
 renzi_collection,dcterms:hasPart,first_fellini_book,iri,The collection contains the book
-first_fellini_book,dcterms:hasPart,lastrada_screenplay_tei,iri,The book contains the TEI excerpt
-renzi_collection,dcterms:hasPart,fulgor_photo,iri,The collection contains the photograph
+renzi_collection,dcterms:hasPart,lastrada_screenplay_tei,iri,The collection contains the TEI excerpt
+renzi_collection,dcterms:hasPart,photo_lastrada_01,iri,The collection contains the photograph
 renzi_collection,dcterms:hasPart,caricature_fellini_renzi,iri,The collection contains the caricature
 renzi_collection,dcterms:hasPart,renzi_interview_2000,iri,The collection contains the video interview
-renzi_collection,dcterms:hasPart,la_strada_soundtrack,iri,The collection contains the soundtrack
-renzo_renzi,dcterms:relation,la_strada_film,iri,Renzo Renzi interprets/comments on the film
+renzi_collection,dcterms:hasPart,la_strada_soundtrack_original,iri,The collection contains the soundtrack
 first_fellini_book,dcterms:subject,la_strada_film,iri,The book concerns the film
 lastrada_screenplay_tei,schema:about,la_strada_film,iri,The TEI excerpt represents the film
-fulgor_photo,schema:about,public_reception,iri,The photograph documents the public reception
-caricature_fellini_renzi,foaf:depicts,renzo_renzi,iri,The caricature depicts Renzo Renzi
-renzi_interview_2000,schema:about,renzi_oral_memory,iri,The video interview documents Renzi’s oral memory
-federico_fellini,dcterms:creator,la_strada_film,iri,Fellini is the creator of the film
-caricature_fellini_renzi,prov:wasAttributedTo,federico_fellini,iri,The caricature is attributed to Federico Fellini
+renzo_renzi,dcterms:relation,la_strada_film,iri,Renzo Renzi interprets/comments on the film
+photo_lastrada_01,schema:about,public_reception,iri,The photograph documents the public reception
+photo_lastrada_01,foaf:depicts,federico_fellini,iri,Federico Fellini appears in the photo
+photo_lastrada_01,foaf:depicts,giulietta_masina,iri,Giulietta Masina appears in the photo
+caricature_fellini_renzi,foaf:depicts,federico_fellini,iri,The caricature depicts Federico Fellini
+caricature_fellini_renzi,prov:wasAttributedTo,renzo_renzi,iri,Renzo Renzi is the author of the caricature
+renzi_interview_2000,schema:about,renzi_oral_memory,iri,The interview documents Renzi’s oral memory
+renzi_interview_2000,schema:about,la_strada_film,iri,Renzi discusses the film in the interview
+la_strada_film,dcterms:creator,federico_fellini,iri,Fellini directed the film
+la_strada_soundtrack_original,schema:creator,nino_rota,iri,Nino Rota composed the soundtrack
+photo_lastrada_01,schema:contentLocation,cinema_fulgor,iri,The premiere took place at Cinema Fulgor
+photo_lastrada_01,dc:date,1954,literal,Year of the La Strada premiere
+caricature_fellini_renzi,schema:creator,renzo_renzi,iri,Renzo Renzi is the creator of the caricature
+la_strada_soundtrack_original,schema:about,la_strada_film,iri,The soundtrack is associated with the film La Strada
+caricature_fellini_renzi,schema:locationCreated,renzi_library,iri,Preserved at the Renzo Renzi Library
+photo_lastrada_01,schema:locationCreated,renzi_library,iri,Preserved at the Renzo Renzi Library
+first_fellini_book,schema:locationCreated,renzi_library,iri,Preserved at the Renzo Renzi Library
+la_strada_soundtrack_original,schema:locationCreated,renzi_library,iri,Preserved at the Renzo Renzi Library
+renzi_interview_2000,dc:date,2000,literal,Year of production
+renzi_interview_2000,schema:locationCreated,Bologna,iri,Produced in Bologna
