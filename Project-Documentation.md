@@ -152,6 +152,14 @@ These were used only *for conceptual modelling and semantic alignment*, not for 
 
 # 1. Choosing the objects    
 
+Color code used internally:  
+- **Laura → orange**  
+- **Claudia → purple**  
+- **River → blue**
+
+<img width="915" height="632" alt="Screenshot 2025-11-20 001157" src="https://github.com/user-attachments/assets/bdead909-2afe-4346-946a-b0e3540a7a42" />
+
+
 ### Final selection of 15 objects (for Tomasi)
 
 1. *Il primo Fellini* – Book — **ISBD(G)**  
@@ -302,5 +310,6 @@ Published via GitHub Pages.
 # END OF DOCUMENTATION  
 
 This file is intended for instructor evaluation and internal transparency about the project workflow.
+
 
 
