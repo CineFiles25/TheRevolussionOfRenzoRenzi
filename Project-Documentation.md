@@ -1,6 +1,6 @@
 # Project Documentation  
-**The “Revolussion” of Renzo Renzi**  
-Information Science and Cultural Heritage – University of Bologna (2024–2025)
+## The “Revolussion” of Renzo Renzi  
+*Information Science and Cultural Heritage – University of Bologna (2024–2025)*
 
 ---
 
@@ -302,4 +302,5 @@ Published via GitHub Pages.
 # END OF DOCUMENTATION  
 
 This file is intended for instructor evaluation and internal transparency about the project workflow.
+
 
