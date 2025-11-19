@@ -18,5 +18,5 @@ columbus_film,Columbus Film,schema:Organization,https://cinefiles25.github.io/re
 cinema_fulgor,Cinema Fulgor,schema:CivicStructure,https://cinefiles25.github.io/renzi/place/cinema_fulgor,https://www.wikidata.org/wiki/Q36839368
 public_reception,Public Reception,skos:Concept,https://cinefiles25.github.io/renzi/concept/public_reception,
 renzi_oral_memory,Renzo Renzi Oral Memory,skos:Concept,https://cinefiles25.github.io/renzi/concept/renzi_oral_memory,
-
+Bologna,Bologna,schema:Place,https://www.wikidata.org/wiki/Q1891,
 
