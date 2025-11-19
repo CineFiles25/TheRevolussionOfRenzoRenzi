@@ -4,121 +4,137 @@
 
 ---
 
-## Overview
-This sub-collection gathers five cultural heritage items held by the **Cineteca di Bologna**, selected and curated by **Laura Bortoli** as part of the group project *The “Revolussion” of Renzo Renzi*.
+## 1. Overview
+This sub-collection gathers **five cultural heritage objects** preserved by the **Cineteca di Bologna**, curated and modeled by **Laura Bortoli** as part of the group project *The “Revolussion” of Renzo Renzi*.
 
-These items belong to the **Renzo Renzi Collection**, an archival corpus that reflects Renzi’s pioneering approach to interlinking film-related materials — a pre-digital analogue of **Linked Open Data**.
+All items come from (or relate to) the **Renzo Renzi Collection**, an archival body that embodies Renzi’s analogue, pre-digital idea of **interlinked film knowledge** — an intuitive precursor of today’s *Linked Open Data*.
 
-The work encompasses:
+This individual contribution includes:
 
-- metadata standard analysis
-- theoretical and conceptual modeling (Graffoo)
-- TEI encoding and transformation
-- dataset creation through CSV
-- RDF graph generation through Python
-- integration into the group’s global knowledge graph
-
----
-
-## Selected Items
-
-  **1a.  Book — Il primo Fellini** → ISBD(G)   
-  **1b.  TEI-encoded excerpt — La Strada, Sequence I**   
-  **2.   Photograph “Fulgor” (Fellini & Masina at the premiere)** → Scheda F    
-  **3.   Caricature of Renzo Renzi by Federico Fellini** → Scheda OA   
-  **4.   Video interview: Renzo Renzi & Columbus Film (2000)** → FIAF  
-  **5.   Soundtrack of La Strada** → ISBD(NBM)
+• metadata standard analysis (ISBD(G), Scheda F, Scheda OA, FIAF, ISBD(NBM))  
+• theoretical and conceptual modeling (including Graffoo diagrams)  
+• TEI encoding and XSLT transformation  
+• CSV-based data preparation  
+• Python-based RDF generation  
+• integration into the team’s shared knowledge graph using the prefix ```rrr```:  
 
 ---
 
-## Objectives
-This sub-collection aims to produce:
+## 2. Items Included in This Sub-Collection
 
-1. **A complete theoretical model (natural language)** for each item, based on the standards above
-2. **A conceptual model (Graffoo)** mapping entities, relationships, and linking principles across the Renzi Collection  
-3. **A structured CSV dataset** 
-        •  ```entities_renzi.csv``` → authority entities
-        •  ```triples_renzi.csv``` → semantic relationships  
-4. **An automatic RDF generation pipeline** using **rdflib**, following the workflow: **CSV** → **Python** → **Turtle (.ttl)**  
-5. **TEI Encoding + Transformation**
-        •  TEI XML of the *La Strada* Sequence I
-        •  XSLT + Python transformation to HTML
-6. **Integration into the team’s knowledge graph** using the shared project prefix **rrr**: ```https://example.org/rrr/```
+| ID  | Item                                   | Standard     | Type                |
+|-----|-----------------------------------------|--------------|---------------------|
+| 1a  | Il primo Fellini                        | ISBD(G)      | Book                |
+| 1b  | La Strada, Sequence I (TEI excerpt)     | TEI P5       | Screenplay segment  |
+| 2   | Premiere photograph (Fulgor)            | Scheda F     | Archival photograph |
+| 3   | Fellini → Renzi caricature              | Scheda OA    | Visual artwork      |
+| 4   | Renzo Renzi & Columbus Film (2000 interview) | FIAF     | Video interview     |
+| 5   | La Strada soundtrack (original release) | ISBD(NBM)    | Music recording     |
 
-This workflow ensures transparency, reproducibility, and alignment with Linked Open Data principles.
+All objects are linked through shared entities (Renzo Renzi, Federico Fellini, Giulietta Masina, Nino Rota, etc.) and consolidated within the global project graph.
 
 ---
 
-## Folder Structure
+## 3. Objectives  
+This work aims to:  
+## 3.1. Metadata & Conceptual Modeling  
+• produce **theoretical models** (natural language) for each object  
+• construct a **Graffoo conceptual model** describing entities and relationships across the Renzi sub-collection  
+## 3.2. Dataset Creation
+• build a structured CSV dataset:  
+&nbsp;&nbsp;• ```rrr_entities.csv``` → list of entities and authorities  
+&nbsp;&nbsp;• ```rrr_triples.csv``` → semantic relationships  
+## 3.3. RDF / LOD Pipeline  
+• implement an **automatic RDF pipeline** (CSV → Python → Turtle) using ```rdflib```  
+• generate a clean, human-readable, and standards-compliant **Turtle graph**
+## 3.4. TEI Encoding & Transformation
+• encode *La Strada*, Sequence I in **TEI P5**  
+• transform it into **HTML** using a dedicated **XSLT stylesheet**  
+## 3.5. Integration  
+• integrate all results into the group project using the shared prefix:  
 ```
+https://cinefiles25.github.io/renzi/
+```
+ensuring consistency with LOD practices and the overall group ontology.
 
+---
+
+## 4. Folder Structure  
+```
 renzi/
-│── entities_renzi.csv
-│── triples_renzi.csv
+│── rrr_entities.csv
+│── rrr_triples.csv
 │── ttl/
 │   └── rrr.ttl
 │
 ├── book_il_primo_fellini/
-│   ├── la_strada_sequence1.md
 │   ├── TEI/
 │   │   └── lastrada.xml
-│   ├── HTML/
-│   │   └── lastrada.html
-│   └── XSLT/
-│       └── tei2html_lastrada.xsl
+│   ├── XSLT/
+│   │   └── tei2html_lastrada.xsl
+│   └── HTML/
+│       └── lastrada.html
 │
 └── scripts/
     ├── build_rrr_rdf.py
     ├── compare_ttl.py
     └── tei_to_html.py
-
 ```
+
 ---
 
-## RDF Generation
-
-To generate or update the Turtle dataset:
+## 5. RDF Generation
+The Turtle file is **never edited manually**.  
+Reproducibility is ensured by the pipeline:  
 ```
 python scripts/build_rrr_rdf.py
 ```
-This produces:
+Output:  
 ```
 ttl/rrr.ttl
 ```
-The Turtle file is **never edited manually**.
-All updates occur through the CSV → Python pipeline for reproducibility.
+The script reads both CSV files (```entities``` and ```triples```), resolves authorities (VIAF, Wikidata), and produces a coherent RDF graph aligned with Schema.org, DC Terms, FOAF, SKOS, and PROV.
 
 ---
 
-## TEI → HTML Transformation
-
-The TEI excerpt of *La Strada* can be transformed into HTML using:
-```
+## 6. TEI → HTML Pipeline  
+Transform the TEI excerpt using:  
+```  
 python scripts/tei_to_html.py
 ```
-This applies the XSLT stylesheet:
-```
-book_il_primo_fellini/XSLT/tei2html_lastrada.xsl
-```
-And outputs:
-```
+This applies:  
+```  
 book_il_primo_fellini/HTML/lastrada.html
 ```
+and outputs an accessible HTML version:  
+```  
+book_il_primo_fellini/HTML/lastrada.html
+```
+
+The TEI encoding includes:  
+• cast list (role vs. actor, with VIAF IDs)  
+• structured stage directions  
+• page breaks (```<pb>```)  
+• scene segmentation (```<div type="scene">```)  
+• semantic markup of setting, speech, transitions
+
 ---
 
-## Project Context
+## 7. Context and Rationale  
+Renzo Renzi’s archival practice — linking books, scripts, images, interviews, and memories — anticipates LOD by decades.  
+This project **translates Renzi’s analogue network** into a digital semantic framework, combining:  
 
-Renzo Renzi anticipated LOD principles long before Digital Humanities adopted them.  
-Through his curatorial practice, he built a **networked film archive** where books, scripts, reviews, drawings, photographs, and interviews were meaningfully interconnected.  
-The **Renzi Collection** is thus an analogue precursor of Linked Open Data — structured by intellectual relationships rather than digital infrastructure.  
-This sub-collection extends that idea into a modern semantic framework.
+• descriptive cataloguing  
+• TEI text encoding  
+• authority control  
+• RDF & LOD principles  
+• conceptual modeling
+
+The sub-collection demonstrates how heterogeneous film heritage objects can be integrated into a unified, queryable knowledge graph.
 
 ---
 
-## Author
-
+## 8. Author  
 **Laura Bortoli**  
 Master’s Degree in Digital Humanities & Digital Knowledge  
-
 University of Bologna — a.y. 2025/2026
-
