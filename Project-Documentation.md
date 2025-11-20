@@ -81,7 +81,7 @@ The conceptual model must be expressed with a **graphical representation** (Graf
 - **Institutions involved:** primarily **Cineteca di Bologna**, ICCU, IMDb, Renzi family archives  
 - **Authority files used:** VIAF, Wikidata, TGN  
 
-### Description text used on the website  
+### But why Renzi?  
 *Long before Linked Open Data entered the vocabulary of Digital Humanities, Renzo Renzi was already building it by hand...*  
 > Renzi assembled books, scripts, drawings, photographs, interviews, and film documents into an interconnected archive where each object illuminated the others. His method created a **network of film knowledge**: themes, stories, production histories, anecdotes, materials, and memories woven together with the instinct of someone who understood that cinema is not linear – it is relational.  
 > For this reason, the Cineteca di Bologna, and particularly the Renzo Renzi Collection, can be read as an analogue prototype of Linked Open Data.
@@ -299,6 +299,7 @@ Published via GitHub Pages.
 # END OF DOCUMENTATION  
 
 This file is intended for instructor evaluation and internal transparency about the project workflow.
+
 
 
 
