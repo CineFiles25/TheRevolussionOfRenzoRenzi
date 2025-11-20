@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>README · The “Revolussion” of Renzo Renzi</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Google Fonts (same as index) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <header class="site-header">
+      <div class="header-inner">
+        <div class="site-branding">
+          <p class="site-kicker">
+            Information Science and Cultural Heritage · UniBo
+          </p>
+          <h1 class="site-title">Project README</h1>
+          <p class="site-subtitle">
+            Overview of the Digital Humanities &amp; Linked Open Data project
+            <em>“The Revolussion of Renzo Renzi”</em>.
+          </p>
+
+          <div class="hero-actions">
+            <a href="index.html" class="btn-ghost">← Back to main site</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="page">
+      <section class="section">
+        <h2>The “Revolussion” of Renzo Renzi</h2>
+        <p><em>A Digital Humanities &amp; Linked Open Data Project</em></p>
+        <p><strong>Information Science and Cultural Heritage – University of Bologna (2024–2025)</strong></p>
+
+        <hr />
+
+        <h2>Overview</h2>
+        <p>
+          <em>The “Revolussion” of Renzo Renzi</em> is a digital humanities project that explores
+          the archival universe of <strong>Renzo Renzi</strong> (1919–2004), filmmaker, critic,
+          researcher and co-founder of the <strong>Cineteca di Bologna</strong>.
+        </p>
+
+        <p>The project integrates:</p>
+        <ul>
+          <li><strong>TEI/XML scholarly text encoding</strong></li>
+          <li><strong>XSLT transformation for web publication</strong></li>
+          <li><strong>CSV-based metadata extraction and analysis</strong></li>
+          <li><strong>Linked Open Data modelling (RDF/Turtle)</strong></li>
+          <li><strong>Reuse of major cultural heritage standards</strong></li>
+          <li><strong>A conceptual model inspired by existing ontologies</strong> (DC, Schema.org, FOAF)</li>
+          <li><strong>A web interface presenting all deliverables</strong></li>
+        </ul>
+
+        <p>
+          The dataset includes <strong>15 heterogeneous cultural heritage items</strong> (books,
+          photographs, drawings, sound recordings, interviews, documents) described, encoded, and
+          semantically linked.
+        </p>
+
+        <hr />
+
+        <h2>Project Structure</h2>
+
+        <pre><code>/data/   → CSV descriptions of all CH items
+/tei/    → TEI XML edition + XSLT transformation
+/rdf/    → Generated RDF dataset (rrr.ttl)
+/scripts/→ XML→HTML and CSV→RDF Python scripts
+/site/   → HTML pages for web publication
+/docs/   → Additional project documentation (conceptual model, diagrams)
+</code></pre>
+
+        <p>
+          A detailed, step-by-step description of the entire workflow is available in the
+          <strong>Project Documentation</strong>.
+        </p>
+
+        <hr />
+
+        <h2>Objectives</h2>
+        <ol>
+          <li>
+            Build a structured dataset starting from a coherent cultural theme
+            (Renzo Renzi and the “Revolussion” around <em>La Strada</em>).
+          </li>
+          <li>
+            Convert descriptive metadata into CSV using institutional standards
+            (ISBD(G), ISBD(NBM), Scheda F, Scheda OA, FIAF rules, ISAD).
+          </li>
+          <li>Encode one full-text item in <strong>TEI/XML</strong> and transform it into <strong>HTML</strong> via XSLT.</li>
+          <li>
+            Create a <strong>conceptual model</strong> reusing existing ontologies
+            (Dublin Core Terms, Schema.org, FOAF, RiC-O, CIDOC CRM).
+          </li>
+          <li>Produce a complete <strong>RDF dataset</strong> for all selected objects.</li>
+          <li>Present the results in an accessible <strong>website</strong> built for publication.</li>
+        </ol>
+
+        <hr />
+
+        <h2>Data Types Included</h2>
+        <ul>
+          <li><strong>Book / full text</strong> – <em>Il primo Fellini</em></li>
+          <li><strong>Photographs</strong> (Scheda F, ICCD)</li>
+          <li><strong>Caricatures / Drawings</strong> (Scheda OA, ICCD)</li>
+          <li><strong>Audiovisual interview</strong> (FIAF rules)</li>
+          <li><strong>Sound recording / soundtrack</strong> (ISBD NBM)</li>
+          <li><strong>Screenplays, documents, and film material</strong></li>
+        </ul>
+
+        <p>Each object is documented with:</p>
+        <ul>
+          <li>description</li>
+          <li>provider and reference institution</li>
+          <li>metadata standard used</li>
+          <li>CSV representation</li>
+          <li>RDF serialization</li>
+          <li>connections to related entities</li>
+          <li>external authority links (VIAF, Wikidata, TGN)</li>
+        </ul>
+
+        <hr />
+
+        <h2>Technologies &amp; Standards</h2>
+
+        <h3>Metadata Standards</h3>
+        <ul>
+          <li>ISBD(G), ISBD(NBM)</li>
+          <li>ICCD Scheda F, ICCD Scheda OA</li>
+          <li>ISAD(G) – archival description</li>
+          <li>FIAF Cataloguing Rules for film &amp; audiovisual materials</li>
+        </ul>
+
+        <h3>Ontologies &amp; Vocabularies</h3>
+        <ul>
+          <li><strong>Dublin Core Terms (DCTerms)</strong></li>
+          <li><strong>Schema.org</strong></li>
+          <li><strong>FOAF</strong></li>
+          <li><strong>RiC-O</strong> (Records in Contexts, for archival context)</li>
+          <li><strong>CIDOC-CRM</strong> (reference for museum-domain thinking)</li>
+        </ul>
+
+        <h3>Languages &amp; Tools</h3>
+        <ul>
+          <li>TEI P5</li>
+          <li>XSLT 1.0</li>
+          <li>RDF/Turtle</li>
+          <li>Python + RDFLib</li>
+          <li>GitHub Pages</li>
+        </ul>
+
+        <hr />
+
+        <h2>Scripts Included</h2>
+
+        <h3><code>build_rrr_rdf.py</code></h3>
+        <p>Transforms the CSV metadata into a structured RDF graph using RDFLib, generating <code>rrr.ttl</code>.</p>
+
+        <h3><code>compare_ttl.py</code></h3>
+        <p>Compares two RDF serializations to track differences across versions (graph integrity checking).</p>
+
+        <h3><code>tei2html_lastrada.xsl</code></h3>
+        <p>Transforms the TEI edition of <em>La Strada</em> into HTML.</p>
+
+        <hr />
+
+        <h2>Website</h2>
+        <p>
+          The website presents:
+        </p>
+        <ul>
+          <li>the TEI-encoded text of <em>La Strada</em></li>
+          <li>descriptive metadata</li>
+          <li>RDF dataset</li>
+          <li>conceptual / theoretical model</li>
+          <li>diagrams</li>
+          <li>item pages for each cultural object</li>
+        </ul>
+
+        <hr />
+
+        <h2>Contributors</h2>
+        <p>The project was developed by:</p>
+        <ul>
+          <li><strong>Laura Bortoli</strong> – TEI edition, XSLT, RDF generation, CSV metadata creation</li>
+          <li><strong>Claudia Romanello</strong> – Photographs, documentary metadata, screenplays</li>
+          <li><strong>Chen Qinghao</strong> – Additional items, film metadata, interface work</li>
+        </ul>
+        <p>Full per-member breakdown is documented in the Project Documentation.</p>
+
+        <hr />
+
+        <h2>References</h2>
+        <ul>
+          <li>
+            <strong>Renzo Renzi (Wikipedia):</strong>
+            <a href="https://it.wikipedia.org/wiki/Renzo_Renzi">https://it.wikipedia.org/wiki/Renzo_Renzi</a>
+          </li>
+          <li>
+            <strong>Cineteca di Bologna – Renzi Fund:</strong>
+            <a href="https://cinetecadibologna.it/biblioteca/">https://cinetecadibologna.it/biblioteca/</a>
+          </li>
+          <li>
+            <strong>Metadata standards &amp; ontologies:</strong> Dublin Core Terms, FOAF, Schema.org, RiC-O,
+            CIDOC CRM, FIAF, ISBD, ICCD
+          </li>
+        </ul>
+
+        <hr />
+
+        <h2>License</h2>
+        <p>
+          This project is released under a <strong>CC BY-SA 4.0</strong> license.
+        </p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>
+        &copy; 2024–2025 · The “Revolussion” of Renzo Renzi ·
+        <a href="https://cinetecadibologna.it/">Cineteca di Bologna</a>
+        (source of archival materials) · University of Bologna – DHDK.
+      </p>
+    </footer>
+  </body>
+</html>
