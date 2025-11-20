@@ -37,7 +37,7 @@ The final deliverables must include:
 # INSTRUCTIONS (from course requirements)
 
 ### 1. **Find the idea**  
-We chose **Renzo Renzi**, critic, filmmaker, archivist and co-founder of the Cineteca di Bologna.
+We chose **Renzo Renzi**, critic, filmmaker, archivist and great promoter of film culture in Bologna, one of the key figures who enabled the growth and development of the Cineteca after its founding in 1962. The Cineteca's library is in fact named after him..
 
 ### 2. **Select 10+ items**  
 Requirements:  
@@ -310,6 +310,7 @@ Published via GitHub Pages.
 # END OF DOCUMENTATION  
 
 This file is intended for instructor evaluation and internal transparency about the project workflow.
+
 
 
 
