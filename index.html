@@ -4,6 +4,15 @@
     <meta charset="UTF-8" />
     <title>The “Revolussion” of Renzo Renzi</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Google Fonts for typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
     <link rel="stylesheet" href="style.css" />
   </head>
 
@@ -19,6 +28,12 @@
             A Digital Humanities &amp; Linked Open Data project on the Renzo
             Renzi Collection at the <strong>Cineteca di Bologna</strong>.
           </p>
+
+          <!-- Hero call-to-actions -->
+          <div class="hero-actions">
+            <a href="#items" class="btn-primary">Explore the collection</a>
+            <a href="#metadata" class="btn-ghost">Methods &amp; standards</a>
+          </div>
         </div>
 
         <nav class="site-nav">
@@ -51,7 +66,7 @@
       <!-- Overview -->
       <section id="overview" class="section">
         <h2>Overview</h2>
-        <p>
+        <p class="section-intro">
           <em>The “Revolussion” of Renzo Renzi</em> is a digital humanities
           project that explores the archival universe of
           <strong>Renzo Renzi</strong> (1919-2004), filmmaker, critic,
@@ -87,7 +102,7 @@
       <!-- Items -->
       <section id="items" class="section">
         <h2>Items &amp; Selection</h2>
-        <p>
+        <p class="section-intro">
           The project focuses on objects connected to <em>La Strada</em> and to
           Renzo Renzi’s critical and curatorial work. The selection includes:
         </p>
@@ -131,7 +146,7 @@
       <section id="metadata" class="section section-split">
         <div>
           <h2>Metadata &amp; Standards</h2>
-          <p>
+          <p class="section-intro">
             For each item we identify the descriptive practice adopted by the
             holding institution and reuse it as the starting point of our
             modelling.
@@ -171,7 +186,7 @@
       <!-- TEI -->
       <section id="tei" class="section">
         <h2>TEI Edition &amp; HTML</h2>
-        <p>
+        <p class="section-intro">
           The project includes a TEI P5 encoding of a portion of the screenplay
           of <em>La Strada</em>, taken from <em>Il primo Fellini</em>. The
           encoding provides:
@@ -200,7 +215,7 @@
       <!-- RDF -->
       <section id="rdf" class="section">
         <h2>RDF Dataset &amp; Linked Open Data</h2>
-        <p>
+        <p class="section-intro">
           CSV metadata are transformed into an RDF graph using Python and
           RDFLib. The resulting dataset, <code>rrr.ttl</code>, models:
         </p>
@@ -223,7 +238,7 @@
       <!-- Photo Gallery -->
       <section id="gallery" class="section section-photos">
         <h2>Photo Gallery</h2>
-        <p>
+        <p class="section-intro">
           A small visual tour through the archival universe of Renzo Renzi:
           Federico Fellini’s cinema, <em>La Strada</em>, Bologna, and the people
           and places that connect them.
@@ -290,8 +305,9 @@
               alt="Archival banner related to La Strada or Cinema Fulgor"
             />
             <figcaption>
-              Cesare Zavattini, Federico Fellini and Michelangelo Antonioni on set. 
-              Archival photograph from the Renzo Renzi Collection, Cineteca di Bologna.
+              Cesare Zavattini, Federico Fellini and Michelangelo Antonioni on
+              set. Archival photograph from the Renzo Renzi Collection, Cineteca
+              di Bologna.
             </figcaption>
           </figure>
         </div>
@@ -301,7 +317,7 @@
       <section id="team" class="section section-split">
         <div>
           <h2>Team</h2>
-          <p>
+          <p class="section-intro">
             The project was developed within the course
             <em>Information Science and Cultural Heritage</em> (2024–2025), held
             by Marilena Daquino and Francesca Tomasi at the University of
@@ -346,6 +362,10 @@
       <!-- Docs -->
       <section id="docs" class="section">
         <h2>Documentation &amp; Downloads</h2>
+        <p class="section-intro">
+          Core project documentation, data files, and code used to generate the
+          TEI edition and RDF dataset.
+        </p>
         <ul>
           <li><a href="README.md">README (project overview)</a></li>
           <li>
@@ -370,13 +390,12 @@
     <footer class="site-footer">
       <p>
         &copy; 2024–2025 · The “Revolussion” of Renzo Renzi ·
-        <a href="https://cinetecadibologna.it/"
-          >Cineteca di Bologna</a
-        >
+        <a href="https://cinetecadibologna.it/">Cineteca di Bologna</a>
         (source of archival materials) · University of Bologna – DHDK.
       </p>
     </footer>
-        <div id="lightbox" class="lightbox-backdrop" aria-hidden="true">
+
+    <div id="lightbox" class="lightbox-backdrop" aria-hidden="true">
       <button
         id="lightbox-close"
         class="lightbox-close"
@@ -462,7 +481,10 @@
           });
 
           document.addEventListener("keydown", (event) => {
-            if (event.key === "Escape" && lb.classList.contains("is-visible")) {
+            if (
+              event.key === "Escape" &&
+              lb.classList.contains("is-visible")
+            ) {
               closeLightbox();
             }
           });
@@ -471,6 +493,3 @@
     </script>
   </body>
 </html>
-
-
-
