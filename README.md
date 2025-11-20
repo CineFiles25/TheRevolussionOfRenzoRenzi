@@ -6,7 +6,7 @@
 
 ## Overview  
 
-*The “Revolussion” of Renzo Renzi* is a digital humanities project that explores the archival universe of **Renzo Renzi** (1924–2009), filmmaker, critic, researcher and co-founder of the **Cineteca di Bologna**.
+*The “Revolussion” of Renzo Renzi* is a digital humanities project that explores the archival universe of **Renzo Renzi** (1919-2004), filmmaker, critic, researcher and co-founder of the **Cineteca di Bologna**.
 
 The project integrates:
 
