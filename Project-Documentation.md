@@ -137,17 +137,6 @@ These were used only *for conceptual modelling and semantic alignment*, not for 
 
 ---
 
-# WHAT OTHER STUDENTS SAID (important for grading)
-
-- Tomasi cares about **organisation, justification, and modelling choices**  
-- Every selected object must have a **URI**  
-- One object must be a **full text**  
-- CSV files must be produced manually if institutions do not provide them  
-- Tomasi wants **analysis**, not alignment  
-- The team does **not** need to build a new ontology  
-
----
-
 # FLOW OF THE PROJECT
 
 # 1. Choosing the objects    
@@ -310,6 +299,7 @@ Published via GitHub Pages.
 # END OF DOCUMENTATION  
 
 This file is intended for instructor evaluation and internal transparency about the project workflow.
+
 
 
 
