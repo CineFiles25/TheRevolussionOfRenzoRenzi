@@ -212,37 +212,65 @@
         </p>
       </section>
 
-      <!-- THEORETICAL MODEL -->
-      <section id="theoretical-model" class="section">
-        <h2>Theoretical & Conceptual Model</h2>
-        <p class="section-intro">
-          The theoretical model structures and connects all cultural heritage entities in the
-          Renzo Renzi Collection. It describes relationships between people, works,
-          photographs, sound recordings, events, and institutions using natural language
-          predicates and formal semantic properties.
-        </p>
-        
-        <p>
-          This model integrates perspectives from bibliographic, archival, film, and museum
-          domains, combining ISBD, ICCD, FIAF, and ISAD practices with semantic
-          vocabularies such as Dublin Core Terms, Schema.org, FOAF, RiC-O and CIDOC CRM.
-          It represents the network of relationships that Renzo Renzi constructed across
-          decades of film criticism, archiving and curatorship.
-        </p>
-        
-        <h3>Conceptual Model Diagram</h3>
-        <p>
-          The following diagram (Grafoo-style) visualizes entities, predicates and
-          interconnections in our domain model.
-        </p>
-        
-        <figure class="conceptual-model-figure">
-          <img src="docs/conceptual_model.png"
-            alt="Conceptual model of the Renzo Renzi Collection" />
-          <figcaption>
-            Grafoo-like conceptual model of the Renzo Renzi domain.
-          </figcaption>
-        </figure>
+      <!-- Theoretical & Conceptual Model -->
+      <section id="theoretical-model" class="section section-split">
+        <div>
+          <h2>Theoretical &amp; Conceptual Model</h2>
+          <p class="section-intro">
+            The theoretical model structures and connects all entities in the
+            Renzo Renzi Collection. It describes how people, works, photographs,
+            sound recordings, events and institutions relate to each other, first
+            in natural language and then through formal semantic predicates.
+          </p>
+
+          <p>
+            Starting from institutional metadata (ISBD, ICCD, FIAF, ISAD), we
+            identified the main entities and relationships and aligned them to
+            existing ontologies such as Dublin Core Terms, Schema.org, FOAF,
+            RiC-O, CIDOC CRM and IFLA LRM. This model underpins both the CSV
+            dataset and the RDF graph (<code>rrr.ttl</code>).
+          </p>
+
+          <!-- Se in futuro avrete un'immagine del diagramma, scommentate questo blocco
+          <figure class="conceptual-model-figure">
+            <img src="img/conceptual_model.png"
+                 alt="Conceptual model of the Renzo Renzi Collection" />
+            <figcaption>
+              Grafoo-style conceptual model of the Renzo Renzi domain.
+            </figcaption>
+          </figure>
+          -->
+        </div>
+
+        <!-- Legend box -->
+        <aside class="box-muted model-legend">
+          <h3>Legend</h3>
+
+          <h4>Entity types</h4>
+          <ul>
+            <li><strong>People</strong> – Renzo Renzi, Federico Fellini, Nino Rota…</li>
+            <li><strong>Works</strong> – book, film, screenplay, documentary, soundtrack.</li>
+            <li><strong>Images</strong> – photographs, drawings, caricatures.</li>
+            <li><strong>Events</strong> – film production, interviews, screenings.</li>
+            <li><strong>Places</strong> – Bologna, cinema Fulgor, Renzo Renzi Library.</li>
+            <li><strong>Institutions</strong> – Cineteca di Bologna, ICCU, production companies.</li>
+          </ul>
+
+          <h4>Main relationships</h4>
+          <ul>
+            <li><code>dcterms:creator</code> – who created or authored a work.</li>
+            <li><code>schema:isPartOf</code> – sequences, items or images belonging to a larger work or collection.</li>
+            <li><code>foaf:depiction</code> – images that portray a person, place or event.</li>
+            <li><code>rico:heldBy</code> – which institution holds the record or object.</li>
+            <li><code>dcterms:subject</code> – themes, people or places a work is about.</li>
+            <li><code>schema:locationCreated</code> – where a work or event took place.</li>
+          </ul>
+
+          <p class="model-legend-note">
+            This legend summarizes how the entities in the Renzo Renzi Collection
+            are grouped and which predicates are used most often in the RDF dataset.
+          </p>
+        </aside>
       </section>
 
       <!-- RDF -->
@@ -561,6 +589,7 @@
     </script>
   </body>
 </html>
+
 
 
 
