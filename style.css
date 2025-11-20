@@ -270,10 +270,10 @@ h1, h2, h3 {
 }
 
 /* Intro paragraphs slightly more prominent & narrower */
+
 .section-intro {
   margin-top: 0.4rem;
   margin-bottom: 0.9rem;
-  max-width: 650px;
   color: #4e4337;
 }
 
@@ -790,4 +790,5 @@ a:hover {
   margin-top: -0.5rem;
   font-style: italic;
 }
+
 
