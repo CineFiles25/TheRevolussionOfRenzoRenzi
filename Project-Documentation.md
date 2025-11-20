@@ -299,15 +299,3 @@ Published via GitHub Pages.
 # END OF DOCUMENTATION  
 
 This file is intended for instructor evaluation and internal transparency about the project workflow.
-
-
-
-
-
-
-
-
-
-
-
-

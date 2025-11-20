@@ -40,13 +40,17 @@ def graph_bindings():
 # ENTITIES
 
 documentary = URIRef(rrr + "quando_il_po_è_dolce")
-renzo_renzi = URIRef(rrr + "renzo_renzi") 
+renzo_renzi = URIRef(rrr + "renzo_renzi")
+cineteca_di_bologna = URIRef(rrr + "cineteca_di_bologna")
+bologna = URIRef(rrr + "bologna")
 
-# g.add((renzo_renzi, OWL.sameAs, URIRef("http://viaf.org/viaf/40486517")))
+g.add((renzo_renzi, OWL.sameAs, URIRef("http://viaf.org/viaf/40486517")))
+g.add((cineteca_di_bologna, OWL.sameAs, URIRef("http://viaf.org/viaf/124960346")))
+g.add((bologna, OWL.sameAs, URIRef("http://viaf.org/viaf/257723025")))
 
 # MAPPING TO ONTOLOGIES
 
-quando_il_po_è_dolce = pd.read_csv("../csv/documentary.csv", keep_default_na=False, encoding="utf-8")
+quando_il_po_è_dolce = pd.read_csv("../csv/po_documentary.csv", keep_default_na=False, encoding="utf-8")
 
 g = graph_bindings()
 

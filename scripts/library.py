@@ -41,12 +41,16 @@ def graph_bindings():
 
 library = URIRef(rrr + "renzi_library")
 renzo_renzi = URIRef(rrr + "renzo_renzi")
+cineteca_di_bologna = URIRef(rrr + "cineteca_di_bologna")
+bologna = URIRef(rrr + "bologna")
 
-# g.add((renzoRenzi, OWL.sameAs, URIRef("http://viaf.org/viaf/40486517"))) ?
+g.add((renzo_renzi, OWL.sameAs, URIRef("http://viaf.org/viaf/40486517")))
+g.add((cineteca_di_bologna, OWL.sameAs, URIRef("http://viaf.org/viaf/124960346")))
+g.add((bologna, OWL.sameAs, URIRef("http://viaf.org/viaf/257723025")))
 
 # MAPPING TO ONTOLOGIES 
 
-renzi_library = pd.read_csv("../csv/library.csv", keep_default_na=False, encoding="utf-8")
+renzi_library = pd.read_csv("../csv/renzi_library.csv", keep_default_na=False, encoding="utf-8")
 
 g = graph_bindings()
 
