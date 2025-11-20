@@ -43,6 +43,7 @@ documentary = URIRef(rrr + "quando_il_po_è_dolce")
 renzo_renzi = URIRef(rrr + "renzo_renzi")
 cineteca_di_bologna = URIRef(rrr + "cineteca_di_bologna")
 bologna = URIRef(rrr + "bologna")
+columbus_film = URIRef(rrr + "columbus_film")
 
 g.add((renzo_renzi, OWL.sameAs, URIRef("http://viaf.org/viaf/40486517")))
 g.add((cineteca_di_bologna, OWL.sameAs, URIRef("http://viaf.org/viaf/124960346")))
@@ -54,7 +55,7 @@ quando_il_po_è_dolce = pd.read_csv("../csv/po_documentary.csv", keep_default_na
 
 g = graph_bindings()
 
-for _, row in quando_il_po_è_dolce.iterrows():
+for idx, row in quando_il_po_è_dolce.iterrows():
     g.add((documentary, RDF.type, URIRef(schema + "Movie")))
     g.add((documentary, RDFS.subClassOf, URIRef(schema + "CreativeWork")))
     g.add((documentary, dc.title, Literal(row["Title"])))

@@ -39,7 +39,7 @@ def graph_bindings():
 
 # ENTITIES
 
-set_photo = URIRef(rrr + "ferrari_photograph")
+set_photo = URIRef(rrr + "ferrari_set_photo")
 renzo_renzi = URIRef(rrr + "renzo_renzi")
 aldo_ferrari = URIRef(rrr + "aldo_ferrari")
 cineteca_di_bologna = URIRef(rrr + "cineteca_di_bologna")
@@ -51,11 +51,11 @@ g.add((bologna, OWL.sameAs, URIRef("http://viaf.org/viaf/257723025")))
 
 # MAPPING CSV
 
-ferrari_photograph = pd.read_csv("../csv/ferrari_set_photo.csv", keep_default_na=False, encoding="utf-8")
+ferrari_set_photo = pd.read_csv("../csv/ferrari_set_photo.csv", keep_default_na=False, encoding="utf-8")
 
 g = graph_bindings()
 
-for _, row in ferrari_photograph.iterrows():
+for idx, row in ferrari_set_photo.iterrows():
     g.add((set_photo, RDF.type, URIRef(schema + "Photograph")))
     g.add((set_photo, RDFS.subClassOf, URIRef(schema + "CreativeWork")))
     g.add((set_photo, dc.title, Literal(row["Title"])))
