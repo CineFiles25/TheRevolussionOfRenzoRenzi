@@ -337,6 +337,26 @@ h1, h2, h3 {
   transition: background-color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
 }
 
+/* --- Team supervision box: refined style --- */
+.team-supervision {
+  background: #f4e9dc;
+  padding: 1.2rem 1.5rem;
+  border-radius: 18px;
+  border-left: 4px solid #b46838;
+  max-width: 350px;
+  margin: 0 auto;
+}
+
+.team-supervision h3 {
+  margin-top: 0;
+  font-size: 1.25rem;
+  color: #7a4b2a;
+}
+
+.team-supervision p {
+  margin: 0.4rem 0;
+  line-height: 1.4;
+}
 
 /* ---------- Item list as cards ---------- */
 
@@ -785,4 +805,5 @@ a:hover {
   margin-top: -0.5rem;
   font-style: italic;
 }
+
 
