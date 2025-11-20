@@ -379,3 +379,59 @@ a:hover {
   }
 }
 
+/* ---------- Photo gallery ---------- */
+
+.section-photos {
+  margin-top: 2.1rem;
+}
+
+.section-photos .photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.3rem;
+  margin-top: 1.2rem;
+}
+
+.section-photos .photo-card {
+  margin: 0;
+  background: #f8f3eb;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(210, 197, 180, 0.9);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.section-photos .photo-card img {
+  display: block;
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+}
+
+.section-photos .photo-card figcaption {
+  padding: 0.7rem 0.9rem 0.9rem;
+  font-size: 0.88rem;
+  color: #4e4337;
+}
+
+/* leggero effetto hover */
+
+.section-photos .photo-card:hover img {
+  transform: scale(1.03);
+  transition: transform 0.25s ease-out;
+}
+
+.section-photos .photo-card:hover {
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* responsive */
+
+@media (max-width: 600px) {
+  .section-photos .photo-card img {
+    height: 170px;
+  }
+}
