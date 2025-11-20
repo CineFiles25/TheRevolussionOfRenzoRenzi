@@ -643,6 +643,62 @@ a:hover {
   transform: scale(1.05);
 }
 
+/* --- Theoretical & Conceptual Model --- */
+
+.model-legend {
+  margin-top: 0.3rem;
+  font-size: 0.9rem;
+}
+
+.model-legend h3 {
+  margin-top: 0;
+  margin-bottom: 0.6rem;
+  font-size: 1.05rem;
+}
+
+.model-legend h4 {
+  margin-top: 0.8rem;
+  margin-bottom: 0.35rem;
+  font-size: 0.95rem;
+}
+
+.model-legend ul {
+  margin: 0;
+  padding-left: 1.1rem;
+}
+
+.model-legend li {
+  margin-bottom: 0.25rem;
+}
+
+.model-legend code {
+  font-size: 0.85em;
+}
+
+.model-legend-note {
+  margin-top: 0.8rem;
+  font-size: 0.86rem;
+  color: #6b5e56;
+}
+
+/* opzionale: se aggiungete in futuro un'immagine del modello */
+.conceptual-model-figure {
+  margin-top: 1.4rem;
+}
+
+.conceptual-model-figure img {
+  display: block;
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.12);
+}
+
+.conceptual-model-figure figcaption {
+  margin-top: 0.45rem;
+  font-size: 0.86rem;
+  color: #6b5e56;
+  text-align: center;
+}
 
 /* ---------- Dark mode (auto) ---------- */
 
@@ -805,5 +861,6 @@ a:hover {
   margin-top: -0.5rem;
   font-style: italic;
 }
+
 
 
