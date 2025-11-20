@@ -196,11 +196,11 @@ Color code used internally:
 
 | Object | Type | Provider | Metadata Standard |
 |-------|------|----------|-------------------|
-| 2. *Guida per camminare all’ombra* | Printed screenplay | Cineteca di Bologna | ISAD(G) |
-| 6. Photo from set | Photo | Renzi family | Scheda F |
-| 12. Family photo | Photo | Renzi family | Scheda F |
-| 13. Documentary *Quando il Po è dolce* | Documentary | Cineteca / IMDb | ISBD(NBM) |
-| 14. Renzo Renzi Library | Building | ICCU | REICAT / ISBD(NBM) |
+| 6. *Guida per camminare all’ombra* | Printed screenplay | Cineteca di Bologna | ISAD(G) |
+| 7. Photo from set | Photo | Renzi family | Scheda F |
+| 8. Family photo | Photo | Renzi family | Scheda F |
+| 9. Documentary *Quando il Po è dolce* | Documentary | Cineteca / IMDb | ISBD(NBM) |
+| 10. Renzo Renzi Library | Building | ICCU | REICAT / ISBD(NBM) |
 
 *(We have to add River's!!)*
 
@@ -310,6 +310,7 @@ Published via GitHub Pages.
 # END OF DOCUMENTATION  
 
 This file is intended for instructor evaluation and internal transparency about the project workflow.
+
 
 
 
