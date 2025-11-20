@@ -37,7 +37,7 @@ The final deliverables must include:
 # INSTRUCTIONS (from course requirements)
 
 ### 1. **Find the idea**  
-We chose **Renzo Renzi**, critic, filmmaker, archivist and great promoter of film culture in Bologna, one of the key figures who enabled the growth and development of the Cineteca after its founding in 1962. The Cineteca's library is in fact named after him..
+We chose **Renzo Renzi**, critic, filmmaker, archivist and great promoter of film culture in Bologna, one of the key figures who enabled the growth and development of the Cineteca after its founding in 1962. The Cineteca's library is in fact named after him.
 
 ### 2. **Select 10+ items**  
 Requirements:  
@@ -250,20 +250,20 @@ A final diagram (Grafoo style) is included in `/docs/conceptual_model.png`.
 Python scripts include:
 
 ### `build_rrr_rdf.py`
-- reads `rrr_entities.csv` + `rrr_triples.csv`  
+- reads the metadata from: `csv/rrr_entities.csv` + `csv/rrr_triples.csv`  
 - constructs a graph using RDFLib  
-- serializes as `rrr.ttl`  
+- serializes as `ttl/rrr.ttl`  
 
 ### `compare_ttl.py`
-- compares two RDF dumps  
-- useful for debugging ontology changes  
+- compares two Turtle files to check differences during updates. 
 
 ---
 
 # 6. TEI → HTML Transformation  
-The TEI edition of *La Strada* (`tei/lastrada.xml`) is transformed into HTML through  
-`tei2html_lastrada.xsl`.  
-Output: `site/lastrada.html`.
+The TEI edition:
+- input TEI: `tei_xslt/lastrada.xml`  
+- XSL: `tei_xslt/tei2html_lastrada.xsl`  
+- output HTML: `html/lastrada.html`  
 
 ---
 
@@ -273,11 +273,10 @@ The website includes:
 - landing page  
 - about the project  
 - list of items  
-- TEI → HTML section  
-- RDF download page  
-- conceptual model  
-- team section  
-
+- TEI → HTML section
+- RDF dataset download
+- team section
+- documentation pages  
 Published via GitHub Pages.
 
 ---
@@ -297,5 +296,6 @@ Published via GitHub Pages.
 ---
 
 # END OF DOCUMENTATION  
+
 
 This file is intended for instructor evaluation and internal transparency about the project workflow.
