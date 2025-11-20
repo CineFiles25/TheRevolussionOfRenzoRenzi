@@ -102,7 +102,7 @@ The conceptual model must be expressed with a **graphical representation** (Graf
 # USEFUL LINKS (for documentation + project)
 
 - **GitHub repo:** https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi  
-- **Drive folder with the original items:** (internal link)  
+- **Drive folder with the original items:** https://drive.google.com/drive/u/1/folders/1X7_X3MND6lwpH37jHoSC_RXW-mtBuQ57  
 
 ---
 
@@ -310,6 +310,7 @@ Published via GitHub Pages.
 # END OF DOCUMENTATION  
 
 This file is intended for instructor evaluation and internal transparency about the project workflow.
+
 
 
 
