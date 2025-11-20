@@ -160,7 +160,7 @@ Color code used internally:
 <img width="600" height="632" alt="Screenshot 2025-11-20 001157" src="https://github.com/user-attachments/assets/bdead909-2afe-4346-946a-b0e3540a7a42" />
 
 
-### Final selection of 15 objects (for Tomasi)
+### Final selection of 15 objects  
 
 1. *Il primo Fellini* – Book — **ISBD(G)**  
 2. *Guida per camminare all’ombra* — Screenplay — **ISAD**  
@@ -310,6 +310,7 @@ Published via GitHub Pages.
 # END OF DOCUMENTATION  
 
 This file is intended for instructor evaluation and internal transparency about the project workflow.
+
 
 
 
