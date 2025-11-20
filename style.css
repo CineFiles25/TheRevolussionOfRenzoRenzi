@@ -127,12 +127,14 @@ body {
   overflow: hidden;
   box-shadow: 0 14px 32px rgba(0, 0, 0, 0.18);
   background: #201714;
+  aspect-ratio: 4 / 3; /* aggiunto */
 }
 
 .hero-photo img {
   display: block;
   width: 100%;
-  height: auto;
+  height: 100%;       /* aggiunto */
+  object-fit: cover;  /* aggiunto: riempie il riquadro */
   filter: saturate(1.1) contrast(1.02);
 }
 
@@ -376,3 +378,4 @@ a:hover {
     border-radius: 14px;
   }
 }
+
