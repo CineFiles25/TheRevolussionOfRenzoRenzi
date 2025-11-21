@@ -13,7 +13,7 @@ set_photo,Ferrari Set Photo,schema:ImageObject,https://cinefiles25.github.io/ren
 renzo_renzi,Renzo Renzi,foaf:Person,https://cinefiles25.github.io/renzi/person/renzo_renzi,http://viaf.org/viaf/40486517
 federico_fellini,Federico Fellini,foaf:Person,https://cinefiles25.github.io/renzi/person/federico_fellini,http://viaf.org/viaf/76315386
 giulietta_masina,Giulietta Masina,foaf:Person,https://cinefiles25.github.io/renzi/person/giulietta_masina,http://viaf.org/viaf/37021297
-libero_grandi,Libero Grandi,foaf:Person,https://cinefiles25.github.io/renzi/person/libero_grandi,http://1995-2015.undo.net/it/mostra/3960
+libero_grandi,Libero Grandi,foaf:Person,https://cinefiles25.github.io/renzi/person/libero_grandi,
 nino_rota,Nino Rota,foaf:Person,https://cinefiles25.github.io/renzi/person/nino_rota,http://viaf.org/viaf/88980189
 aldo_ferrari,Aldo Ferrari,foaf:Person,https://cinefiles25.github.io/renzi/person/aldo_ferrari,https://www.wikidata.org/wiki/Q3609208
 columbus_film,Columbus Film,schema:Organization,https://cinefiles25.github.io/renzi/org/columbus_film,
@@ -21,3 +21,4 @@ cinema_fulgor,Cinema Fulgor,schema:CivicStructure,https://cinefiles25.github.io/
 public_reception,Public Reception,skos:Concept,https://cinefiles25.github.io/renzi/concept/public_reception,
 renzi_oral_memory,Renzo Renzi Oral Memory,skos:Concept,https://cinefiles25.github.io/renzi/concept/renzi_oral_memory,
 bologna,Bologna,schema:Place,https://cinefiles25.github.io/renzi/place/bologna,https://www.wikidata.org/wiki/Q1891
+
