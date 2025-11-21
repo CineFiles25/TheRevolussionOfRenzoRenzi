@@ -4,7 +4,7 @@ from rdflib import Namespace, Graph, RDF, URIRef, OWL, Literal, XSD, RDFS, FOAF
 
 # NAMESPACES
 
-rrr = Namespace("https://github.com/CineFiles25/informational-science-and-cultural-heritage")
+rrr = Namespace("https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/")
 rdf = Namespace("http://www.w3.org/1999/02/22-rdf-syntax-ns#")
 rdfs = Namespace("http://www.w3.org/2000/01/rdf-schema#")
 owl = Namespace("http://www.w3.org/2002/07/owl#")

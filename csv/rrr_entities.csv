@@ -1,24 +1,25 @@
 id,label,class,uri,sameAs
-cineteca_di_bologna,Cineteca di Bologna,schema:Organization,https://cinefiles25.github.io/renzi/org/cineteca_di_bologna,http://viaf.org/viaf/124960346
-renzi_library,Renzo Renzi Library,schema:Library,https://cinefiles25.github.io/renzi/place/renzo_renzi_library,https://isni.org/isni/0000000459141457
-renzi_collection,Renzo Renzi Collection,schema:Collection,https://cinefiles25.github.io/renzi/collection/renzo_renzi_collection,
-first_fellini_book,Book 'Il primo Fellini',schema:Book,https://cinefiles25.github.io/renzi/work/first_fellini_book,https://opac.sbn.it/bid/ITICCUSBL0105676
-lastrada_screenplay_tei,Screenplay 'La Strada' – Sequence I (TEI),schema:CreativeWork,https://cinefiles25.github.io/renzi/work/lastrada_screenplay_tei,
-photo_lastrada_01,"Premiere of 'La Strada' at Cinema Fulgor",schema:ImageObject,https://cinefiles25.github.io/renzi/work/photo_lastrada_01,
-caricature_fellini_renzi,Fellini → Renzi Caricature,schema:VisualArtwork,https://cinefiles25.github.io/renzi/work/caricature_fellini_renzi,
-renzi_interview_2000,Renzo Renzi Video Interview (2000),schema:VideoObject,https://cinefiles25.github.io/renzi/work/renzi_interview_2000,
-la_strada_soundtrack_original,"Soundtrack 'La Strada' – Original Release",schema:MusicRecording,https://cinefiles25.github.io/renzi/work/la_strada_soundtrack_original,
-la_strada_film,Film 'La Strada',schema:Movie,https://cinefiles25.github.io/renzi/work/la_strada_film,https://www.wikidata.org/wiki/Q18402
-set_photo,Ferrari Set Photo,schema:ImageObject,https://cinefiles25.github.io/renzi/work/set_photo,
-renzo_renzi,Renzo Renzi,foaf:Person,https://cinefiles25.github.io/renzi/person/renzo_renzi,http://viaf.org/viaf/40486517
-federico_fellini,Federico Fellini,foaf:Person,https://cinefiles25.github.io/renzi/person/federico_fellini,http://viaf.org/viaf/76315386
-giulietta_masina,Giulietta Masina,foaf:Person,https://cinefiles25.github.io/renzi/person/giulietta_masina,http://viaf.org/viaf/37021297
-libero_grandi,Libero Grandi,foaf:Person,https://cinefiles25.github.io/renzi/person/libero_grandi,
-nino_rota,Nino Rota,foaf:Person,https://cinefiles25.github.io/renzi/person/nino_rota,http://viaf.org/viaf/88980189
-aldo_ferrari,Aldo Ferrari,foaf:Person,https://cinefiles25.github.io/renzi/person/aldo_ferrari,https://www.wikidata.org/wiki/Q3609208
-columbus_film,Columbus Film,schema:Organization,https://cinefiles25.github.io/renzi/org/columbus_film,
-cinema_fulgor,Cinema Fulgor,schema:CivicStructure,https://cinefiles25.github.io/renzi/place/cinema_fulgor,https://www.wikidata.org/wiki/Q36839368
-public_reception,Public Reception,skos:Concept,https://cinefiles25.github.io/renzi/concept/public_reception,
-renzi_oral_memory,Renzo Renzi Oral Memory,skos:Concept,https://cinefiles25.github.io/renzi/concept/renzi_oral_memory,
-bologna,Bologna,schema:Place,https://cinefiles25.github.io/renzi/place/bologna,https://www.wikidata.org/wiki/Q1891
+cineteca_di_bologna,Cineteca di Bologna,schema:Organization,https://cinefiles25.github.io/rrr/org/cineteca_di_bologna,http://viaf.org/viaf/124960346
+renzi_library,Renzo Renzi Library,schema:Library,https://cinefiles25.github.io/rrr/place/renzo_renzi_library,https://isni.org/isni/0000000459141457
+renzi_collection,Renzo Renzi Collection,schema:Collection,https://cinefiles25.github.io/rrr/collection/renzo_renzi_collection,
+first_fellini_book,Book 'Il primo Fellini',schema:Book,https://cinefiles25.github.io/rrr/work/first_fellini_book,https://opac.sbn.it/bid/ITICCUSBL0105676
+lastrada_screenplay_tei,Screenplay 'La Strada' – Sequence I (TEI),schema:CreativeWork,https://cinefiles25.github.io/rrr/work/lastrada_screenplay_tei,
+photo_lastrada_01,"Premiere of 'La Strada' at Cinema Fulgor",schema:ImageObject,https://cinefiles25.github.io/rrr/work/photo_lastrada_01,
+caricature_fellini_renzi,Fellini → Renzi Caricature,schema:VisualArtwork,https://cinefiles25.github.io/rrr/work/caricature_fellini_renzi,
+renzi_interview_2000,Renzo Renzi Video Interview (2000),schema:VideoObject,https://cinefiles25.github.io/rrr/work/renzi_interview_2000,
+la_strada_soundtrack_original,"Soundtrack 'La Strada' – Original Release",schema:MusicRecording,https://cinefiles25.github.io/rrr/work/la_strada_soundtrack_original,
+la_strada_film,Film 'La Strada',schema:Movie,https://cinefiles25.github.io/rrr/work/la_strada_film,https://www.wikidata.org/wiki/Q18402
+set_photo,Ferrari Set Photo,schema:ImageObject,https://cinefiles25.github.io/rrr/work/set_photo,
+po_documentary,Documentary 'Quando il Po è dolce',schema:Movie,https://cinefiles25.github.io/rrr/work/quando_il_po_è_dolce,
+renzo_renzi,Renzo Renzi,foaf:Person,https://cinefiles25.github.io/rrr/person/renzo_renzi,http://viaf.org/viaf/40486517
+federico_fellini,Federico Fellini,foaf:Person,https://cinefiles25.github.io/rrr/person/federico_fellini,http://viaf.org/viaf/76315386
+giulietta_masina,Giulietta Masina,foaf:Person,https://cinefiles25.github.io/rrr/person/giulietta_masina,http://viaf.org/viaf/37021297
+libero_grandi,Libero Grandi,foaf:Person,https://cinefiles25.github.io/rrr/person/libero_grandi,
+nino_rota,Nino Rota,foaf:Person,https://cinefiles25.github.io/rrr/person/nino_rota,http://viaf.org/viaf/88980189
+aldo_ferrari,Aldo Ferrari,foaf:Person,https://cinefiles25.github.io/rrr/person/aldo_ferrari,https://www.wikidata.org/wiki/Q3609208
+columbus_film,Columbus Film,schema:Organization,https://cinefiles25.github.io/rrr/org/columbus_film,
+cinema_fulgor,Cinema Fulgor,schema:CivicStructure,https://cinefiles25.github.io/rrr/place/cinema_fulgor,https://www.wikidata.org/wiki/Q36839368
+public_reception,Public Reception,skos:Concept,https://cinefiles25.github.io/rrr/concept/public_reception,
+renzi_oral_memory,Renzo Renzi Oral Memory,skos:Concept,https://cinefiles25.github.io/rrr/concept/renzi_oral_memory,
+bologna,Bologna,schema:Place,https://cinefiles25.github.io/rrr/place/bologna,https://www.wikidata.org/wiki/Q1891
 

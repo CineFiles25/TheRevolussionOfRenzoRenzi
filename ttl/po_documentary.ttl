@@ -1,7 +1,7 @@
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix rrr: <https://github.com/CineFiles25/informational-science-and-cultural-heritage> .
+@prefix rrr: <https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/> .
 @prefix schema: <https://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
@@ -28,7 +28,7 @@ rrr:quando_il_po_è_dolce a schema:Movie ;
     schema:genre "Short documentary" ;
     schema:inLanguage "Italian" ;
     schema:musicBy "Enzo Masetti" ;
-    schema:productionCompany "Columbus Film" ;
+    schema:productionCompany rrr:columbus_film ;
     schema:sound "Sound" ;
     schema:spatialCoverage "Po delta/plains" .
 
