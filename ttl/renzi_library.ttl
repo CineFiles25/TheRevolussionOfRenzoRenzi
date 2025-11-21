@@ -1,0 +1,37 @@
+@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix dbo: <http://dbpedia.org/ontology/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rrr: <https://github.com/CineFiles25/informational-science-and-cultural-heritage> .
+@prefix schema: <https://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+rrr:bologna owl:sameAs <http://viaf.org/viaf/257723025> .
+
+rrr:cineteca_di_bologna owl:sameAs <http://viaf.org/viaf/124960346> .
+
+rrr:renzi_library a schema:Library ;
+    dbo:dedicatedTo rrr:renzo_renzi ;
+    dc:description "2x2 M Screen",
+        "4 Speakers, Mixer, 2 Table Microphones, One Wirless Microphone" ;
+    dc:identifier "IT-BO0286" ;
+    crm:P52_has_current_owner "Cineteca Di Bologna" ;
+    rdfs:subClassOf schema:CivicStructure ;
+    owl:sameAs <https://isni.org/isni/0000000459141457> ;
+    schema:additionalType "Architectural Complex",
+        "Slaughterhouse" ;
+    schema:address "Piazzetta Pier Paolo Pasolini 3/B" ;
+    schema:addressCountry "Italy" ;
+    schema:addressLocality "Bologna" ;
+    schema:alternateName "Biblioteca Della Cineteca" ;
+    schema:date "1884"^^xsd:gYear ;
+    schema:floorSize "2403m2"^^xsd:float ;
+    schema:foundingDate "1967"^^xsd:gYear ;
+    schema:geo "44.50284, 11.33449" ;
+    schema:name "Biblioteca Renzo Renzi" ;
+    schema:seatingCapacity 65 ;
+    schema:url "https://cinetecadibologna.it/biblioteca/"^^xsd:anyURI .
+
+rrr:renzo_renzi owl:sameAs <http://viaf.org/viaf/40486517> .
+

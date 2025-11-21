@@ -11,6 +11,7 @@ owl = Namespace("http://www.w3.org/2002/07/owl#")
 schema = Namespace("https://schema.org/")
 dc = Namespace("http://purl.org/dc/elements/1.1/")
 dcterms = Namespace("http://purl.org/dc/terms/")
+dbo = Namespace("http://dbpedia.org/ontology/")
 crm = Namespace("http://www.cidoc-crm.org/cidoc-crm/")
 foaf = Namespace("http://xmlns.com/foaf/0.1/")
 fiaf = Namespace("https://fiaf.github.io/film-related-materials/objects/")
@@ -27,6 +28,7 @@ ns_dict = {
     "schema": schema,
     "dc": dc,
     "dcterms": dcterms,
+    "dbo": dbo,
     "crm": crm,
     "foaf": foaf,
     "fiaf": fiaf
@@ -52,11 +54,12 @@ g.add((bologna, OWL.sameAs, URIRef("http://viaf.org/viaf/257723025")))
 
 renzi_library = pd.read_csv("../csv/renzi_library.csv", keep_default_na=False, encoding="utf-8")
 
+# Call graph_bindings to bind namespaces
 g = graph_bindings()
 
 for idx, row in renzi_library.iterrows():
-    g.add((library, RDF.type, schema.Library))
-    g.add((library, RDFS.subClassOf, schema.CivicStructure))
+    g.add((library, RDF.type, URIRef(schema + "Library")))
+    g.add((library, RDFS.subClassOf, URIRef(schema + "CivicStructure")))
     g.add((library, OWL.sameAs, URIRef("https://isni.org/isni/0000000459141457")))
     g.add((library, dc.identifier, Literal(row["Id ISIL"])))
     g.add((library, schema.name, Literal(row["Name"])))
@@ -75,8 +78,8 @@ for idx, row in renzi_library.iterrows():
     g.add((library, schema.seatingCapacity, Literal(row["Seats"], datatype=XSD.integer)))
     g.add((library, dc.description, Literal(row["Audio System"])))
     g.add((library, dc.description, Literal(row["Video System"])))
-    g.add((renzo_renzi, schema.honorificPrefix, library))
-    
+    g.add((library, dbo.dedicatedTo, renzo_renzi))
+
 # SERIALIZATION
 
 g.serialize(format="turtle", destination="../ttl/renzi_library.ttl") 
