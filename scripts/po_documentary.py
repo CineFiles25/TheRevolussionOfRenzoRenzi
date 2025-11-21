@@ -83,6 +83,6 @@ for idx, row in quando_il_po_è_dolce.iterrows():
     
 # SERIALIZATION
 
-g.serialize(format="turtle", destination="../ttl/documentary.ttl")
+g.serialize(format="turtle", destination="../ttl/po_documentary.ttl")
 
 print("CSV converted to TTL!")

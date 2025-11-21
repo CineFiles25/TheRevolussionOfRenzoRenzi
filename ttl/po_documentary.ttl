@@ -1,0 +1,36 @@
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rrr: <https://github.com/CineFiles25/informational-science-and-cultural-heritage> .
+@prefix schema: <https://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+rrr:bologna owl:sameAs <http://viaf.org/viaf/257723025> .
+
+rrr:cineteca_di_bologna owl:sameAs <http://viaf.org/viaf/124960346> .
+
+rrr:quando_il_po_è_dolce a schema:Movie ;
+    dc:title "Quando il Po è dolce" ;
+    rdfs:subClassOf schema:CreativeWork ;
+    schema:about "Po delta/plains" ;
+    schema:alternateName "When the Po River is fresh" ;
+    schema:author rrr:renzo_renzi ;
+    schema:color "B/W" ;
+    schema:contentRating "T" ;
+    schema:contentSize "300m" ;
+    schema:countryOfOrigin "Italy" ;
+    schema:datePublished "1952"^^xsd:gYear ;
+    schema:director rrr:renzo_renzi ;
+    schema:duration "11min" ;
+    schema:edition 2000 ;
+    schema:encodingFormat "35mm" ;
+    schema:frameRate "24 f/s" ;
+    schema:genre "Short documentary" ;
+    schema:inLanguage "Italian" ;
+    schema:musicBy "Enzo Masetti" ;
+    schema:productionCompany "Columbus Film" ;
+    schema:sound "Sound" ;
+    schema:spatialCoverage "Po delta/plains" .
+
+rrr:renzo_renzi owl:sameAs <http://viaf.org/viaf/40486517> .
+
