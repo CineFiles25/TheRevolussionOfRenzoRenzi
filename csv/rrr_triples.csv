@@ -1,5 +1,5 @@
 subject,predicate,object,object_type,note
-cineteca,dcterms:hasPart,renzi_library,iri,Cineteca includes the library
+cineteca_di_bologna,dcterms:hasPart,renzi_library,iri,Cineteca includes the library
 renzi_library,dcterms:hasPart,renzi_collection,iri,The library preserves the collection
 renzi_collection,dcterms:hasPart,first_fellini_book,iri,The collection contains the book
 renzi_collection,dcterms:hasPart,lastrada_screenplay_tei,iri,The collection contains the TEI excerpt
@@ -20,12 +20,12 @@ renzi_interview_2000,schema:about,la_strada_film,iri,Renzi discusses the film in
 la_strada_film,dcterms:creator,federico_fellini,iri,Fellini directed the film
 la_strada_soundtrack_original,schema:creator,nino_rota,iri,Nino Rota composed the soundtrack
 photo_lastrada_01,schema:contentLocation,cinema_fulgor,iri,The premiere took place at Cinema Fulgor
-photo_lastrada_01,dc:date,1954,literal,Year of the La Strada premiere
+photo_lastrada_01,dcterms:date,1954,literal,Year of the La Strada premiere
 caricature_fellini_renzi,schema:creator,renzo_renzi,iri,Renzo Renzi is the creator of the caricature
 la_strada_soundtrack_original,schema:about,la_strada_film,iri,The soundtrack is associated with the film La Strada
-caricature_fellini_renzi,schema:locationCreated,renzi_library,iri,Preserved at the Renzo Renzi Library
-photo_lastrada_01,schema:locationCreated,renzi_library,iri,Preserved at the Renzo Renzi Library
-first_fellini_book,schema:locationCreated,renzi_library,iri,Preserved at the Renzo Renzi Library
-la_strada_soundtrack_original,schema:locationCreated,renzi_library,iri,Preserved at the Renzo Renzi Library
-renzi_interview_2000,dc:date,2000,literal,Year of production
-renzi_interview_2000,schema:locationCreated,Bologna,iri,Produced in Bologna
+caricature_fellini_renzi,schema:location,renzi_library,iri,Preserved at the Renzo Renzi Library
+photo_lastrada_01,schema:location,renzi_library,iri,Preserved at the Renzo Renzi Library
+first_fellini_book,schema:location,renzi_library,iri,Preserved at the Renzo Renzi Library
+la_strada_soundtrack_original,schema:location,renzi_library,iri,Preserved at the Renzo Renzi Library
+renzi_interview_2000,dcterms:date,2000,literal,Year of production
+renzi_interview_2000,schema:locationCreated,bologna,iri,Produced in Bologna
