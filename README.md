@@ -120,14 +120,14 @@ Transforms the TEI edition of *La Strada* into HTML.
 ## Website  
 The website includes:
 
-•&nbsp;TEI-encoded *La Strada* edition
-•&nbsp;Metadata & analysis
-•&nbsp;RDF dataset (Turtle)
-•&nbsp;Photo gallery
-•&nbsp;Team & supervision
-•&nbsp;Documentation & downloads
+- TEI-encoded *La Strada* edition
+- Metadata & analysis
+- RDF dataset (Turtle)
+- Photo gallery
+- Team & supervision
+- Documentation & downloads
 
-→ https://cinefiles25.github.io/TheRevolussionOfRenzoRenzi/
+ → https://cinefiles25.github.io/TheRevolussionOfRenzoRenzi/
 
 ---
 
