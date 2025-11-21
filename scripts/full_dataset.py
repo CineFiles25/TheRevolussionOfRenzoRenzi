@@ -40,12 +40,13 @@ for prefix, ns in ns_dict.items():
 # People, Places and Organizations
 renzo_renzi = URIRef(rrr + "renzo_renzi")
 aldo_ferrari = URIRef(rrr + "aldo_ferrari")
-cineteca_di_bologna = URIRef(rrr + "cineteca_di_bologna")
 bologna = URIRef(rrr + "bologna")
+cineteca_di_bologna = URIRef(rrr + "cineteca_di_bologna")
+columbus_film = URIRef(rrr + "columbus_film")
 
 # Items 
-library = URIRef(rrr + "renzi_library")
-documentary = URIRef(rrr + "quando_il_po_e_dolce")
+renzi_library = URIRef(rrr + "renzi_library")
+documentary = URIRef(rrr + "quando_il_po_è_dolce")
 set_photo = URIRef(rrr + "ferrari_set_photo")
 
 # AUTHORITY 
@@ -58,30 +59,30 @@ g.add((bologna, OWL.sameAs, URIRef("http://viaf.org/viaf/257723025")))
 
 # Library 
 
-renzi_library = pd.read_csv("../csv/renzi_library.csv", keep_default_na=False, encoding="utf-8")
+renzo_renzi_library = pd.read_csv("../csv/renzi_library.csv", keep_default_na=False, encoding="utf-8")
     
-for idx, row in renzi_library.iterrows():
-    g.add((library, RDF.type, URIRef(schema + "Library")))
-    g.add((library, RDFS.subClassOf, URIRef(schema + "CivicStructure")))
-    g.add((library, OWL.sameAs, URIRef("https://isni.org/isni/0000000459141457")))
-    g.add((library, dc.identifier, Literal(row["Id ISIL"])))
-    g.add((library, schema.name, Literal(row["Name"])))
-    g.add((library, schema.alternateName, Literal(row["Alt Title"])))
-    g.add((library, schema.additionalType, Literal(row["Original Function"])))
-    g.add((library, crm.P52_has_current_owner, Literal(row["Owner"])))
-    g.add((library, schema.date, Literal(row["Completion Of Work"], datatype=XSD.gYear)))
-    g.add((library, schema.foundingDate, Literal(row["Library Foundation"], datatype=XSD.gYear)))
-    g.add((library, schema.address, Literal(row["Address"])))
-    g.add((library, schema.addressLocality, Literal(row["City"])))
-    g.add((library, schema.addressCountry, Literal(row["Country"])))
-    g.add((library, schema.geo, Literal(row["Coordinates"])))
-    g.add((library, schema.url, Literal(row["Website"], datatype=XSD.anyURI)))
-    g.add((library, schema.additionalType, Literal(row["Structure Type"])))
-    g.add((library, schema.floorSize, Literal(row["Area"], datatype=XSD.float)))
-    g.add((library, schema.seatingCapacity, Literal(row["Seats"], datatype=XSD.integer)))
-    g.add((library, dc.description, Literal(row["Audio System"])))
-    g.add((library, dc.description, Literal(row["Video System"])))
-    g.add((renzo_renzi, schema.honorificPrefix, library))
+for idx, row in renzo_renzi_library.iterrows():
+    g.add((renzi_library, RDF.type, URIRef(schema + "Library")))
+    g.add((renzi_library, RDFS.subClassOf, URIRef(schema + "CivicStructure")))
+    g.add((renzi_library, OWL.sameAs, URIRef("https://isni.org/isni/0000000459141457")))
+    g.add((renzi_library, dc.identifier, Literal(row["Id ISIL"])))
+    g.add((renzi_library, schema.name, Literal(row["Name"])))
+    g.add((renzi_library, schema.alternateName, Literal(row["Alt Title"])))
+    g.add((renzi_library, schema.additionalType, Literal(row["Original Function"])))
+    g.add((renzi_library, crm.P52_has_current_owner, Literal(row["Owner"])))
+    g.add((renzi_library, schema.date, Literal(row["Completion Of Work"], datatype=XSD.gYear)))
+    g.add((renzi_library, schema.foundingDate, Literal(row["Library Foundation"], datatype=XSD.gYear)))
+    g.add((renzi_library, schema.address, Literal(row["Address"])))
+    g.add((renzi_library, schema.addressLocality, Literal(row["City"])))
+    g.add((renzi_library, schema.addressCountry, Literal(row["Country"])))
+    g.add((renzi_library, schema.geo, Literal(row["Coordinates"])))
+    g.add((renzi_library, schema.url, Literal(row["Website"], datatype=XSD.anyURI)))
+    g.add((renzi_library, schema.additionalType, Literal(row["Structure Type"])))
+    g.add((renzi_library, schema.floorSize, Literal(row["Area"], datatype=XSD.float)))
+    g.add((renzi_library, schema.seatingCapacity, Literal(row["Seats"], datatype=XSD.integer)))
+    g.add((renzi_library, dc.description, Literal(row["Audio System"])))
+    g.add((renzi_library, dc.description, Literal(row["Video System"])))
+    g.add((renzo_renzi, schema.honorificPrefix, renzi_library))
 
 # Documentary 
 
