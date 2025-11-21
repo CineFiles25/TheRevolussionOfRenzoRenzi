@@ -69,13 +69,13 @@ A detailed, step-by-step description of the entire workflow is available in **Pr
 
 Each object is documented with:
 
-•&nbsp;&nbsp;descriptive metadata  
-•&nbsp;&nbsp;provider & holding institution  
-•&nbsp;&nbsp;reference standard  
-•&nbsp;&nbsp;CSV entry  
-•&nbsp;&nbsp;RDF representation  
-•&nbsp;&nbsp;inter-entity links  
-•&nbsp;&nbsp;authority identifiers (VIAF/Wikidata)
+- descriptive metadata
+- provider & holding institution
+- reference standard
+- CSV entry
+- RDF representation
+- inter-entity links
+- authority identifiers (VIAF/Wikidata)
 
 ---
 
