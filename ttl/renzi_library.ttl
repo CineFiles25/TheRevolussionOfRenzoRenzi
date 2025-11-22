@@ -7,7 +7,7 @@
 @prefix schema: <https://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-rrr:renzi_library a schema:Library ;
+rrr:renzo_renzi_library a schema:Library ;
     dbo:dedicatedTo rrr:renzo_renzi ;
     dc:description "2x2 M Screen",
         "4 Speakers, Mixer, 2 Table Microphones, One Wirless Microphone" ;
