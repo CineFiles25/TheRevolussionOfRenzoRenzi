@@ -41,7 +41,7 @@ def graph_bindings():
 
 # ENTITIES 
 
-renzi_library = URIRef(rrr + "renzi_library")
+renzi_library = URIRef(rrr + "renzo_renzi_library")
 renzo_renzi = URIRef(rrr + "renzo_renzi")
 cineteca_di_bologna = URIRef(rrr + "cineteca_di_bologna")
 bologna = URIRef(rrr + "bologna")
