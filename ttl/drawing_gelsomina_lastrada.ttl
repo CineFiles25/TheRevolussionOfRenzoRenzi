@@ -17,7 +17,3 @@ rrr:gelsomina_drawing a oa:Disegno ;
 
 rrr:renzo_renzi owl:sameAs <http://viaf.org/viaf/40486517> ;
     dc:name "Renzo Renzi" . 
-
-rrr:renzo_renzi_collection a dcterms:Collection ;
-    dc:title "Renzo Renzi Collection" ;
-    dc:description "Collection of artworks by Renzo Renzi" .
