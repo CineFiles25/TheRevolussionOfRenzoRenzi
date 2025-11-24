@@ -57,7 +57,7 @@ renzo_renzi_collection = URIRef(rrr + "renzo_renzi_collection")
 # ===================== READ CSV =====================
 
 soundtrack_df = pd.read_csv(
-    "/mnt/data/la_strada_soundtrack_original.csv",
+    "../csv/la_strada_soundtrack_original.csv",
     keep_default_na=False,
     encoding="utf-8"
 )
