@@ -1,33 +1,13 @@
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix fiaf: <https://fiaf.github.io/film-related-materials/objects/> .
-@prefix foaf: <http://xmlns.com/foaf/0.1/> .
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix rrr: <https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/> .
 @prefix schema: <https://schema.org/> .
 
-rrr:cineteca_di_bologna a foaf:Organization .
-
-rrr:la_strada_1954 a schema:Movie .
-
-rrr:la_strada_soundtrack_original a fiaf:FilmRelatedObject,
-        schema:CreativeWork,
+rrr:la_strada_soundtrack_original a schema:CreativeWork,
         schema:MusicRecording ;
     dc:identifier "la_strada_soundtrack_original" ;
     dc:title "La Strada: Original Film Soundtrack (Original Physical Release)" ;
     dcterms:conformsTo "ISBD(NBM)" ;
-    dcterms:publisher rrr:label_unknown ;
-    dcterms:rights "Rights status unknown; to be confirmed" ;
-    rdfs:comment "Information incomplete — awaiting confirmation from the Cineteca / archive." ;
-    schema:creator rrr:nino_rota .
-
-rrr:renzo_renzi_collection a schema:Collection .
-
-rrr:label_unknown a foaf:Organization ;
-    foaf:name "Unknown" .
-
-rrr:nino_rota a foaf:Person ;
-    owl:sameAs <http://viaf.org/viaf/88980189> ;
-    foaf:name "Nino Rota" .
-
+    dcterms:creator "Nino Rota" ;
+    dcterms:description "Information incomplete — awaiting confirmation from the Cineteca / archive." ;
+    dcterms:publisher "Unknown" .
