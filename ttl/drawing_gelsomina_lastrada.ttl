@@ -1,15 +1,19 @@
-@prefix : <https://w3id.org/renzocollection/> .
+@prefix rrr: <https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/> .
 @prefix oa: <https://iccd.beniculturali.it/it/ricercanormative/29/oa-opere-oggetti-d-arte-3_00#> .
 @prefix iccd: <https://iccd.beniculturali.it/> .
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
-@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dcterms: <http://purl.org/dc/terms/> . 
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
 
-:gelsomina_drawing a oa:Disegno ;
+rrr:gelsomina_drawing a oa:Disegno ;
     dc:title "La strada: Gelsomina col tamburo" ;
-    dc:creator "Renzo Renzi" ;
+    dc:creator rrr:renzo_renzi ;
     dc:description "Portrait of Gelsomina playing a drum on a road." ;
     oa:tecnica "Pencil and markers" ;
     oa:supporto "Cardboard" ;
     oa:misure "25.2 x 17.2 cm" ;
-    oa:collezione "Renzo Renzi Collection" ;
+    oa:collezione rrr:renzo_renzi_collection ;
     dcterms:source <https://docs.google.com/document/d/1ZvQGWcsAFJIfbHujWuv6LcHwhw9zlxtQ/edit> .
+
+rrr:renzo_renzi owl:sameAs <http://viaf.org/viaf/40486517> ;
+    dc:name "Renzo Renzi" . 
