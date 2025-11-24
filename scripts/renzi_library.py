@@ -50,7 +50,7 @@ g.add((renzo_renzi, OWL.sameAs, URIRef("http://viaf.org/viaf/40486517")))
 g.add((cineteca_di_bologna, OWL.sameAs, URIRef("http://viaf.org/viaf/124960346")))
 g.add((bologna, OWL.sameAs, URIRef("http://viaf.org/viaf/257723025")))
 
-# MAPPING TO ONTOLOGIES 
+# MAPPING 
 
 renzo_renzi_library = pd.read_csv("../csv/renzi_library.csv", keep_default_na=False, encoding="utf-8")
 

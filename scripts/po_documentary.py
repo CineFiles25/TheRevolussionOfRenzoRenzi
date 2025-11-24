@@ -55,7 +55,7 @@ g.add((bologna, OWL.sameAs, URIRef("http://viaf.org/viaf/257723025")))
 g.add((delta_po_river, OWL.sameAs, URIRef("http://viaf.org/viaf/316432038")))
 g.add((enzo_masetti, OWL.sameAs, URIRef("http://viaf.org/viaf/56806835")))
 
-# MAPPING TO ONTOLOGIES
+# MAPPING
 
 quando_il_po_è_dolce = pd.read_csv("../csv/po_documentary.csv", keep_default_na=False, encoding="utf-8")
 
@@ -89,4 +89,4 @@ for idx, row in quando_il_po_è_dolce.iterrows():
 
 g.serialize(format="turtle", destination="../ttl/po_documentary.ttl")
 
-print("CSV converted to TTL!")
+print("CSV converted to TTL!!")

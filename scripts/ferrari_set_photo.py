@@ -51,7 +51,7 @@ g.add((renzo_renzi, OWL.sameAs, URIRef("http://viaf.org/viaf/40486517")))
 g.add((cineteca_di_bologna, OWL.sameAs, URIRef("http://viaf.org/viaf/124960346")))
 g.add((bologna, OWL.sameAs, URIRef("http://viaf.org/viaf/257723025")))
 
-# MAPPING CSV
+# MAPPING 
 
 ferrari_set_photo = pd.read_csv("../csv/ferrari_set_photo.csv", keep_default_na=False, encoding="utf-8")
 
