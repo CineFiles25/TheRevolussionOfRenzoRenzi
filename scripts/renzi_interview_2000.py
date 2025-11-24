@@ -58,7 +58,7 @@ renzo_renzi_collection = URIRef(rrr + "renzo_renzi_collection")
 # ===================== READ CSV =====================
 
 interview_df = pd.read_csv(
-    "/mnt/data/renzi_interview_2000.csv",
+    "../csv/renzi_interview_2000.csv",
     keep_default_na=False,
     encoding="utf-8"
 )
