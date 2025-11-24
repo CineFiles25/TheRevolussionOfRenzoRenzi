@@ -1,0 +1,63 @@
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix fiaf: <https://fiaf.github.io/film-related-materials/objects/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rrr: <https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/> .
+@prefix schema: <https://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+rrr:cineteca_di_bologna a foaf:Organization .
+
+rrr:photo_lastrada_01 a fiaf:FilmRelatedObject,
+        schema:ImageObject,
+        schema:Photograph ;
+    dc:creator rrr:libero_grandi ;
+    dc:identifier "photo_lastrada_01" ;
+    dc:language "it" ;
+    dc:title "Premiere of 'La Strada' at Cinema Fulgor"@it ;
+    dcterms:alternative "Federico Fellini and Giulietta Masina attending the screening"@it ;
+    dcterms:conformsTo "Scheda F" ;
+    dcterms:description "Vintage press photograph"@it ;
+    dcterms:isPartOf rrr:renzo_renzi_collection ;
+    dcterms:rights "Rights status unknown; to be confirmed by Cineteca di Bologna" ;
+    dcterms:type "Photograph" ;
+    rdfs:comment "Original archival photograph from the 'Fondo Iniziative Cineteca'. No reproduction restrictions indicated." ;
+    foaf:depicts rrr:federico_fellini,
+        rrr:giulietta_masina ;
+    schema:about rrr:la_strada_1954,
+        rrr:la_strada_premiere_1954 ;
+    schema:additionalType "Photographic print" ;
+    schema:artMedium "Gelatin silver print on paper" ;
+    schema:color "Black and white" ;
+    schema:dateCreated "1954"^^xsd:gYear ;
+    schema:identifier "FIC0414" ;
+    schema:locationCreated rrr:cinema_fulgor .
+
+rrr:cinema_fulgor a schema:Place ;
+    owl:sameAs <https://www.wikidata.org/wiki/Q36839368> ;
+    schema:name "Cinema Fulgor"@it .
+
+rrr:federico_fellini a foaf:Person ;
+    owl:sameAs <http://viaf.org/viaf/76315386> ;
+    foaf:name "Federico Fellini" .
+
+rrr:giulietta_masina a foaf:Person ;
+    owl:sameAs <http://viaf.org/viaf/37021297> ;
+    foaf:name "Giulietta Masina" .
+
+rrr:la_strada_1954 a schema:Movie ;
+    dc:title "la_strada_film" ;
+    owl:sameAs <https://www.wikidata.org/wiki/Q18402> .
+
+rrr:la_strada_premiere_1954 a schema:Event ;
+    schema:name "Film premiere of 'La Strada' (1954)"@it .
+
+rrr:libero_grandi a foaf:Person ;
+    owl:sameAs <https://cinefiles25.github.io/renzi/person/libero_grandi> ;
+    foaf:name "Libero Grandi" .
+
+rrr:renzo_renzi_collection a schema:Collection ;
+    schema:name "Fondo Iniziative Cineteca" .
+

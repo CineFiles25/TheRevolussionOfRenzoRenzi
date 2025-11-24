@@ -1,0 +1,28 @@
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix fiaf: <https://fiaf.github.io/film-related-materials/objects/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rrr: <https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/> .
+@prefix schema: <https://schema.org/> .
+
+rrr:cineteca_di_bologna a foaf:Organization .
+
+rrr:interview_place_renzi_2000 a schema:Place .
+
+rrr:interviewee_renzi_interview_2000 a foaf:Person .
+
+rrr:interviewer_renzi_interview_2000 a foaf:Person .
+
+rrr:renzi_interview_2000 a fiaf:FilmRelatedObject,
+        schema:CreativeWork,
+        schema:Interview ;
+    dc:identifier "la_strada_soundtrack_original" ;
+    dc:title "La Strada: Original Film Soundtrack" ;
+    dcterms:conformsTo "ISBD(NBM)" ;
+    dcterms:rights "Rights status unknown; to be confirmed" ;
+    dcterms:type "Sound Recording" ;
+    rdfs:comment "Information incomplete — awaiting confirmation from Cineteca di Bologna / archive sources." .
+
+rrr:renzo_renzi_collection a schema:Collection .
+

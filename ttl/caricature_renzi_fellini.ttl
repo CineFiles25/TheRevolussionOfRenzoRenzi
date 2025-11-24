@@ -1,0 +1,46 @@
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix fiaf: <https://fiaf.github.io/film-related-materials/objects/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rrr: <https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/> .
+@prefix schema: <https://schema.org/> .
+
+rrr:caricature_fellini_renzi a fiaf:FilmRelatedObject,
+        schema:VisualArtwork ;
+    dc:creator rrr:renzo_renzi ;
+    dc:identifier "caricature_fellini_renzi" ;
+    dc:language "it" ;
+    dc:title "Why doesn’t Federico start the revolussion? — Fellini caricature"@it ;
+    dcterms:conformsTo "OA" ;
+    dcterms:created "to be confirmed (ca. 1960s)" ;
+    dcterms:description "Hand-drawn caricature by Renzo Renzi portraying Federico Fellini with the humorous caption 'Perché Federico non fa la revolussione?'. The drawing later became an emblematic image associated with the Cineteca di Bologna."@it ;
+    dcterms:extent "13 × 8.6 cm" ;
+    dcterms:isPartOf rrr:renzo_renzi_collection ;
+    dcterms:rights "© Cineteca di Bologna" ;
+    dcterms:type "Drawing" ;
+    rdfs:comment "Central visual reference for the project title 'The “Revolussion” of Renzo Renzi'." ;
+    foaf:depicts rrr:federico_fellini ;
+    schema:additionalType "Drawing / caricature" ;
+    schema:artMedium "Black ink and coloured markers" ;
+    schema:inscription "Handwritten inscription: 'Perché Federico non fa la rivolussione?'"@it ;
+    schema:location "Renzo Renzi Library, Cineteca di Bologna" ;
+    schema:material "Cut paper" ;
+    schema:sourceOrganization rrr:cineteca_di_bologna .
+
+rrr:cineteca_di_bologna a foaf:Organization ;
+    owl:sameAs <http://viaf.org/viaf/124960346> ;
+    foaf:name "Cineteca di Bologna" .
+
+rrr:federico_fellini a foaf:Person ;
+    owl:sameAs <http://viaf.org/viaf/76315386> ;
+    foaf:name "Federico Fellini" .
+
+rrr:renzo_renzi a foaf:Person ;
+    owl:sameAs <http://viaf.org/viaf/40486517> ;
+    foaf:name "Renzo Renzi" .
+
+rrr:renzo_renzi_collection a schema:Collection ;
+    schema:name "Renzo Renzi Collection" .
+
