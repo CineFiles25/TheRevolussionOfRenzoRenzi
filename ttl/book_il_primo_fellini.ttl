@@ -1,57 +1,22 @@
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix foaf: <http://xmlns.com/foaf/0.1/> .
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix rrr: <https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/> .
 @prefix schema: <https://schema.org/> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-rrr:first_fellini_book a dcterms:BibliographicResource,
-        schema:Book ;
-    dc:creator rrr:federico_fellini ;
+rrr:first_fellini_book a schema:Book ;
     dc:identifier "first_fellini_book" ;
-    dc:title "Il primo Fellini"@it ;
-    dcterms:alternative "Lo sceicco bianco; I vitelloni; La strada; Il bidone. Dal soggetto al film"@it ;
+    dcterms:alternative "Lo sceicco bianco; I vitelloni; La strada; Il bidone. Dal soggetto al film" ;
     dcterms:conformsTo "ISBD(G)" ;
-    dcterms:contributor rrr:eschilo_tarquini,
-        rrr:liliana_betti,
-        rrr:renzo_renzi ;
+    dcterms:creator "introduction by Renzo Renzi; edited by Liliana Betti and Eschilo Tarquini; screenplays by Federico Fellini" ;
     dcterms:description "Project focuses only on Sequence I of 'La Strada', encoded as a TEI excerpt for the website." ;
     dcterms:extent "326 p. : ill. ; 25 cm" ;
     dcterms:isPartOf "Dal soggetto al film. Serie retrospettiva, 1" ;
-    dcterms:publisher rrr:cappelli_editore ;
-    dcterms:relation "is_about" ;
+    dcterms:issued "1969" ;
+    dcterms:publisher "Cappelli Editore" ;
+    dcterms:relation rrr:film_la_strada_1954 ;
     dcterms:spatial "Bologna" ;
-    rdfs:comment "introduction by Renzo Renzi; edited by Liliana Betti and Eschilo Tarquini; screenplays by Federico Fellini" ;
-    schema:about rrr:la_strada_1954 ;
-    schema:datePublished "1969"^^xsd:gYear ;
-    schema:locationCreated rrr:bologna .
+    dcterms:title "Il primo Fellini" .
 
-rrr:bologna a schema:Place ;
-    schema:name "Bologna" .
-
-rrr:cappelli_editore a foaf:Organization ;
-    owl:sameAs <https://www.wikidata.org/wiki/Q107189435> ;
-    foaf:name "Cappelli Editore" .
-
-rrr:eschilo_tarquini a foaf:Person ;
-    owl:sameAs <http://viaf.org/viaf/285391913> ;
-    foaf:name "Eschilo Tarquini" .
-
-rrr:federico_fellini a foaf:Person ;
-    owl:sameAs <http://viaf.org/viaf/76315386> ;
-    foaf:name "Federico Fellini" .
-
-rrr:la_strada_1954 a schema:Movie ;
+rrr:film_la_strada_1954 a schema:Movie ;
     dc:title "La Strada (1954)" ;
-    owl:sameAs <https://www.wikidata.org/wiki/Q18402> .
-
-rrr:liliana_betti a foaf:Person ;
-    owl:sameAs <http://viaf.org/viaf/93378537> ;
-    foaf:name "Liliana Betti" .
-
-rrr:renzo_renzi a foaf:Person ;
-    owl:sameAs <http://viaf.org/viaf/40486517> ;
-    foaf:name "Renzo Renzi" .
-
+    dcterms:source <https://www.wikidata.org/wiki/Q18402> .
