@@ -1,202 +1,144 @@
-import pandas as pd
-from pandas import read_csv
-from rdflib import Namespace, Graph, RDF, URIRef, OWL, Literal, XSD, RDFS, FOAF
+# ============================================
+# Base configuration
+# ============================================
 
-# ===================== NAMESPACES =====================
+import csv
+from rdflib import Graph, Namespace, URIRef, Literal
 
-rrr = Namespace("https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/")
-rdf = Namespace("http://www.w3.org/1999/02/22-rdf-syntax-ns#")
-rdfs = Namespace("http://www.w3.org/2000/01/rdf-schema#")
-owl = Namespace("http://www.w3.org/2002/07/owl#")
-schema = Namespace("https://schema.org/")
-dc = Namespace("http://purl.org/dc/elements/1.1/")
-dcterms = Namespace("http://purl.org/dc/terms/")
-dbo = Namespace("http://dbpedia.org/ontology/")
-crm = Namespace("http://www.cidoc-crm.org/cidoc-crm/")
-foaf = Namespace("http://xmlns.com/foaf/0.1/")
-fiaf = Namespace("https://fiaf.github.io/film-related-materials/objects/")
-
-g = Graph()
-
-ns_dict = {
-    "rrr": rrr,
-    "rdf": rdf,
-    "rdfs": rdfs,
-    "owl": owl,
-    "schema": schema,
-    "dc": dc,
-    "dcterms": dcterms,
-    "dbo": dbo,
-    "crm": crm,
-    "foaf": foaf,
-    "fiaf": fiaf
+# Centralized namespace collection
+NS = {
+    "rrr": Namespace("https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/"),
+    "schema": Namespace("https://schema.org/"),
+    "dc": Namespace("http://purl.org/dc/elements/1.1/"),
+    "dcterms": Namespace("http://purl.org/dc/terms/"),
+    "rdf": Namespace("http://www.w3.org/1999/02/22-rdf-syntax-ns#"),
 }
 
-def graph_bindings():
-    """Bind all namespaces to the RDF graph."""
-    for prefix, ns in ns_dict.items():
+
+def init_graph():
+    """
+    Initialize an RDF graph and bind all predefined namespaces.
+    """
+    g = Graph()
+    for prefix, ns in NS.items():
         g.bind(prefix, ns)
     return g
 
 
-# ===================== LOCAL ENTITIES =====================
+def write_graph(graph, output_path):
+    """
+    Serialize and export the RDF graph in Turtle format.
+    """
+    graph.serialize(destination=output_path, format="turtle")
 
-# Main audiovisual resource: the original soundtrack of "La Strada"
-la_strada_soundtrack = URIRef(rrr + "la_strada_soundtrack_original")
 
-# Composer (from the CSV)
-nino_rota = URIRef(rrr + "nino_rota")
+# ============================================
+# Data processing and RDF generation
+# ============================================
 
-# Film it belongs to
-la_strada_film = URIRef(rrr + "la_strada_1954")
+# Initialize the graph
+g = init_graph()
 
-# Institution and collection (likely identical to other items)
-cineteca_di_bologna = URIRef(rrr + "cineteca_di_bologna")
-renzo_renzi_collection = URIRef(rrr + "renzo_renzi_collection")
+# Load metadata for the original soundtrack (single record expected)
+with open("../csv/la_strada_soundtrack_original.csv", newline="", encoding="utf-8") as csvfile:
+    reader = csv.DictReader(csvfile)
+    row = next(reader)
 
-# ===================== READ CSV =====================
+# URI representing the soundtrack as a resource in the dataset
+soundtrack = NS["rrr"]["la_strada_soundtrack_original"]
 
-soundtrack_df = pd.read_csv(
-    "../csv/la_strada_soundtrack_original.csv",
-    keep_default_na=False,
-    encoding="utf-8"
-)
+# Optional language tag for textual fields
+language = (row.get("language") or "").strip()
 
-g = graph_bindings()
+# Core resource types
+g.add((soundtrack, NS["rdf"]["type"], NS["schema"]["MusicRecording"]))
+g.add((soundtrack, NS["rdf"]["type"], NS["schema"]["CreativeWork"]))
 
-# ===================== MAP CSV → RDF =====================
+# Identifier
+if row.get("id"):
+    g.add((soundtrack, NS["dc"]["identifier"], Literal(row["id"])))
 
-for idx, row in soundtrack_df.iterrows():
+# Descriptive standard or cataloguing rule applied
+if row.get("standard"):
+    g.add((soundtrack, NS["dcterms"]["conformsTo"], Literal(row["standard"])))
 
-    # Language tag if present
-    language = str(row["language"]).strip() if "language" in row and str(row["language"]).strip() else None
-
-    # --- TYPE DECLARATIONS ---
-
-    g.add((la_strada_soundtrack, RDF.type, schema.MusicRecording))
-    g.add((la_strada_soundtrack, RDF.type, schema.CreativeWork))
-    g.add((la_strada_soundtrack, RDF.type, fiaf.FilmRelatedObject))
-
-    # --- IDENTIFIER ---
-
-    if row.get("id"):
-        g.add((la_strada_soundtrack, dc.identifier, Literal(row["id"])))
-
-    # Descriptive standard (e.g., ISBD, local cataloguing rule)
-    if row.get("standard"):
-        g.add((la_strada_soundtrack, dcterms.conformsTo, Literal(row["standard"])))
-
-    # --- TITLE ---
-
-    if row.get("title"):
-        if language:
-            g.add((la_strada_soundtrack, dc.title, Literal(row["title"], lang=language)))
-        else:
-            g.add((la_strada_soundtrack, dc.title, Literal(row["title"])))
-
-    # --- COMPOSER ---
-
-    g.add((nino_rota, RDF.type, FOAF.Person))
-
-    if row.get("composer"):
-        g.add((nino_rota, FOAF.name, Literal(row["composer"])))
-        g.add((la_strada_soundtrack, schema.creator, nino_rota))
-
-    if row.get("composer_uri"):
-        g.add((nino_rota, OWL.sameAs, URIRef(row["composer_uri"])))
-
-    # --- FILM RELATION ---
-
-    # The soundtrack is about the 1954 film "La Strada"
-    g.add((la_strada_film, RDF.type, schema.Movie))
-
-    if row.get("related_work"):
-        g.add((la_strada_film, dc.title, Literal(row["related_work"])))
-        g.add((la_strada_soundtrack, schema.about, la_strada_film))
-
-    if row.get("related_work_uri"):
-        g.add((la_strada_film, OWL.sameAs, URIRef(row["related_work_uri"])))
-
-    # Optional relation type literal
-    if row.get("work_relation_type"):
-        g.add((la_strada_soundtrack, dcterms.relation, Literal(row["work_relation_type"])))
-
-    # --- PUBLICATION, PRODUCTION, YEAR ---
-
-    if row.get("release_year"):
-        g.add((la_strada_soundtrack,
-               schema.datePublished,
-               Literal(str(row["release_year"]), datatype=XSD.gYear)))
-
-    # --- SOUNDTRACK TYPE (e.g., original soundtrack, reissue, etc.) ---
-
-    if row.get("soundtrack_type"):
-        g.add((la_strada_soundtrack, schema.additionalType, Literal(row["soundtrack_type"])))
-
-    # --- PUBLISHER OR LABEL ---
-
-    if row.get("publisher"):
-        label = URIRef(rrr + "label_" + row["publisher"].replace(" ", "_").lower())
-        g.add((label, RDF.type, FOAF.Organization))
-        g.add((label, FOAF.name, Literal(row["publisher"])))
-        g.add((la_strada_soundtrack, dcterms.publisher, label))
-
-    if row.get("publisher_uri"):
-        g.add((label, OWL.sameAs, URIRef(row["publisher_uri"])))
-
-    # --- FORMAT ---
-
-    if row.get("format"):
-        g.add((la_strada_soundtrack, schema.encodingFormat, Literal(row["format"])))
-
-    # --- DESCRIPTION AND NOTES ---
-
-    if row.get("description"):
-        if language:
-            g.add((la_strada_soundtrack, dcterms.description, Literal(row["description"], lang=language)))
-        else:
-            g.add((la_strada_soundtrack, dcterms.description, Literal(row["description"])))
-
-    if row.get("notes"):
-        g.add((la_strada_soundtrack, rdfs.comment, Literal(row["notes"])))
-
-    # --- RIGHTS ---
-
-    if row.get("rights"):
-        g.add((la_strada_soundtrack, dcterms.rights, Literal(row["rights"])))
-
-    # --- COLLECTION AND INSTITUTION ---
-
-    # Holding institution
-    g.add((cineteca_di_bologna, RDF.type, FOAF.Organization))
-    if row.get("institution"):
-        g.add((cineteca_di_bologna, FOAF.name, Literal(row["institution"])))
-        g.add((la_strada_soundtrack, schema.sourceOrganization, cineteca_di_bologna))
-
-    if row.get("institution_uri"):
-        g.add((cineteca_di_bologna, OWL.sameAs, URIRef(row["institution_uri"])))
-
-    # Collection (Renzo Renzi Collection)
-    g.add((renzo_renzi_collection, RDF.type, schema.Collection))
-    if row.get("collection"):
-        g.add((renzo_renzi_collection, schema.name, Literal(row["collection"])))
-        g.add((la_strada_soundtrack, dcterms.isPartOf, renzo_renzi_collection))
-
-    if row.get("collection_uri"):
-        g.add((renzo_renzi_collection, OWL.sameAs, URIRef(row["collection_uri"])))
-
-    # Current location (inventory / archive location)
-    if row.get("current_location"):
-        g.add((la_strada_soundtrack, schema.location, Literal(row["current_location"])))
-
-    # --- LANGUAGE ---
-
+# Title of the soundtrack
+if row.get("title"):
     if language:
-        g.add((la_strada_soundtrack, dc.language, Literal(language)))
+        g.add((soundtrack, NS["dc"]["title"], Literal(row["title"], lang=language)))
+    else:
+        g.add((soundtrack, NS["dc"]["title"], Literal(row["title"])))
+
+# Composer information as a literal
+if row.get("composer"):
+    g.add((soundtrack, NS["dcterms"]["creator"], Literal(row["composer"])))
+
+# ============================================
+# Relationship with the film "La Strada"
+# ============================================
+
+# Link to the related film, if specified
+if row.get("related_work"):
+    film = NS["rrr"]["film_la_strada_1954"]
+
+    # Basic typing and title for the related film
+    g.add((film, NS["rdf"]["type"], NS["schema"]["Movie"]))
+    g.add((film, NS["dc"]["title"], Literal(row["related_work"])))
+
+    # Relation between soundtrack and film
+    g.add((soundtrack, NS["dcterms"]["relation"], film))
+
+    # Optional external URI for the film (e.g. authority record or catalog entry)
+    if row.get("related_work_uri"):
+        g.add((film, NS["dcterms"]["source"], URIRef(row["related_work_uri"])))
+
+# Optional literal describing the nature of the relationship
+if row.get("work_relation_type"):
+    g.add((soundtrack, NS["dcterms"]["relation"], Literal(row["work_relation_type"])))
+
+# ============================================
+# Publication and production details
+# ============================================
+
+# Release year
+if row.get("release_year"):
+    g.add((soundtrack, NS["dcterms"]["issued"], Literal(str(row["release_year"]))))
+
+# Soundtrack type (e.g. original soundtrack, reissue, compilation)
+if row.get("soundtrack_type"):
+    g.add((soundtrack, NS["schema"]["additionalType"], Literal(row["soundtrack_type"])))
+
+# Publisher or record label as a simple literal
+if row.get("publisher"):
+    g.add((soundtrack, NS["dcterms"]["publisher"], Literal(row["publisher"])))
+
+# Country of publication or production
+if row.get("country"):
+    g.add((soundtrack, NS["dcterms"]["spatial"], Literal(row["country"])))
+
+# ============================================
+# Location and contextual information
+# ============================================
+
+# Recording location (studio, city, etc.)
+if row.get("recording_location"):
+    g.add((soundtrack, NS["schema"]["locationCreated"], Literal(row["recording_location"])))
+
+# Current location (institution or archive)
+if row.get("current_location"):
+    g.add((soundtrack, NS["schema"]["location"], Literal(row["current_location"])))
+
+# Language of the work
+if language:
+    g.add((soundtrack, NS["dc"]["language"], Literal(language)))
+
+# Additional notes or free-text description (if a column is available)
+if row.get("notes"):
+    g.add((soundtrack, NS["dcterms"]["description"], Literal(row["notes"])))
 
 
-# ===================== SERIALIZATION =====================
+# ============================================
+# Output
+# ============================================
 
-g.serialize(format="turtle", destination="../ttl/la_strada_soundtrack_original.ttl")
-
-print("CSV converted to TTL!")
+write_graph(g, "../ttl/la_strada_soundtrack_original.ttl")
