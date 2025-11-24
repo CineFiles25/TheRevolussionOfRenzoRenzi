@@ -137,7 +137,7 @@ The project was developed by:
 
 - **Laura Bortoli** – TEI edition, XSLT, RDF generation, CSV metadata creation  
 - **Claudia Romanello** – Photographs, documentary metadata, screenplays  
-- **Chen Qinghao** – Additional items, film metadata, interface work  
+- **Qinghao Chen** – Additional items, film metadata, interface work  
 
 Full per-member breakdown available in *Project-Documentation.md*.
 
