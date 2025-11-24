@@ -13,7 +13,6 @@ rrr:renzo_renzi_library a schema:Library ;
         "4 Speakers, Mixer, 2 Table Microphones, One Wirless Microphone" ;
     dc:identifier "IT-BO0286" ;
     crm:P52_has_current_owner rrr:cineteca_di_bologna ;
-    rdfs:subClassOf schema:CivicStructure ;
     owl:sameAs <https://isni.org/isni/0000000459141457> ;
     schema:additionalType "Architectural Complex",
         "Slaughterhouse" ;
@@ -34,4 +33,6 @@ rrr:bologna owl:sameAs <http://viaf.org/viaf/257723025> .
 rrr:cineteca_di_bologna owl:sameAs <http://viaf.org/viaf/124960346> .
 
 rrr:renzo_renzi owl:sameAs <http://viaf.org/viaf/40486517> .
+
+schema:Library rdfs:subClassOf schema:CivicStructure .
 

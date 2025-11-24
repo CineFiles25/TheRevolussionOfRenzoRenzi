@@ -2,7 +2,7 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix rrr: <https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/>.
+@prefix rrr: <https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/> .
 @prefix schema: <https://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
@@ -12,7 +12,6 @@ rrr:ferrari_set_photo a schema:Photograph ;
     dc:creator rrr:aldo_ferrari ;
     dc:title "Foto_FAF01878.001" ;
     dcterms:isPartOf "Aldo Ferrari Fund" ;
-    rdfs:subClassOf schema:CreativeWork ;
     schema:about rrr:renzo_renzi ;
     schema:artform "Vintage Black" ;
     schema:contentSize "44kB" ;
@@ -28,4 +27,6 @@ rrr:ferrari_set_photo a schema:Photograph ;
 rrr:cineteca_di_bologna owl:sameAs <http://viaf.org/viaf/124960346> .
 
 rrr:renzo_renzi owl:sameAs <http://viaf.org/viaf/40486517> .
+
+schema:Photograph rdfs:subClassOf schema:CreativeWork .
 

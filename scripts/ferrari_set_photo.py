@@ -58,8 +58,8 @@ ferrari_set_photo = pd.read_csv("../csv/ferrari_set_photo.csv", keep_default_na=
 g = graph_bindings()
 
 for idx, row in ferrari_set_photo.iterrows():
-    g.add((set_photo, RDF.type, URIRef(schema + "Photograph")))
-    g.add((set_photo, RDFS.subClassOf, URIRef(schema + "CreativeWork")))
+    g.add((set_photo, RDF.type, schema.Photograph))
+    g.add((schema.Photograph, RDFS.subClassOf, schema.CreativeWork))
     g.add((set_photo, dc.title, Literal(row["Title"])))
     g.add((set_photo, dc.creator, aldo_ferrari))    
     g.add((set_photo, schema.dateCreated, Literal(row["Date Taken"], datatype=XSD.gYear)))

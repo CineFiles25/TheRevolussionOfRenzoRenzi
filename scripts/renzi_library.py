@@ -57,8 +57,8 @@ renzo_renzi_library = pd.read_csv("../csv/renzi_library.csv", keep_default_na=Fa
 g = graph_bindings()
 
 for idx, row in renzo_renzi_library.iterrows():
-    g.add((renzi_library, RDF.type, URIRef(schema + "Library")))
-    g.add((renzi_library, RDFS.subClassOf, URIRef(schema + "CivicStructure")))
+    g.add((renzi_library, RDF.type, schema.Library))
+    g.add((schema.Library, RDFS.subClassOf, schema.CivicStructure))
     g.add((renzi_library, OWL.sameAs, URIRef("https://isni.org/isni/0000000459141457")))
     g.add((renzi_library, dc.identifier, Literal(row["Id ISIL"])))
     g.add((renzi_library, schema.name, Literal(row["Name"])))

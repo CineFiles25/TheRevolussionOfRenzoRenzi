@@ -13,7 +13,6 @@ rrr:cineteca_di_bologna owl:sameAs <http://viaf.org/viaf/124960346> .
 rrr:quando_il_po_è_dolce a schema:Movie ;
     dbo:writer rrr:renzo_renzi ;
     dc:title "Quando il Po è dolce" ;
-    rdfs:subClassOf schema:CreativeWork ;
     schema:about rrr:delta_po_river ;
     schema:alternateName "When the Po River is fresh" ;
     schema:color "B/W" ;
@@ -34,6 +33,8 @@ rrr:quando_il_po_è_dolce a schema:Movie ;
     schema:spatialCoverage rrr:delta_po_river .
 
 rrr:enzo_masetti owl:sameAs <http://viaf.org/viaf/56806835> .
+
+schema:Movie rdfs:subClassOf schema:CreativeWork .
 
 rrr:delta_po_river owl:sameAs <http://viaf.org/viaf/316432038> .
 

@@ -62,8 +62,8 @@ quando_il_po_è_dolce = pd.read_csv("../csv/po_documentary.csv", keep_default_na
 g = graph_bindings()
 
 for idx, row in quando_il_po_è_dolce.iterrows():
-    g.add((po_documentary, RDF.type, URIRef(schema + "Movie")))
-    g.add((po_documentary, RDFS.subClassOf, URIRef(schema + "CreativeWork")))
+    g.add((po_documentary, RDF.type, schema.Movie))
+    g.add((schema.Movie, RDFS.subClassOf, schema.CreativeWork))
     g.add((po_documentary, dc.title, Literal(row["Title"])))
     g.add((po_documentary, schema.alternateName, Literal(row["Alt Title"])))
     g.add((po_documentary, schema.director, renzo_renzi))
