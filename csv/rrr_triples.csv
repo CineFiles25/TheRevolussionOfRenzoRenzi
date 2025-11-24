@@ -1,6 +1,5 @@
 subject,predicate,object,object_type,note
 cineteca_di_bologna,dcterms:hasPart,renzi_library,iri,Cineteca includes the library
-renzi_library,dcterms:hasPart,renzi_collection,iri,The library preserves the collection
 renzi_collection,dcterms:hasPart,first_fellini_book,iri,The collection contains the book
 renzi_collection,dcterms:hasPart,lastrada_screenplay_tei,iri,The collection contains the TEI excerpt
 renzi_collection,dcterms:hasPart,photo_lastrada_01,iri,The collection contains the photograph
@@ -29,3 +28,16 @@ first_fellini_book,schema:location,renzi_library,iri,Preserved at the Renzo Renz
 la_strada_soundtrack_original,schema:location,renzi_library,iri,Preserved at the Renzo Renzi Library
 renzi_interview_2000,dcterms:date,2000,literal,Year of production
 renzi_interview_2000,schema:locationCreated,bologna,iri,Produced in Bologna
+renzi_library,dcterms:hasPart,renzi_collection,iri,The library preserves the collection
+renzi_library,dbo:dedicatedTo,renzo_renzi,iri,The library is dedicated to Renzo Renzi
+renzi_library,crm:P52_has_current_owner,cineteca_di_bologna,iri,Cineteca di Bologna currently owns the library
+renzi_library,schema:addressLocality,bologna,iri,The library is located in Bologna
+po_documentary,schema:director,renzo_renzi,iri,Renzo Renzi directed the documentary
+po_documentary,dbo:writer,renzo_renzi,iri,Renzo Renzi created the documentary
+po_documentary,schema:productionCompany,columbus_film,iri,The documentary was produced by Columbus Film
+po_documentary,schema:about,delta_po_river,iri,The documentary is about the Po River Delta
+po_documentary,schema:filmingLocation,delta_po_river,iri,Filming took place at the Po River Delta
+po_documentary,schema:musicBy,enzo_masetti,iri,Enzo Masetti composed the music for the documentary
+set_photo,dc:creator,aldo_ferrari,iri,Aldo Ferrari took the set photo
+set_photo,dc:subject,renzo_renzi,iri,The set photo depicts Renzo Renzi
+set_photo,schema:owner,cineteca_di_bologna,iri,Cineteca di Bologna owns the set photo

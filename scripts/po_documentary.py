@@ -43,13 +43,17 @@ def graph_bindings():
 
 po_documentary = URIRef(rrr + "quando_il_po_è_dolce")
 renzo_renzi = URIRef(rrr + "renzo_renzi")
+enzo_masetti = URIRef(rrr + "enzo_masetti")
 cineteca_di_bologna = URIRef(rrr + "cineteca_di_bologna")
 bologna = URIRef(rrr + "bologna")
+delta_po_river = URIRef(rrr + "delta_po_river")
 columbus_film = URIRef(rrr + "columbus_film")
 
 g.add((renzo_renzi, OWL.sameAs, URIRef("http://viaf.org/viaf/40486517")))
 g.add((cineteca_di_bologna, OWL.sameAs, URIRef("http://viaf.org/viaf/124960346")))
 g.add((bologna, OWL.sameAs, URIRef("http://viaf.org/viaf/257723025")))
+g.add((delta_po_river, OWL.sameAs, URIRef("http://viaf.org/viaf/316432038")))
+g.add((enzo_masetti, OWL.sameAs, URIRef("http://viaf.org/viaf/56806835")))
 
 # MAPPING TO ONTOLOGIES
 
@@ -63,7 +67,7 @@ for idx, row in quando_il_po_è_dolce.iterrows():
     g.add((po_documentary, dc.title, Literal(row["Title"])))
     g.add((po_documentary, schema.alternateName, Literal(row["Alt Title"])))
     g.add((po_documentary, schema.director, renzo_renzi))
-    g.add((po_documentary, schema.author, renzo_renzi))
+    g.add((po_documentary, dbo.writer, renzo_renzi))
     g.add((po_documentary, schema.edition, Literal(row["Edition"])))
     g.add((po_documentary, schema.genre, Literal(row["Type"])))
     g.add((po_documentary, schema.countryOfOrigin, Literal(row["Country"])))    
@@ -76,9 +80,9 @@ for idx, row in quando_il_po_è_dolce.iterrows():
     g.add((po_documentary, schema.contentSize, Literal(row["Film Length"])))    
     g.add((po_documentary, schema.sound, Literal(row["Sound"])))
     g.add((po_documentary, schema.inLanguage, Literal(row["Language"])))
-    g.add((po_documentary, schema.about, Literal(row["Subject"])))
-    g.add((po_documentary, schema.spatialCoverage, Literal(row["Filming Location"])))
-    g.add((po_documentary, schema.musicBy, Literal(row["Music Composer"])))
+    g.add((po_documentary, schema.about, delta_po_river))
+    g.add((po_documentary, schema.spatialCoverage, delta_po_river))
+    g.add((po_documentary, schema.musicBy, enzo_masetti))
     g.add((po_documentary, schema.contentRating, Literal(row["Certificate"])))
     
 # SERIALIZATION
