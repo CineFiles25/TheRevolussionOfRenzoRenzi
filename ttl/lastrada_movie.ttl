@@ -1,0 +1,23 @@
+@prefix rrr: <https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/> .
+@prefix fiaf: <https://fiaf.github.io/film-related-materials/objects/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+
+### Film work #1
+rrr:strada-la a fiaf:FictionFilm ;
+    dcterms:title "Strada, la" ;
+    dcterms:alternative "Strada, la" ;
+    dcterms:creator "Fellini, Federico" ;
+    dcterms:publisher "Ponti De Laurentis [It];Renzo Renzi" ;
+    dcterms:spatial "IT" ;
+    dcterms:language "ITA" ;
+    dcterms:issued "1954" ;
+    dcterms:extent "3220 mt" ;
+    dcterms:extent "108" ;
+    dcterms:format "35" ;
+    dcterms:format "B/N" ;
+    dcterms:format "Sonoro" ;
+    dcterms:type "Fiction (film)" .
+
