@@ -2,18 +2,18 @@
 @prefix oa: <https://iccd.beniculturali.it/it/ricercanormative/29/oa-opere-oggetti-d-arte-3_00#> .
 @prefix iccd: <https://iccd.beniculturali.it/> .
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
-@prefix dcterms: <http://purl.org/dc/terms/> . 
+@prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 
-rrr:gelsomina_drawing a oa:Disegno ;
-    dc:title "La strada: Gelsomina col tamburo" ;
-    dc:creator rrr:renzo_renzi ;
-    dc:description "Portrait of Gelsomina playing a drum on a road." ;
-    oa:tecnica "Pencil and markers" ;
-    oa:supporto "Cardboard" ;
-    oa:misure "25.2 x 17.2 cm" ;
-    oa:collezione rrr:renzo_renzi_collection ;
-    dcterms:source <https://docs.google.com/document/d/1ZvQGWcsAFJIfbHujWuv6LcHwhw9zlxtQ/edit> .
 
-rrr:renzo_renzi owl:sameAs <http://viaf.org/viaf/40486517> ;
-    dc:name "Renzo Renzi" . 
+### Artwork #1
+rrr:la-strada-gelsomina-col-tamburo a oa:Drawing ;
+    dc:title "La strada: Gelsomina col tamburo" ;
+    dc:creator "Renzo Renzi" ;
+    dc:description "Portrait of Gelsomina playing a drum on a road." ;
+    dcterms:medium "Pencil and markers" ;
+    dcterms:material "Cardboard" ;
+    dcterms:extent "25.2 x 17.2 cm" ;
+    dcterms:isPartOf "Renzo Renzi Collection" ;
+    dcterms:identifier <https://docs.google.com/document/d/1ZvQGWcsAFJIfbHujWuv6LcHwhw9zlxtQ/edit> .
+
