@@ -1,0 +1,62 @@
+@prefix rrr:  <https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/> .
+@prefix sf:   <https://iccd.beniculturali.it/scheda-f/> .
+@prefix dct:  <http://purl.org/dc/terms/> .
+@prefix dc:   <http://purl.org/dc/elements/1.1/> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+
+
+### Schema (Scheda F) ###
+
+sf:Photograph a owl:Class .
+sf:Photographer a owl:Class .
+sf:Person a owl:Class .
+sf:Event a owl:Class .
+sf:Place a owl:Class .
+sf:Work a owl:Class .
+
+### Instances ###
+
+rrr:photo-lastrada-05 a sf:Photograph ;
+    sf:standard "Scheda F" ;
+    dct:title "Circus performance scene from 'La Strada'" ;
+    dct:alternative "Gelsomina and the Strongman (Zampanò) during a circus act" ;
+    dct:creator "Unknown photographer" ;
+    dct:subject "Production of 'La Strada' (1954)" ;
+    dct:subject "Giulietta Masina; Anthony Quinn" ;
+    dct:spatial "Circus ring set, Italy" ;
+    dct:created "circa 1954" ;
+    sf:colour "Black and white" ;
+    dct:medium "Gelatin silver print" ;
+    dct:isPartOf "Renzi–Fellini Collection" ;
+    sf:carrierType "Photographic print" ;
+    dct:extent "Digital surrogate of original photograph; image resolution 1000×751 px; file size 122 KB" ;
+    dct:description "Digital copy stored by Comune di Bologna; no archival physical data provided" ;
+    dct:identifier "/mnt/data/3c0fcce5-1412-4d5f-9079-1ee368230875.png" ;
+    sf:relatedWork "la_strada_film" ;
+    dct:rights "Rights status unknown; inquire with Comune di Bologna" ;
+    dct:type "Photograph" ;
+    dct:language "it" ;
+    sf:depictedPersonRef rrr:giulietta-masina ;
+    sf:depictedPersonRef rrr:anthony-quinn ;
+    sf:depictedPlaceRef rrr:circus-ring-set-italy ;
+    sf:relatedWorkRef rrr:la-strada-film .
+
+### Authority entities ###
+
+rrr:giulietta-masina a sf:Person ;
+    dct:title "Giulietta Masina" ;
+    owl:sameAs <http://viaf.org/viaf/59391182> .
+
+rrr:anthony-quinn a sf:Person ;
+    dct:title "Anthony Quinn" ;
+    owl:sameAs <http://viaf.org/viaf/37066088> .
+
+rrr:circus-ring-set-italy a sf:Place ;
+    dct:title "Circus ring set, Italy" ;
+    owl:sameAs <http://viaf.org/viaf/124960346> .
+
+rrr:la-strada-film a sf:Work ;
+    dct:title "la_strada_film" ;
+    owl:sameAs <https://www.wikidata.org/wiki/Q36839368> .
+
