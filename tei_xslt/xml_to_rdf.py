@@ -15,7 +15,7 @@ def xml_to_rdf(xml_file, output_file):
     g = Graph()
     
     # Define namespaces
-    rrr = Namespace("http://example.org/lastrada/")
+    rrr = Namespace("https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/")
     g.bind("rrr", rrr)
     g.bind("rdf", RDF)
     g.bind("rdfs", RDFS)
@@ -50,6 +50,6 @@ def xml_to_rdf(xml_file, output_file):
     print("RDF file saved to TTL!")
 
 if __name__ == "__main__":
-    xml_file = "../../xml/lastrada.xml"
-    output_file = "../../ttl/lastrada.ttl"
+    xml_file = "lastrada.xml"
+    output_file = "lastrada.ttl"
     xml_to_rdf(xml_file, output_file)
