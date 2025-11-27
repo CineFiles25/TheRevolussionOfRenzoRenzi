@@ -2,9 +2,10 @@ import xml.etree.ElementTree as ET
 from rdflib import Graph, Namespace, Literal, URIRef
 from rdflib.namespace import RDF, RDFS, XSD, DCTERMS, FOAF
 
-def lastrada_xml_to_rdf(xml_file, output_file):
+def lastrada_xml_to_rdf(xml_file, output_turtle, output_rdfxml):
     """
     Convert La Strada TEI XML screenplay to RDF format
+    Outputs both Turtle and RDF/XML formats
     """
     
     # Parse XML file
@@ -200,14 +201,23 @@ def lastrada_xml_to_rdf(xml_file, output_file):
                 g.add((scene_uri, rrr.transition, Literal(transition_text, lang="it")))
     
     # ========================================================================
-    # SERIALIZE
+    # SERIALIZE TO BOTH FORMATS
     # ========================================================================
     print(f"Total triples created: {len(g)}")
-    g.serialize(destination=output_file, format='turtle')
-    print(f"RDF file saved to {output_file}!")
+    
+    # Serialize to Turtle format
+    g.serialize(destination=output_turtle, format='turtle')
+    print(f"✓ Turtle file saved to {output_turtle}")
+    
+    # Serialize to RDF/XML format
+    g.serialize(destination=output_rdfxml, format='xml')
+    print(f"✓ RDF/XML file saved to {output_rdfxml}")
+    
+    print("\nConversion complete!")
 
 if __name__ == "__main__":
     xml_file = "lastrada.xml"
-    output_file = "lastrada.ttl"
+    output_turtle = "lastrada.ttl"
+    output_rdfxml = "lastrada.rdf"
     
-    lastrada_xml_to_rdf(xml_file, output_file)
+    lastrada_xml_to_rdf(xml_file, output_turtle, output_rdfxml)
