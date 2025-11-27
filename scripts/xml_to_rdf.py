@@ -15,41 +15,41 @@ def xml_to_rdf(xml_file, output_file):
     g = Graph()
     
     # Define namespaces
-    EX = Namespace("http://example.org/lastrada/")
-    g.bind("ex", EX)
+    rrr = Namespace("http://example.org/lastrada/")
+    g.bind("rrr", rrr)
     g.bind("rdf", RDF)
     g.bind("rdfs", RDFS)
     
     # Process XML elements
     for idx, element in enumerate(root):
         # Create a subject URI for each element
-        subject = URIRef(EX[f"item_{idx}"])
+        subject = URIRef(rrr[f"item_{idx}"])
         
         # Add type
-        g.add((subject, RDF.type, EX[element.tag]))
+        g.add((subject, RDF.type, rrr[element.tag]))
         
         # Add attributes as properties
         for attr, value in element.attrib.items():
-            g.add((subject, EX[attr], Literal(value)))
+            g.add((subject, rrr[attr], Literal(value)))
         
         # Add text content if exists
         if element.text and element.text.strip():
-            g.add((subject, EX["value"], Literal(element.text.strip())))
+            g.add((subject, rrr["value"], Literal(element.text.strip())))
         
         # Process child elements
         for child in element:
             if child.text and child.text.strip():
-                g.add((subject, EX[child.tag], Literal(child.text.strip())))
+                g.add((subject, rrr[child.tag], Literal(child.text.strip())))
             
             # Add child attributes
             for attr, value in child.attrib.items():
-                g.add((subject, EX[f"{child.tag}_{attr}"], Literal(value)))
+                g.add((subject, rrr[f"{child.tag}_{attr}"], Literal(value)))
     
     # Serialize to RDF file
     g.serialize(destination=output_file, format='turtle')
-    print(f"RDF file saved to {output_file}")
+    print("RDF file saved to TTL!")
 
 if __name__ == "__main__":
-    xml_file = "../tei_xslt/lastrada.xml"
-    output_file = "../ttl/lastrada.ttl"
+    xml_file = "../../xml/lastrada.xml"
+    output_file = "../../ttl/lastrada.ttl"
     xml_to_rdf(xml_file, output_file)
