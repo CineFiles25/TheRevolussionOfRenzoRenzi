@@ -111,10 +111,96 @@ The conceptual model reuses existing vocabularies without creating a new ontolog
 - IFLA LRM (bibliographic logic)
 
 ## Core classes and relationships reused
-- '''schema:CreativeWork''', schema:ImageObject, schema:VideoObject, schema:MusicRecording
-- schema:Person, schema:Organization, schema:Place
-- dcterms:creator, dcterms:subject, dcterms:date, schema:about, schema:locationCreated
-- foaf:depicts
-- schema:hasPart, dcterms:hasPart
+- ```schema:CreativeWork```, ```schema:ImageObject```, ```schema:VideoObject```, ```schema:MusicRecording```
+- ```schema:Person```, ```schema:Organization```, ```schema:Place```
+- ```dcterms:creator```, ```dcterms:subject```, ```dcterms:date```, ```schema:about```, ```schema:locationCreated```
+- ```foaf:depicts```
+- ```schema:hasPart```, ```dcterms:hasPart```
 
-The conceptual model is summarized in a Grafoo-style diagram included in the documentation.
+The conceptual model is summarized in a **Grafoo-style diagram** included in the documentation.
+
+---
+
+# 7. Data Production
+## CSV Metadata
+
+A dedicated CSV file was created for each of the 15 items.  
+Two global files structure the semantic layer:  
+- ```rrr_entities.csv``` → entities of the domain (people, places, works…)
+- ```rrr_triples.csv``` → relations between those entities
+
+All identifiers follow **snake_case** and use a shared prefix (```rrr:```).
+
+---
+
+# 8. TEI Encoding & XSLT Transformation
+
+One item (*La Strada*, sequence I) was encoded using **TEI P5**.  
+The XSLT stylesheet ```tei2html_lastrada.xsl``` transforms the TEI file into a web-publishable HTML edition.
+
+---
+
+# 9. RDF Dataset
+
+The RDF dataset (```rrr.ttl```) is produced via:
+
+**```build_rrr_rdf.py```**
+- reads all CSV files
+- maps them to RDF triples using RDFLib
+- serializes them as Turtle
+
+**```compare_ttl.py```**
+- validates differences between RDF versions
+
+The final dataset integrates:
+- items
+- related entities
+- inter-item relationships
+- authority URIs
+- locations, subjects, creators, collections
+
+---
+
+# 10. Website
+
+The full project is published as a **GitHub Pages website**, including:
+- project overview
+- item list with metadata
+- TEI → HTML edition
+- RDF dataset
+- conceptual model
+- documentation
+- team
+
+➞ https://cinefiles25.github.io/TheRevolussionOfRenzoRenzi/
+
+---
+
+# 11. Institutions & Authority Files
+## Authority control used
+- VIAF
+- Wikidata
+- ISIL / ICCU
+- ISNI (for institutions)
+
+## Example links
+- Renzo Renzi — VIAF: http://viaf.org/viaf/40486517
+- Federico Fellini — VIAF: http://viaf.org/viaf/76315386
+- Cineteca di Bologna — VIAF: http://viaf.org/viaf/124960346
+- Bologna — Wikidata: https://www.wikidata.org/wiki/Q1891
+- Cinema Fulgor — Wikidata: https://www.wikidata.org/wiki/Q36839368
+
+---
+
+# 12. Team Roles
+
+The project was collaboratively developed by:
+- **Laura Bortoli** — TEI encoding, XSLT, CSV metadata, RDF modelling, website content
+- **Claudia Romanello** — Photographic items, documentary metadata, screenplay analysis, Python scripts
+- **Qinghao (River) Chen** — Metadata extraction, item analysis, web structure, RDF validation
+
+---
+
+# End of Documentation
+
+This file provides a complete, instructor-oriented description of the project workflow, methodological choices, standards, and deliverables.
