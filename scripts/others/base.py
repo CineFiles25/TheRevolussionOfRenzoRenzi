@@ -45,6 +45,6 @@ def graph_bindings():
 
 # SERIALIZATION
 
-g.serialize(format="turtle", destination="output_path.ttl")
+g.serialize(format="turtle", destination="outputh_file.ttl")
 
 print("CSV converted to TTL!")
