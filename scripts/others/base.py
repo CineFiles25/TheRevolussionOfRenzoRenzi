@@ -39,6 +39,10 @@ def graph_bindings():
         g.bind(prefix, ns)
     return g
 
+# ENTITIES
+
+# MAPPING 
+
 # SERIALIZATION
 
 g.serialize(format="turtle", destination="output_path.ttl")
