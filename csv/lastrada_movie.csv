@@ -1,3 +1,2 @@
-Original Title,National Title (in Italy),Director,Production Company / Sponsor,Country of Origin,Language,Year of First Public Release,Length,Duration,Gauge / Format,Colour,Sound,Work Type
-"La strada","La strada","Federico Fellini","Ponti–De Laurentiis Cinematografica; Renzo Renzi",IT,Italian,1954,"3220 m","108 min","35 mm","Black and white","Sound","Fiction film"
-
+id,standard,title,other_title_information,creator,production_company,country,language,publication_year,length,duration,format,colour,sound,resource_type,notes,creator_uri,production_company_uri,country_uri,work_uri
+la_strada_film,"ISBD(NBM); FIAF","La strada","National title in Italy: 'La strada'","Federico Fellini","Ponti–De Laurentiis Cinematografica; Renzo Renzi","IT","it","1954","3220 m","108 min","35 mm","Black and white","Sound","Film","Fiction film","http://viaf.org/viaf/76315386","","https://www.wikidata.org/wiki/Q38","https://www.wikidata.org/wiki/Q18402"
