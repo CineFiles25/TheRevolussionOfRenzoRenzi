@@ -38,23 +38,25 @@
     <main class="page">
       <article class="section">
         <h1>The “Revolussion” of Renzo Renzi</h1>
-        <p><em>A Digital Humanities &amp; Linked Open Data Project</em><br />
-        <strong>Information Science and Cultural Heritage – University of Bologna (2024–2025)</strong></p>
+        <p>
+          <em>A Digital Humanities &amp; Linked Open Data Project</em><br />
+          <strong>Information Science and Cultural Heritage – University of Bologna (2024–2025)</strong>
+        </p>
 
         <hr />
 
         <h2>Overview</h2>
 
         <p>
-          <em>The “Revolussion” of Renzo Renzi</em> is a digital humanities project that explores
-          the archival universe of <strong>Renzo Renzi</strong> (1919-2004), an exemplary figure
-          in Italy as a film critic, writer, cultural communicator, and organizer.
+          <em>The “Revolussion” of Renzo Renzi</em> is a Digital Humanities project dedicated to the archival,
+          bibliographic, and audiovisual materials related to <strong>Renzo Renzi</strong> (1919–2004), a
+          key figure in the history of film culture in Bologna as critic, filmmaker, researcher, and curator.
         </p>
+
         <p>
-          We approached his figure, important yet often known only to "insiders" of the Bologna film world,
-          through the mediation of Anna Fiaccarini, director of the Bologna Film Archive: in fact, Renzi was
-          one of the founders of the Cinema Commission of the city of Bologna, which later gave rise to
-          the Cineteca and its cultural archive.
+          The project investigates Renzi’s analogue “web of cinema knowledge” by modelling and interlinking
+          a selection of materials from the <strong>Renzo Renzi Collection</strong> at the Cineteca di Bologna:
+          books, photographs, drawings, sound recordings, films, and a video interview.
         </p>
 
         <p>The project integrates:</p>
@@ -63,35 +65,36 @@
           <li><strong>XSLT transformation for web publication</strong></li>
           <li><strong>CSV-based metadata extraction and analysis</strong></li>
           <li><strong>Linked Open Data modelling (RDF/Turtle)</strong></li>
-          <li><strong>Reuse of major cultural heritage standards</strong></li>
-          <li><strong>A conceptual model inspired by existing ontologies (DC, Schema.org, FOAF)</strong></li>
+          <li><strong>Reuse of cultural heritage metadata standards</strong></li>
+          <li><strong>A conceptual model reusing existing ontologies</strong></li>
           <li><strong>A web interface presenting all deliverables</strong></li>
         </ul>
 
         <p>
           The dataset includes <strong>15 heterogeneous cultural heritage items</strong> (books, photographs,
-          drawings, sound recordings, interviews, documents) described, encoded, and semantically linked.
+          drawings, sound recordings, film materials, an audiovisual interview, institutional data), described,
+          encoded, and semantically linked.
         </p>
 
         <hr />
 
         <h2>Project Structure</h2>
 
-        <pre><code>csv/                  → CSV metadata for all items  
+        <pre><code>csv/                  → Metadata tables for all items
 html/                 → HTML pages (incl. TEI-to-HTML edition)
 img/                  → Photographs, stills and visual materials
 scripts/              → Python scripts for dataset generation
 tei_xslt/             → TEI XML + XSLT transformation
 ttl/                  → RDF dataset (rrr.ttl)
 project-documentation.html
-readme.html           → HTML export of this README
+readme.html           → HTML version of this README
 index.html            → Website home
 style.css             → Website stylesheet
 </code></pre>
 
         <p>
-          A detailed, step-by-step description of the entire workflow is available in
-          <strong>Project-Documentation.md</strong>.
+          A full explanation of the workflow and modelling choices is provided in
+          <strong>Project-Documentation.html</strong>.
         </p>
 
         <hr />
@@ -100,19 +103,19 @@ style.css             → Website stylesheet
 
         <ol>
           <li>
-            Build a structured dataset starting from a coherent cultural theme
-            (Renzo Renzi and the “Revolussion” around <em>La Strada</em>).
+            Define a structured dataset starting from a coherent cultural theme
+            (Renzo Renzi and the network around <em>La Strada</em> and the Renzo Renzi Collection).
           </li>
           <li>
             Convert descriptive metadata into CSV using institutional standards
-            (ISBD(G), ISBD(NBM), Scheda F, Scheda OA, FIAF rules, ISAD).
+            (ISBD(G), ISBD(NBM), Scheda F, Scheda OA, FIAF rules, ISAD(G)).
           </li>
           <li>
             Encode one major item using <strong>TEI P5</strong> and publish it through <strong>XSLT</strong>.
           </li>
           <li>
-            Build a <strong>conceptual model</strong> aligned with: Dublin Core Terms, Schema.org,
-            FOAF, RiC-O, CIDOC CRM.
+            Develop a <strong>conceptual model</strong> reusing: Dublin Core Terms, Schema.org, FOAF, SKOS
+            (with RiC-O and CIDOC CRM used as conceptual references).
           </li>
           <li>Produce a complete <strong>RDF dataset</strong> for all selected objects.</li>
           <li>Publish all deliverables in an accessible <strong>website</strong> built with GitHub Pages.</li>
@@ -124,23 +127,23 @@ style.css             → Website stylesheet
 
         <ul>
           <li><strong>Book / full text</strong> – <em>Il primo Fellini</em></li>
-          <li><strong>Photographs</strong> (Scheda F, ICCD)</li>
-          <li><strong>Caricatures / Drawings</strong> (Scheda OA, ICCD)</li>
+          <li><strong>Photographs</strong> (ICCD Scheda F)</li>
+          <li><strong>Caricatures / drawings</strong> (ICCD Scheda OA)</li>
           <li><strong>Audiovisual interview</strong> (FIAF rules)</li>
           <li><strong>Sound recording / soundtrack</strong> (ISBD NBM)</li>
-          <li><strong>Screenplays, documents, and film material</strong></li>
+          <li><strong>Documentary and film materials</strong> (ISBD NBM + FIAF)</li>
           <li><strong>Architectural / institutional item</strong> – Renzo Renzi Library</li>
         </ul>
 
         <p>Each object is documented with:</p>
         <ul>
           <li>descriptive metadata</li>
-          <li>provider &amp; holding institution</li>
+          <li>provider and holding institution</li>
           <li>reference standard</li>
           <li>CSV entry</li>
           <li>RDF representation</li>
           <li>inter-entity links</li>
-          <li>authority identifiers (VIAF/Wikidata)</li>
+          <li>authority identifiers (VIAF / Wikidata / ISIL / ISNI)</li>
         </ul>
 
         <hr />
@@ -160,9 +163,9 @@ style.css             → Website stylesheet
           <li><strong>Dublin Core Terms (DCTerms)</strong></li>
           <li><strong>Schema.org</strong></li>
           <li><strong>FOAF</strong></li>
-          <li><strong>RiC-O</strong> (Records in Contexts, for archival context)</li>
-          <li><strong>CIDOC-CRM</strong> (reference for museum-domain thinking)</li>
-          <li><strong>SKOS</strong> for controlled values</li>
+          <li><strong>SKOS</strong> (for controlled values)</li>
+          <li><strong>RiC-O</strong> (conceptual reference for archival logic)</li>
+          <li><strong>CIDOC CRM</strong> (conceptual reference for museum logic)</li>
         </ul>
 
         <h3>Languages &amp; Tools</h3>
@@ -181,7 +184,7 @@ style.css             → Website stylesheet
         <h3><code>build_rrr_rdf.py</code></h3>
         <p>
           Transforms the CSV metadata into a structured RDF graph using RDFLib,
-          generating <code>rrr.ttl</code>.
+          generating <code>ttl/rrr.ttl</code>.
         </p>
 
         <h3><code>compare_ttl.py</code></h3>
@@ -198,19 +201,20 @@ style.css             → Website stylesheet
 
         <h2>Website</h2>
 
-        <p>The website includes:</p>
+        <p>The website presents:</p>
         <ul>
           <li>TEI-encoded <em>La Strada</em> edition</li>
-          <li>Metadata &amp; analysis</li>
+          <li>Metadata tables and analysis</li>
           <li>RDF dataset (Turtle)</li>
-          <li>Photo gallery</li>
-          <li>Team &amp; supervision</li>
-          <li>Documentation &amp; downloads</li>
+          <li>Image gallery</li>
+          <li>Team and acknowledgements</li>
+          <li>Documentation and downloads</li>
         </ul>
 
         <p>
           → <a href="https://cinefiles25.github.io/TheRevolussionOfRenzoRenzi/">
-          https://cinefiles25.github.io/TheRevolussionOfRenzoRenzi/</a>
+            https://cinefiles25.github.io/TheRevolussionOfRenzoRenzi/
+          </a>
         </p>
 
         <hr />
@@ -220,19 +224,22 @@ style.css             → Website stylesheet
         <p>The project was developed by:</p>
         <ul>
           <li>
-            <strong>Laura Bortoli</strong> – TEI edition, XSLT, RDF generation,
-            CSV metadata creation
+            <strong>Laura Bortoli</strong> – TEI encoding, XSLT, RDF generation,
+            CSV metadata creation and harmonisation
           </li>
           <li>
-            <strong>Claudia Romanello</strong> – Photographs, documentary metadata, screenplays
+            <strong>Claudia Romanello</strong> – Photographic and documentary metadata,
+            screenplay analysis, Python scripts
           </li>
           <li>
-            <strong>Chen Qinghao</strong> – Additional items, film metadata, interface work
+            <strong>Qinghao (River) Chen</strong> – Additional items, film metadata,
+            interface work, RDF validation
           </li>
         </ul>
 
         <p>
-          Full per-member breakdown available in <em>Project-Documentation.md</em>.
+          A per-member breakdown of contributions is available in
+          <em>Project-Documentation.html</em>.
         </p>
 
         <hr />
@@ -254,7 +261,7 @@ style.css             → Website stylesheet
           </li>
           <li>
             <strong>Metadata standards &amp; ontologies:</strong>
-            ISBD, ICCD, FIAF, DCTerms, Schema.org, FOAF, RiC-O, CIDOC CRM
+            ISBD, ICCD, ISAD(G), FIAF, DCTerms, Schema.org, FOAF, SKOS, RiC-O, CIDOC CRM
           </li>
         </ul>
 
