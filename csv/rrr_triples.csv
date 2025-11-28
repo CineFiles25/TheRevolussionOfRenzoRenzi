@@ -17,7 +17,7 @@ caricature_fellini_renzi,prov:wasAttributedTo,renzo_renzi,iri,Renzo Renzi is the
 renzi_interview_2000,schema:about,renzi_oral_memory,iri,The interview documents Renzi’s oral memory
 renzi_interview_2000,schema:about,la_strada_film,iri,Renzi discusses the film in the interview
 la_strada_film,dcterms:creator,federico_fellini,iri,Fellini directed the film
-la_strada_soundtrack_original,schema:creator,nino_rota,iri,Nino Rota composed the soundtrack
+la_strada_soundtrack_original,schema:musicBy,nino_rota,iri,Nino Rota composed the soundtrack
 photo_lastrada_01,schema:contentLocation,cinema_fulgor,iri,The premiere took place at Cinema Fulgor
 photo_lastrada_01,dcterms:date,1954,literal,Year of the La Strada premiere
 caricature_fellini_renzi,schema:creator,renzo_renzi,iri,Renzo Renzi is the creator of the caricature
@@ -38,6 +38,6 @@ po_documentary,schema:productionCompany,columbus_film,iri,The documentary was pr
 po_documentary,schema:about,delta_po_river,iri,The documentary is about the Po River Delta
 po_documentary,schema:filmingLocation,delta_po_river,iri,Filming took place at the Po River Delta
 po_documentary,schema:musicBy,enzo_masetti,iri,Enzo Masetti composed the music for the documentary
-set_photo,dc:creator,aldo_ferrari,iri,Aldo Ferrari took the set photo
-set_photo,dc:subject,renzo_renzi,iri,The set photo depicts Renzo Renzi
+set_photo,dcterms:creator,aldo_ferrari,iri,Aldo Ferrari took the set photo
+set_photo,dcterms:subject,renzo_renzi,iri,The set photo depicts Renzo Renzi
 set_photo,schema:owner,cineteca_di_bologna,iri,Cineteca di Bologna owns the set photo
