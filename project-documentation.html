@@ -27,187 +27,89 @@
         </p>
       </section>
 
-      <!-- To do list -->
+      <!-- 1. Project Overview -->
       <section class="section">
-        <h2>TO DO LIST</h2>
-        <ul>
-          <li>✓ choose 15 objects from different institutions and types</li>
-          <li>✓ identify metadata standards used by providers</li>
-          <li>✓ list all objects + standards</li>
-          <li>✓ contact Cineteca di Bologna for object information</li>
-          <li>✓ divide the work across team members</li>
-          <li>✓ decide modelling practices</li>
-          <li>✓ create all CSV files</li>
-          <li>✓ produce TEI/XML sample + XSLT</li>
-          <li>✓ convert CSV to RDF (Python)</li>
-          <li>✓ produce RDF dataset for all items</li>
-          <li>✓ build the website</li>
-        </ul>
+        <h2>1. Project Overview</h2>
+        <p>
+          <em>The “Revolussion” of Renzo Renzi</em> is a Digital Humanities project focused on the archival,
+          bibliographic, and audiovisual materials related to <strong>Renzo Renzi</strong> (1919–2004), a central
+          figure in the history of film culture in Bologna.
+        </p>
+        <p>
+          Renzi’s work as critic, filmmaker, researcher, and curator created an analogue network of interrelated
+          objects—books, drawings, photographs, interviews, film materials—that anticipates the logic of Linked
+          Open Data. The project aims to model, encode, and publish a selection of these materials using cultural
+          heritage standards, TEI/XML, RDF, and a web interface.
+        </p>
       </section>
 
-      <!-- Goal of the project -->
+      <!-- 2. Project Goals -->
       <section class="section">
-        <h2>Goal of the Project</h2>
+        <h2>2. Project Goals</h2>
         <p>
-          <strong>Create structured, interoperable data starting from a cultural idea and a curated set of items
-          related to it.</strong>
+          The project follows the official requirements of the course <em>Information Science and Cultural Heritage</em>,
+          and aims to:
         </p>
-        <p>The final deliverables must include:</p>
         <ul>
-          <li>CSV metadata for each item</li>
-          <li>TEI/XML encoding + HTML transformation</li>
-          <li>XML/TEI → RDF transformation</li>
-          <li>RDF dataset of the entire collection</li>
-          <li>A conceptual model based on existing ontologies</li>
-          <li>A website documenting the whole process</li>
-        </ul>
-      </section>
-
-      <!-- Instructions -->
-      <section class="section">
-        <h2>Instructions (from course requirements)</h2>
-
-        <h3>1. Find the idea</h3>
-        <p>
-          We chose <strong>Renzo Renzi</strong>, critic, filmmaker, archivist and great promoter of film culture
-          in Bologna, one of the key figures who enabled the growth and development of the Cineteca after its
-          founding in 1962. The Cineteca's library is in fact named after him.
-        </p>
-
-        <h3>2. Select 10+ items</h3>
-        <p>Requirements:</p>
-        <ul>
-          <li>different object types (books, photographs, drawings, audiovisuals, sound, documents)</li>
-          <li>at least one <strong>full-text</strong> item</li>
-          <li>possibly from different institutions</li>
-        </ul>
-
-        <h3>3. Metadata Analysis</h3>
-        <p>Identify the metadata standards used by the institutions holding each item.</p>
-
-        <h3>4. Theoretical Model</h3>
-        <p>
-          Describe all features of the selected items <em>in natural language</em>, starting from institutional
-          metadata + additional contextual knowledge (authors, subjects, authority control, classifications).
-        </p>
-
-        <h3>5. Conceptual Model</h3>
-        <p>Create a formal presentation of the domain using existing ontologies:</p>
-        <ul>
-          <li>RDF / RDFS</li>
-          <li>OWL</li>
-          <li>SKOS</li>
-          <li>DCTerms, Schema.org, FOAF</li>
-          <li>CIDOC-CRM (for museum logic)</li>
-          <li>RiC-O (for archival logic)</li>
-          <li>IFLA LRM (bibliographic thinking)</li>
-        </ul>
-        <p>
-          The conceptual model must be expressed with a graphical representation (Grafoo-like diagram).
-        </p>
-
-        <h3>6. Create the Deliverables</h3>
-        <ul>
-          <li>✓ CSV files (one table per item)</li>
-          <li>✓ TEI/XML sample</li>
-          <li>✓ XML→HTML transformation (XSLT)</li>
-          <li>✓ XML→RDF transformation (Python)</li>
-          <li>✓ RDF dataset for all items</li>
-          <li>✓ Website</li>
-        </ul>
-      </section>
-
-      <!-- Useful infos -->
-      <section class="section">
-        <h2>Useful Infos (project conventions)</h2>
-        <ul>
-          <li><strong>Case:</strong> <code>snake_case</code></li>
-          <li><strong>Name of the project:</strong> <strong>The “Revolussion” of Renzo Renzi</strong></li>
-          <li><strong>Prefix:</strong> <code>rrr:</code></li>
+          <li>Select a coherent <strong>cultural domain</strong> (Renzo Renzi and the Renzo Renzi Collection).</li>
           <li>
-            <strong>Institutions involved:</strong> primarily
-            <strong>Cineteca di Bologna</strong>, ICCU, IMDb, Renzi family archives
+            Choose at least <strong>10 heterogeneous items</strong> (the project includes
+            <strong>15</strong> items).
           </li>
-          <li><strong>Authority files used:</strong> VIAF, Wikidata, TGN</li>
-        </ul>
-
-        <h3>Renzi and LOD: a decades-long history</h3>
-        <p><em>Long before Linked Open Data entered the vocabulary of Digital Humanities, Renzo Renzi was already building it by hand...</em></p>
-        <blockquote>
-          Renzi assembled books, scripts, drawings, photographs, interviews, and film documents into an interconnected
-          archive where each object illuminated the others. His method created a <strong>network of film knowledge</strong>:
-          themes, stories, production histories, anecdotes, materials, and memories woven together with the instinct of
-          someone who understood that cinema is not linear – it is relational. For this reason, the Cineteca di Bologna,
-          and particularly the Renzo Renzi Collection, can be read as an analogue prototype of Linked Open Data.
-        </blockquote>
-      </section>
-
-      <!-- Authority files -->
-      <section class="section">
-        <h2>Authority Files (people, places, institutions)</h2>
-
-        <table class="meta-table">
-          <thead>
-            <tr>
-              <th>Entity</th>
-              <th>Authority link</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Renzo Renzi</td>
-              <td>
-                VIAF: <a href="http://viaf.org/viaf/40486517">http://viaf.org/viaf/40486517</a> —
-                Wikidata: <a href="https://www.wikidata.org/wiki/Q56179169">Q56179169</a>
-              </td>
-            </tr>
-            <tr>
-              <td>Federico Fellini</td>
-              <td>
-                VIAF: <a href="http://viaf.org/viaf/76315386">http://viaf.org/viaf/76315386</a> —
-                Wikidata: <a href="https://www.wikidata.org/wiki/Q7371">Q7371</a>
-              </td>
-            </tr>
-            <tr>
-              <td>Cineteca di Bologna</td>
-              <td>
-                VIAF: <a href="http://viaf.org/viaf/124960346">http://viaf.org/viaf/124960346</a> —
-                Wikidata: <a href="https://www.wikidata.org/wiki/Q1092493">Q1092493</a>
-              </td>
-            </tr>
-            <tr>
-              <td>Bologna (place)</td>
-              <td>
-                VIAF: <a href="http://viaf.org/viaf/257723025">http://viaf.org/viaf/257723025</a> —
-                Wikidata: <a href="https://www.wikidata.org/wiki/Q1891">Q1891</a>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </section>
-
-      <!-- Useful links -->
-      <section class="section">
-        <h2>Useful Links (for documentation + project)</h2>
-        <ul>
+          <li>Reuse <strong>institutional metadata standards</strong> from libraries, archives, and museums.</li>
           <li>
-            <strong>GitHub repo:</strong>
-            <a href="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi">
-              https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi
-            </a>
+            Describe each item through a <strong>theoretical model</strong> (natural-language analysis of its
+            features and context).
           </li>
           <li>
-            <strong>Drive folder with the original items:</strong>
-            <a href="https://drive.google.com/drive/u/1/folders/1X7_X3MND6lwpH37jHoSC_RXW-mtBuQ57">
-              Project Drive folder
-            </a>
+            Develop a <strong>conceptual model</strong> reusing existing ontologies and vocabularies
+            (no new ontology is created).
+          </li>
+          <li>
+            Produce:
+            <ul>
+              <li>CSV metadata for each item</li>
+              <li>a TEI-encoded text and XSLT transformation</li>
+              <li>CSV → RDF transformation in Python</li>
+              <li>a unified RDF dataset in Turtle</li>
+              <li>a website presenting data, methods, and outputs</li>
+            </ul>
           </li>
         </ul>
       </section>
 
-      <!-- Metadata standards -->
+      <!-- 3. Selected Items -->
       <section class="section">
-        <h2>Metadata Standards Used</h2>
+        <h2>3. Selected Items</h2>
+        <p>
+          The dataset includes <strong>15 cultural heritage objects</strong>, chosen to represent different media,
+          institutions, standards, and descriptive traditions:
+        </p>
+        <ol>
+          <li><em>Il primo Fellini</em> – Book — <strong>ISBD(G)</strong></li>
+          <li><em>Guida per camminare all’ombra</em> — Screenplay — <strong>ISAD(G)</strong></li>
+          <li>Photograph: “Premiere of <em>La Strada</em> at Cinema Fulgor” — <strong>Scheda F</strong></li>
+          <li>Drawing “Gelsomina col tamburo” — <strong>Scheda OA</strong></li>
+          <li>Caricature “Perché Federico non fa la rivolussione?” — <strong>Scheda OA</strong></li>
+          <li>Set photograph by Aldo Ferrari — <strong>Scheda F</strong></li>
+          <li>Photograph “La Strada 01” — <strong>Scheda F</strong></li>
+          <li>Photograph “La Strada 004” — <strong>Scheda F</strong></li>
+          <li>
+            Videointerview: <em>Il cinema a Bologna: Renzo Renzi e la Columbus film, il</em> (2000) —
+            <strong>FIAF</strong>
+          </li>
+          <li>Film <em>La Strada</em> (1954) — <strong>ISBD(NBM) + FIAF</strong></li>
+          <li>Soundtrack <em>La Strada</em> (Nino Rota) — <strong>ISBD(NBM)</strong></li>
+          <li>Family photograph — <strong>Scheda F</strong></li>
+          <li>Documentary <em>Quando il Po è dolce</em> (1952) — <strong>ISBD(NBM) + FIAF</strong></li>
+          <li>Renzo Renzi Library — <strong>ICCU / ISIL identification</strong></li>
+          <li>Letter (film-related material) — <strong>FIAF Film-Related Materials</strong></li>
+        </ol>
+      </section>
+
+      <!-- 4. Metadata Standards Used -->
+      <section class="section">
+        <h2>4. Metadata Standards Used</h2>
 
         <h3>Bibliographic (Books, Textual Items)</h3>
         <ul>
@@ -232,286 +134,252 @@
         </ul>
       </section>
 
-      <!-- Ontologies reused -->
+      <!-- 5. Theoretical Model -->
       <section class="section">
-        <h2>Ontologies Reused</h2>
+        <h2>5. Theoretical Model (Natural-Language Analysis)</h2>
+        <p>
+          Each object was analysed following the descriptive logic of its reference standard, identifying:
+        </p>
+        <ul>
+          <li>intrinsic features (title, date, format, technique, extent…)</li>
+          <li>roles and actors (creators, performers, contributors…)</li>
+          <li>relationships to other entities (about, depicts, documents…)</li>
+          <li>institutional context (holding institution, collection, location…)</li>
+          <li>authority control (VIAF, Wikidata, ISIL, ISNI…)</li>
+        </ul>
+
+        <p>The domain includes:</p>
+        <ul>
+          <li><strong>People</strong> (Renzo Renzi, Federico Fellini, Giulietta Masina, Nino Rota…)</li>
+          <li><strong>Works</strong> (book, screenplay, documentary, film, soundtrack…)</li>
+          <li><strong>Images</strong> (photographs, caricatures, drawings…)</li>
+          <li><strong>Events</strong> (interviews, premieres, documentary production…)</li>
+          <li><strong>Places</strong> (Bologna, Cinema Fulgor, Po River Delta…)</li>
+          <li><strong>Institutions</strong> (Renzo Renzi Library, Cineteca di Bologna, ICCU…)</li>
+        </ul>
+
+        <p>
+          These narratives form the <strong>theoretical model</strong> that underpins the conceptual model and the
+          RDF representation.
+        </p>
+      </section>
+
+      <!-- 6. Conceptual Model -->
+      <section class="section">
+        <h2>6. Conceptual Model (Ontological Reuse)</h2>
+        <p>
+          The conceptual model does not introduce a new ontology. Instead, it reuses existing vocabularies to describe
+          entities and relationships in a coherent way.
+        </p>
+
+        <h3>Ontologies and Vocabularies</h3>
         <ul>
           <li><strong>Dublin Core Terms (DCTerms)</strong></li>
-          <li><strong>FOAF</strong></li>
           <li><strong>Schema.org</strong></li>
-          <li><strong>RiC-O</strong></li>
-          <li><strong>CIDOC CRM</strong></li>
-          <li><strong>IFLA LRM</strong></li>
-          <li><strong>SKOS</strong> (for types, roles)</li>
-        </ul>
-        <p>
-          These were used only <em>for conceptual modelling and semantic alignment</em>, not for creating a
-          brand-new ontology.
-        </p>
-      </section>
-
-      <!-- Flow of the project -->
-      <section class="section">
-        <h2>Flow of the Project</h2>
-
-        <h3>1. Choosing the objects</h3>
-        <p>Color code used internally:</p>
-        <ul>
-          <li><strong>Laura →</strong> orange</li>
-          <li><strong>Claudia →</strong> purple</li>
-          <li><strong>Chen →</strong> blue</li>
+          <li><strong>FOAF</strong></li>
+          <li><strong>SKOS</strong></li>
+          <li><strong>RiC-O</strong> (conceptual reference for archival logic)</li>
+          <li><strong>CIDOC CRM</strong> (conceptual reference for museum logic)</li>
+          <li><strong>IFLA LRM</strong> (bibliographic thinking)</li>
         </ul>
 
-        <figure class="conceptual-model-figure">
-          <img
-            src="https://github.com/user-attachments/assets/bdead909-2afe-4346-946a-b0e3540a7a42"
-            alt="Internal color coding for project items"
-          />
-          <figcaption>Internal color coding used for items and responsibilities.</figcaption>
-        </figure>
-
-        <h4>Final selection of 15 objects</h4>
-        <ol>
-          <li><em>Il primo Fellini</em> – Book — <strong>ISBD(G)</strong></li>
-          <li><em>Guida per camminare all’ombra</em> — Screenplay — <strong>ISAD</strong></li>
-          <li>Photo 1 — <strong>Scheda F</strong></li>
-          <li>Drawing “Gelsomina” — <strong>Scheda OA</strong></li>
-          <li>Drawing caricature of Renzo Renzi — <strong>Scheda OA</strong></li>
-          <li>Photo 2 (Aldo Ferrari) — <strong>Scheda F</strong></li>
-          <li>Photo 3 “La Strada 01” — <strong>Scheda F</strong></li>
-          <li>Photo 4 “La Strada 004” — <strong>Scheda F</strong></li>
-          <li>Videointerview Renzo Renzi (2000) — <strong>FIAF</strong></li>
-          <li>Film <em>La Strada</em> — <strong>FIAF (ISBD NBM)</strong></li>
-          <li>Soundtrack <em>La Strada</em> — <strong>ISBD (NBM)</strong></li>
-          <li>Family photo — <strong>Scheda F</strong></li>
-          <li>Documentary <em>Quando il Po è dolce</em> — <strong>ISBD(NBM)</strong></li>
-          <li>Renzo Renzi Library (building) — <strong>ICCU cataloguing rules</strong></li>
-          <li>Letter — <strong>FIAF (document)</strong></li>
-        </ol>
-      </section>
-
-      <!-- Metadata analysis -->
-      <section class="section">
-        <h2>2. Metadata Analysis</h2>
-
-        <h3>Laura’s items</h3>
-        <table class="meta-table">
-          <thead>
-            <tr>
-              <th>Object</th>
-              <th>Type</th>
-              <th>Provider</th>
-              <th>Metadata Standard</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>1. <em>Il primo Fellini</em></td>
-              <td>Book / Text</td>
-              <td>Cineteca di Bologna</td>
-              <td>ISBD(G)</td>
-            </tr>
-            <tr>
-              <td>2. Photo 1 “Prima de <em>La Strada</em> al Fulgor”</td>
-              <td>Photograph</td>
-              <td>Cineteca di Bologna</td>
-              <td>Scheda F</td>
-            </tr>
-            <tr>
-              <td>3. “Perché Federico non fa la rivolussione?”</td>
-              <td>Drawing / Caricature</td>
-              <td>Cineteca di Bologna</td>
-              <td>Scheda OA</td>
-            </tr>
-            <tr>
-              <td>4. Videointerview Renzo Renzi (2000)</td>
-              <td>Audiovisual</td>
-              <td>Cineteca di Bologna</td>
-              <td>FIAF Rules</td>
-            </tr>
-            <tr>
-              <td>5. <em>La Strada</em> Soundtrack</td>
-              <td>Sound Recording</td>
-              <td>Cineteca di Bologna</td>
-              <td>ISBD(NBM)</td>
-            </tr>
-          </tbody>
-        </table>
-
-        <h3>Claudia’s items</h3>
-        <table class="meta-table">
-          <thead>
-            <tr>
-              <th>Object</th>
-              <th>Type</th>
-              <th>Provider</th>
-              <th>Metadata Standard</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>6. <em>Guida per camminare all’ombra</em></td>
-              <td>Printed screenplay</td>
-              <td>Cineteca di Bologna</td>
-              <td>ISAD(G)</td>
-            </tr>
-            <tr>
-              <td>7. Photo from set</td>
-              <td>Photo</td>
-              <td>Renzi family</td>
-              <td>Scheda F</td>
-            </tr>
-            <tr>
-              <td>8. Family photo</td>
-              <td>Photo</td>
-              <td>Renzi family</td>
-              <td>Scheda F</td>
-            </tr>
-            <tr>
-              <td>9. Documentary <em>Quando il Po è dolce</em></td>
-              <td>Documentary</td>
-              <td>Cineteca / IMDb</td>
-              <td>ISBD(NBM)</td>
-            </tr>
-            <tr>
-              <td>10. Renzo Renzi Library</td>
-              <td>Building</td>
-              <td>ICCU</td>
-              <td>REICAT / ISBD(NBM)</td>
-            </tr>
-          </tbody>
-        </table>
-
-        <p><em>(We have to add River's!!)</em></p>
-      </section>
-
-      <!-- Theoretical model -->
-      <section class="section">
-        <h2>3. Theoretical Model</h2>
-        <p><em>A natural-language description of the domain.</em></p>
-        <p>The objects in the Renzi collection form an interconnected network of entities:</p>
-        <ul>
-          <li><strong>People</strong> (Renzo Renzi, Federico Fellini, Aldo Ferrari, Nino Rota…)</li>
-          <li><strong>Works</strong> (book, screenplay, documentaries, film, soundtrack…)</li>
-          <li><strong>Images</strong> (photographs, caricatures, drawings…)</li>
-          <li><strong>Events</strong> (interviews, film production, documentary creation…)</li>
-          <li><strong>Places</strong> (Bologna, Cineteca di Bologna…)</li>
-          <li><strong>Institutions</strong> (Renzi Library, Cineteca, ICCU…)</li>
-        </ul>
-        <p>Relationships include:</p>
-        <ul>
-          <li>creation, authorship</li>
-          <li>depiction</li>
-          <li>performance / contribution</li>
-          <li>production</li>
-          <li>documentation</li>
-          <li>archival holding</li>
-        </ul>
-        <p>This natural-language model is the basis for the conceptual model.</p>
-      </section>
-
-      <!-- Conceptual model -->
-      <section class="section">
-        <h2>4. Conceptual Model (Formal)</h2>
-        <p>The modelling reuses:</p>
-
-        <h3>Classes</h3>
+        <h3>Core Classes</h3>
         <ul>
           <li><code>schema:CreativeWork</code></li>
-          <li><code>schema:Photograph</code></li>
-          <li><code>schema:Person</code></li>
-          <li><code>schema:AudioObject</code></li>
+          <li><code>schema:ImageObject</code></li>
+          <li><code>schema:VideoObject</code> / <code>schema:Movie</code></li>
+          <li><code>schema:MusicRecording</code></li>
+          <li><code>schema:Person</code>, <code>schema:Organization</code>, <code>schema:Place</code></li>
           <li><code>foaf:Agent</code></li>
           <li><code>dcterms:Location</code></li>
-          <li><code>rico:Record</code></li>
-          <li><code>cidoc:E21_Person</code>, <code>cidoc:E22_Man-Made_Object</code> (concept inspiration)</li>
         </ul>
 
-        <h3>Properties</h3>
+        <h3>Core Properties</h3>
         <ul>
-          <li><code>dcterms:creator</code></li>
-          <li><code>dcterms:subject</code></li>
-          <li><code>schema:dateCreated</code></li>
-          <li><code>schema:locationCreated</code></li>
-          <li><code>schema:isPartOf</code></li>
-          <li><code>foaf:depiction</code></li>
-          <li><code>rico:heldBy</code></li>
+          <li><code>dcterms:creator</code>, <code>dcterms:subject</code>, <code>dcterms:date</code></li>
+          <li><code>schema:about</code>, <code>schema:locationCreated</code></li>
+          <li><code>schema:hasPart</code>, <code>dcterms:hasPart</code></li>
+          <li><code>foaf:depicts</code></li>
         </ul>
 
         <p>
-          A final diagram (Grafoo style) is included in
-          <code>/docs/conceptual_model.png</code>.
+          The conceptual model is summarized in a Grafoo-style diagram included in the documentation
+          (e.g. <code>docs/conceptual_model.png</code>).
         </p>
       </section>
 
-      <!-- CSV -> RDF -->
+      <!-- 7. Data Production (CSV) -->
       <section class="section">
-        <h2>5. CSV → RDF Transformation</h2>
-        <p>Python scripts include:</p>
+        <h2>7. Data Production (CSV)</h2>
+        <p>
+          A dedicated CSV file was created for each of the 15 items. In addition, two global files organise the semantic
+          layer:
+        </p>
+        <ul>
+          <li><code>rrr_entities.csv</code> – entities of the domain (people, places, works, concepts…)</li>
+          <li><code>rrr_triples.csv</code> – relations between those entities</li>
+        </ul>
+        <p>
+          All identifiers follow a <strong>snake_case</strong> convention and a shared project prefix (<code>rrr:</code>).
+        </p>
+      </section>
+
+      <!-- 8. TEI Encoding & XSLT -->
+      <section class="section">
+        <h2>8. TEI Encoding &amp; XSLT Transformation</h2>
+        <p>
+          One item, related to <em>La Strada</em>, was encoded using <strong>TEI P5</strong>. The encoding focuses on a
+          selected sequence and aims to:
+        </p>
+        <ul>
+          <li>represent structure, speakers, and relevant segments</li>
+          <li>highlight editorial and interpretative choices</li>
+        </ul>
+        <p>
+          The stylesheet <code>tei2html_lastrada.xsl</code> transforms the TEI file into an HTML edition that is
+          integrated into the project website (file <code>html/lastrada.html</code>).
+        </p>
+      </section>
+
+      <!-- 9. RDF Dataset -->
+      <section class="section">
+        <h2>9. RDF Dataset</h2>
+        <p>
+          The RDF dataset (<code>ttl/rrr.ttl</code>) is generated from the CSV files using Python and RDFLib.
+        </p>
 
         <h3><code>build_rrr_rdf.py</code></h3>
         <ul>
-          <li>reads the metadata from: <code>csv/rrr_entities.csv</code> + <code>csv/rrr_triples.csv</code></li>
+          <li>reads the metadata from item CSVs and from <code>rrr_entities.csv</code> and <code>rrr_triples.csv</code></li>
           <li>constructs a graph using RDFLib</li>
-          <li>serializes as <code>ttl/rrr.ttl</code></li>
+          <li>serializes the result as Turtle (<code>rrr.ttl</code>)</li>
         </ul>
 
         <h3><code>compare_ttl.py</code></h3>
         <ul>
-          <li>compares two Turtle files</li>
-          <li>checks differences during updates</li>
+          <li>compares two Turtle serializations</li>
+          <li>helps track differences between RDF versions during development</li>
         </ul>
       </section>
 
-      <!-- TEI -> HTML -->
+      <!-- 10. Website -->
       <section class="section">
-        <h2>6. TEI → HTML Transformation</h2>
-        <p>The TEI edition:</p>
+        <h2>10. Website</h2>
+        <p>
+          The project is published as a <strong>GitHub Pages</strong> website which presents:
+        </p>
         <ul>
-          <li>input TEI: <code>tei_xslt/lastrada.xml</code></li>
-          <li>XSL: <code>tei_xslt/tei2html_lastrada.xsl</code></li>
-          <li>output HTML: <code>html/lastrada.html</code></li>
+          <li>the project overview and rationale</li>
+          <li>a list of items with their metadata</li>
+          <li>the TEI → HTML edition of the selected text</li>
+          <li>the RDF dataset (downloadable as Turtle)</li>
+          <li>visual materials (images, stills)</li>
+          <li>documentation and team information</li>
         </ul>
+        <p>
+          URL: <a href="https://cinefiles25.github.io/TheRevolussionOfRenzoRenzi/">
+            https://cinefiles25.github.io/TheRevolussionOfRenzoRenzi/
+          </a>
+        </p>
       </section>
 
-      <!-- Website structure -->
+      <!-- 11. Institutions & Authority Files -->
       <section class="section">
-        <h2>7. Website Structure</h2>
-        <p>The website includes:</p>
-        <ul>
-          <li>landing page</li>
-          <li>about the project</li>
-          <li>list of items</li>
-          <li>TEI → HTML section</li>
-          <li>RDF dataset download</li>
-          <li>team section</li>
-          <li>documentation pages</li>
-        </ul>
-        <p>Published via GitHub Pages.</p>
+        <h2>11. Institutions &amp; Authority Files</h2>
+        <p>
+          The project systematically uses authority files for people, places, and institutions, primarily:
+          <strong>VIAF</strong>, <strong>Wikidata</strong>, <strong>ISIL/ICCU</strong>, and <strong>ISNI</strong>.
+        </p>
+
+        <table class="meta-table">
+          <thead>
+            <tr>
+              <th>Entity</th>
+              <th>Authority Links</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Renzo Renzi</td>
+              <td>
+                VIAF:
+                <a href="http://viaf.org/viaf/40486517">http://viaf.org/viaf/40486517</a> —
+                Wikidata:
+                <a href="https://www.wikidata.org/wiki/Q56179169">Q56179169</a>
+              </td>
+            </tr>
+            <tr>
+              <td>Federico Fellini</td>
+              <td>
+                VIAF:
+                <a href="http://viaf.org/viaf/76315386">http://viaf.org/viaf/76315386</a> —
+                Wikidata:
+                <a href="https://www.wikidata.org/wiki/Q7371">Q7371</a>
+              </td>
+            </tr>
+            <tr>
+              <td>Cineteca di Bologna</td>
+              <td>
+                VIAF:
+                <a href="http://viaf.org/viaf/124960346">http://viaf.org/viaf/124960346</a> —
+                Wikidata:
+                <a href="https://www.wikidata.org/wiki/Q1092493">Q1092493</a>
+              </td>
+            </tr>
+            <tr>
+              <td>Bologna (place)</td>
+              <td>
+                Wikidata:
+                <a href="https://www.wikidata.org/wiki/Q1891">Q1891</a>
+              </td>
+            </tr>
+            <tr>
+              <td>Cinema Fulgor</td>
+              <td>
+                Wikidata:
+                <a href="https://www.wikidata.org/wiki/Q36839368">Q36839368</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </section>
 
-      <!-- Team roles -->
+      <!-- 12. Team Roles -->
       <section class="section">
-        <h2>8. Team Roles</h2>
+        <h2>12. Team Roles</h2>
+        <p>The project was collaboratively developed by:</p>
 
-        <h3>Laura</h3>
+        <h3>Laura Bortoli</h3>
         <ul>
-          <li>Metadata creation (book, photograph, caricature, interview, soundtrack)</li>
-          <li>TEI encoding</li>
-          <li>XSLT transformation</li>
-          <li>RDF generation scripts</li>
-          <li>Entity and triples modelling</li>
-          <li>Website content (<em>La Strada</em> edition)</li>
+          <li>Metadata creation and harmonisation (book, photograph, caricature, interview, soundtrack)</li>
+          <li>TEI encoding and XSLT transformation</li>
+          <li>RDF modelling and generation scripts</li>
+          <li>Entity and triples design</li>
+          <li>Website content (including <em>La Strada</em> edition)</li>
         </ul>
 
-        <p><em>(Claudia and River, add yours!!)</em></p>
+        <h3>Claudia Romanello</h3>
+        <ul>
+          <li>Photographic and documentary metadata</li>
+          <li>Screenplay analysis and description</li>
+          <li>Contribution to Python scripts and RDF validation</li>
+        </ul>
+
+        <h3>Qinghao (River) Chen</h3>
+        <ul>
+          <li>Metadata extraction for additional items</li>
+          <li>Film and institutional metadata</li>
+          <li>Interface work and website structure</li>
+          <li>RDF checking and consistency review</li>
+        </ul>
       </section>
 
       <!-- End -->
       <section class="section">
         <h2>End of Documentation</h2>
         <p>
-          This file is intended for instructor evaluation and internal transparency about the project workflow.
+          This document provides an instructor-oriented overview of the project workflow, methodological choices,
+          standards, and deliverables for <em>The “Revolussion” of Renzo Renzi</em>.
         </p>
       </section>
     </main>
