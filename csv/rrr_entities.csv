@@ -22,5 +22,5 @@ la_strada_film,"Film 'La Strada'",schema:Movie,https://cinefiles25.github.io/rrr
 public_reception,Public reception,skos:Concept,https://cinefiles25.github.io/rrr/concept/public_reception,
 renzi_oral_memory,Renzo Renzi oral memory,skos:Concept,https://cinefiles25.github.io/rrr/concept/renzi_oral_memory,
 renzi_library,Renzo Renzi Library,schema:Library,https://cinefiles25.github.io/rrr/place/renzo_renzi_library,https://isni.org/isni/0000000459141457
-set_photo,Ferrari set photo,schema:ImageObject,https://cinefiles25.github.io/rrr/work/set_photo,
+set_photo,Ferrari "Le Notti del Melodramma" Set Photo,schema:ImageObject,https://cinefiles25.github.io/rrr/work/set_photo,
 po_documentary,"Documentary 'Quando il Po è dolce'",schema:Movie,https://cinefiles25.github.io/rrr/work/quando_il_po_e_dolce,
