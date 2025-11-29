@@ -1,9 +1,53 @@
-import csv
-import re
-import requests
-from io import StringIO
+import pandas as pd
+from rdflib import Namespace, Graph, RDF, URIRef, OWL, Literal, XSD
 
-# ------------ configuration ------------
+# ============================================
+# NAMESPACES
+# ============================================
+
+rrr = Namespace("https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/")
+sf  = Namespace("https://iccd.beniculturali.it/scheda-f/")
+dct = Namespace("http://purl.org/dc/terms/")
+dc  = Namespace("http://purl.org/dc/elements/1.1/")
+owl = Namespace("http://www.w3.org/2002/07/owl#")
+xsd = Namespace("http://www.w3.org/2001/XMLSchema#")
+
+# ============================================
+# GRAPH CREATION
+# ============================================
+
+g = Graph()
+
+ns_dict = {
+    "rrr": rrr,
+    "sf": sf,
+    "dct": dct,
+    "dc": dc,
+    "owl": owl,
+    "xsd": xsd,
+}
+
+def graph_bindings():
+    for prefix, ns in ns_dict.items():
+        g.bind(prefix, ns)
+    return g
+
+g = graph_bindings()
+
+# ============================================
+# ENTITIES（fixed instance，name it manunally）
+# ============================================
+
+photo = URIRef(rrr + "photo_la_strada_fighter")
+
+# or if there's a need, we can:
+# renzo_renzi = URIRef(rrr + "renzo_renzi")
+# bologna = URIRef(rrr + "bologna")
+# bind with dct:subject / dct:spatial below
+
+# ============================================
+# CSV FROM GITHUB
+# ============================================
 
 GITHUB_CSV_URL = (
     "https://raw.githubusercontent.com/"
@@ -11,146 +55,96 @@ GITHUB_CSV_URL = (
     "csv/photo_la_strada_fighter.csv"
 )
 
-OUTPUT_TTL = "photo_lastrada_05_fighter.ttl"
+photo_df = pd.read_csv(GITHUB_CSV_URL, keep_default_na=False, encoding="utf-8")
 
-PREFIXES = """@prefix rrr:  <https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/> .
-@prefix sf:   <https://iccd.beniculturali.it/scheda-f/> .
-@prefix dct:  <http://purl.org/dc/terms/> .
-@prefix dc:   <http://purl.org/dc/elements/1.1/> .
-@prefix owl:  <http://www.w3.org/2002/07/owl#> .
-@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+# ============================================
+# MAPPING（ultra-simple）
+# ============================================
 
-"""
+for idx, row in photo_df.iterrows():
+    # Class：in Scheda F we consider my photo as an instance as sf:Photograph
+    g.add((photo, RDF.type, sf.Photograph))
 
-COLUMN_TO_PROPERTY = {
-    "standard": "sf:standard",
-    "title": "dct:title",
-    "other_title_information": "dct:alternative",
-    "photographer": "dct:creator",
-    "depicted_event": "dct:subject",
-    "depicted_people": "dct:subject",
-    "depicted_place": "dct:spatial",
-    "creation_year": "dct:created",
-    "colour": "sf:colour",
-    "material_technique": "dct:medium",
-    "inventory_number": "sf:inventoryNumber",
-    "collection": "dct:isPartOf",
-    "carrier_type": "sf:carrierType",
-    "physical_description": "dct:extent",
-    "notes": "dct:description",
-    "identifiers": "dct:identifier",
-    "related_works": "sf:relatedWork",
-    "rights": "dct:rights",
-    "resource_type": "dct:type",
-    "language": "dct:language",
-}
+    # ---- （Literal） ----
+    if row["standard"]:
+        g.add((photo, sf.standard, Literal(row["standard"])))
 
-URI_LINK_PROPERTIES = {
-    "photographer_uri": "sf:photographerRef",
-    "depicted_people_uri": "sf:depictedPersonRef",
-    "depicted_event_uri": "sf:depictedEventRef",
-    "depicted_place_uri": "sf:depictedPlaceRef",
-    "related_works_uri": "sf:relatedWorkRef",
-}
+    if row["title"]:
+        g.add((photo, dct.title, Literal(row["title"])))
 
-URI_AUTH_TYPES = {
-    "photographer_uri": "sf:Photographer",
-    "depicted_people_uri": "sf:Person",
-    "depicted_event_uri": "sf:Event",
-    "depicted_place_uri": "sf:Place",
-    "related_works_uri": "sf:Work",
-}
+    if row["other_title_information"]:
+        g.add((photo, dct.alternative, Literal(row["other_title_information"])))
 
-# ------------ helpers ------------
+    if row["photographer"]:
+        g.add((photo, dct.creator, Literal(row["photographer"])))
 
-def slugify(text: str) -> str:
-    text = text.strip().lower()
-    text = re.sub(r"[^a-z0-9]+", "-", text)
-    return text.strip("-") or "item"
+    if row["depicted_event"]:
+        g.add((photo, dct.subject, Literal(row["depicted_event"])))
 
-def escape_literal(text: str) -> str:
-    return (
-        text.replace("\\", "\\\\")
-            .replace('"', '\\"')
-            .replace("\n", "\\n")
-            .replace("\r", "\\r")
-    )
+    if row["depicted_people"]:
+        g.add((photo, dct.subject, Literal(row["depicted_people"])))
 
-# ------------ main conversion ------------
+    if row["depicted_place"]:
+        g.add((photo, dct.spatial, Literal(row["depicted_place"])))
 
-def convert_from_github_csv(github_url: str, output_ttl: str) -> None:
-    print(f"Fetching CSV from GitHub:\n{github_url}\n")
+    if row["creation_year"]:
+        g.add((photo, dct.created, Literal(row["creation_year"], datatype=XSD.gYear)))
 
-    response = requests.get(github_url)
-    response.raise_for_status()
-    csv_text = response.text
+    if row["colour"]:
+        g.add((photo, sf.colour, Literal(row["colour"])))
 
-    reader = csv.DictReader(StringIO(csv_text))
-    rows = list(reader)
+    if row["material_technique"]:
+        g.add((photo, dct.medium, Literal(row["material_technique"])))
 
-    print(f"Read {len(rows)} row(s).\n")
+    if row["inventory_number"]:
+        g.add((photo, sf.inventoryNumber, Literal(row["inventory_number"])))
 
-    authorities = {}
+    if row["collection"]:
+        g.add((photo, dct.isPartOf, Literal(row["collection"])))
 
-    with open(output_ttl, "w", encoding="utf-8") as out:
-        out.write(PREFIXES)
+    if row["carrier_type"]:
+        g.add((photo, sf.carrierType, Literal(row["carrier_type"])))
 
-        out.write("\n### Schema (Scheda F) ###\n\n")
-        out.write("sf:Photograph a owl:Class .\n")
-        for c in ["Photographer", "Person", "Event", "Place", "Work"]:
-            out.write(f"sf:{c} a owl:Class .\n")
-        out.write("\n")
+    if row["physical_description"]:
+        g.add((photo, dct.extent, Literal(row["physical_description"])))
 
-        out.write("### Instances ###\n\n")
+    if row["notes"]:
+        g.add((photo, dct.description, Literal(row["notes"])))
 
-        for row in rows:
-            inst_id = slugify(row["id"])
-            out.write(f"rrr:{inst_id} a sf:Photograph ;\n")
+    if row["identifiers"]:
+        g.add((photo, dct.identifier, Literal(row["identifiers"])))
 
-            triples = []
+    if row["related_works"]:
+        g.add((photo, sf.relatedWork, Literal(row["related_works"])))
 
-            # Literal values
-            for col, prop in COLUMN_TO_PROPERTY.items():
-                value = (row.get(col) or "").strip()
-                if value:
-                    triples.append(f'    {prop} "{escape_literal(value)}"')
+    if row["rights"]:
+        g.add((photo, dct.rights, Literal(row["rights"])))
 
-            # Authority links
-            for uri_col, link_prop in URI_LINK_PROPERTIES.items():
-                uri_value = (row.get(uri_col) or "").strip()
-                if not uri_value:
-                    continue
+    if row["resource_type"]:
+        g.add((photo, dct.type, Literal(row["resource_type"])))
 
-                names_col = uri_col.replace("_uri", "")
-                names_value = (row.get(names_col) or "").strip()
+    if row["language"]:
+        g.add((photo, dct.language, Literal(row["language"])))
 
-                uri_list = [u.strip() for u in uri_value.split(";") if u.strip()]
-                name_list = [n.strip() for n in names_value.split(";")] if names_value else []
+    # ---- URI property（instance link to URI，without authority file linked） ----
+    if row["photographer_uri"]:
+        g.add((photo, sf.photographerRef, URIRef(row["photographer_uri"])))
 
-                for idx, uri in enumerate(uri_list):
-                    label = name_list[idx] if idx < len(name_list) else uri
-                    auth_slug = slugify(label if label else uri)
-                    triples.append(f"    {link_prop} rrr:{auth_slug}")
+    if row["depicted_people_uri"]:
+        g.add((photo, sf.depictedPersonRef, URIRef(row["depicted_people_uri"])))
 
-                    if auth_slug not in authorities:
-                        authorities[auth_slug] = {
-                            "label": label,
-                            "uri": uri,
-                            "type": URI_AUTH_TYPES.get(uri_col, "owl:Thing"),
-                        }
+    if row["depicted_event_uri"]:
+        g.add((photo, sf.depictedEventRef, URIRef(row["depicted_event_uri"])))
 
-            if triples:
-                out.write(" ;\n".join(triples))
-            out.write(" .\n\n")
+    if row["depicted_place_uri"]:
+        g.add((photo, sf.depictedPlaceRef, URIRef(row["depicted_place_uri"])))
 
-        # authority nodes
-        out.write("### Authority entities ###\n\n")
-        for aid, data in authorities.items():
-            out.write(f"rrr:{aid} a {data['type']} ;\n")
-            out.write(f'    dct:title "{escape_literal(data["label"])}" ;\n')
-            out.write(f"    owl:sameAs <{data['uri']}> .\n\n")
+    if row["related_works_uri"]:
+        g.add((photo, sf.relatedWorkRef, URIRef(row["related_works_uri"])))
 
-    print(f"TTL written to: {output_ttl}")
+# ============================================
+# SERIALIZATION
+# ============================================
 
-if __name__ == "__main__":
-    convert_from_github_csv(GITHUB_CSV_URL, OUTPUT_TTL)
+g.serialize(format="turtle", destination="photo_lastrada_05_fighter.ttl")
+print("CSV from GitHub converted to TTL: photo_lastrada_05_fighter.ttl")
