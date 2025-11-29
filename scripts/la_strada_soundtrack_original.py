@@ -1,14 +1,6 @@
 import pandas as pd
-from rdflib import (
-    Namespace,
-    Graph,
-    RDF,
-    URIRef,
-    OWL,
-    Literal,
-    XSD,
-    RDFS,
-)
+from rdflib import Namespace, Graph, RDF, URIRef, OWL, Literal, XSD, RDFS
+
 
 # ============================================
 # NAMESPACES
@@ -130,4 +122,5 @@ for idx, row in df.iterrows():
 
 g.serialize(format="turtle", destination="lastrada_movie.ttl")
 print("GitHub CSV converted to TTL successfully!")
+
 
