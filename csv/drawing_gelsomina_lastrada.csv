@@ -1,3 +1,2 @@
-Object Type,Title,Author,Description,Technique,Support,Dimensions,Collection,URL
-Drawing,"La strada: Gelsomina col tamburo","Renzo Renzi","Portrait of Gelsomina playing a drum on a road.",Pencil and markers,Cardboard,25.2 x 17.2 cm,Renzo Renzi Collection,https://docs.google.com/document/d/1ZvQGWcsAFJIfbHujWuv6LcHwhw9zlxtQ/edit
-
+id,standard,title,other_title_information,inscription,creator,depicted_people,creation_date,technique,material,dimensions,institution,collection,current_location,rights,description,notes,resource_type,language,creator_uri,depicted_people_uri,institution_uri,collection_uri,current_location_uri
+drawing_gelsomina_lastrada,OA,"La strada: Gelsomina col tamburo","","","Renzo Renzi","Giulietta Masina","","Pencil and markers","Cardboard","25.2 × 17.2 cm","Cineteca di Bologna","Renzo Renzi Collection","","Rights status unknown; to be confirmed","Portrait of Gelsomina playing a drum on a road.","","Drawing","","http://viaf.org/viaf/40486517","http://viaf.org/viaf/37021297","http://viaf.org/viaf/124960346","",""

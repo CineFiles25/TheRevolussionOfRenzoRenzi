@@ -1,178 +1,152 @@
-import csv
-import re
-import requests
-from io import StringIO
+import pandas as pd
+from rdflib import Namespace, Graph, RDF, URIRef, OWL, Literal, XSD
 
-# ------------ configuration ------------
+# ============================================
+# CONFIGURATION
+# ============================================
 
-# GitHub raw URL of your Scheda F CSV
 GITHUB_CSV_URL = (
     "https://raw.githubusercontent.com/"
     "CineFiles25/TheRevolussionOfRenzoRenzi/refs/heads/main/"
     "csv/%E2%80%9Cla_strada_004%E2%80%9D%20(woman).csv"
 )
 
-# Output TTL file name
 OUTPUT_TTL = "la_strada_004_woman.ttl"
 
-PREFIXES = """@prefix rrr:  <https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/> .
-@prefix sf:   <https://iccd.beniculturali.it/scheda-f/> .
-@prefix dct:  <http://purl.org/dc/terms/> .
-@prefix dc:   <http://purl.org/dc/elements/1.1/> .
-@prefix owl:  <http://www.w3.org/2002/07/owl#> .
-@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+# ============================================
+# NAMESPACES
+# ============================================
 
-"""
+rrr = Namespace("https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/")
+sf  = Namespace("https://iccd.beniculturali.it/scheda-f/")
+dct = Namespace("http://purl.org/dc/terms/")
+dc  = Namespace("http://purl.org/dc/elements/1.1/")
+owl = Namespace("http://www.w3.org/2002/07/owl#")
+xsd = Namespace("http://www.w3.org/2001/XMLSchema#")
 
-# CSV column -> property IRI (literal properties on the photo)
-COLUMN_TO_PROPERTY = {
-    "standard": "sf:standard",
-    "title": "dct:title",
-    "other_title_information": "dct:alternative",
-    "photographer": "dct:creator",
-    "depicted_event": "dct:subject",
-    "depicted_people": "dct:subject",
-    "depicted_place": "dct:spatial",
-    "creation_year": "dct:created",
-    "colour": "sf:colour",
-    "material_technique": "dct:medium",
-    "inventory_number": "sf:inventoryNumber",
-    "collection": "dct:isPartOf",
-    "carrier_type": "sf:carrierType",
-    "physical_description": "dct:extent",
-    "notes": "dct:description",
-    "identifiers": "dct:identifier",
-    "related_works": "sf:relatedWork",
-    "rights": "dct:rights",
-    "resource_type": "dct:type",
-    "language": "dct:language",
+# ============================================
+# GRAPH CREATION
+# ============================================
+
+g = Graph()
+
+ns_dict = {
+    "rrr": rrr,
+    "sf": sf,
+    "dct": dct,
+    "dc": dc,
+    "owl": owl,
+    "xsd": xsd,
 }
 
-# URI columns and the properties used to link the photo to authority nodes
-URI_LINK_PROPERTIES = {
-    "photographer_uri": "sf:photographerRef",
-    "depicted_people_uri": "sf:depictedPersonRef",
-    "depicted_event_uri": "sf:depictedEventRef",
-    "depicted_place_uri": "sf:depictedPlaceRef",
-    "related_works_uri": "sf:relatedWorkRef",
-}
+def graph_bindings():
+    for prefix, ns in ns_dict.items():
+        g.bind(prefix, ns)
+    return g
 
-# Type of authority node for each URI column
-URI_AUTH_TYPES = {
-    "photographer_uri": "sf:Photographer",
-    "depicted_people_uri": "sf:Person",
-    "depicted_event_uri": "sf:Event",
-    "depicted_place_uri": "sf:Place",
-    "related_works_uri": "sf:Work",
-}
+g = graph_bindings()
 
-# ------------ helpers ------------
+# ============================================
+# ENTITY: instance as this photo（name it manually）
+# ============================================
 
-def slugify(text: str) -> str:
-    text = text.strip().lower()
-    text = re.sub(r"[^a-z0-9]+", "-", text)
-    return text.strip("-") or "item"
+photo = URIRef(rrr + "la_strada_004_woman")
 
-def escape_literal(text: str) -> str:
-    return (
-        text.replace("\\", "\\\\")
-            .replace('"', '\\"')
-            .replace("\n", "\\n")
-            .replace("\r", "\\r")
-    )
+# ============================================
+# READ CSV FROM GITHUB
+# ============================================
 
-# ------------ main conversion ------------
+df = pd.read_csv(GITHUB_CSV_URL, keep_default_na=False, encoding="utf-8")
+print(f"Read {len(df)} row(s) from CSV.\n")
 
-def convert_from_github_csv(github_url: str, output_ttl: str) -> None:
-    print(f"Fetching CSV from GitHub:\n{github_url}\n")
-    response = requests.get(github_url)
-    response.raise_for_status()
+# ============================================
+# MAPPING（utral simple）
+# ============================================
 
-    csv_text = response.text
-    reader = csv.DictReader(StringIO(csv_text))
-    rows = list(reader)
+for idx, row in df.iterrows():
+    # class：Photograph in Scheda F
+    g.add((photo, RDF.type, sf.Photograph))
 
-    print(f"Read {len(rows)} row(s) from CSV.\n")
+    # ---- literal property ----
+    if row["standard"]:
+        g.add((photo, sf.standard, Literal(row["standard"])))
 
-    # Collect authority nodes: key = local id, value = dict(label, uri, type)
-    authorities = {}
+    if row["title"]:
+        g.add((photo, dct.title, Literal(row["title"])))
 
-    with open(output_ttl, "w", encoding="utf-8") as out:
-        out.write(PREFIXES)
+    if row["other_title_information"]:
+        g.add((photo, dct.alternative, Literal(row["other_title_information"])))
 
-        # Minimal schema
-        out.write("\n### Schema (Scheda F) ###\n\n")
-        out.write("sf:Photograph a owl:Class ;\n")
-        out.write('    dc:title "Photograph (Scheda F resource)"@en .\n\n')
+    if row["photographer"]:
+        g.add((photo, dct.creator, Literal(row["photographer"])))
 
-        for c in ["Photographer", "Person", "Event", "Place", "Work"]:
-            out.write(f"sf:{c} a owl:Class .\n")
-        out.write("\n")
+    if row["depicted_event"]:
+        g.add((photo, dct.subject, Literal(row["depicted_event"])))
 
-        out.write("### Instances ###\n\n")
+    if row["depicted_people"]:
+        g.add((photo, dct.subject, Literal(row["depicted_people"])))
 
-        for row in rows:
-            row_id = (row.get("id") or "").strip()
-            if not row_id:
-                continue
+    if row["depicted_place"]:
+        g.add((photo, dct.spatial, Literal(row["depicted_place"])))
 
-            inst_id = slugify(row_id)
-            out.write(f"rrr:{inst_id} a sf:Photograph ;\n")
+    if row["creation_year"]:
+        g.add((photo, dct.created, Literal(row["creation_year"], datatype=XSD.gYear)))
 
-            triples = []
+    if row["colour"]:
+        g.add((photo, sf.colour, Literal(row["colour"])))
 
-            # Literal properties
-            for col, prop in COLUMN_TO_PROPERTY.items():
-                value = (row.get(col) or "").strip()
-                if not value:
-                    continue
-                lit = escape_literal(value)
-                triples.append(f'    {prop} "{lit}"')
+    if row["material_technique"]:
+        g.add((photo, dct.medium, Literal(row["material_technique"])))
 
-            # URI / authority links
-            for uri_col, link_prop in URI_LINK_PROPERTIES.items():
-                uris_value = (row.get(uri_col) or "").strip()
-                if not uris_value:
-                    continue
+    if row["inventory_number"]:
+        g.add((photo, sf.inventoryNumber, Literal(row["inventory_number"])))
 
-                names_col = uri_col.replace("_uri", "")
-                names_value = (row.get(names_col) or "").strip()
+    if row["collection"]:
+        g.add((photo, dct.isPartOf, Literal(row["collection"])))
 
-                uri_list = [u.strip() for u in uris_value.split(";") if u.strip()]
-                name_list = [n.strip() for n in names_value.split(";")] if names_value else []
+    if row["carrier_type"]:
+        g.add((photo, sf.carrierType, Literal(row["carrier_type"])))
 
-                for idx, uri in enumerate(uri_list):
-                    label = name_list[idx] if idx < len(name_list) else uri
-                    auth_slug = slugify(label if label else uri)
-                    auth_ref = f"rrr:{auth_slug}"
+    if row["physical_description"]:
+        g.add((photo, dct.extent, Literal(row["physical_description"])))
 
-                    triples.append(f"    {link_prop} {auth_ref}")
+    if row["notes"]:
+        g.add((photo, dct.description, Literal(row["notes"])))
 
-                    if auth_slug not in authorities:
-                        authorities[auth_slug] = {
-                            "label": label,
-                            "uri": uri,
-                            "type": URI_AUTH_TYPES.get(uri_col, "owl:Thing"),
-                        }
+    if row["identifiers"]:
+        g.add((photo, dct.identifier, Literal(row["identifiers"])))
 
-            if triples:
-                out.write(" ;\n".join(triples))
-                out.write(" .\n\n")
-            else:
-                out.write(" .\n\n")
+    if row["related_works"]:
+        g.add((photo, sf.relatedWork, Literal(row["related_works"])))
 
-        # Authority entities
-        if authorities:
-            out.write("### Authority entities ###\n\n")
-            for auth_id, data in authorities.items():
-                label = escape_literal(data["label"])
-                uri = data["uri"]
-                auth_type = data["type"]
-                out.write(f"rrr:{auth_id} a {auth_type} ;\n")
-                out.write(f'    dct:title "{label}" ;\n')
-                out.write(f"    owl:sameAs <{uri}> .\n\n")
+    if row["rights"]:
+        g.add((photo, dct.rights, Literal(row["rights"])))
 
-    print(f"Conversion completed. TTL written to: {output_ttl}")
+    if row["resource_type"]:
+        g.add((photo, dct.type, Literal(row["resource_type"])))
 
-if __name__ == "__main__":
-    convert_from_github_csv(GITHUB_CSV_URL, OUTPUT_TTL)
+    if row["language"]:
+        g.add((photo, dct.language, Literal(row["language"])))
+
+    # ---- URI object（link to URI entities） ----
+    if row["photographer_uri"]:
+        g.add((photo, sf.photographerRef, URIRef(row["photographer_uri"])))
+
+    if row["depicted_people_uri"]:
+        g.add((photo, sf.depictedPersonRef, URIRef(row["depicted_people_uri"])))
+
+    if row["depicted_event_uri"]:
+        g.add((photo, sf.depictedEventRef, URIRef(row["depicted_event_uri"])))
+
+    if row["depicted_place_uri"]:
+        g.add((photo, sf.depictedPlaceRef, URIRef(row["depicted_place_uri"])))
+
+    if row["related_works_uri"]:
+        g.add((photo, sf.relatedWorkRef, URIRef(row["related_works_uri"])))
+
+# ============================================
+# SERIALIZATION
+# ============================================
+
+g.serialize(format="turtle", destination=OUTPUT_TTL)
+print(f"CSV from GitHub converted to TTL: {OUTPUT_TTL}")
