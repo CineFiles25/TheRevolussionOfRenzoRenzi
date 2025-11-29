@@ -63,7 +63,7 @@ for idx, row in df.iterrows():
     # class： oa:Artwork
     g.add((drawing, RDF.type, oa.Artwork))
 
-    # ---- 字面值属性 ----
+    # ---- literal property ----
     if row["Title"]:
         g.add((drawing, dc.title, Literal(row["Title"])))
 
