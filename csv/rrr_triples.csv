@@ -53,4 +53,4 @@ po_documentary,schema:musicBy,enzo_masetti,iri,Enzo Masetti composed the music f
 set_photo,foaf:depicts,renzo_renzi,iri,The set photo depicts Renzo Renzi
 set_photo,dcterms:creator,aldo_ferrari,iri,Aldo Ferrari took the set photo
 set_photo,schema:location,renzi_library,iri,Preserved at the Renzo Renzi Library
-set_photo,schema:owner,cineteca_di_bologna,iri,Cineteca di Bologna owns the set photo
+set_photo,cidoc:P52_has_current_owner,cineteca_di_bologna,iri,Cineteca di Bologna owns the set photo
