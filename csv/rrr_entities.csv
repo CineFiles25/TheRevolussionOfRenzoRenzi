@@ -20,7 +20,7 @@ renzi_oral_memory,Renzo Renzi oral memory,skos:Concept,https://cinefiles25.githu
 book_il_primo_fellini,"Book 'Il primo Fellini'",schema:Book,https://cinefiles25.github.io/rrr/work/book_il_primo_fellini,https://opac.sbn.it/bid/ITICCUSBL0105676
 lastrada_screenplay_tei,"Screenplay 'La Strada' – Sequence I (TEI)",schema:CreativeWork,https://cinefiles25.github.io/rrr/work/lastrada_screenplay_tei,
 premiere_photo,"Photo from 'La Strada' premiere at Cinema Fulgor",schema:ImageObject,https://cinefiles25.github.io/rrr/work/premiere_photo,
-caricature_fellini_renzi,"Fellini → Renzi caricature",schema:VisualArtwork,https://cinefiles25.github.io/rrr/work/caricature_fellini_renzi,
+caricature_fellini_renzi,"Renzi's caricature drawing of Fellini",schema:VisualArtwork,https://cinefiles25.github.io/rrr/work/caricature_fellini_renzi,
 renzi_interview_2000,"Il cinema a Bologna: Renzo Renzi e la Columbus film",schema:VideoObject,https://cinefiles25.github.io/rrr/work/renzi_interview_2000,
 la_strada_soundtrack_original,"Soundtrack 'La Strada' – original release",schema:MusicRecording,https://cinefiles25.github.io/rrr/work/la_strada_soundtrack_original,
 la_strada_film,"Film 'La Strada'",schema:Movie,https://cinefiles25.github.io/rrr/work/la_strada_film,https://www.wikidata.org/wiki/Q18402
@@ -30,3 +30,4 @@ po_documentary,"Documentary 'Quando il Po è dolce'",schema:Movie,https://cinefi
 drawing_gelsomina,"Drawing 'Gelsomina col tamburo' from 'La Strada'",schema:VisualArtwork,https://cinefiles25.github.io/rrr/work/drawing_gelsomina,
 photo_lastrada_fighter,"'La Strada' – Circus performance photo",schema:ImageObject,https://cinefiles25.github.io/rrr/work/photo_lastrada_fighter,
 photo_lastrada_woman,"'La Strada' – Gelsomina eating bread",schema:ImageObject,https://cinefiles25.github.io/rrr/work/photo_lastrada_woman,
+
