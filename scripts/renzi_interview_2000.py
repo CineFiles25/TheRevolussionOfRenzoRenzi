@@ -3,166 +3,95 @@
 # ============================================
 
 import csv
-from rdflib import Graph, Namespace, URIRef, Literal
+from pandas import read_csv
+from rdflib import Namespace, Graph, RDF, URIRef, OWL, Literal, XSD, RDFS, FOAF
 
-# Centralized namespace collection
-NS = {
-    "rrr": Namespace("https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/"),
-    "schema": Namespace("https://schema.org/"),
-    "dc": Namespace("http://purl.org/dc/elements/1.1/"),
-    "dcterms": Namespace("http://purl.org/dc/terms/"),
-    "rdf": Namespace("http://www.w3.org/1999/02/22-rdf-syntax-ns#"),
+from scripts import renzi_library
+
+# NAMESPACES
+
+rrr = Namespace("https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/")
+rdf = Namespace("http://www.w3.org/1999/02/22-rdf-syntax-ns#")
+rdfs = Namespace("http://www.w3.org/2000/01/rdf-schema#")
+owl = Namespace("http://www.w3.org/2002/07/owl#")
+schema = Namespace("https://schema.org/")
+dc = Namespace("http://purl.org/dc/elements/1.1/")
+dcterms = Namespace("http://purl.org/dc/terms/")
+dbo = Namespace("http://dbpedia.org/ontology/")
+crm = Namespace("http://www.cidoc-crm.org/cidoc-crm/")
+foaf = Namespace("http://xmlns.com/foaf/0.1/")
+fiaf = Namespace("https://fiaf.github.io/film-related-materials/objects/")
+skos = Namespace("http://www.w3.org/2004/02/skos/core#")
+
+# GRAPH CREATION
+
+g = Graph()
+
+ns_dict = { 
+    "rrr": rrr,   
+    "rdf": rdf,
+    "rdfs": rdfs,
+    "owl": owl,
+    "schema": schema,
+    "dc": dc,
+    "dcterms": dcterms,
+    "dbo": dbo,
+    "crm": crm,
+    "foaf": foaf,
+    "fiaf": fiaf,
+    "skos": skos
 }
 
-
-def init_graph():
-    """
-    Initialize an RDF graph and bind all predefined namespaces.
-    """
-    g = Graph()
-    for prefix, ns in NS.items():
+def graph_bindings():
+    for prefix, ns in ns_dict.items():
         g.bind(prefix, ns)
     return g
 
+# ENTITIES 
 
-def write_graph(graph, output_path):
-    """
-    Serialize and export the RDF graph in Turtle format.
-    """
-    graph.serialize(destination=output_path, format="turtle")
+renzi_interview = URIRef(rrr + "renzi_interview_2000")
+renzo_renzi = URIRef(rrr + "renzo_renzi")
+bologna = URIRef(rrr + "bologna")
+cineteca_di_bologna = URIRef(rrr + "cineteca_di_bologna")
+renzi_collection = URIRef(rrr + "renzi_collection")
+renzi_library = URIRef(rrr + "renzi_library")
 
+g.add((renzo_renzi, OWL.sameAs, URIRef("http://viaf.org/viaf/40486517")))
+g.add((bologna, OWL.sameAs, URIRef("http://viaf.org/viaf/257723025")))
+g.add((cineteca_di_bologna, OWL.sameAs, URIRef("http://viaf.org/viaf/124960346")))
 
-# ============================================
-# Data processing and RDF generation
-# ============================================
+# MAPPING TO ONTOLOGIES
 
-# Initialize the graph
-g = init_graph()
+renzi_interview_2000 = read_csv("../csv/renzi_interview_2000.csv", keep_default_na=False, encoding="utf-8")
 
-# Load metadata for the interview (single record expected)
-with open("../csv/renzi_interview_2000.csv", newline="", encoding="utf-8") as csvfile:
-    reader = csv.DictReader(csvfile)
-    row = next(reader)
+g = graph_bindings()
 
-# URI representing the interview as a resource in the dataset
-interview = NS["rrr"]["renzi_interview_2000"]
+for idx, row in renzi_interview_2000.iterrows():
+    g.add((renzi_interview, RDF.type, schema.Interview))
+    g.add((schema.Interview, RDFS.subClassOf, schema.CreativeWork))
+    g.add((renzi_interview, dc.identifier, Literal(row["id"])))
+    g.add((renzi_interview, dcterms.conformsTo, Literal(row["standard"])))
+    g.add((renzi_interview, dcterms.title, Literal(row["title"])))
+    g.add((renzi_interview, dc.title, Literal(row["other_title_information"])))
+    g.add((renzi_interview, dcterms.type, Literal(row["resource_type"])))
+    g.add((renzi_interview, foaf.depicts, renzo_renzi))
+    g.add((renzi_interview, dcterms.contributor, Literal(row["interviewer"])))
+    g.add((renzi_interview, dcterms.created, Literal(row["production_year"], datatype=XSD.gYear)))
+    g.add((renzi_interview, schema.location, bologna))
+    g.add((renzi_interview, schema.duration, Literal(row["duration"])))
+    g.add((renzi_interview, schema.color, Literal(row["colour"])))
+    g.add((renzi_interview, schema.sound, Literal(row["sound"])))
+    g.add((renzi_interview, dcterms.format, Literal(row["format"])))
+    g.add((renzi_interview, dcterms.isPartOf, renzi_collection))
+    g.add((renzi_interview, schema.location, renzi_library))
+    g.add((renzi_interview, dcterms.rights, URIRef(row["rights"])))
+    g.add((renzi_interview, schema.publisher, cineteca_di_bologna))
+    g.add((renzi_interview, dc.language, Literal(row["language"])))
+    g.add((renzi_interview, dcterms.description, Literal(row["description"])))
+    g.add((renzi_interview, dcterms.description, Literal(row["notes"])))
+    
+# SERIALIZATION
 
-# Optional language tag for textual fields
-language = (row.get("language") or "").strip()
+g.serialize(format="turtle", destination="../ttl/renzi_interview_2000.ttl")
 
-# Core resource types
-g.add((interview, NS["rdf"]["type"], NS["schema"]["Interview"]))
-g.add((interview, NS["rdf"]["type"], NS["schema"]["CreativeWork"]))
-
-# Identifier
-if row.get("id"):
-    g.add((interview, NS["dc"]["identifier"], Literal(row["id"])))
-
-# Descriptive standard or cataloguing rule applied
-if row.get("standard"):
-    g.add((interview, NS["dcterms"]["conformsTo"], Literal(row["standard"])))
-
-# Title of the interview
-if row.get("title"):
-    if language:
-        g.add((interview, NS["dcterms"]["title"], Literal(row["title"], lang=language)))
-    else:
-        g.add((interview, NS["dcterms"]["title"], Literal(row["title"])))
-
-# Generic resource type (e.g., sound recording, video, transcript)
-if row.get("resource_type"):
-    g.add((interview, NS["dcterms"]["type"], Literal(row["resource_type"])))
-
-# Short description or abstract
-if row.get("description"):
-    if language:
-        g.add((interview, NS["dcterms"]["description"], Literal(row["description"], lang=language)))
-    else:
-        g.add((interview, NS["dcterms"]["description"], Literal(row["description"])))
-
-# Additional notes
-if row.get("notes"):
-    g.add((interview, NS["dcterms"]["description"], Literal(row["notes"])))
-
-# ============================================
-# Agents and roles
-# ============================================
-
-# Interviewee as main creator (literal statement)
-if row.get("interviewee"):
-    g.add((interview, NS["dcterms"]["creator"], Literal(row["interviewee"])))
-
-# Interviewer as contributor (literal statement)
-if row.get("interviewer"):
-    g.add((interview, NS["dcterms"]["contributor"], Literal(row["interviewer"])))
-
-# ============================================
-# Date, duration and format
-# ============================================
-
-# Date of the interview
-if row.get("date"):
-    g.add((interview, NS["dcterms"]["created"], Literal(row["date"])))
-
-# Duration of the interview
-if row.get("duration"):
-    g.add((interview, NS["schema"]["duration"], Literal(row["duration"])))
-
-# File or carrier format (e.g., audio cassette, digital file)
-if row.get("format"):
-    g.add((interview, NS["dcterms"]["format"], Literal(row["format"])))
-
-# Rights statement
-if row.get("rights"):
-    g.add((interview, NS["dcterms"]["rights"], Literal(row["rights"])))
-
-# ============================================
-# Spatial, institutional and collection context
-# ============================================
-
-# Place of interview as a literal
-if row.get("place"):
-    g.add((interview, NS["dcterms"]["spatial"], Literal(row["place"])))
-
-# Current holding institution
-if row.get("institution"):
-    g.add((interview, NS["dcterms"]["publisher"], Literal(row["institution"])))
-
-# Collection name
-if row.get("collection"):
-    g.add((interview, NS["dcterms"]["isPartOf"], Literal(row["collection"])))
-
-# Current physical location (e.g. archive, depot, shelfmark)
-if row.get("current_location"):
-    g.add((interview, NS["schema"]["location"], Literal(row["current_location"])))
-
-# ============================================
-# External references (URIs)
-# ============================================
-
-# Place authority URI
-if row.get("place_uri"):
-    g.add((interview, NS["dcterms"]["spatial"], URIRef(row["place_uri"])))
-
-# Institution authority URI
-if row.get("institution_uri"):
-    g.add((interview, NS["dcterms"]["publisher"], URIRef(row["institution_uri"])))
-
-# Collection authority URI
-if row.get("collection_uri"):
-    g.add((interview, NS["dcterms"]["isPartOf"], URIRef(row["collection_uri"])))
-
-# ============================================
-# Language
-# ============================================
-
-# Language of the interview content
-if language:
-    g.add((interview, NS["dc"]["language"], Literal(language)))
-
-
-# ============================================
-# Output
-# ============================================
-
-write_graph(g, "../ttl/renzi_interview_2000.ttl")
+print("CSV converted to TTL!")

@@ -47,6 +47,7 @@ renzi_library = URIRef(rrr + "renzo_renzi_library")
 renzo_renzi = URIRef(rrr + "renzo_renzi")
 cineteca_di_bologna = URIRef(rrr + "cineteca_di_bologna")
 bologna = URIRef(rrr + "bologna")
+renzi_collection = URIRef(rrr + "renzi_collection")
 
 g.add((renzo_renzi, OWL.sameAs, URIRef("http://viaf.org/viaf/40486517")))
 g.add((cineteca_di_bologna, OWL.sameAs, URIRef("http://viaf.org/viaf/124960346")))
@@ -79,6 +80,7 @@ for idx, row in renzo_renzi_library.iterrows():
     g.add((renzi_library, dc.description, Literal(row["audio_system"])))
     g.add((renzi_library, dc.description, Literal(row["video_system"])))
     g.add((renzi_library, dbo.dedicatedTo, renzo_renzi))
+    g.add((renzi_library, dcterms.hasPart, renzi_collection))
 
 # SERIALIZATION
 

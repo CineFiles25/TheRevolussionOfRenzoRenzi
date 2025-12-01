@@ -1,30 +1,40 @@
-import pandas as pd
-from rdflib import Namespace, Graph, RDF, URIRef, OWL, Literal, XSD
+from pandas import read_csv
+from rdflib import Namespace, Graph, RDF, URIRef, OWL, Literal, XSD, RDFS, FOAF
 
-# ============================================
 # NAMESPACES
-# ============================================
 
 rrr = Namespace("https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/")
-sf  = Namespace("https://iccd.beniculturali.it/scheda-f/")
-dct = Namespace("http://purl.org/dc/terms/")
-dc  = Namespace("http://purl.org/dc/elements/1.1/")
+rdf = Namespace("http://www.w3.org/1999/02/22-rdf-syntax-ns#")
+rdfs = Namespace("http://www.w3.org/2000/01/rdf-schema#")
 owl = Namespace("http://www.w3.org/2002/07/owl#")
-xsd = Namespace("http://www.w3.org/2001/XMLSchema#")
+schema = Namespace("https://schema.org/")
+dc = Namespace("http://purl.org/dc/elements/1.1/")
+dcterms = Namespace("http://purl.org/dc/terms/")
+dbo = Namespace("http://dbpedia.org/ontology/")
+crm = Namespace("http://www.cidoc-crm.org/cidoc-crm/")
+foaf = Namespace("http://xmlns.com/foaf/0.1/")
+fiaf = Namespace("https://fiaf.github.io/film-related-materials/objects/")
+skos = Namespace("http://www.w3.org/2004/02/skos/core#")
+sf = Namespace("https://iccd.beniculturali.it/scheda-f/")
 
-# ============================================
 # GRAPH CREATION
-# ============================================
 
 g = Graph()
 
-ns_dict = {
-    "rrr": rrr,
-    "sf": sf,
-    "dct": dct,
-    "dc": dc,
+ns_dict = { 
+    "rrr": rrr,   
+    "rdf": rdf,
+    "rdfs": rdfs,
     "owl": owl,
-    "xsd": xsd,
+    "schema": schema,
+    "dc": dc,
+    "dcterms": dcterms,
+    "dbo": dbo,
+    "crm": crm,
+    "foaf": foaf,
+    "fiaf": fiaf,
+    "skos": skos,
+    "sf": sf
 }
 
 def graph_bindings():
@@ -32,119 +42,52 @@ def graph_bindings():
         g.bind(prefix, ns)
     return g
 
+# ENTITIES 
+
+fighter_photo = URIRef(rrr + "photo_la_strada_fighter")
+la_strada_film = URIRef(rrr + "la_strada_film")
+
+g.add((la_strada_film, OWL.sameAs, URIRef("https://www.wikidata.org/wiki/Q18402")))
+
+# MAPPING TO ONTOLOGIES
+
+photo_df = read_csv("../csv/photo_la_strada_fighter.csv", keep_default_na=False, encoding="utf-8")
+
 g = graph_bindings()
 
-# ============================================
-# ENTITIES（fixed instance，name it manunally）
-# ============================================
-
-photo = URIRef(rrr + "photo_la_strada_fighter")
-
-# or if there's a need, we can:
-# renzo_renzi = URIRef(rrr + "renzo_renzi")
-# bologna = URIRef(rrr + "bologna")
-# bind with dct:subject / dct:spatial below
-
-# ============================================
-# CSV FROM GITHUB
-# ============================================
-
-GITHUB_CSV_URL = (
-    "https://raw.githubusercontent.com/"
-    "CineFiles25/TheRevolussionOfRenzoRenzi/refs/heads/main/"
-    "csv/photo_la_strada_fighter.csv"
-)
-
-photo_df = pd.read_csv(GITHUB_CSV_URL, keep_default_na=False, encoding="utf-8")
-
-# ============================================
-# MAPPING（ultra-simple）
-# ============================================
-
 for idx, row in photo_df.iterrows():
-    # Class：in Scheda F we consider my photo as an instance as sf:Photograph
-    g.add((photo, RDF.type, sf.Photograph))
+    g.add((fighter_photo, RDF.type, URIRef(sf + "Photograph")))
+    g.add((fighter_photo, RDF.type, URIRef(schema + "Photograph")))
+    g.add((fighter_photo, RDFS.subClassOf, URIRef(schema + "CreativeWork")))
+    g.add((fighter_photo, sf.standard, Literal(row["standard"])))
+    g.add((fighter_photo, dcterms.title, Literal(row["title"])))
+    g.add((fighter_photo, dcterms.alternative, Literal(row["other_title_information"])))
+    g.add((fighter_photo, dcterms.creator, Literal(row["photographer"])))
+    g.add((fighter_photo, dcterms.subject, Literal(row["depicted_event"])))
+    g.add((fighter_photo, dcterms.subject, Literal(row["depicted_people"])))
+    g.add((fighter_photo, dcterms.spatial, Literal(row["depicted_place"])))
+    g.add((fighter_photo, dcterms.created, Literal(row["creation_year"], datatype=XSD.gYear)))
+    g.add((fighter_photo, sf.colour, Literal(row["colour"])))
+    g.add((fighter_photo, dcterms.medium, Literal(row["material_technique"])))
+    g.add((fighter_photo, sf.inventoryNumber, Literal(row["inventory_number"])))
+    g.add((fighter_photo, dcterms.isPartOf, Literal(row["collection"])))
+    g.add((fighter_photo, sf.carrierType, Literal(row["carrier_type"])))
+    g.add((fighter_photo, dcterms.extent, Literal(row["physical_description"])))
+    g.add((fighter_photo, dcterms.description, Literal(row["notes"])))
+    g.add((fighter_photo, dcterms.identifier, Literal(row["identifiers"])))
+    g.add((fighter_photo, sf.relatedWork, Literal(row["related_works"])))
+    g.add((fighter_photo, dcterms.rights, Literal(row["rights"])))
+    g.add((fighter_photo, dcterms.type, Literal(row["resource_type"])))
+    g.add((fighter_photo, dcterms.language, Literal(row["language"])))
+    g.add((fighter_photo, sf.photographerRef, URIRef(row["photographer_uri"])))
+    g.add((fighter_photo, sf.depictedPersonRef, URIRef(row["depicted_people_uri"])))
+    g.add((fighter_photo, sf.depictedEventRef, URIRef(row["depicted_event_uri"])))
+    g.add((fighter_photo, sf.depictedPlaceRef, URIRef(row["depicted_place_uri"])))
+    g.add((fighter_photo, sf.relatedWorkRef, URIRef(row["related_works_uri"])))
+    g.add((fighter_photo, schema.about, la_strada_film))
 
-    # ---- （Literal） ----
-    if row["standard"]:
-        g.add((photo, sf.standard, Literal(row["standard"])))
-
-    if row["title"]:
-        g.add((photo, dct.title, Literal(row["title"])))
-
-    if row["other_title_information"]:
-        g.add((photo, dct.alternative, Literal(row["other_title_information"])))
-
-    if row["photographer"]:
-        g.add((photo, dct.creator, Literal(row["photographer"])))
-
-    if row["depicted_event"]:
-        g.add((photo, dct.subject, Literal(row["depicted_event"])))
-
-    if row["depicted_people"]:
-        g.add((photo, dct.subject, Literal(row["depicted_people"])))
-
-    if row["depicted_place"]:
-        g.add((photo, dct.spatial, Literal(row["depicted_place"])))
-
-    if row["creation_year"]:
-        g.add((photo, dct.created, Literal(row["creation_year"], datatype=XSD.gYear)))
-
-    if row["colour"]:
-        g.add((photo, sf.colour, Literal(row["colour"])))
-
-    if row["material_technique"]:
-        g.add((photo, dct.medium, Literal(row["material_technique"])))
-
-    if row["inventory_number"]:
-        g.add((photo, sf.inventoryNumber, Literal(row["inventory_number"])))
-
-    if row["collection"]:
-        g.add((photo, dct.isPartOf, Literal(row["collection"])))
-
-    if row["carrier_type"]:
-        g.add((photo, sf.carrierType, Literal(row["carrier_type"])))
-
-    if row["physical_description"]:
-        g.add((photo, dct.extent, Literal(row["physical_description"])))
-
-    if row["notes"]:
-        g.add((photo, dct.description, Literal(row["notes"])))
-
-    if row["identifiers"]:
-        g.add((photo, dct.identifier, Literal(row["identifiers"])))
-
-    if row["related_works"]:
-        g.add((photo, sf.relatedWork, Literal(row["related_works"])))
-
-    if row["rights"]:
-        g.add((photo, dct.rights, Literal(row["rights"])))
-
-    if row["resource_type"]:
-        g.add((photo, dct.type, Literal(row["resource_type"])))
-
-    if row["language"]:
-        g.add((photo, dct.language, Literal(row["language"])))
-
-    # ---- URI property（instance link to URI，without authority file linked） ----
-    if row["photographer_uri"]:
-        g.add((photo, sf.photographerRef, URIRef(row["photographer_uri"])))
-
-    if row["depicted_people_uri"]:
-        g.add((photo, sf.depictedPersonRef, URIRef(row["depicted_people_uri"])))
-
-    if row["depicted_event_uri"]:
-        g.add((photo, sf.depictedEventRef, URIRef(row["depicted_event_uri"])))
-
-    if row["depicted_place_uri"]:
-        g.add((photo, sf.depictedPlaceRef, URIRef(row["depicted_place_uri"])))
-
-    if row["related_works_uri"]:
-        g.add((photo, sf.relatedWorkRef, URIRef(row["related_works_uri"])))
-
-# ============================================
 # SERIALIZATION
-# ============================================
 
-g.serialize(format="turtle", destination="photo_lastrada_05_fighter.ttl")
-print("CSV from GitHub converted to TTL: photo_lastrada_05_fighter.ttl")
+g.serialize(format="turtle", destination="../ttl/photo_la_strada_fighter.ttl")
+
+print("CSV converted to TTL!")
