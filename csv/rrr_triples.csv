@@ -7,7 +7,7 @@ renzi_collection,dcterms:hasPart,book_il_primo_fellini,iri,The collection contai
 renzi_collection,dcterms:hasPart,lastrada_screenplay_tei,iri,The collection contains the TEI excerpt
 renzi_collection,dcterms:hasPart,premiere_photo,iri,The collection contains the photograph
 renzi_collection,dcterms:hasPart,caricature_fellini_renzi,iri,The collection contains the caricature
-renzi_collection,dcterms:hasPart,renzi_interview,iri,The collection contains the video interview
+renzi_collection,dcterms:hasPart,renzi_interview_2000,iri,The collection contains the video interview
 renzi_collection,dcterms:hasPart,la_strada_soundtrack_original,iri,The collection contains the soundtrack
 renzi_collection,dcterms:hasPart,drawing_gelsomina,iri,The collection contains the drawing
 
@@ -32,18 +32,17 @@ la_strada_soundtrack_original,schema:musicBy,nino_rota,iri,Nino Rota composed th
 la_strada_soundtrack_original,schema:about,la_strada_film,iri,The soundtrack is associated with the film La Strada
 la_strada_soundtrack_original,schema:location,renzi_library,iri,Preserved at the Renzo Renzi Library
 
-renzi_interview,schema:about,renzi_oral_memory,iri,The interview documents Renzi’s oral memory
-renzi_interview,schema:about,la_strada_film,iri,Renzi discusses the film in the interview
-renzi_interview,dcterms:date,2000,literal,Year of production
-renzi_interview,schema:locationCreated,bologna,iri,Produced in Bologna
-renzi_interview,schema:location,renzi_library,iri,Preserved at the Renzo Renzi Library
+renzi_interview_2000,schema:about,renzi_oral_memory,iri,The interview documents Renzi’s oral memory
+renzi_interview_2000,schema:about,la_strada_film,iri,Renzi discusses the film in the interview
+renzi_interview_2000,dcterms:date,2000,literal,Year of production
+renzi_interview_2000,schema:locationCreated,bologna,iri,Produced in Bologna
+renzi_interview_2000,schema:location,renzi_library,iri,Preserved at the Renzo Renzi Library
 
 la_strada_film,dcterms:creator,federico_fellini,iri,Fellini directed the film
 
 renzi_library,schema:addressLocality,bologna,iri,The library is located in Bologna
 renzi_library,schema:dedicatedTo,renzo_renzi,iri,The library is dedicated to Renzo Renzi
 renzi_library,cidoc:P52_has_current_owner,cineteca_di_bologna,iri,Cineteca di Bologna currently owns the library
-renzi_library,dcterms:hasPart,renzi_collection,iri,The library includes the Renzo Renzi Collection
 
 po_documentary,schema:director,renzo_renzi,iri,Renzo Renzi directed the documentary
 po_documentary,schema:creator,renzo_renzi,iri,Renzo Renzi created the documentary
@@ -62,4 +61,7 @@ drawing_gelsomina,dcterms:creator,renzo_renzi,iri,Renzo Renzi is the creator of 
 drawing_gelsomina,schema:location,renzi_library,iri,Preserved at the Renzo Renzi Library
 drawing_gelsomina,cidoc:P52_has_current_owner,cineteca_di_bologna,iri,Cineteca di Bologna owns the drawing
 drawing_gelsomina,dcterms:relation,la_strada_film,iri,The drawing is related to the film La Strada
+
+drawing_gelsomina,dcterms:relation,la_strada_film,iri,The drawing is related to the film La Strada
+
 
