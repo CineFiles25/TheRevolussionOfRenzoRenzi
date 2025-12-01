@@ -15,6 +15,7 @@ dbo = Namespace("http://dbpedia.org/ontology/")
 crm = Namespace("http://www.cidoc-crm.org/cidoc-crm/")
 foaf = Namespace("http://xmlns.com/foaf/0.1/")
 fiaf = Namespace("https://fiaf.github.io/film-related-materials/objects/")
+skos = Namespace("http://www.w3.org/2004/02/skos/core#")
 
 # GRAPH CREATION
 
@@ -31,7 +32,8 @@ ns_dict = {
     "dbo": dbo,
     "crm": crm,
     "foaf": foaf,
-    "fiaf": fiaf
+    "fiaf": fiaf,
+    "skos": skos
 }
 
 def graph_bindings():
@@ -64,26 +66,26 @@ g = graph_bindings()
 for idx, row in quando_il_po_è_dolce.iterrows():
     g.add((po_documentary, RDF.type, schema.Movie))
     g.add((schema.Movie, RDFS.subClassOf, schema.CreativeWork))
-    g.add((po_documentary, dc.title, Literal(row["Title"])))
-    g.add((po_documentary, schema.alternateName, Literal(row["Alt Title"])))
+    g.add((po_documentary, dc.title, Literal(row["title"])))
+    g.add((po_documentary, schema.alternateName, Literal(row["other_title_information"])))
     g.add((po_documentary, schema.director, renzo_renzi))
     g.add((po_documentary, dbo.writer, renzo_renzi))
     g.add((po_documentary, schema.edition, Literal(row["Edition"])))
     g.add((po_documentary, schema.genre, Literal(row["Type"])))
-    g.add((po_documentary, schema.countryOfOrigin, Literal(row["Country"])))    
+    g.add((po_documentary, schema.countryOfOrigin, Literal(row["country"])))    
     g.add((po_documentary, schema.productionCompany, columbus_film))    
-    g.add((po_documentary, schema.datePublished, Literal(row["Year"], datatype=XSD.gYear)))
-    g.add((po_documentary, schema.duration, Literal(row["Running Time"])))
-    g.add((po_documentary, schema.color, Literal(row["Color"])))
-    g.add((po_documentary, schema.encodingFormat, Literal(row["Film Type"])))
-    g.add((po_documentary, schema.frameRate, Literal(row["Frame Rate"])))
-    g.add((po_documentary, schema.contentSize, Literal(row["Film Length"])))    
-    g.add((po_documentary, schema.sound, Literal(row["Sound"])))
-    g.add((po_documentary, schema.inLanguage, Literal(row["Language"])))
+    g.add((po_documentary, schema.datePublished, Literal(row["publication_year"], datatype=XSD.gYear)))
+    g.add((po_documentary, schema.duration, Literal(row["duration"])))
+    g.add((po_documentary, schema.color, Literal(row["colour"])))
+    g.add((po_documentary, schema.encodingFormat, Literal(row["film_type"])))
+    g.add((po_documentary, schema.frameRate, Literal(row["format"])))
+    g.add((po_documentary, schema.contentSize, Literal(row["length"])))    
+    g.add((po_documentary, schema.sound, Literal(row["sound"])))
+    g.add((po_documentary, schema.inLanguage, Literal(row["language"])))
     g.add((po_documentary, schema.about, delta_po_river))
     g.add((po_documentary, schema.spatialCoverage, delta_po_river))
     g.add((po_documentary, schema.musicBy, enzo_masetti))
-    g.add((po_documentary, schema.contentRating, Literal(row["Certificate"])))
+    g.add((po_documentary, schema.contentRating, Literal(row["rating"])))
     
 # SERIALIZATION
 

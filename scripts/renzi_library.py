@@ -15,6 +15,7 @@ dbo = Namespace("http://dbpedia.org/ontology/")
 crm = Namespace("http://www.cidoc-crm.org/cidoc-crm/")
 foaf = Namespace("http://xmlns.com/foaf/0.1/")
 fiaf = Namespace("https://fiaf.github.io/film-related-materials/objects/")
+skos = Namespace("http://www.w3.org/2004/02/skos/core#")
 
 # GRAPH CREATION
 
@@ -31,7 +32,8 @@ ns_dict = {
     "dbo": dbo,
     "crm": crm,
     "foaf": foaf,
-    "fiaf": fiaf
+    "fiaf": fiaf,
+    "skos": skos
 }
 
 def graph_bindings():
@@ -60,23 +62,22 @@ for idx, row in renzo_renzi_library.iterrows():
     g.add((renzi_library, RDF.type, schema.Library))
     g.add((schema.Library, RDFS.subClassOf, schema.CivicStructure))
     g.add((renzi_library, OWL.sameAs, URIRef("https://isni.org/isni/0000000459141457")))
-    g.add((renzi_library, dc.identifier, Literal(row["Id ISIL"])))
-    g.add((renzi_library, schema.name, Literal(row["Name"])))
-    g.add((renzi_library, schema.alternateName, Literal(row["Alt Title"])))
-    g.add((renzi_library, schema.additionalType, Literal(row["Original Function"])))
+    g.add((renzi_library, dc.identifier, Literal(row["id_isil"])))
+    g.add((renzi_library, schema.name, Literal(row["name"])))
+    g.add((renzi_library, schema.alternateName, Literal(row["alt_title"])))
+    g.add((renzi_library, schema.additionalType, Literal(row["original_function"])))
     g.add((renzi_library, crm.P52_has_current_owner,cineteca_di_bologna))
-    g.add((renzi_library, schema.date, Literal(row["Completion Of Work"], datatype=XSD.gYear)))
-    g.add((renzi_library, schema.foundingDate, Literal(row["Library Foundation"], datatype=XSD.gYear)))
-    g.add((renzi_library, schema.address, Literal(row["Address"])))
+    g.add((renzi_library, schema.date, Literal(row["completion_year"], datatype=XSD.gYear)))
+    g.add((renzi_library, schema.foundingDate, Literal(row["foundation_year"], datatype=XSD.gYear)))
+    g.add((renzi_library, schema.address, Literal(row["address"])))
     g.add((renzi_library, schema.addressLocality, bologna))
-    g.add((renzi_library, schema.addressCountry, Literal(row["Country"])))
-    g.add((renzi_library, schema.geo, Literal(row["Coordinates"])))
-    g.add((renzi_library, schema.url, Literal(row["Website"], datatype=XSD.anyURI)))
-    g.add((renzi_library, schema.additionalType, Literal(row["Structure Type"])))
-    g.add((renzi_library, schema.floorSize, Literal(row["Area"], datatype=XSD.float)))
-    g.add((renzi_library, schema.seatingCapacity, Literal(row["Seats"], datatype=XSD.integer)))
-    g.add((renzi_library, dc.description, Literal(row["Audio System"])))
-    g.add((renzi_library, dc.description, Literal(row["Video System"])))
+    g.add((renzi_library, schema.geo, Literal(row["coordinates"])))
+    g.add((renzi_library, schema.url, Literal(row["website"], datatype=XSD.anyURI)))
+    g.add((renzi_library, schema.additionalType, Literal(row["structure_type"])))
+    g.add((renzi_library, schema.floorSize, Literal(row["area"], datatype=XSD.float)))
+    g.add((renzi_library, schema.seatingCapacity, Literal(row["seats"], datatype=XSD.integer)))
+    g.add((renzi_library, dc.description, Literal(row["audio_system"])))
+    g.add((renzi_library, dc.description, Literal(row["video_system"])))
     g.add((renzi_library, dbo.dedicatedTo, renzo_renzi))
 
 # SERIALIZATION

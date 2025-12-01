@@ -23,7 +23,7 @@ photo_lastrada_01,dcterms:date,1954,literal,Year of the La Strada premiere
 photo_lastrada_01,schema:location,renzi_library,iri,Preserved at the Renzo Renzi Library
 
 caricature_fellini_renzi,foaf:depicts,federico_fellini,iri,The caricature depicts Federico Fellini
-caricature_fellini_renzi,prov:wasAttributedTo,renzo_renzi,iri,Renzo Renzi is the author of the caricature
+caricature_fellini_renzi,dcterms:creator,renzo_renzi,iri,Renzo Renzi is the author of the caricature
 caricature_fellini_renzi,schema:creator,renzo_renzi,iri,Renzo Renzi is the creator of the caricature
 caricature_fellini_renzi,schema:location,renzi_library,iri,Preserved at the Renzo Renzi Library
 

@@ -72,21 +72,11 @@ ns_dict = {
     "skos": skos
 }
 
-def graph_bindings():
-    """
-    Bind all namespace prefixes to the graph.
-    
-    This makes the output Turtle file more readable by using prefixes 
-    instead of full URIs. For example:
-    - With binding: schema:Movie
-    - Without binding: <https://schema.org/Movie>
-    
-    Returns:
-        Graph: The graph with all namespaces bound
-    """
-    for prefix, ns in ns_dict.items():
+def graph_bindings(): # Define a function to bind namespaces to the graph
+
+    for prefix, ns in ns_dict.items(): # Iterate over all namespace prefixes and URIs
         g.bind(prefix, ns)  # Bind each prefix to its namespace URI
-    return g
+    return g # return the graph with bindings
 
 # ============================================================================
 # ENTITY DEFINITIONS
@@ -165,20 +155,7 @@ for idx, row in item_df.iterrows():
     g.add((item, RDF.type, fiaf.FilmRelatedMaterial))    
     g.add((item, OWL.sameAs, URIRef(row["ExternalAuthority"])))   
     g.add((item, dcterms.creator, renzo_renzi))
-    
-    # SUGGESTED ENHANCEMENTS:
-    # 1. Handle multiple creators:
-    # if row.get("Creators"):
-    #     for creator_name in row["Creators"].split(";"):
-    #         creator_uri = URIRef(rrr[f"person/{creator_name.strip().lower().replace(' ', '_')}"])
-    #         g.add((item, dcterms.creator, creator_uri))
-    
-    # 2. Distinguish roles:
-    # g.add((item, schema.director, federico_fellini))
-    # g.add((item, schema.author, renzo_renzi))
-    # g.add((item, schema.editor, someone_else))
-    
-    
+
     # ========================================================================
     # RELATIONSHIPS TO OTHER RESOURCES
     # ========================================================================

@@ -15,6 +15,7 @@ dbo = Namespace("http://dbpedia.org/ontology/")
 crm = Namespace("http://www.cidoc-crm.org/cidoc-crm/")
 foaf = Namespace("http://xmlns.com/foaf/0.1/")
 fiaf = Namespace("https://fiaf.github.io/film-related-materials/objects/")
+skos = Namespace("http://www.w3.org/2004/02/skos/core#")
 
 # GRAPH CREATION
 
@@ -31,7 +32,8 @@ ns_dict = {
     "dbo": dbo,
     "crm": crm,
     "foaf": foaf,
-    "fiaf": fiaf
+    "fiaf": fiaf,
+    "skos": skos
 }
 
 def graph_bindings():
