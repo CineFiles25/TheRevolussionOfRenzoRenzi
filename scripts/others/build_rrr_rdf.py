@@ -14,12 +14,21 @@ OUTPUT_TTL = Path("ttl/rrr.ttl")
 
 # === NAMESPACES ================================================
 
-RRR = Namespace("https://cinefiles25.github.io/renzi/")
+# Base namespace for local resources
+RRR = Namespace("https://cinefiles25.github.io/rrr/")
+
 SCHEMA = Namespace("https://schema.org/")
 PROV = Namespace("http://www.w3.org/ns/prov#")
+CIDOC = Namespace("http://www.cidoc-crm.org/cidoc-crm/")
 
 
 def resolve_qname(qname: str) -> URIRef | None:
+    """
+    Resolve a CURIE-like QName (e.g. 'schema:about') to a full URIRef.
+
+    Returns None if the prefix is unknown, in which case the caller
+    should decide how to handle the missing predicate.
+    """
     if ":" not in qname:
         return None
 
@@ -39,6 +48,8 @@ def resolve_qname(qname: str) -> URIRef | None:
         return PROV[local]
     if prefix == "owl":
         return OWL[local]
+    if prefix == "cidoc":
+        return CIDOC[local]
     if prefix == "rrr":
         return RRR[local]
 
@@ -56,6 +67,7 @@ def build_graph() -> Graph:
     g.bind("foaf", FOAF)
     g.bind("skos", SKOS)
     g.bind("prov", PROV)
+    g.bind("cidoc", CIDOC)
     g.bind("rdf", RDF)
     g.bind("rdfs", RDFS)
     g.bind("owl", OWL)
@@ -75,9 +87,11 @@ def build_graph() -> Graph:
             if not ent_id:
                 continue
 
+            # Use explicit URI from CSV when present, otherwise fall back to RRR base
             subj = URIRef(uri) if uri else RRR[ent_id]
             id_to_uri[ent_id] = subj
 
+            # Type triple
             if cls:
                 cls_uri = resolve_qname(cls)
                 if cls_uri:
@@ -85,9 +99,11 @@ def build_graph() -> Graph:
                 else:
                     print(f"[WARN] Unknown class for entity {ent_id}: {cls}")
 
+            # Human-readable label
             if label:
                 g.add((subj, RDFS.label, Literal(label)))
 
+            # sameAs links (possibly multiple, separated by ';')
             if same_as_raw:
                 for same_as in same_as_raw.split(";"):
                     same_as = same_as.strip()
@@ -109,6 +125,7 @@ def build_graph() -> Graph:
             subj = id_to_uri.get(subj_id, RRR[subj_id])
             pred = resolve_qname(pred_qn)
             if not pred:
+                # Unknown predicate prefix: already warned in resolve_qname
                 continue
 
             if obj_type == "iri":
