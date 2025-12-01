@@ -19,6 +19,7 @@ dbo = Namespace("http://dbpedia.org/ontology/")
 crm = Namespace("http://www.cidoc-crm.org/cidoc-crm/")
 foaf = Namespace("http://xmlns.com/foaf/0.1/")
 fiaf = Namespace("https://fiaf.github.io/film-related-materials/objects/")
+skos = Namespace("http://www.w3.org/2004/02/skos/core#")
 
 # GRAPH CREATION
 
@@ -35,7 +36,8 @@ ns_dict = {
     "dbo": dbo,
     "crm": crm,
     "foaf": foaf,
-    "fiaf": fiaf
+    "fiaf": fiaf,
+    "skos": skos
 }
 
 def graph_bindings():
@@ -45,41 +47,41 @@ def graph_bindings():
 
 # ENTITIES 
 
-soundtrack = URIRef(rrr + "la_strada_soundtrack_original")
-film_la_strada = URIRef(rrr + "la_strada_film")
+la_strada_soundtrack = URIRef(rrr + "la_strada_soundtrack_original")
+la_strada_film = URIRef(rrr + "la_strada_film")
 nino_rota = URIRef(rrr + "nino_rota")
 federico_fellini = URIRef(rrr + "federico_fellini")
 
 g.add((nino_rota, OWL.sameAs, URIRef("http://viaf.org/viaf/88980189")))
 g.add((federico_fellini, OWL.sameAs, URIRef("http://viaf.org/viaf/76315386")))
-g.add((film_la_strada, OWL.sameAs, URIRef("https://www.wikidata.org/wiki/Q18402")))
+g.add((la_strada_film, OWL.sameAs, URIRef("https://www.wikidata.org/wiki/Q18402")))
 
 # MAPPING TO ONTOLOGIES
 
-la_strada_soundtrack = read_csv("../csv/la_strada_soundtrack_original.csv", keep_default_na=False, encoding="utf-8")
+la_strada_soundtrack_original = read_csv("../csv/la_strada_soundtrack_original.csv", keep_default_na=False, encoding="utf-8")
 
 g = graph_bindings()
 
-for idx, row in la_strada_soundtrack.iterrows():
-    g.add((soundtrack, RDF.type, URIRef(schema + "MusicRecording")))
-    g.add((soundtrack, RDFS.subClassOf, URIRef(schema + "CreativeWork")))
-    g.add((soundtrack, dc.title, Literal(row["Title"])))
-    g.add((soundtrack, schema.alternateName, Literal(row["Alt Title"])))
-    g.add((soundtrack, dcterms.creator, nino_rota))
-    g.add((soundtrack, schema.composer, nino_rota))
-    g.add((soundtrack, schema.byArtist, nino_rota))
-    g.add((soundtrack, schema.additionalType, Literal(row["Soundtrack Type"])))
-    g.add((soundtrack, dcterms.relation, film_la_strada))
-    g.add((soundtrack, schema.about, film_la_strada))
-    g.add((soundtrack, schema.datePublished, Literal(row["Release Year"], datatype=XSD.gYear)))    
-    g.add((soundtrack, dcterms.publisher, Literal(row["Publisher"])))
-    g.add((soundtrack, schema.countryOfOrigin, Literal(row["Country"])))
-    g.add((soundtrack, schema.locationCreated, Literal(row["Recording Location"])))
-    g.add((soundtrack, schema.contentLocation, Literal(row["Current Location"])))
-    g.add((soundtrack, schema.inLanguage, Literal(row["Language"])))
-    g.add((soundtrack, dcterms.conformsTo, Literal(row["Standard"])))
-    g.add((soundtrack, dc.identifier, Literal(row["ID"])))
-    g.add((soundtrack, dcterms.description, Literal(row["Notes"])))
+for idx, row in la_strada_soundtrack_original.iterrows():
+    g.add((la_strada_soundtrack, RDF.type, URIRef(schema + "MusicRecording")))
+    g.add((la_strada_soundtrack, RDFS.subClassOf, URIRef(schema + "CreativeWork")))
+    g.add((la_strada_soundtrack, dc.title, Literal(row["Title"])))
+    g.add((la_strada_soundtrack, schema.alternateName, Literal(row["Alt Title"])))
+    g.add((la_strada_soundtrack, dcterms.creator, nino_rota))
+    g.add((la_strada_soundtrack, schema.composer, nino_rota))
+    g.add((la_strada_soundtrack, schema.byArtist, nino_rota))
+    g.add((la_strada_soundtrack, schema.additionalType, Literal(row["Soundtrack Type"])))
+    g.add((la_strada_soundtrack, dcterms.relation, la_strada_film))
+    g.add((la_strada_soundtrack, schema.about, la_strada_film))
+    g.add((la_strada_soundtrack, schema.datePublished, Literal(row["Release Year"], datatype=XSD.gYear)))    
+    g.add((la_strada_soundtrack, dcterms.publisher, Literal(row["Publisher"])))
+    g.add((la_strada_soundtrack, schema.countryOfOrigin, Literal(row["Country"])))
+    g.add((la_strada_soundtrack, schema.locationCreated, Literal(row["Recording Location"])))
+    g.add((la_strada_soundtrack, schema.contentLocation, Literal(row["Current Location"])))
+    g.add((la_strada_soundtrack, schema.inLanguage, Literal(row["Language"])))
+    g.add((la_strada_soundtrack, dcterms.conformsTo, Literal(row["Standard"])))
+    g.add((la_strada_soundtrack, dc.identifier, Literal(row["ID"])))
+    g.add((la_strada_soundtrack, dcterms.description, Literal(row["Notes"])))
 
 # SERIALIZATION
 

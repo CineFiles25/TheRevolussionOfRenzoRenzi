@@ -1,5 +1,6 @@
 subject,predicate,object,object_type,note
 cineteca_di_bologna,dcterms:hasPart,renzi_library,iri,Cineteca includes the library
+cineteca_di_bologna,schema:location,bologna,iri,Cineteca is located in Bologna
 renzi_library,dcterms:hasPart,renzi_collection,iri,The library preserves the collection
 
 renzi_collection,dcterms:hasPart,first_fellini_book,iri,The collection contains the book
@@ -8,7 +9,6 @@ renzi_collection,dcterms:hasPart,photo_lastrada_01,iri,The collection contains t
 renzi_collection,dcterms:hasPart,caricature_fellini_renzi,iri,The collection contains the caricature
 renzi_collection,dcterms:hasPart,renzi_interview_2000,iri,The collection contains the video interview
 renzi_collection,dcterms:hasPart,la_strada_soundtrack_original,iri,The collection contains the soundtrack
-renzi_collection,dcterms:hasPart,set_photo,iri,The collection contains the set photo
 
 first_fellini_book,dcterms:subject,la_strada_film,iri,The book concerns the film
 lastrada_screenplay_tei,schema:about,la_strada_film,iri,The TEI excerpt represents the film
@@ -50,7 +50,7 @@ po_documentary,schema:about,delta_po_river,iri,The documentary is about the Po R
 po_documentary,schema:filmingLocation,delta_po_river,iri,Filming took place at the Po River Delta
 po_documentary,schema:musicBy,enzo_masetti,iri,Enzo Masetti composed the music for the documentary
 
-set_photo,foaf:depicts,renzo_renzi,iri,The set photo depicts Renzo Renzi
-set_photo,dcterms:creator,aldo_ferrari,iri,Aldo Ferrari took the set photo
-set_photo,schema:location,renzi_library,iri,Preserved at the Renzo Renzi Library
-set_photo,cidoc:P52_has_current_owner,cineteca_di_bologna,iri,Cineteca di Bologna owns the set photo
+ferrari_set_photo,foaf:depicts,renzo_renzi,iri,The set photo depicts Renzo Renzi
+ferrari_set_photo,dcterms:creator,aldo_ferrari,iri,Aldo Ferrari took the set photo
+ferrari_set_photo,schema:location,renzi_library,iri,Preserved at the Renzo Renzi Library
+ferrari_set_photo,cidoc:P52_has_current_owner,cineteca_di_bologna,iri,Cineteca di Bologna owns the set photo

@@ -41,13 +41,14 @@ def graph_bindings():
 
 # ENTITIES
 
-set_photo = URIRef(rrr + "ferrari_set_photo")
+ferrari_set_photo = URIRef(rrr + "ferrari_set_photo")
 renzo_renzi = URIRef(rrr + "renzo_renzi")
 aldo_ferrari = URIRef(rrr + "aldo_ferrari")
 cineteca_di_bologna = URIRef(rrr + "cineteca_di_bologna")
 bologna = URIRef(rrr + "bologna")
 
 g.add((renzo_renzi, OWL.sameAs, URIRef("http://viaf.org/viaf/40486517")))
+g.add((aldo_ferrari, OWL.sameAs, URIRef("https://www.wikidata.org/wiki/Q3609208")))
 g.add((cineteca_di_bologna, OWL.sameAs, URIRef("http://viaf.org/viaf/124960346")))
 g.add((bologna, OWL.sameAs, URIRef("http://viaf.org/viaf/257723025")))
 
@@ -58,21 +59,23 @@ ferrari_set_photo = pd.read_csv("../csv/ferrari_set_photo.csv", keep_default_na=
 g = graph_bindings()
 
 for idx, row in ferrari_set_photo.iterrows():
-    g.add((set_photo, RDF.type, schema.Photograph))
+    g.add((ferrari_set_photo, RDF.type, schema.Photograph))
     g.add((schema.Photograph, RDFS.subClassOf, schema.CreativeWork))
-    g.add((set_photo, dc.title, Literal(row["title"])))
-    g.add((set_photo, dc.creator, aldo_ferrari))
-    g.add((set_photo, schema.locationCreated, Literal(row["depicted_place"])))    
-    g.add((set_photo, schema.dateCreated, Literal(row["creation_year"], datatype=XSD.gYear)))
-    g.add((set_photo, schema.about, renzo_renzi))    
-    g.add((set_photo, schema.owner, cineteca_di_bologna))
-    g.add((set_photo, dcterms.isPartOf, Literal(row["collection"])))    
-    g.add((set_photo, schema.url, Literal(row["identifiers"], datatype=XSD.anyURI)))
-    g.add((set_photo, schema.material, Literal(row["carrier_type"])))
-    g.add((set_photo, schema.artform, Literal(row["physical_description"]))) 
-    g.add((set_photo, schema.width, Literal(row["dimensions"], datatype=XSD.integer)))
-    g.add((set_photo, schema.fileFormat, Literal(row["format"])))
-    g.add((set_photo, schema.license, Literal(row["rights"])))
+    g.add((ferrari_set_photo, dc.title, Literal(row["title"])))
+    g.add((ferrari_set_photo, dc.creator, aldo_ferrari))
+    g.add((ferrari_set_photo, schema.locationCreated, Literal(row["depicted_place"])))    
+    g.add((ferrari_set_photo, schema.dateCreated, Literal(row["creation_year"], datatype=XSD.gYear)))
+    g.add((ferrari_set_photo, schema.about, renzo_renzi))    
+    g.add((ferrari_set_photo, schema.owner, cineteca_di_bologna))
+    g.add((cineteca_di_bologna, schema.location, bologna))
+    g.add((ferrari_set_photo, dcterms.isPartOf, Literal(row["collection"])))    
+    g.add((ferrari_set_photo, schema.url, Literal(row["identifiers"], datatype=XSD.anyURI)))
+    g.add((ferrari_set_photo, schema.material, Literal(row["carrier_type"])))
+    g.add((ferrari_set_photo, schema.artform, Literal(row["physical_description"]))) 
+    g.add((ferrari_set_photo, schema.description, Literal(row["notes"], datatype=XSD.string)))
+    g.add((ferrari_set_photo, schema.width, Literal(row["dimensions"], datatype=XSD.integer)))
+    g.add((ferrari_set_photo, schema.fileFormat, Literal(row["format"])))
+    g.add((ferrari_set_photo, schema.license, Literal(row["rights"])))
     
 # SERIALIZATION
 
