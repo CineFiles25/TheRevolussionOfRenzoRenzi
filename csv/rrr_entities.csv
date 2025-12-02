@@ -16,7 +16,7 @@ public_reception,Public reception,skos:Concept,https://cinefiles25.github.io/rrr
 renzi_oral_memory,Renzo Renzi oral memory,skos:Concept,https://cinefiles25.github.io/rrr/concept/renzi_oral_memory,
 first_fellini_book,"Book 'Il primo Fellini'",schema:Book,https://cinefiles25.github.io/rrr/work/book_il_primo_fellini,https://opac.sbn.it/bid/ITICCUSBL0105676
 lastrada_screenplay_tei,"Screenplay 'La Strada' – Sequence I (TEI)",schema:CreativeWork,https://cinefiles25.github.io/rrr/work/lastrada_screenplay_tei,
-photo_lastrada_01,Photo from "La Strada" premiere at Cinema Fulgor,schema:ImageObject,https://cinefiles25.github.io/rrr/work/photo_lastrada_01,
+photo_lastrada_01,"Photo from 'La Strada' premiere at Cinema Fulgor",schema:ImageObject,https://cinefiles25.github.io/rrr/work/photo_lastrada_01,
 caricature_fellini_renzi,"Fellini → Renzi caricature",schema:VisualArtwork,https://cinefiles25.github.io/rrr/work/caricature_fellini_renzi,
 renzi_interview_2000,"Il cinema a Bologna: Renzo Renzi e la Columbus film",schema:VideoObject,https://cinefiles25.github.io/rrr/work/renzi_interview_2000,
 # la_strada_soundtrack_original,"Soundtrack 'La Strada' – original release",schema:MusicRecording,https://cinefiles25.github.io/rrr/work/la_strada_soundtrack_original,
@@ -27,3 +27,4 @@ quando_il_po_è_dolce,"Documentary 'Quando il Po è dolce'",schema:Movie,https:/
 drawing_gelsomina_lastrada,Drawing "Gelsomina col tamburo" from 'La Strada',schema:VisualArtwork,https://cinefiles25.github.io/rrr/work/drawing_gelsomina_lastrada,
 # photo_la_strada_fighter,Photo "La Strada" Fighter,schema:ImageObject,https://cinefiles25.github.io/rrr/work/photo_la_strada_fighter,
 # photo_la_strada_woman,Photo "La Strada" Woman,schema:ImageObject,https://cinefiles25.github.io/rrr/work/photo_la_strada_woman,
+
