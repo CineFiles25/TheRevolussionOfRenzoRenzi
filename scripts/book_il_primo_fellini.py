@@ -50,7 +50,7 @@ federico_fellini = URIRef(rrr + "federico_fellini")
 bologna = URIRef(rrr + "bologna")
 
 g.add((renzo_renzi, OWL.sameAs, URIRef("http://viaf.org/viaf/40486517")))
-g.add((la_strada_film, OWL.sameAs, URIRef("https://www.wikidata.org/wiki/Q18402")))
+g.add((la_strada_film, OWL.sameAs, URIRef("http://viaf.org/viaf/176979060")))
 g.add((bologna, OWL.sameAs, URIRef("http://viaf.org/viaf/257723025")))
 g.add((federico_fellini, OWL.sameAs, URIRef("http://viaf.org/viaf/76315386")))
 
@@ -88,3 +88,4 @@ for idx, row in first_fellini_book.iterrows():
 g.serialize(format="turtle", destination="../ttl/book_il_primo_fellini.ttl")
 
 print("CSV converted to TTL!")
+
