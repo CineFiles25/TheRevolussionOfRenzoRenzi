@@ -1,8 +1,4 @@
-# ============================================
-# Base configuration
-# ============================================
-
-import csv
+import pandas as pd
 from pandas import read_csv
 from rdflib import Namespace, Graph, RDF, URIRef, OWL, Literal, XSD, RDFS, FOAF
 
@@ -47,7 +43,7 @@ def graph_bindings():
 
 # ENTITIES 
 
-premiere_photo = URIRef(rrr + "photo_lastrada_01")
+premiere_photo = URIRef(rrr + "photo_lastrada_premiere")
 la_strada_film = URIRef(rrr + "la_strada_film")
 federico_fellini = URIRef(rrr + "federico_fellini")
 cinema_fulgor = URIRef(rrr + "cinema_fulgor")
@@ -64,11 +60,11 @@ g.add((cineteca_di_bologna, OWL.sameAs, URIRef("http://viaf.org/viaf/124960346")
 
 # MAPPING TO ONTOLOGIES
 
-photo_lastrada_01 = read_csv("../csv/photo_lastrada_01.csv", keep_default_na=False, encoding="utf-8")
+photo_lastrada_premiere = pd.read_csv("../csv/photo_lastrada_premiere.csv", keep_default_na=False, encoding="utf-8")
 
 g = graph_bindings()
 
-for idx, row in photo_lastrada_01.iterrows():
+for idx, row in photo_lastrada_premiere.iterrows():
     g.add((premiere_photo, RDF.type, schema.Photograph))
     g.add((schema.Photograph, RDFS.subClassOf, schema.CreativeWork))
     g.add((premiere_photo, dc.identifier, Literal(row["id"])))
@@ -96,6 +92,6 @@ for idx, row in photo_lastrada_01.iterrows():
 
 # SERIALIZATION
 
-g.serialize(format="turtle", destination="../ttl/photo_lastrada_01.ttl")
+g.serialize(format="turtle", destination="../ttl/photo_lastrada_premiere.ttl")
 
 print("CSV converted to TTL!")

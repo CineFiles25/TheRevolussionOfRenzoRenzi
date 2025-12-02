@@ -1,3 +1,4 @@
+import pandas as pd
 from pandas import read_csv
 from rdflib import Namespace, Graph, RDF, URIRef, OWL, Literal, XSD, RDFS, FOAF
 
@@ -15,7 +16,6 @@ crm = Namespace("http://www.cidoc-crm.org/cidoc-crm/")
 foaf = Namespace("http://xmlns.com/foaf/0.1/")
 fiaf = Namespace("https://fiaf.github.io/film-related-materials/objects/")
 skos = Namespace("http://www.w3.org/2004/02/skos/core#")
-sf = Namespace("https://iccd.beniculturali.it/scheda-f/")
 
 # GRAPH CREATION
 
@@ -44,18 +44,19 @@ def graph_bindings():
 # ENTITIES 
 
 woman_photo = URIRef(rrr + "photo_la_strada_woman")
+giulietta_masina = URIRef(rrr + "giulietta_masina")
 la_strada_film = URIRef(rrr + "la_strada_film")
 
 g.add((la_strada_film, OWL.sameAs, URIRef("https://www.wikidata.org/wiki/Q18402")))
+g.add((giulietta_masina, OWL.sameAs, URIRef("http://viaf.org/viaf/37021297")))
 
 # MAPPING TO ONTOLOGIES
 
-photo_df = read_csv("../csv/la_strada_004_woman.csv", keep_default_na=False, encoding="utf-8")
+photo_df = pd.read_csv("../csv/la_strada_004_woman.csv", keep_default_na=False, encoding="utf-8")
 
 g = graph_bindings()
 
 for idx, row in photo_df.iterrows():
-    g.add((woman_photo, RDF.type, URIRef(sf + "Photograph")))
     g.add((woman_photo, RDF.type, URIRef(schema + "Photograph")))
     g.add((woman_photo, RDFS.subClassOf, URIRef(schema + "CreativeWork")))
     g.add((woman_photo, sf.standard, Literal(row["standard"])))

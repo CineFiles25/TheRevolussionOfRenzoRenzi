@@ -3,9 +3,9 @@ cineteca_di_bologna,dcterms:hasPart,renzo_renzi_library,iri,Cineteca includes th
 cineteca_di_bologna,schema:location,bologna,iri,Cineteca is located in Bologna
 renzo_renzi_library,dcterms:hasPart,renzi_collection,iri,The library preserves the collection
 
-renzi_collection,dcterms:hasPart,first_fellini_book,iri,The collection contains the book
+renzi_collection,dcterms:hasPart,book_il_primo_fellini,iri,The collection contains the book
 renzi_collection,dcterms:hasPart,lastrada_screenplay_tei,iri,The collection contains the TEI excerpt
-renzi_collection,dcterms:hasPart,photo_lastrada_01,iri,The collection contains the photograph
+renzi_collection,dcterms:hasPart,photo_lastrada_premiere,iri,The collection contains the photograph
 renzi_collection,dcterms:hasPart,caricature_fellini_renzi,iri,The collection contains the caricature
 renzi_collection,dcterms:hasPart,renzi_interview_2000,iri,The collection contains the video interview
 renzi_collection,dcterms:hasPart,la_strada_soundtrack_original,iri,The collection contains the soundtrack
@@ -16,12 +16,12 @@ lastrada_screenplay_tei,schema:about,la_strada_film,iri,The TEI excerpt represen
 
 renzo_renzi,schema:about,la_strada_film,iri,Renzo Renzi writes and comments on the film
 
-photo_lastrada_01,schema:about,public_reception,iri,The photograph documents the public reception
-photo_lastrada_01,foaf:depicts,federico_fellini,iri,Federico Fellini appears in the photo
-photo_lastrada_01,foaf:depicts,giulietta_masina,iri,Giulietta Masina appears in the photo
-photo_lastrada_01,schema:contentLocation,cinema_fulgor,iri,The premiere took place at Cinema Fulgor
-photo_lastrada_01,dcterms:date,1954,literal,Year of the La Strada premiere
-photo_lastrada_01,schema:location,renzo_renzi_library,iri,Preserved at the Renzo Renzi Library
+photo_lastrada_premiere,schema:about,public_reception,iri,The photograph documents the public reception
+photo_lastrada_premiere,foaf:depicts,federico_fellini,iri,Federico Fellini appears in the photo
+photo_lastrada_premiere,foaf:depicts,giulietta_masina,iri,Giulietta Masina appears in the photo
+photo_lastrada_premiere,schema:contentLocation,cinema_fulgor,iri,The premiere took place at Cinema Fulgor
+photo_lastrada_premiere,dcterms:date,1954,literal,Year of the La Strada premiere
+photo_lastrada_premiere,schema:location,renzo_renzi_library,iri,Preserved at the Renzo Renzi Library
 
 caricature_fellini_renzi,foaf:depicts,federico_fellini,iri,The caricature depicts Federico Fellini
 caricature_fellini_renzi,dcterms:creator,renzo_renzi,iri,Renzo Renzi is the author of the caricature

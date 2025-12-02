@@ -1,3 +1,4 @@
+import pandas as pd
 from pandas import read_csv
 from rdflib import Namespace, Graph, RDF, URIRef, OWL, Literal, XSD, RDFS, FOAF
 
@@ -56,7 +57,7 @@ g.add((cineteca_di_bologna, OWL.sameAs, URIRef("http://viaf.org/viaf/124960346")
 
 # MAPPING TO ONTOLOGIES
 
-drawing_df = read_csv("../csv/drawing_gelsomina_lastrada.csv", keep_default_na=False, encoding="utf-8")
+drawing_df = pd.read_csv("../csv/drawing_gelsomina_lastrada.csv", keep_default_na=False, encoding="utf-8")
 
 g = graph_bindings()
 

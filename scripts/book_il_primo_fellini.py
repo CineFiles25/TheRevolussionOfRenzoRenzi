@@ -1,8 +1,4 @@
-# ============================================
-# Base configuration
-# ============================================
-
-import csv
+import pandas as pd
 from pandas import read_csv
 from rdflib import Namespace, Graph, RDF, URIRef, OWL, Literal, XSD, RDFS, FOAF
 
@@ -47,7 +43,7 @@ def graph_bindings():
 
 # ENTITIES 
 
-book_il_primo_fellini = URIRef(rrr + "first_fellini_book")
+book_il_primo_fellini = URIRef(rrr + "book_il_primo_fellini")
 la_strada_film = URIRef(rrr + "la_strada_film")
 renzo_renzi = URIRef(rrr + "renzo_renzi")
 federico_fellini = URIRef(rrr + "federico_fellini")
@@ -60,7 +56,7 @@ g.add((federico_fellini, OWL.sameAs, URIRef("http://viaf.org/viaf/76315386")))
 
 # MAPPING TO ONTOLOGIES
 
-first_fellini_book = read_csv("../csv/book_il_primo_fellini.csv", keep_default_na=False, encoding="utf-8")
+first_fellini_book = pd.read_csv("../csv/book_il_primo_fellini.csv", keep_default_na=False, encoding="utf-8")
 
 g = graph_bindings()
 

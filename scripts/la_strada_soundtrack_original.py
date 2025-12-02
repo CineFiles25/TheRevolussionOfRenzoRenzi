@@ -2,7 +2,7 @@
 # Base configuration
 # ============================================
 
-import csv
+import pandas as pd
 from pandas import read_csv
 from rdflib import Namespace, Graph, RDF, URIRef, OWL, Literal, XSD, RDFS, FOAF
 
@@ -58,7 +58,7 @@ g.add((la_strada_film, OWL.sameAs, URIRef("https://www.wikidata.org/wiki/Q18402"
 
 # MAPPING TO ONTOLOGIES
 
-la_strada_soundtrack_original = read_csv("../csv/la_strada_soundtrack_original.csv", keep_default_na=False, encoding="utf-8")
+la_strada_soundtrack_original = pd.read_csv("../csv/la_strada_soundtrack_original.csv", keep_default_na=False, encoding="utf-8")
 
 g = graph_bindings()
 
