@@ -67,7 +67,6 @@ for idx, row in drawing_df.iterrows():
     g.add((drawing_gelsomina, dcterms.creator, renzo_renzi))
     g.add((drawing_gelsomina, foaf.depicts, giulietta_masina))
     g.add((drawing_gelsomina, schema.dateCreated, Literal(row["creation_date"], datatype=XSD.gYear)))
-    g.add((drawing_gelsomina, dc.description, Literal(row["description"])))
     g.add((drawing_gelsomina, dcterms.medium, Literal(row["technique"])))
     g.add((drawing_gelsomina, dcterms.material, Literal(row["material"])))
     g.add((drawing_gelsomina, dcterms.extent, Literal(row["dimensions"])))
@@ -75,7 +74,7 @@ for idx, row in drawing_df.iterrows():
     g.add((renzi_collection, dcterms.hasPart, drawing_gelsomina))
     g.add((drawing_gelsomina, schema.location, renzi_library))
     g.add((drawing_gelsomina, dcterms.rights, Literal(row["rights"])))
-    g.add((drawing_gelsomina, schema.description , URIRef(row["description"])))
+    g.add((drawing_gelsomina, dc.description , URIRef(row["description"])))
     g.add((drawing_gelsomina, dcterms.relation, la_strada_film))
 
 # SERIALIZATION

@@ -43,7 +43,7 @@ def graph_bindings():
 
 # ENTITIES 
 
-woman_photo = URIRef(rrr + "la_strada_004_woman")
+woman_photo = URIRef(rrr + "photo_la_strada_woman")
 la_strada_film = URIRef(rrr + "la_strada_film")
 
 g.add((la_strada_film, OWL.sameAs, URIRef("https://www.wikidata.org/wiki/Q18402")))

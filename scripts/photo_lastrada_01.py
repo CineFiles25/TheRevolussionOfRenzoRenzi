@@ -48,7 +48,7 @@ def graph_bindings():
 # ENTITIES 
 
 premiere_photo = URIRef(rrr + "photo_lastrada_01")
-la_strada_film = URIRef(rrr + "film_la_strada_1954")
+la_strada_film = URIRef(rrr + "la_strada_film")
 federico_fellini = URIRef(rrr + "federico_fellini")
 cinema_fulgor = URIRef(rrr + "cinema_fulgor")
 cineteca_di_bologna = URIRef(rrr + "cineteca_di_bologna")
