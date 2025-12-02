@@ -75,7 +75,7 @@ for idx, row in ferrari_set_photo.iterrows():
     g.add((ferrari_set_photo, crm.P52_has_current_owner, cineteca_di_bologna))
     g.add((ferrari_set_photo, dcterms.isPartOf, Literal(row["collection"])))    
     g.add((ferrari_set_photo, schema.identifier, Literal(row["identifiers"], datatype=XSD.anyURI)))
-    g.add((ferrari_set_photo, schema., Literal(row["carrier_type"])))
+    g.add((ferrari_set_photo, crm.P45_consists_of, Literal(row["carrier_type"])))
     g.add((ferrari_set_photo, schema.artform, Literal(row["physical_description"]))) 
     g.add((ferrari_set_photo, schema.description, Literal(row["notes"], datatype=XSD.string)))
     g.add((ferrari_set_photo, schema.width, Literal(row["dimensions"], datatype=XSD.integer)))
