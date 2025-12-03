@@ -33,7 +33,7 @@ ns_dict = {
     "crm": crm,
     "foaf": foaf,
     "fiaf": fiaf,
-    "skos": skos,
+    "skos": skos
 }
 
 def graph_bindings():
