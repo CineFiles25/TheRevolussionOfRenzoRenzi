@@ -61,7 +61,6 @@ photo_df = pd.read_csv("../csv/photo_la_strada_fighter.csv", keep_default_na=Fal
 g = graph_bindings()
 
 for idx, row in photo_df.iterrows():
-    g.add((fighter_photo, RDF.type, URIRef(sf + "Photograph")))
     g.add((fighter_photo, RDF.type, URIRef(schema + "Photograph")))
     g.add((fighter_photo, RDFS.subClassOf, URIRef(schema + "CreativeWork")))
     g.add((fighter_photo, dcterms.title, Literal(row["title"])))
