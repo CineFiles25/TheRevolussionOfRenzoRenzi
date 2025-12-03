@@ -61,7 +61,6 @@ for idx, row in photo_df.iterrows():
     g.add((woman_photo, RDFS.subClassOf, URIRef(schema + "CreativeWork")))
     g.add((woman_photo, dcterms.title, Literal(row["title"])))
     g.add((woman_photo, dcterms.alternative, Literal(row["other_title_information"])))
-    g.add((woman_photo, dcterms.creator, Literal(row["photographer"])))
     g.add((woman_photo, dcterms.subject, Literal(row["depicted_event"])))
     g.add((woman_photo, dcterms.subject, Literal(row["depicted_people"])))
     g.add((woman_photo, dcterms.spatial, Literal(row["depicted_place"])))
