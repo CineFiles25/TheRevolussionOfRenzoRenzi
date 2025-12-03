@@ -1,4 +1,3 @@
-import pandas as pd
 from pandas import read_csv
 from rdflib import Namespace, Graph, RDF, URIRef, OWL, Literal, XSD, RDFS, FOAF
 
@@ -56,11 +55,11 @@ g.add((bologna, OWL.sameAs, URIRef("http://viaf.org/viaf/257723025")))
 
 # MAPPING 
 
-ferrari_set_photo = pd.read_csv("../csv/ferrari_set_photo.csv", keep_default_na=False, encoding="utf-8")
+set_photo = read_csv("../csv/ferrari_set_photo.csv", keep_default_na=False, encoding="utf-8")
 
 g = graph_bindings()
 
-for idx, row in ferrari_set_photo.iterrows():
+for idx, row in set_photo.iterrows():
     g.add((ferrari_set_photo, RDF.type, schema.Photograph))
     g.add((schema.Photograph, RDFS.subClassOf, schema.CreativeWork))
     g.add((ferrari_set_photo, dc.title, Literal(row["title"])))
@@ -69,7 +68,7 @@ for idx, row in ferrari_set_photo.iterrows():
     g.add((ferrari_set_photo, foaf.depicts, renzo_renzi)) 
     g.add((cineteca_di_bologna, schema.location, bologna))
     g.add((ferrari_set_photo, schema.dateCreated, Literal(row["creation_year"], datatype=XSD.gYear)))
-    g.add((ferrari_set_photo, schema.color, Literal(row["colour"], datatype=XSD.string)))
+    g.add((ferrari_set_photo, schema.color, Literal(row["colour"])))
     g.add((ferrari_set_photo, schema.material, Literal(row["material_technique"])))
     g.add((ferrari_set_photo, schema.identifier, Literal(row["inventory_number"])))
     g.add((ferrari_set_photo, crm.P52_has_current_owner, cineteca_di_bologna))
@@ -77,8 +76,7 @@ for idx, row in ferrari_set_photo.iterrows():
     g.add((ferrari_set_photo, schema.identifier, Literal(row["identifiers"], datatype=XSD.anyURI)))
     g.add((ferrari_set_photo, crm.P45_consists_of, Literal(row["carrier_type"])))
     g.add((ferrari_set_photo, schema.artform, Literal(row["physical_description"]))) 
-    g.add((ferrari_set_photo, schema.description, Literal(row["notes"], datatype=XSD.string)))
-    g.add((ferrari_set_photo, schema.width, Literal(row["dimensions"], datatype=XSD.integer)))
+    g.add((ferrari_set_photo, schema.description, Literal(row["notes"])))
     g.add((ferrari_set_photo, schema.fileFormat, Literal(row["format"])))
     g.add((ferrari_set_photo, schema.license, Literal(row["rights"])))
     

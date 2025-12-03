@@ -1,0 +1,39 @@
+@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rrr: <https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/> .
+@prefix schema: <https://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+rrr:ferrari_set_photo a schema:Photograph ;
+    dc:title "FAF01878.001" ;
+    dcterms:creator rrr:aldo_ferrari ;
+    dcterms:isPartOf "Fondo Aldo Ferrari -  Donazione Costantino e Lucia Della Casa" ;
+    crm:P45_consists_of "Analog photographic print" ;
+    crm:P52_has_current_owner rrr:cineteca_di_bologna ;
+    foaf:depicts rrr:renzo_renzi ;
+    schema:artform "Vintage gelatin silver print. Original analog photograph." ;
+    schema:color "black and white" ;
+    schema:dateCreated "1959"^^xsd:gYear ;
+    schema:description "Digital surrogate available on the Cineteca di Bologna website." ;
+    schema:fileFormat "Digital JPEG surrogate" ;
+    schema:identifier "FAF01878.001"^^xsd:anyURI,
+        "FAF01878.001" ;
+    schema:license "Rights-Managed" ;
+    schema:locationCreated "Set of 'Le Notti del Melodramma'" ;
+    schema:material "Gelatin silver print" .
+
+rrr:aldo_ferrari owl:sameAs <https://www.wikidata.org/wiki/Q3609208> .
+
+rrr:bologna owl:sameAs <http://viaf.org/viaf/257723025> .
+
+rrr:cineteca_di_bologna owl:sameAs <http://viaf.org/viaf/124960346> ;
+    schema:location rrr:bologna .
+
+rrr:renzo_renzi owl:sameAs <http://viaf.org/viaf/40486517> .
+
+schema:Photograph rdfs:subClassOf schema:CreativeWork .
+
