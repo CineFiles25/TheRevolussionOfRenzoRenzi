@@ -79,6 +79,6 @@ for idx, row in photo_df.iterrows():
 
 # SERIALIZATION
 
-g.serialize(format="turtle", destination="../ttl/la_strada_004_woman.ttl")
+g.serialize(format="turtle", destination="../ttl/photo_la_strada_woman.ttl")
 
 print("CSV converted to TTL!")
