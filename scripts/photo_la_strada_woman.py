@@ -52,14 +52,13 @@ g.add((giulietta_masina, OWL.sameAs, URIRef("http://viaf.org/viaf/37021297")))
 
 # MAPPING TO ONTOLOGIES
 
-photo_df = pd.read_csv("../csv/la_strada_004_woman.csv", keep_default_na=False, encoding="utf-8")
+photo_df = pd.read_csv("../csv/photo_la_strada_woman.csv", keep_default_na=False, encoding="utf-8")
 
 g = graph_bindings()
 
 for idx, row in photo_df.iterrows():
     g.add((woman_photo, RDF.type, URIRef(schema + "Photograph")))
     g.add((woman_photo, RDFS.subClassOf, URIRef(schema + "CreativeWork")))
-    g.add((woman_photo, sf.standard, Literal(row["standard"])))
     g.add((woman_photo, dcterms.title, Literal(row["title"])))
     g.add((woman_photo, dcterms.alternative, Literal(row["other_title_information"])))
     g.add((woman_photo, dcterms.creator, Literal(row["photographer"])))
@@ -67,24 +66,16 @@ for idx, row in photo_df.iterrows():
     g.add((woman_photo, dcterms.subject, Literal(row["depicted_people"])))
     g.add((woman_photo, dcterms.spatial, Literal(row["depicted_place"])))
     g.add((woman_photo, dcterms.created, Literal(row["creation_year"], datatype=XSD.gYear)))
-    g.add((woman_photo, sf.colour, Literal(row["colour"])))
+    g.add((woman_photo, schema.colour, Literal(row["colour"])))
     g.add((woman_photo, dcterms.medium, Literal(row["material_technique"])))
-    g.add((woman_photo, sf.inventoryNumber, Literal(row["inventory_number"])))
     g.add((woman_photo, dcterms.isPartOf, Literal(row["collection"])))
-    g.add((woman_photo, sf.carrierType, Literal(row["carrier_type"])))
     g.add((woman_photo, dcterms.extent, Literal(row["physical_description"])))
     g.add((woman_photo, dcterms.description, Literal(row["notes"])))
     g.add((woman_photo, dcterms.identifier, Literal(row["identifiers"])))
-    g.add((woman_photo, sf.relatedWork, Literal(row["related_works"])))
+    g.add((woman_photo, dcterms.relation, Literal(row["related_works"])))
     g.add((woman_photo, dcterms.rights, Literal(row["rights"])))
     g.add((woman_photo, dcterms.type, Literal(row["resource_type"])))
     g.add((woman_photo, dcterms.language, Literal(row["language"])))
-    g.add((woman_photo, sf.photographerRef, URIRef(row["photographer_uri"])))
-    g.add((woman_photo, sf.depictedPersonRef, URIRef(row["depicted_people_uri"])))
-    g.add((woman_photo, sf.depictedEventRef, URIRef(row["depicted_event_uri"])))
-    g.add((woman_photo, sf.depictedPlaceRef, URIRef(row["depicted_place_uri"])))
-    g.add((woman_photo, sf.relatedWorkRef, URIRef(row["related_works_uri"])))
-    g.add((woman_photo, schema.about, la_strada_film))
 
 # SERIALIZATION
 
