@@ -68,7 +68,7 @@ for idx, row in set_photo.iterrows():
     g.add((ferrari_set_photo, foaf.depicts, renzo_renzi)) 
     g.add((cineteca_di_bologna, schema.location, bologna))
     g.add((ferrari_set_photo, schema.dateCreated, Literal(row["creation_year"], datatype=XSD.gYear)))
-    g.add((ferrari_set_photo, schema.color, Literal(row["colour"])))
+    g.add((ferrari_set_photo, schema.color, Literal(row["colour"], datatype=XSD.string)))
     g.add((ferrari_set_photo, schema.material, Literal(row["material_technique"])))
     g.add((ferrari_set_photo, schema.identifier, Literal(row["inventory_number"])))
     g.add((ferrari_set_photo, crm.P52_has_current_owner, cineteca_di_bologna))

@@ -1,5 +1,4 @@
 subject,predicate,object,object_type,note
-cineteca_di_bologna,dcterms:hasPart,renzo_renzi_library,iri,Cineteca includes the library
 cineteca_di_bologna,schema:location,bologna,iri,Cineteca is located in Bologna
 renzo_renzi_library,dcterms:hasPart,renzi_collection,iri,The library preserves the collection
 

@@ -61,8 +61,8 @@ g = graph_bindings()
 
 for idx, row in renzo_renzi_library.iterrows():
     g.add((renzi_library, RDF.type, schema.Library))
-    g.add((schema.Library, RDFS.subClassOf, schema.CivicStructure))
-    g.add((renzi_library, OWL.sameAs, URIRef("https://isni.org/isni/0000000459141457")))
+    g.add((schema.Library, RDFS.subClassOf, schema.LocalBusiness))
+    g.add((renzi_library, OWL.sameAs, URIRef("https://anagrafe.iccu.sbn.it/isil/IT-BO0286")))
     g.add((renzi_library, dc.identifier, Literal(row["id_isil"])))
     g.add((renzi_library, schema.name, Literal(row["name"])))
     g.add((renzi_library, schema.alternateName, Literal(row["alt_title"])))
@@ -74,13 +74,17 @@ for idx, row in renzo_renzi_library.iterrows():
     g.add((renzi_library, schema.addressLocality, bologna))
     g.add((renzi_library, schema.geo, Literal(row["coordinates"])))
     g.add((renzi_library, schema.url, Literal(row["website"], datatype=XSD.anyURI)))
-    g.add((renzi_library, schema.additionalType, Literal(row["structure_type"])))
+    g.add((renzi_library, schema.email, Literal(row["email"], datatype=XSD.anyURI)))
+    g.add((renzi_library, schema.telephone, Literal(row["phone_number"], datatype=XSD.string)))
+    g.add((renzi_library, schema.isAccessibleForFree, Literal(row["accessible"], datatype=XSD.boolean)))
+    g.add((renzi_library, dc.description, Literal(row["structure_type"])))
     g.add((renzi_library, schema.floorSize, Literal(row["area"], datatype=XSD.float)))
     g.add((renzi_library, schema.seatingCapacity, Literal(row["seats"], datatype=XSD.integer)))
     g.add((renzi_library, dc.description, Literal(row["audio_system"])))
     g.add((renzi_library, dc.description, Literal(row["video_system"])))
     g.add((renzi_library, dbo.dedicatedTo, renzo_renzi))
     g.add((renzi_library, dcterms.hasPart, renzi_collection))
+
 
 # SERIALIZATION
 
