@@ -81,7 +81,6 @@ for idx, row in photo_df.iterrows():
     g.add((fighter_photo, dcterms.rights, Literal(row["rights"])))
     g.add((fighter_photo, dcterms.type, Literal(row["resource_type"])))
     g.add((fighter_photo, dcterms.language, Literal(row["language"])))
-    g.add((fighter_photo, schema.about, la_strada_film))
 
 # SERIALIZATION
 
