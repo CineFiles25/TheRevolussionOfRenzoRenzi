@@ -16,7 +16,6 @@ crm = Namespace("http://www.cidoc-crm.org/cidoc-crm/")
 foaf = Namespace("http://xmlns.com/foaf/0.1/")
 fiaf = Namespace("https://fiaf.github.io/film-related-materials/objects/")
 skos = Namespace("http://www.w3.org/2004/02/skos/core#")
-sf = Namespace("https://iccd.beniculturali.it/scheda-f/")
 
 # GRAPH CREATION
 
@@ -34,8 +33,7 @@ ns_dict = {
     "crm": crm,
     "foaf": foaf,
     "fiaf": fiaf,
-    "skos": skos,
-    "sf": sf
+    "skos": skos
 }
 
 def graph_bindings():
@@ -47,8 +45,14 @@ def graph_bindings():
 
 fighter_photo = URIRef(rrr + "photo_la_strada_fighter")
 la_strada_film = URIRef(rrr + "la_strada_film")
+cineteca_di_bologna = URIRef(rrr + "cineteca_di_bologna")
+giulietta_masina = URIRef(rrr + "giulietta_masina")
+bologna = URIRef(rrr + "bologna")
 
 g.add((la_strada_film, OWL.sameAs, URIRef("https://www.wikidata.org/wiki/Q18402")))
+g.add((cineteca_di_bologna, OWL.sameAs, URIRef("http://viaf.org/viaf/124960346")))
+g.add((giulietta_masina, OWL.sameAs, URIRef("http://viaf.org/viaf/96166248")))
+g.add((bologna, OWL.sameAs, URIRef("http://viaf.org/viaf/257723025")))
 
 # MAPPING TO ONTOLOGIES
 
@@ -60,7 +64,6 @@ for idx, row in photo_df.iterrows():
     g.add((fighter_photo, RDF.type, URIRef(sf + "Photograph")))
     g.add((fighter_photo, RDF.type, URIRef(schema + "Photograph")))
     g.add((fighter_photo, RDFS.subClassOf, URIRef(schema + "CreativeWork")))
-    g.add((fighter_photo, sf.standard, Literal(row["standard"])))
     g.add((fighter_photo, dcterms.title, Literal(row["title"])))
     g.add((fighter_photo, dcterms.alternative, Literal(row["other_title_information"])))
     g.add((fighter_photo, dcterms.creator, Literal(row["photographer"])))
@@ -68,23 +71,16 @@ for idx, row in photo_df.iterrows():
     g.add((fighter_photo, dcterms.subject, Literal(row["depicted_people"])))
     g.add((fighter_photo, dcterms.spatial, Literal(row["depicted_place"])))
     g.add((fighter_photo, dcterms.created, Literal(row["creation_year"], datatype=XSD.gYear)))
-    g.add((fighter_photo, sf.colour, Literal(row["colour"])))
+    g.add((fighter_photo, schema.colour, Literal(row["colour"])))
     g.add((fighter_photo, dcterms.medium, Literal(row["material_technique"])))
-    g.add((fighter_photo, sf.inventoryNumber, Literal(row["inventory_number"])))
     g.add((fighter_photo, dcterms.isPartOf, Literal(row["collection"])))
-    g.add((fighter_photo, sf.carrierType, Literal(row["carrier_type"])))
     g.add((fighter_photo, dcterms.extent, Literal(row["physical_description"])))
     g.add((fighter_photo, dcterms.description, Literal(row["notes"])))
     g.add((fighter_photo, dcterms.identifier, Literal(row["identifiers"])))
-    g.add((fighter_photo, sf.relatedWork, Literal(row["related_works"])))
+    g.add((fighter_photo, dcterms.relation, Literal(row["related_works"])))
     g.add((fighter_photo, dcterms.rights, Literal(row["rights"])))
     g.add((fighter_photo, dcterms.type, Literal(row["resource_type"])))
     g.add((fighter_photo, dcterms.language, Literal(row["language"])))
-    g.add((fighter_photo, sf.photographerRef, URIRef(row["photographer_uri"])))
-    g.add((fighter_photo, sf.depictedPersonRef, URIRef(row["depicted_people_uri"])))
-    g.add((fighter_photo, sf.depictedEventRef, URIRef(row["depicted_event_uri"])))
-    g.add((fighter_photo, sf.depictedPlaceRef, URIRef(row["depicted_place_uri"])))
-    g.add((fighter_photo, sf.relatedWorkRef, URIRef(row["related_works_uri"])))
     g.add((fighter_photo, schema.about, la_strada_film))
 
 # SERIALIZATION
