@@ -77,7 +77,7 @@ for idx, row in renzo_renzi_library.iterrows():
     g.add((renzi_library, schema.telephone, Literal(row["phone_number"], datatype=XSD.string)))
     g.add((renzi_library, schema.isAccessibleForFree, Literal(row["accessible"], datatype=XSD.boolean)))
     g.add((renzi_library, dc.description, Literal(row["structure_type"])))
-    g.add((renzi_library, schema.floorSize, Literal(row["area"], datatype=XSD.float)))
+    g.add((renzi_library, schema.floorSize, Literal(row["area"], datatype=XSD.string)))
     g.add((renzi_library, schema.seatingCapacity, Literal(row["seats"], datatype=XSD.integer)))
     g.add((renzi_library, dc.description, Literal(row["audio_system"])))
     g.add((renzi_library, dc.description, Literal(row["video_system"])))
