@@ -1,0 +1,35 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rrr: <https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/> .
+@prefix schema: <https://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+rrr:bologna owl:sameAs <http://viaf.org/viaf/257723025> .
+
+rrr:cineteca_di_bologna owl:sameAs <http://viaf.org/viaf/124960346> .
+
+rrr:la_strada_film a schema:Movie ;
+    dcterms:alternative "National title in Italy: 'La strada'" ;
+    dcterms:creator rrr:federico_fellini ;
+    dcterms:description "Fiction film" ;
+    dcterms:extent "3220m" ;
+    dcterms:format "35 mm" ;
+    dcterms:issued "1954"^^xsd:gYear ;
+    dcterms:language "it" ;
+    dcterms:publisher "Ponti–De Laurentiis Cinematografica" ;
+    dcterms:spatial "Italy" ;
+    dcterms:title "La strada" ;
+    dcterms:type "Film" ;
+    owl:sameAs <https://www.wikidata.org/wiki/Q18402> ;
+    schema:color "black and white" ;
+    schema:director rrr:federico_fellini ;
+    schema:duration "108 min" ;
+    schema:sound "sound" .
+
+rrr:renzo_renzi owl:sameAs <http://viaf.org/viaf/40486517> .
+
+schema:Movie rdfs:subClassOf schema:CreativeWork .
+
+rrr:federico_fellini owl:sameAs <http://viaf.org/viaf/76315386> .
+
