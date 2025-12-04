@@ -16,7 +16,7 @@ rrr:ferrari_set_photo a schema:Photograph ;
     crm:P52_has_current_owner rrr:cineteca_di_bologna ;
     foaf:depicts rrr:renzo_renzi ;
     schema:artform "Vintage gelatin silver print. Original analog photograph." ;
-    schema:color "black and white" ;
+    schema:color "black and white"^^xsd:string ;
     schema:dateCreated "1959"^^xsd:gYear ;
     schema:description "Digital surrogate available on the Cineteca di Bologna website." ;
     schema:fileFormat "Digital JPEG surrogate" ;
