@@ -1,0 +1,35 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rrr: <https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/> .
+@prefix schema: <https://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+rrr:bologna owl:sameAs <http://viaf.org/viaf/257723025> .
+
+rrr:cineteca_di_bologna owl:sameAs <http://viaf.org/viaf/124960346> .
+
+rrr:fighter_photo a schema:Photograph ;
+    dcterms:alternative "Gelsomina and Zampanò during a circus act" ;
+    dcterms:created "1954 ca."^^xsd:gYear ;
+    dcterms:description "Set photograph from the film 'La Strada' (1954); circus environment." ;
+    dcterms:extent "Gelatin silver print; original physical description not provided." ;
+    dcterms:identifier "" ;
+    dcterms:isPartOf "Fondo Fotografie Cineteca" ;
+    dcterms:language "none" ;
+    dcterms:medium "Gelatin silver print" ;
+    dcterms:relation "la_strada_film" ;
+    dcterms:rights "Rights status unknown; to be confirmed" ;
+    dcterms:spatial "Italy" ;
+    dcterms:subject " \"Production still from 'La Strada' (1954)\"",
+        "Giulietta Masina; Anthony Quinn" ;
+    dcterms:title "Circus performance scene from 'La Strada'" ;
+    dcterms:type "Photograph" ;
+    rdfs:subClassOf schema:CreativeWork ;
+    schema:about rrr:la_strada_film ;
+    schema:colour "black and white" .
+
+rrr:giulietta_masina owl:sameAs <http://viaf.org/viaf/96166248> .
+
+rrr:la_strada_film owl:sameAs <https://www.wikidata.org/wiki/Q18402> .
+
