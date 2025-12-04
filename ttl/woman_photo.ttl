@@ -1,0 +1,30 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rrr: <https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/> .
+@prefix schema: <https://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+rrr:giulietta_masina owl:sameAs <http://viaf.org/viaf/37021297> .
+
+rrr:la_strada_film owl:sameAs <https://www.wikidata.org/wiki/Q18402> .
+
+rrr:woman_photo a schema:Photograph ;
+    dcterms:alternative "Set photograph featuring Giulietta Masina as Gelsomina" ;
+    dcterms:created "1954 ca."^^xsd:gYear ;
+    dcterms:description "Set photograph from the film 'La Strada' (1954); rural environment; exact location not identified." ;
+    dcterms:extent "Gelatin silver print; original physical description not provided." ;
+    dcterms:identifier "" ;
+    dcterms:isPartOf "Fondo Fotografie Cineteca" ;
+    dcterms:language "none" ;
+    dcterms:medium "Gelatin silver print" ;
+    dcterms:relation "la_strada_film" ;
+    dcterms:rights "Rights status unknown; to be confirmed" ;
+    dcterms:spatial "Italy" ;
+    dcterms:subject "Giulietta Masina",
+        "Production still from 'La Strada' (1954)" ;
+    dcterms:title "Gelsomina eating bread in rural landscape" ;
+    dcterms:type "Photograph" ;
+    rdfs:subClassOf schema:CreativeWork ;
+    schema:colour "black and white" .
+
