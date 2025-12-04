@@ -1,4 +1,3 @@
-import pandas as pd
 from pandas import read_csv
 from rdflib import Namespace, Graph, RDF, URIRef, OWL, Literal, XSD, RDFS, FOAF
 
@@ -59,7 +58,7 @@ g.add((enzo_masetti, OWL.sameAs, URIRef("http://viaf.org/viaf/56806835")))
 
 # MAPPING
 
-quando_il_po_è_dolce = pd.read_csv("../csv/po_documentary.csv", keep_default_na=False, encoding="utf-8")
+quando_il_po_è_dolce = read_csv("../csv/po_documentary.csv", keep_default_na=False, encoding="utf-8")
 
 g = graph_bindings()
 

@@ -1,4 +1,3 @@
-import pandas as pd
 from pandas import read_csv
 from rdflib import Namespace, Graph, RDF, URIRef, OWL, Literal, XSD, RDFS, FOAF
 
@@ -55,7 +54,7 @@ g.add((bologna, OWL.sameAs, URIRef("http://viaf.org/viaf/257723025")))
 
 # MAPPING 
 
-renzo_renzi_library = pd.read_csv("../csv/renzi_library.csv", keep_default_na=False, encoding="utf-8")
+renzo_renzi_library = read_csv("../csv/renzi_library.csv", keep_default_na=False, encoding="utf-8")
 
 g = graph_bindings()
 
