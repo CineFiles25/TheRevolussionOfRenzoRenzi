@@ -56,11 +56,11 @@ g.add((bologna, OWL.sameAs, URIRef("http://viaf.org/viaf/257723025")))
 
 # MAPPING TO ONTOLOGIES
 
-photo_df = pd.read_csv("../csv/photo_la_strada_fighter.csv", keep_default_na=False, encoding="utf-8")
+photo_la_strada_fighter = pd.read_csv("../csv/photo_la_strada_fighter.csv", keep_default_na=False, encoding="utf-8")
 
 g = graph_bindings()
 
-for idx, row in photo_df.iterrows():
+for idx, row in photo_la_strada_fighter.iterrows():
     g.add((fighter_photo, RDF.type, URIRef(schema + "Photograph")))
     g.add((fighter_photo, RDFS.subClassOf, URIRef(schema + "CreativeWork")))
     g.add((fighter_photo, dcterms.title, Literal(row["title"])))
@@ -69,7 +69,7 @@ for idx, row in photo_df.iterrows():
     g.add((fighter_photo, dcterms.subject, Literal(row["depicted_people"])))
     g.add((fighter_photo, dcterms.spatial, Literal(row["depicted_place"])))
     g.add((fighter_photo, dcterms.created, Literal(row["creation_year"], datatype=XSD.gYear)))
-    g.add((fighter_photo, schema.colour, Literal(row["colour"])))
+    g.add((fighter_photo, schema.color, Literal(row["colour"])))
     g.add((fighter_photo, dcterms.medium, Literal(row["material_technique"])))
     g.add((fighter_photo, dcterms.isPartOf, Literal(row["collection"])))
     g.add((fighter_photo, dcterms.extent, Literal(row["physical_description"])))

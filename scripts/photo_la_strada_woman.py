@@ -52,11 +52,11 @@ g.add((giulietta_masina, OWL.sameAs, URIRef("http://viaf.org/viaf/37021297")))
 
 # MAPPING TO ONTOLOGIES
 
-photo_df = pd.read_csv("../csv/photo_la_strada_woman.csv", keep_default_na=False, encoding="utf-8")
+photo_la_strada_woman = pd.read_csv("../csv/photo_la_strada_woman.csv", keep_default_na=False, encoding="utf-8")
 
 g = graph_bindings()
 
-for idx, row in photo_df.iterrows():
+for idx, row in photo_la_strada_woman.iterrows():
     g.add((woman_photo, RDF.type, URIRef(schema + "Photograph")))
     g.add((woman_photo, RDFS.subClassOf, URIRef(schema + "CreativeWork")))
     g.add((woman_photo, dcterms.title, Literal(row["title"])))
