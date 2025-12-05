@@ -95,7 +95,7 @@ photo_lastrada_premiere = read_csv(
 
 for idx, row in photo_lastrada_premiere.iterrows():
 
-    # Extraction of fields
+    # Safely extracting all fields (empty string if the column is missing)
     id_value             = row.get("id", "")
     standard             = row.get("standard", "")
     title                = row.get("title", "")
@@ -189,5 +189,6 @@ print("CSV converted to TTL!")
 
 g.serialize(format="turtle", destination="../ttl/photo_lastrada_premiere.ttl")
 print("CSV converted to TTL!")
+
 
 
