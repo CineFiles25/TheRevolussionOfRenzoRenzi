@@ -193,75 +193,127 @@
         </p>
       </section>
 
-            <!-- RDF -->
-      <section id="rdf" class="section">
+      <!-- RDF -->
+       <section id="rdf" class="section">
         <h2>RDF Dataset &amp; Linked Open Data</h2>
         <p class="section-intro">
-          CSV metadata are transformed into an RDF graph using Python and RDFLib.
-          The resulting dataset consists of several Turtle files, one for each
-          cultural heritage item and related entities.
+          CSV metadata are transformed into RDF using a set of dedicated Python scripts 
+          (based on <code>rdflib</code>).  
+          Each cultural heritage item is exported as an individual Turtle file, resulting in a
+          modular Linked Open Data dataset.
         </p>
-
+        
+        <p>
+          The RDF representation includes:
+        </p>
+        
         <ul>
           <li>creative works, photographs, drawings, sound and moving images</li>
-          <li>
-            agents and institutions (Renzo Renzi, Federico Fellini, Cineteca di Bologna…)
-          </li>
-          <li>events such as interviews and productions</li>
-          <li>links to authority files (VIAF, Wikidata, TGN) where available</li>
+          <li>agents and institutions (Renzo Renzi, Federico Fellini, Cineteca di Bologna…)</li>
+          <li>events such as productions, interviews and film-related activities</li>
+          <li>links to external authority files (VIAF, Wikidata, TGN) where available</li>
         </ul>
+        
+        <p>
+          All Turtle files can be consulted and downloaded from the project’s
+          <a href="ttl/">RDF dataset directory</a>.
+        </p>
+      </section>
 
-        <p><strong>Download RDF files (Turtle):</strong></p>
-        <ul class="item-list">
-          <li>
-            Book – <em>Il primo Fellini</em>:
-            <a href="ttl/book_il_primo_fellini.ttl" download>book_il_primo_fellini.ttl</a>
-          </li>
-          <li>
-            Caricature of Fellini by Renzi:
-            <a href="ttl/caricature_fellini_renzi.ttl" download>caricature_fellini_renzi.ttl</a>
-          </li>
-          <li>
-            Drawing of Gelsomina, <em>La Strada</em>:
-            <a href="ttl/drawing_gelsomina_lastrada.ttl" download>drawing_gelsomina_lastrada.ttl</a>
-          </li>
-          <li>
-            Ferrari set photograph:
-            <a href="ttl/ferrari_set_photo.ttl" download>ferrari_set_photo.ttl</a>
-          </li>
-          <li>
-            Fighter photo:
-            <a href="ttl/fighter_photo.ttl" download>fighter_photo.ttl</a>
-          </li>
-          <li>
-            Film <em>La Strada</em>:
-            <a href="ttl/la_strada_film.ttl" download>la_strada_film.ttl</a>
-          </li>
-          <li>
-            Original soundtrack of <em>La Strada</em>:
-            <a href="ttl/la_strada_soundtrack_original.ttl" download>la_strada_soundtrack_original.ttl</a>
-          </li>
-          <li>
-            Premiere photo of <em>La Strada</em>:
-            <a href="ttl/photo_lastrada_premiere.ttl" download>photo_lastrada_premiere.ttl</a>
-          </li>
-          <li>
-            Documentary <em>Quando il Po è dolce</em>:
-            <a href="ttl/po_documentary.ttl" download>po_documentary.ttl</a>
-          </li>
-          <li>
-            Renzo Renzi interview (2000):
-            <a href="ttl/renzi_interview_2000.ttl" download>renzi_interview_2000.ttl</a>
-          </li>
-          <li>
-            Renzo Renzi Library:
-            <a href="ttl/renzi_library.ttl" download>renzi_library.ttl</a>
-          </li>
-          <li>
-            Woman photograph:
-            <a href="ttl/woman_photo.ttl" download>woman_photo.ttl</a>
-          </li>
-        </ul>
+      <!-- Photo Gallery -->
+      <section id="gallery" class="section section-photos">
+        <h2>Photo Gallery</h2>
+        <p class="section-intro">
+          A small visual tour through the archival universe of Renzo Renzi: Federico Fellini’s cinema, <em>La Strada</em>, Bologna, and the people and places that connect them.
+        </p>
+
+        <div class="photo-grid">
+          <!-- Fellini -->
+          <figure class="photo-card">
+            <img
+              src="img/fellini_portrait.jpg"
+              alt="Federico Fellini portrait"
+            />
+            <figcaption>
+              Federico Fellini, one of the most influential directors in Italian
+              cinema.
+            </figcaption>
+          </figure>
+
+          <!-- La Strada -->
+          <figure class="photo-card">
+            <img
+              src="img/la_strada_still.webp"
+              alt="Still or poster from La Strada (1954)"
+            />
+            <figcaption>
+              <em>La Strada</em> (1954), the film at the core of the project’s
+              TEI edition.
+            </figcaption>
+          </figure>
+
+          <!-- Bologna -->
+          <figure class="photo-card">
+            <img src="img/bologna.jpg" alt="Historic view of Bologna" />
+            <figcaption>
+              Bologna, home of the Cineteca di Bologna and the Renzo Renzi
+              Collection.
+            </figcaption>
+          </figure>
+
+          <!-- Renzi + Fellini -->
+          <figure class="photo-card">
+            <img
+              src="img/renzi_fellini.webp"
+              alt="Renzo Renzi and Federico Fellini together"
+            />
+            <figcaption>
+              Renzo Renzi and Federico Fellini walking together after a
+              screening.
+            </figcaption>
+          </figure>
+
+          <!-- Gelsomina -->
+          <figure class="photo-card">
+            <img src="img/gelsomina.jpg" alt="Giulietta Masina as Gelsomina" />
+            <figcaption>
+              Giulietta Masina as Gelsomina in <em>La Strada</em>.
+            </figcaption>
+          </figure>
+
+          <!-- Banner -->
+          <figure class="photo-card">
+            <img
+              src="img/banner.jpg"
+              alt="Archival banner related to La Strada or Cinema Fulgor"
+            />
+            <figcaption>
+              Cesare Zavattini, Federico Fellini and Michelangelo Antonioni on set. Archival photograph from the Renzo Renzi Collection, Cineteca di Bologna.
+            </figcaption>
+          </figure>
+
+          <!-- Renzo Renzi Portrait -->
+          <figure class="photo-card">
+            <img
+              src="img/renzo_renzi.jpg"
+              alt="Portrait of Renzo Renzi"
+            />
+            <figcaption>
+              Renzo Renzi, filmmaker, critic, and an essential figure in the cultural scene of Bologna.
+            </figcaption>
+          </figure>
+
+          <!-- Cineteca di Bologna Building -->
+          <figure class="photo-card">
+            <img
+              src="img/cineteca_di_bologna.jpg"
+              alt="Cineteca di Bologna building"
+            />
+            <figcaption>
+              The Cineteca di Bologna, home of the Renzo Renzi Collection and one of Italy’s major film archives.
+            </figcaption>
+          </figure>
+        </div>
       </section>
 
       <!-- Team -->
@@ -450,7 +502,3 @@
     </script>
   </body>
 </html>
-
-
-
-
