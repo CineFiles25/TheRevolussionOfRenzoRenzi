@@ -40,6 +40,7 @@ ns_dict = {
 }
 
 def graph_bindings():
+    """Bind all namespaces to the graph."""
     for prefix, ns in ns_dict.items():
         g.bind(prefix, ns)
     return g
@@ -59,7 +60,7 @@ cineteca_di_bologna  = URIRef(rrr + "cineteca_di_bologna")
 bologna              = URIRef(rrr + "bologna")
 renzi_collection     = URIRef(rrr + "renzi_collection")
 
-# Tipi di base
+# Base types
 g.add((premiere_photo, RDF.type, schema.Photograph))
 g.add((schema.Photograph, RDFS.subClassOf, schema.CreativeWork))
 
@@ -79,7 +80,7 @@ g.add((bologna, OWL.sameAs, URIRef("http://viaf.org/viaf/257723025")))
 g.add((cineteca_di_bologna, OWL.sameAs, URIRef("http://viaf.org/viaf/124960346")))
 
 # =========================
-# CSV
+# CSV LOADING
 # =========================
 
 photo_lastrada_premiere = read_csv(
@@ -89,40 +90,41 @@ photo_lastrada_premiere = read_csv(
 )
 
 # =========================
-# MAPPING
+# MAPPING TO RDF
 # =========================
 
 for idx, row in photo_lastrada_premiere.iterrows():
-    # Leggo tutti i campi in modo sicuro: se la colonna non esiste → ""
-    id_value            = row.get("id", "")
-    standard            = row.get("standard", "")
-    title               = row.get("title", "")
-    object_type         = row.get("object_type", "")
-    inscription         = row.get("inscription", "")
-    language            = row.get("language", "")
-    notes               = row.get("notes", "")
-    creator             = row.get("creator", "")
-    creation_year       = row.get("creation_year", "")
-    colour              = row.get("colour", "")
-    material_technique  = row.get("material_technique", "")
-    physical_description = row.get("physical_description", "")
-    inventory_number    = row.get("inventory_number", "")
-    collection_name     = row.get("collection", "")
-    rights              = row.get("rights", "")
 
-    # Identificatori e standard
+    # Safe extraction of fields (empty string if column is missing)
+    id_value             = row.get("id", "")
+    standard             = row.get("standard", "")
+    title                = row.get("title", "")
+    object_type          = row.get("object_type", "")
+    inscription          = row.get("inscription", "")
+    language             = row.get("language", "")
+    notes                = row.get("notes", "")
+    creator              = row.get("creator", "")
+    creation_year        = row.get("creation_year", "")
+    colour               = row.get("colour", "")
+    material_technique   = row.get("material_technique", "")
+    physical_description = row.get("physical_description", "")
+    inventory_number     = row.get("inventory_number", "")
+    collection_name      = row.get("collection", "")
+    rights               = row.get("rights", "")
+
+    # Identifiers and standards
     if id_value:
         g.add((premiere_photo, dc.identifier, Literal(id_value)))
     if standard:
         g.add((premiere_photo, dcterms.conformsTo, Literal(standard)))
 
-    # Titolo e tipo
+    # Title and object type
     if title:
         g.add((premiere_photo, dcterms.title, Literal(title)))
     if object_type:
         g.add((premiere_photo, dcterms.type, Literal(object_type)))
 
-    # Iscrizione (con eventuale lingua)
+    # Inscription (with optional language tag)
     if inscription:
         if language:
             g.add((premiere_photo, dcterms.description,
@@ -131,28 +133,28 @@ for idx, row in photo_lastrada_premiere.iterrows():
             g.add((premiere_photo, dcterms.description,
                    Literal(inscription)))
 
-    # Note descrittive aggiuntive
+    # Additional descriptive notes
     if notes:
         g.add((premiere_photo, dcterms.description, Literal(notes)))
 
-    # Creatore (fotografo, come literal)
+    # Creator (photographer as literal)
     if creator:
         g.add((premiere_photo, dcterms.creator, Literal(creator)))
 
-    # Soggetti rappresentati
+    # Depicted subjects
     g.add((premiere_photo, foaf.depicts, federico_fellini))
     g.add((premiere_photo, foaf.depicts, giulietta_masina))
 
-    # Luogo rappresentato (cinema Fulgor a Bologna)
+    # Location represented in the photo (Cinema Fulgor, Bologna)
     g.add((premiere_photo, schema.contentLocation, cinema_fulgor))
     g.add((cinema_fulgor, schema.location, bologna))
 
-    # Data di creazione
+    # Creation year
     if creation_year:
         g.add((premiere_photo, dcterms.created,
                Literal(creation_year, datatype=XSD.gYear)))
 
-    # Colore, tecnica, descrizione fisica
+    # Color, technique, physical description
     if colour:
         g.add((premiere_photo, schema.color, Literal(colour)))
     if material_technique:
@@ -160,11 +162,11 @@ for idx, row in photo_lastrada_premiere.iterrows():
     if physical_description:
         g.add((premiere_photo, schema.artform, Literal(physical_description)))
 
-    # Numero d'inventario
+    # Inventory number
     if inventory_number:
         g.add((premiere_photo, dc.identifier, Literal(inventory_number)))
 
-    # Proprietà / collezione / diritti
+    # Ownership, collection membership, rights
     g.add((premiere_photo, crm.P52_has_current_owner, cineteca_di_bologna))
     g.add((renzi_collection, dcterms.hasPart, premiere_photo))
 
@@ -174,7 +176,7 @@ for idx, row in photo_lastrada_premiere.iterrows():
     if rights:
         g.add((premiere_photo, dcterms.rights, Literal(rights)))
 
-    # Relazione con il film La Strada
+    # Relationship with the film "La Strada"
     g.add((premiere_photo, dcterms.relation, la_strada_film))
     g.add((premiere_photo, schema.about, la_strada_film))
 
@@ -184,3 +186,7 @@ for idx, row in photo_lastrada_premiere.iterrows():
 
 g.serialize(format="turtle", destination="../ttl/photo_lastrada_premiere.ttl")
 print("CSV converted to TTL!")
+
+g.serialize(format="turtle", destination="../ttl/photo_lastrada_premiere.ttl")
+print("CSV converted to TTL!")
+
