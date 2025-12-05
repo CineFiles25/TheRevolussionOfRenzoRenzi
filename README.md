@@ -117,13 +117,24 @@ For each item, the project includes:
 ## Scripts Included
 
 ### ```build_rrr_rdf.py```  
-Transforms CSV metadata into an RDF graph and produces ```rrr.ttl```.
+Transforms CSV metadata into **individual Turtle files**, one per cultural heritage item.
 
 ### ```compare_ttl.py```  
 Compares two TTL serializations to track changes.
 
 ### ```tei2html_lastrada.xsl```  
 Generates the HTML version of the TEI-encoded text.
+
+---
+
+## RDF Dataset
+
+The RDF dataset consists of **15 modular Turtle files**, each representing a single cultural heritage item or entity group.
+All files are available in the ```ttl/``` directory:
+
+→ https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/tree/main/ttl  
+
+This modular structure reflects the distributed nature of the archive and keeps the modelling transparent and comprehensible.  
 
 ---
 
