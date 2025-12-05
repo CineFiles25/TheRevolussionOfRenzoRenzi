@@ -27,7 +27,7 @@ Produce:
 - CSV metadata
 - a TEI-encoded text + XSLT
 - CSV → RDF transformation
-- an RDF dataset
+- an RDF dataset (as multiple Turtle files)
 - documentation and a website
 
 The main objective is to turn a set of analogue cultural materials into a **structured, interoperable digital dataset** aligned with cultural heritage best practices.
@@ -111,53 +111,65 @@ The conceptual model reuses existing vocabularies without creating a new ontolog
 - IFLA LRM (bibliographic logic)
 
 ## Core classes and relationships reused
-- ```schema:CreativeWork```, ```schema:ImageObject```, ```schema:VideoObject```, ```schema:MusicRecording```
-- ```schema:Person```, ```schema:Organization```, ```schema:Place```
-- ```dcterms:creator```, ```dcterms:subject```, ```dcterms:date```, ```schema:about```, ```schema:locationCreated```
-- ```foaf:depicts```
-- ```schema:hasPart```, ```dcterms:hasPart```
+- `schema:CreativeWork`, `schema:ImageObject`, `schema:VideoObject`, `schema:MusicRecording`
+- `schema:Person`, `schema:Organization`, `schema:Place`
+- `dcterms:creator`, `dcterms:subject`, `dcterms:date`, `schema:about`, `schema:locationCreated`
+- `foaf:depicts`
+- `schema:hasPart`, `dcterms:hasPart`
 
 The conceptual model is summarized in a **Grafoo-style diagram** included in the documentation.
 
 ---
 
 # 7. Data Production
+
 ## CSV Metadata
 
 A dedicated CSV file was created for each of the 15 items.  
 Two global files structure the semantic layer:  
-- ```rrr_entities.csv``` → entities of the domain (people, places, works…)
-- ```rrr_triples.csv``` → relations between those entities
+- `rrr_entities.csv` → entities of the domain (people, places, works…)  
+- `rrr_triples.csv` → relations between those entities  
 
-All identifiers follow **snake_case** and use a shared prefix (```rrr:```).
+All identifiers follow **snake_case** and use a shared prefix (`rrr:`).
+
+These CSV files are the starting point for the RDF generation performed by the Python scripts.
 
 ---
 
 # 8. TEI Encoding & XSLT Transformation
 
 One item (*La Strada*, sequence I) was encoded using **TEI P5**.  
-The XSLT stylesheet ```tei2html_lastrada.xsl``` transforms the TEI file into a web-publishable HTML edition.
+The XSLT stylesheet `tei2html_lastrada.xsl` transforms the TEI file into a web-publishable HTML edition.
+
+The TEI edition includes:
+- a full `<teiHeader>` with bibliographic and archival metadata
+- semantic tagging of people, places and film-specific structures
+- logical structuring of scenes and segments
 
 ---
 
 # 9. RDF Dataset
 
-The RDF dataset (```rrr.ttl```) is produced via:
+The RDF dataset is produced as a **set of modular Turtle files** (`ttl/*.ttl`), one per cultural heritage item (and related entities).
 
-**```build_rrr_rdf.py```**
-- reads all CSV files
-- maps them to RDF triples using RDFLib
-- serializes them as Turtle
+Dedicated Python scripts in the `scripts/` directory:
 
-**```compare_ttl.py```**
-- validates differences between RDF versions
+- read the item-specific CSV metadata (and, where relevant, the global entity and triple CSVs),
+- map them to RDF triples using **RDFLib**,
+- serialize each item as an individual Turtle file in the `ttl/` directory.
 
-The final dataset integrates:
+`compare_ttl.py` is used to:
+- validate differences between Turtle serializations,
+- support debugging and consistency checks during the modelling phase.
+
+Taken together, the Turtle files integrate:
 - items
 - related entities
 - inter-item relationships
 - authority URIs
 - locations, subjects, creators, collections
+
+The dataset is modular by design: it can be loaded as separate graphs or merged into a single RDF graph for querying.
 
 ---
 
@@ -167,7 +179,7 @@ The full project is published as a **GitHub Pages website**, including:
 - project overview
 - item list with metadata
 - TEI → HTML edition
-- RDF dataset
+- RDF dataset (Turtle files)
 - conceptual model
 - documentation
 - team
@@ -177,6 +189,7 @@ The full project is published as a **GitHub Pages website**, including:
 ---
 
 # 11. Institutions & Authority Files
+
 ## Authority control used
 - VIAF
 - Wikidata
@@ -184,11 +197,11 @@ The full project is published as a **GitHub Pages website**, including:
 - ISNI (for institutions)
 
 ## Example links
-- Renzo Renzi — VIAF: http://viaf.org/viaf/40486517
-- Federico Fellini — VIAF: http://viaf.org/viaf/76315386
-- Cineteca di Bologna — VIAF: http://viaf.org/viaf/124960346
-- Bologna — Wikidata: https://www.wikidata.org/wiki/Q1891
-- Cinema Fulgor — Wikidata: https://www.wikidata.org/wiki/Q36839368
+- Renzo Renzi — VIAF: <http://viaf.org/viaf/40486517>  
+- Federico Fellini — VIAF: <http://viaf.org/viaf/76315386>  
+- Cineteca di Bologna — VIAF: <http://viaf.org/viaf/124960346>  
+- Bologna — Wikidata: <https://www.wikidata.org/wiki/Q1891>  
+- Cinema Fulgor — Wikidata: <https://www.wikidata.org/wiki/Q36839368>  
 
 ---
 
@@ -204,3 +217,4 @@ The project was collaboratively developed by:
 # End of Documentation
 
 This file provides a complete, instructor-oriented description of the project workflow, methodological choices, standards, and deliverables.
+
