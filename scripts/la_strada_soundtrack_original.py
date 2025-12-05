@@ -111,7 +111,7 @@ for idx, row in la_strada_soundtrack_original.iterrows():
     g.add((la_strada_soundtrack, dcterms.creator, nino_rota))
     g.add((la_strada_soundtrack, schema.composer, nino_rota))
 
-    # Soundtrack type (free text; optional)
+    # Soundtrack type
     if soundtrack_type:
         g.add((la_strada_soundtrack, schema.additionalType, Literal(soundtrack_type)))
 
@@ -157,6 +157,7 @@ for idx, row in la_strada_soundtrack_original.iterrows():
 
 g.serialize(format="turtle", destination="../ttl/la_strada_soundtrack_original.ttl")
 print("CSV converted to TTL!")
+
 
 
 
