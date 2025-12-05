@@ -85,7 +85,7 @@ html/                 → HTML pages (incl. TEI-to-HTML edition)
 img/                  → Photographs, stills and visual materials
 scripts/              → Python scripts for dataset generation
 tei_xslt/             → TEI XML + XSLT transformation
-ttl/                  → RDF dataset (rrr.ttl)
+ttl/                  → RDF dataset (modular Turtle files, one per item)
 project-documentation.html
 readme.html           → HTML version of this README
 index.html            → Website home
@@ -94,7 +94,7 @@ style.css             → Website stylesheet
 
         <p>
           A full explanation of the workflow and modelling choices is provided in
-          <strong>Project-Documentation.html</strong>.
+          <strong>project-documentation.html</strong>.
         </p>
 
         <hr />
@@ -117,8 +117,13 @@ style.css             → Website stylesheet
             Develop a <strong>conceptual model</strong> reusing: Dublin Core Terms, Schema.org, FOAF, SKOS
             (with RiC-O and CIDOC CRM used as conceptual references).
           </li>
-          <li>Produce a complete <strong>RDF dataset</strong> for all selected objects.</li>
-          <li>Publish all deliverables in an accessible <strong>website</strong> built with GitHub Pages.</li>
+          <li>
+            Produce a complete <strong>RDF dataset</strong> where each selected object is exported as an
+            individual Turtle file.
+          </li>
+          <li>
+            Publish all deliverables in an accessible <strong>website</strong> built with GitHub Pages.
+          </li>
         </ol>
 
         <hr />
@@ -181,10 +186,10 @@ style.css             → Website stylesheet
 
         <h2>Scripts Included</h2>
 
-        <h3><code>build_rrr_rdf.py</code></h3>
+        <h3><code>build_rr_rdf.py</code></h3>
         <p>
-          Transforms the CSV metadata into a structured RDF graph using RDFLib,
-          generating <code>ttl/rrr.ttl</code>.
+          Transforms CSV metadata into a structured RDF graph using RDFLib, generating
+          individual Turtle files in the <code>ttl/</code> directory (one <code>.ttl</code> per item).
         </p>
 
         <h3><code>compare_ttl.py</code></h3>
@@ -205,7 +210,7 @@ style.css             → Website stylesheet
         <ul>
           <li>TEI-encoded <em>La Strada</em> edition</li>
           <li>Metadata tables and analysis</li>
-          <li>RDF dataset (Turtle)</li>
+          <li>RDF dataset (modular Turtle files)</li>
           <li>Image gallery</li>
           <li>Team and acknowledgements</li>
           <li>Documentation and downloads</li>
@@ -239,7 +244,7 @@ style.css             → Website stylesheet
 
         <p>
           A per-member breakdown of contributions is available in
-          <em>Project-Documentation.html</em>.
+          <em>project-documentation.html</em>.
         </p>
 
         <hr />
