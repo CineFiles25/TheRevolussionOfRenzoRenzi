@@ -1,4 +1,4 @@
-vfrom pandas import read_csv
+from pandas import read_csv
 from rdflib import Namespace, Graph, RDF, URIRef, OWL, Literal, XSD, RDFS, FOAF
 
 # =========================
@@ -277,4 +277,5 @@ for idx, row in photo_df.iterrows():
 
 g.serialize(format="turtle", destination="../ttl/photo_lastrada_premiere.ttl")
 print("CSV converted to TTL!")
+
 
