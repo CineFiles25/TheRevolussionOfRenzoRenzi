@@ -85,64 +85,69 @@ for idx, row in la_strada_soundtrack_original.iterrows():
     # Tipo dell'oggetto
     g.add((la_strada_soundtrack, RDF.type, schema.MusicRecording))
 
+    # Prendo tutti i campi in modo sicuro (se non esistono → "")
+    title               = row.get("title", "")
+    other_title         = row.get("other_title_information", "")
+    soundtrack_type     = row.get("Soundtrack Type", "")
+    release_year        = row.get("Release Year", "")
+    publisher           = row.get("Publisher", "")
+    country             = row.get("Country", "")
+    recording_location  = row.get("Recording Location", "")
+    current_location    = row.get("Current Location", "")
+    language            = row.get("Language", "")
+    standard            = row.get("Standard", "")
+    identifier          = row.get("ID", "")
+    notes               = row.get("Notes", "")
+
     # Titolo e titolo alternativo
-    g.add((la_strada_soundtrack, dcterms.title, Literal(row["title"])))
-    if row["other_title_information"]:
-        g.add((la_strada_soundtrack, schema.alternateName,
-               Literal(row["other_title_information"])))
+    if title:
+        g.add((la_strada_soundtrack, dcterms.title, Literal(title)))
+    if other_title:
+        g.add((la_strada_soundtrack, schema.alternateName, Literal(other_title)))
 
     # Autore / compositore
     g.add((la_strada_soundtrack, dcterms.creator, nino_rota))
     g.add((la_strada_soundtrack, schema.composer, nino_rota))
 
-    # Tipo di soundtrack (se la colonna esiste davvero ed è valorizzata)
-    soundtrack_type = row.get("Soundtrack Type", "")
+    # Tipo di soundtrack (se c'è la colonna e il dato)
     if soundtrack_type:
-        g.add((la_strada_soundtrack, schema.additionalType,
-               Literal(soundtrack_type)))
+        g.add((la_strada_soundtrack, schema.additionalType, Literal(soundtrack_type)))
 
     # Relazione con il film La Strada
     g.add((la_strada_soundtrack, dcterms.relation, la_strada_film))
     g.add((la_strada_soundtrack, schema.about, la_strada_film))
 
     # Pubblicazione
-    if row["Release Year"]:
+    if release_year:
         g.add((la_strada_soundtrack, schema.datePublished,
-               Literal(row["Release Year"], datatype=XSD.gYear)))
+               Literal(release_year, datatype=XSD.gYear)))
 
-    if row["Publisher"]:
-        g.add((la_strada_soundtrack, dcterms.publisher,
-               Literal(row["Publisher"])))
+    if publisher:
+        g.add((la_strada_soundtrack, dcterms.publisher, Literal(publisher)))
 
-    # Luoghi / provenienza (rimangono literal perché hai pochi dati strutturati)
-    if row["Country"]:
-        g.add((la_strada_soundtrack, schema.countryOfOrigin,
-               Literal(row["Country"])))
-    if row["Recording Location"]:
-        g.add((la_strada_soundtrack, schema.locationCreated,
-               Literal(row["Recording Location"])))
-    if row["Current Location"]:
-        g.add((la_strada_soundtrack, schema.contentLocation,
-               Literal(row["Current Location"])))
+    # Luoghi / provenienza (rimangono literal)
+    if country:
+        g.add((la_strada_soundtrack, schema.countryOfOrigin, Literal(country)))
+    if recording_location:
+        g.add((la_strada_soundtrack, schema.locationCreated, Literal(recording_location)))
+    if current_location:
+        g.add((la_strada_soundtrack, schema.contentLocation, Literal(current_location)))
 
     # Lingua
-    if row["Language"]:
-        g.add((la_strada_soundtrack, schema.inLanguage,
-               Literal(row["Language"])))
+    if language:
+        g.add((la_strada_soundtrack, schema.inLanguage, Literal(language)))
 
     # Standard di riferimento (ISBD NBM / FIAF ecc.)
-    if row["Standard"]:
-        g.add((la_strada_soundtrack, dcterms.conformsTo,
-               Literal(row["Standard"])))
+    if standard:
+        g.add((la_strada_soundtrack, dcterms.conformsTo, Literal(standard)))
 
     # Identificatore locale
-    if row["ID"]:
-        g.add((la_strada_soundtrack, dc.identifier, Literal(row["ID"])))
+    if identifier:
+        g.add((la_strada_soundtrack, dc.identifier, Literal(identifier)))
 
     # Note
-    if row["Notes"]:
-        g.add((la_strada_soundtrack, dcterms.description,
-               Literal(row["Notes"])))
+    if notes:
+        g.add((la_strada_soundtrack, dcterms.description, Literal(notes)))
 
 # =========================
 # SERIALIZATION
@@ -150,8 +155,5 @@ for idx, row in la_strada_soundtrack_original.iterrows():
 
 g.serialize(format="turtle", destination="../ttl/la_strada_soundtrack_original.ttl")
 print("CSV converted to TTL!")
-
-
-
 
 
