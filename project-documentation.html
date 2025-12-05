@@ -71,7 +71,10 @@
               <li>CSV metadata for each item</li>
               <li>a TEI-encoded text and XSLT transformation</li>
               <li>CSV → RDF transformation in Python</li>
-              <li>a unified RDF dataset in Turtle</li>
+              <li>
+                an RDF dataset in Turtle, structured as modular files
+                (<code>.ttl</code> per item)
+              </li>
               <li>a website presenting data, methods, and outputs</li>
             </ul>
           </li>
@@ -95,7 +98,7 @@
           <li>Photograph “La Strada 01” — <strong>Scheda F</strong></li>
           <li>Photograph “La Strada 004” — <strong>Scheda F</strong></li>
           <li>
-            Videointerview: <em>Il cinema a Bologna: Renzo Renzi e la Columbus film, il</em> (2000) —
+            Videointerview: <em>Il cinema a Bologna: Renzo Renzi e la Columbus film, il</em> (2000) — 
             <strong>FIAF</strong>
           </li>
           <li>Film <em>La Strada</em> (1954) — <strong>ISBD(NBM) + FIAF</strong></li>
@@ -245,14 +248,22 @@
       <section class="section">
         <h2>9. RDF Dataset</h2>
         <p>
-          The RDF dataset (<code>ttl/rrr.ttl</code>) is generated from the CSV files using Python and RDFLib.
+          The RDF dataset is produced as a <strong>set of modular Turtle files</strong> stored in the
+          <code>ttl/</code> directory. Each cultural heritage item is exported as an individual
+          <code>.ttl</code> file, generated from its corresponding CSV metadata.
         </p>
 
-        <h3><code>build_rrr_rdf.py</code></h3>
+        <h3>Python scripts (CSV → RDF)</h3>
         <ul>
-          <li>reads the metadata from item CSVs and from <code>rrr_entities.csv</code> and <code>rrr_triples.csv</code></li>
-          <li>constructs a graph using RDFLib</li>
-          <li>serializes the result as Turtle (<code>rrr.ttl</code>)</li>
+          <li>
+            dedicated scripts in <code>scripts/</code> read item-specific CSV files (and, where relevant,
+            the global entity and triple CSVs);
+          </li>
+          <li>RDF triples are constructed using <strong>RDFLib</strong>;</li>
+          <li>
+            each item is serialized as a separate Turtle file in <code>ttl/</code>, resulting in a modular
+            Linked Open Data dataset.
+          </li>
         </ul>
 
         <h3><code>compare_ttl.py</code></h3>
@@ -260,6 +271,10 @@
           <li>compares two Turtle serializations</li>
           <li>helps track differences between RDF versions during development</li>
         </ul>
+
+        <p>
+          The modular RDF files can be loaded individually or merged into a single RDF graph for querying and analysis.
+        </p>
       </section>
 
       <!-- 10. Website -->
@@ -272,7 +287,7 @@
           <li>the project overview and rationale</li>
           <li>a list of items with their metadata</li>
           <li>the TEI → HTML edition of the selected text</li>
-          <li>the RDF dataset (downloadable as Turtle)</li>
+          <li>the RDF dataset (downloadable as Turtle files)</li>
           <li>visual materials (images, stills)</li>
           <li>documentation and team information</li>
         </ul>
@@ -303,7 +318,7 @@
               <td>Renzo Renzi</td>
               <td>
                 VIAF:
-                <a href="http://viaf.org/viaf/40486517">http://viaf.org/viaf/40486517</a> —
+                <a href="http://viaf.org/viaf/40486517">http://viaf.org/viaf/40486517</a> — 
                 Wikidata:
                 <a href="https://www.wikidata.org/wiki/Q56179169">Q56179169</a>
               </td>
@@ -312,7 +327,7 @@
               <td>Federico Fellini</td>
               <td>
                 VIAF:
-                <a href="http://viaf.org/viaf/76315386">http://viaf.org/viaf/76315386</a> —
+                <a href="http://viaf.org/viaf/76315386">http://viaf.org/viaf/76315386</a> — 
                 Wikidata:
                 <a href="https://www.wikidata.org/wiki/Q7371">Q7371</a>
               </td>
@@ -321,7 +336,7 @@
               <td>Cineteca di Bologna</td>
               <td>
                 VIAF:
-                <a href="http://viaf.org/viaf/124960346">http://viaf.org/viaf/124960346</a> —
+                <a href="http://viaf.org/viaf/124960346">http://viaf.org/viaf/124960346</a> — 
                 Wikidata:
                 <a href="https://www.wikidata.org/wiki/Q1092493">Q1092493</a>
               </td>
