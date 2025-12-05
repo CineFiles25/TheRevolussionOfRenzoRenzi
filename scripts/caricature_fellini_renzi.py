@@ -68,7 +68,7 @@ g.add((cineteca_di_bologna, RDF.type, schema.Organization))
 g.add((renzi_library, RDF.type, schema.Library))
 g.add((renzi_collection, RDF.type, dcterms.Collection))
 
-# Authority links
+# Authority links (project-level)
 g.add((federico_fellini, OWL.sameAs, URIRef("http://viaf.org/viaf/76315386")))
 g.add((renzo_renzi, OWL.sameAs, URIRef("http://viaf.org/viaf/40486517")))
 g.add((cineteca_di_bologna, OWL.sameAs, URIRef("http://viaf.org/viaf/124960346")))
@@ -76,6 +76,7 @@ g.add((cineteca_di_bologna, OWL.sameAs, URIRef("http://viaf.org/viaf/124960346")
 # =========================
 # CSV LOADING
 # =========================
+# N.B. run this script from the `scripts/` directory
 
 caricature_df = read_csv(
     "../csv/caricature_fellini_renzi.csv",
@@ -88,59 +89,158 @@ caricature_df = read_csv(
 # =========================
 
 for idx, row in caricature_df.iterrows():
-    # Reference standard (e.g. Scheda OA)
+    # Identifier and reference standard (Scheda OA)
+    g.add((caricature_fellini_renzi, dc.identifier, Literal(row["id"])))
     g.add((caricature_fellini_renzi, dcterms.conformsTo, Literal(row["standard"])))
 
     # Titles
     g.add((caricature_fellini_renzi, dcterms.title, Literal(row["title"])))
     if row["other_title_information"]:
-        g.add((caricature_fellini_renzi, schema.alternateName,
-               Literal(row["other_title_information"])))
+        g.add(
+            (caricature_fellini_renzi, schema.alternateName,
+             Literal(row["other_title_information"]))
+        )
 
-    # Inscription and description as descriptive notes
+    # Inscription and curatorial description
     if row["inscription"]:
-        g.add((caricature_fellini_renzi, dc.description,
-               Literal(row["inscription"])))
+        g.add(
+            (caricature_fellini_renzi, dc.description,
+             Literal(row["inscription"]))
+        )
     if row["description"]:
-        g.add((caricature_fellini_renzi, dc.description,
-               Literal(row["description"])))
+        g.add(
+            (caricature_fellini_renzi, dc.description,
+             Literal(row["description"]))
+        )
 
-    # Author and subject
-    g.add((caricature_fellini_renzi, dcterms.creator, renzo_renzi))
+    # ----- CREATOR AND DEPICTED PERSON -----
+
+    # Literal creator from CSV
+    if row["creator"]:
+        g.add(
+            (caricature_fellini_renzi, dc.creator,
+             Literal(row["creator"]))
+        )
+
+    # Resource-level creator (Renzo Renzi as Person)
+    g.add((caricature_fellini_renzi, schema.creator, renzo_renzi))
+
+    # Creator URI as related web identifier
+    if row["creator_uri"]:
+        g.add(
+            (caricature_fellini_renzi, dcterms.relation,
+             Literal(row["creator_uri"], datatype=XSD.anyURI))
+        )
+
+    # Depicted people: Fellini as literal and as resource
+    if row["depicted_people"]:
+        g.add(
+            (caricature_fellini_renzi, dc.subject,
+             Literal(row["depicted_people"]))
+        )
+
     g.add((caricature_fellini_renzi, schema.about, federico_fellini))
 
-    # Creation date and technique/materials
+    if row["depicted_people_uri"]:
+        g.add(
+            (caricature_fellini_renzi, dcterms.relation,
+             Literal(row["depicted_people_uri"], datatype=XSD.anyURI))
+        )
+
+    # ----- CREATION / TECHNIQUE / MATERIAL -----
+
     if row["creation_date"]:
-        g.add((caricature_fellini_renzi, dcterms.created,
-               Literal(row["creation_date"])))
+        g.add(
+            (caricature_fellini_renzi, dcterms.created,
+             Literal(row["creation_date"]))
+        )
     if row["technique"]:
-        g.add((caricature_fellini_renzi, dcterms.medium,
-               Literal(row["technique"])))
+        g.add(
+            (caricature_fellini_renzi, dcterms.medium,
+             Literal(row["technique"]))
+        )
     if row["material"]:
-        g.add((caricature_fellini_renzi, dcterms.material,
-               Literal(row["material"])))
+        g.add(
+            (caricature_fellini_renzi, dcterms.material,
+             Literal(row["material"]))
+        )
 
     # Dimensions → extent
     if row["dimensions"]:
-        g.add((caricature_fellini_renzi, dcterms.extent,
-               Literal(row["dimensions"])))
+        g.add(
+            (caricature_fellini_renzi, dcterms.extent,
+             Literal(row["dimensions"]))
+        )
 
-    # Ownership, collection, physical location
-    g.add((caricature_fellini_renzi, crm.P52_has_current_owner,
-           cineteca_di_bologna))
+    # ----- INSTITUTION / COLLECTION / LOCATION -----
+
+    # Project-level links (graph of Renzi collection)
+    g.add(
+        (caricature_fellini_renzi, crm.P52_has_current_owner,
+         cineteca_di_bologna)
+    )
     g.add((renzi_collection, dcterms.hasPart, caricature_fellini_renzi))
+    g.add((caricature_fellini_renzi, dcterms.isPartOf, renzi_collection))
+
     g.add((caricature_fellini_renzi, dcterms.location, renzi_library))
     g.add((renzi_library, schema.location, cineteca_di_bologna))
 
-    # Rights
-    if row["rights"]:
-        g.add((caricature_fellini_renzi, dcterms.rights,
-               Literal(row["rights"])))
+    # Literal institution / collection / current location from CSV
+    if row["institution"]:
+        g.add(
+            (caricature_fellini_renzi, dcterms.publisher,
+             Literal(row["institution"]))
+        )
+    if row["collection"]:
+        g.add(
+            (caricature_fellini_renzi, dcterms.isPartOf,
+             Literal(row["collection"]))
+        )
+    if row["current_location"]:
+        g.add(
+            (caricature_fellini_renzi, dcterms.location,
+             Literal(row["current_location"]))
+        )
 
-    # Language
+    # External URIs for institution / collection / current location
+    if row["institution_uri"]:
+        g.add(
+            (caricature_fellini_renzi, dcterms.relation,
+             Literal(row["institution_uri"], datatype=XSD.anyURI))
+        )
+
+    if row["collection_uri"]:
+        for uri_str in [u.strip() for u in row["collection_uri"].split("|") if u.strip()]:
+            g.add(
+                (caricature_fellini_renzi, dcterms.relation,
+                 Literal(uri_str, datatype=XSD.anyURI))
+            )
+
+    if row["current_location_uri"]:
+        g.add(
+            (caricature_fellini_renzi, dcterms.relation,
+             Literal(row["current_location_uri"], datatype=XSD.anyURI))
+        )
+
+    # ----- RIGHTS / TYPE / LANGUAGE -----
+
+    if row["rights"]:
+        g.add(
+            (caricature_fellini_renzi, dcterms.rights,
+             Literal(row["rights"]))
+        )
+
+    if row["resource_type"]:
+        g.add(
+            (caricature_fellini_renzi, dcterms.type,
+             Literal(row["resource_type"]))
+        )
+
     if row["language"]:
-        g.add((caricature_fellini_renzi, schema.inLanguage,
-               Literal(row["language"])))
+        g.add(
+            (caricature_fellini_renzi, schema.inLanguage,
+             Literal(row["language"]))
+        )
 
 # =========================
 # SERIALIZATION
