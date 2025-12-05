@@ -40,6 +40,7 @@ ns_dict = {
 }
 
 def graph_bindings():
+    """Bind all namespaces to the RDF graph."""
     for prefix, ns in ns_dict.items():
         g.bind(prefix, ns)
     return g
@@ -57,7 +58,7 @@ cineteca_di_bologna  = URIRef(rrr + "cineteca_di_bologna")
 renzi_collection     = URIRef(rrr + "renzi_collection")
 renzi_library        = URIRef(rrr + "renzo_renzi_library")
 
-# Tipi di base
+# Base types
 g.add((renzi_interview, RDF.type, schema.Interview))
 g.add((schema.Interview, RDFS.subClassOf, schema.CreativeWork))
 
@@ -73,7 +74,7 @@ g.add((bologna, OWL.sameAs, URIRef("http://viaf.org/viaf/257723025")))
 g.add((cineteca_di_bologna, OWL.sameAs, URIRef("http://viaf.org/viaf/124960346")))
 
 # =========================
-# CSV
+# CSV LOADING
 # =========================
 
 renzi_interview_2000 = read_csv(
@@ -83,11 +84,11 @@ renzi_interview_2000 = read_csv(
 )
 
 # =========================
-# MAPPING
+# MAPPING TO RDF
 # =========================
 
 for idx, row in renzi_interview_2000.iterrows():
-    # Leggo tutto in modo sicuro (se la colonna non esiste -> "")
+    # Safely read all fields (empty string if the column is missing)
     id_value        = row.get("id", "")
     standard        = row.get("standard", "")
     title           = row.get("title", "")
@@ -104,42 +105,44 @@ for idx, row in renzi_interview_2000.iterrows():
     description     = row.get("description", "")
     notes           = row.get("notes", "")
 
-    # Identificatore e standard
+    # Identifier and standard
     if id_value:
         g.add((renzi_interview, dc.identifier, Literal(id_value)))
     if standard:
         g.add((renzi_interview, dcterms.conformsTo, Literal(standard)))
 
-    # Titoli
+    # Titles
     if title:
         g.add((renzi_interview, dcterms.title, Literal(title)))
     if other_title:
         g.add((renzi_interview, schema.alternateName, Literal(other_title)))
 
-    # Tipo di risorsa (es. "videointervista")
+    # Resource type (e.g. "video interview")
     if resource_type:
         g.add((renzi_interview, dcterms.type, Literal(resource_type)))
 
-    # Renzo Renzi come soggetto/intervistato
+    # Renzo Renzi as subject/interviewee
     g.add((renzi_interview, schema.about, renzo_renzi))
+    # Optionally:
+    # g.add((renzi_interview, schema.interviewee, renzo_renzi))
 
-    # Intervistatore come contributore (literal)
+    # Interviewer as contributor (literal)
     if interviewer:
         g.add((renzi_interview, dcterms.contributor, Literal(interviewer)))
-        # opzionale:
+        # Optionally:
         # g.add((renzi_interview, schema.interviewer, Literal(interviewer)))
 
-    # Publisher e luogo
+    # Publisher and spatial location
     g.add((renzi_interview, schema.publisher, cineteca_di_bologna))
     g.add((renzi_interview, dcterms.spatial, bologna))
     g.add((renzi_interview, schema.location, renzi_library))
 
-    # Anno di produzione
+    # Production year
     if production_year:
         g.add((renzi_interview, dcterms.created,
                Literal(production_year, datatype=XSD.gYear)))
 
-    # Durata, colore, suono, formato
+    # Duration, colour, sound, format
     if duration:
         g.add((renzi_interview, schema.duration, Literal(duration)))
     if colour:
@@ -147,24 +150,24 @@ for idx, row in renzi_interview_2000.iterrows():
     if sound:
         g.add((renzi_interview, schema.sound, Literal(sound)))
     if format_value:
-        # USO LA VERSIONE CON [] PER EVITARE IL PROBLEMA DEL .format
+        # Use the bracket notation to avoid clashing with Python's .format method
         g.add((renzi_interview, dcterms["format"], Literal(format_value)))
 
-    # Collezione
+    # Collection membership
     g.add((renzi_collection, dcterms.hasPart, renzi_interview))
 
-    # Diritti (come URI se è una URL, altrimenti va bene anche Literal)
+    # Rights (as URI if it looks like a URL, otherwise as literal)
     if rights:
         if str(rights).startswith("http"):
             g.add((renzi_interview, dcterms.rights, URIRef(rights)))
         else:
             g.add((renzi_interview, dcterms.rights, Literal(rights)))
 
-    # Lingua
+    # Language
     if language:
         g.add((renzi_interview, schema.inLanguage, Literal(language)))
 
-    # Descrizione e note
+    # Description and notes
     if description:
         g.add((renzi_interview, dcterms.description, Literal(description)))
     if notes:
