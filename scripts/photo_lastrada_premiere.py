@@ -95,7 +95,7 @@ photo_lastrada_premiere = read_csv(
 
 for idx, row in photo_lastrada_premiere.iterrows():
 
-    # Safe extraction of fields (empty string if column is missing)
+    # Extraction of fields
     id_value             = row.get("id", "")
     standard             = row.get("standard", "")
     title                = row.get("title", "")
@@ -137,7 +137,7 @@ for idx, row in photo_lastrada_premiere.iterrows():
     if notes:
         g.add((premiere_photo, dcterms.description, Literal(notes)))
 
-    # Creator (photographer as literal)
+    # Creator
     if creator:
         g.add((premiere_photo, dcterms.creator, Literal(creator)))
 
@@ -189,4 +189,5 @@ print("CSV converted to TTL!")
 
 g.serialize(format="turtle", destination="../ttl/photo_lastrada_premiere.ttl")
 print("CSV converted to TTL!")
+
 
