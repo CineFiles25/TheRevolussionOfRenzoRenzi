@@ -87,70 +87,88 @@ renzi_interview_2000 = read_csv(
 # =========================
 
 for idx, row in renzi_interview_2000.iterrows():
-    # Identificatore e standard di descrizione (FIAF / ISBD NBM ecc.)
-    if row["id"]:
-        g.add((renzi_interview, dc.identifier, Literal(row["id"])))
-    if row["standard"]:
-        g.add((renzi_interview, dcterms.conformsTo, Literal(row["standard"])))
+    # Leggo tutto in modo sicuro (se la colonna non esiste -> "")
+    id_value        = row.get("id", "")
+    standard        = row.get("standard", "")
+    title           = row.get("title", "")
+    other_title     = row.get("other_title_information", "")
+    resource_type   = row.get("resource_type", "")
+    interviewer     = row.get("interviewer", "")
+    production_year = row.get("production_year", "")
+    duration        = row.get("duration", "")
+    colour          = row.get("colour", "")
+    sound           = row.get("sound", "")
+    format_value    = row.get("format", "")
+    rights          = row.get("rights", "")
+    language        = row.get("language", "")
+    description     = row.get("description", "")
+    notes           = row.get("notes", "")
 
-    # Titolo principale e titolo alternativo
-    if row["title"]:
-        g.add((renzi_interview, dcterms.title, Literal(row["title"])))
-    if row["other_title_information"]:
-        g.add((renzi_interview, schema.alternateName,
-               Literal(row["other_title_information"])))
+    # Identificatore e standard
+    if id_value:
+        g.add((renzi_interview, dc.identifier, Literal(id_value)))
+    if standard:
+        g.add((renzi_interview, dcterms.conformsTo, Literal(standard)))
+
+    # Titoli
+    if title:
+        g.add((renzi_interview, dcterms.title, Literal(title)))
+    if other_title:
+        g.add((renzi_interview, schema.alternateName, Literal(other_title)))
 
     # Tipo di risorsa (es. "videointervista")
-    if row["resource_type"]:
-        g.add((renzi_interview, dcterms.type, Literal(row["resource_type"])))
+    if resource_type:
+        g.add((renzi_interview, dcterms.type, Literal(resource_type)))
 
-    # Soggetto/partecipante principale
+    # Renzo Renzi come soggetto/intervistato
     g.add((renzi_interview, schema.about, renzo_renzi))
-    # volendo, potresti anche aggiungere:
-    # g.add((renzi_interview, schema.interviewee, renzo_renzi))
 
     # Intervistatore come contributore (literal)
-    if row["interviewer"]:
-        g.add((renzi_interview, dcterms.contributor, Literal(row["interviewer"])))
-        # volendo: schema.interviewer come literal:
-        # g.add((renzi_interview, schema.interviewer, Literal(row["interviewer"])))
+    if interviewer:
+        g.add((renzi_interview, dcterms.contributor, Literal(interviewer)))
+        # opzionale:
+        # g.add((renzi_interview, schema.interviewer, Literal(interviewer)))
 
-    # Produttore/editore e luogo
+    # Publisher e luogo
     g.add((renzi_interview, schema.publisher, cineteca_di_bologna))
     g.add((renzi_interview, dcterms.spatial, bologna))
     g.add((renzi_interview, schema.location, renzi_library))
 
     # Anno di produzione
-    if row["production_year"]:
+    if production_year:
         g.add((renzi_interview, dcterms.created,
-               Literal(row["production_year"], datatype=XSD.gYear)))
+               Literal(production_year, datatype=XSD.gYear)))
 
     # Durata, colore, suono, formato
-    if row["duration"]:
-        g.add((renzi_interview, schema.duration, Literal(row["duration"])))
-    if row["colour"]:
-        g.add((renzi_interview, schema.color, Literal(row["colour"])))
-    if row["sound"]:
-        g.add((renzi_interview, schema.sound, Literal(row["sound"])))
-    if row["format"]:
-        g.add((renzi_interview, dcterms.format, Literal(row["format"])))
+    if duration:
+        g.add((renzi_interview, schema.duration, Literal(duration)))
+    if colour:
+        g.add((renzi_interview, schema.color, Literal(colour)))
+    if sound:
+        g.add((renzi_interview, schema.sound, Literal(sound)))
+    if format_value:
+        # USO LA VERSIONE CON [] PER EVITARE IL PROBLEMA DEL .format
+        g.add((renzi_interview, dcterms["format"], Literal(format_value)))
 
     # Collezione
     g.add((renzi_collection, dcterms.hasPart, renzi_interview))
 
-    # Diritti (come URI, se nel CSV c'è un link)
-    if row["rights"]:
-        g.add((renzi_interview, dcterms.rights, URIRef(row["rights"])))
+    # Diritti (come URI se è una URL, altrimenti va bene anche Literal)
+    if rights:
+        if str(rights).startswith("http"):
+            g.add((renzi_interview, dcterms.rights, URIRef(rights)))
+        else:
+            g.add((renzi_interview, dcterms.rights, Literal(rights)))
 
     # Lingua
-    if row["language"]:
-        g.add((renzi_interview, schema.inLanguage, Literal(row["language"])))
+    if language:
+        g.add((renzi_interview, schema.inLanguage, Literal(language)))
 
-    # Descrizioni e note
-    if row["description"]:
-        g.add((renzi_interview, dcterms.description, Literal(row["description"])))
-    if row["notes"]:
-        g.add((renzi_interview, dcterms.description, Literal(row["notes"])))
+    # Descrizione e note
+    if description:
+        g.add((renzi_interview, dcterms.description, Literal(description)))
+    if notes:
+        g.add((renzi_interview, dcterms.description, Literal(notes)))
 
 # =========================
 # SERIALIZATION
