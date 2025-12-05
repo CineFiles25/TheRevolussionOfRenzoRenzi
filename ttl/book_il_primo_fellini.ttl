@@ -1,0 +1,47 @@
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rrr: <https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/> .
+@prefix schema: <https://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+rrr:book_il_primo_fellini a schema:Book ;
+    dc:description "Project focuses only on Sequence I of 'La Strada'.",
+        "introduction by Renzo Renzi; edited by Liliana Betti and Eschilo Tarquini; screenplays by Federico Fellini" ;
+    dc:identifier "book_il_primo_fellini" ;
+    dc:subject rrr:federico_fellini,
+        "Federico Fellini; Italian cinema; Neorealism; Film studies" ;
+    dcterms:alternative "Lo sceicco bianco; I vitelloni; La strada; Il bidone. Dal soggetto al film" ;
+    dcterms:conformsTo "ISBD(G)" ;
+    dcterms:contributor rrr:federico_fellini ;
+    dcterms:extent "326 p. : ill. ; 25 cm" ;
+    dcterms:isPartOf rrr:series_il_primo_fellini ;
+    dcterms:issued "1969"^^xsd:gYear ;
+    dcterms:publisher "Cappelli Editore" ;
+    dcterms:relation rrr:la_strada_film ;
+    dcterms:rights "© Cineteca di Bologna" ;
+    dcterms:spatial rrr:bologna ;
+    dcterms:title "Il primo Fellini" ;
+    schema:author rrr:renzo_renzi ;
+    schema:contributor "Federico Fellini; Liliana Betti; Eschilo Tarquini" ;
+    schema:inLanguage "it" .
+
+rrr:bologna a schema:Place ;
+    owl:sameAs <http://viaf.org/viaf/257723025> .
+
+rrr:la_strada_film a schema:Movie ;
+    owl:sameAs <http://viaf.org/viaf/176979060> .
+
+rrr:renzo_renzi a foaf:Person ;
+    owl:sameAs <http://viaf.org/viaf/40486517> .
+
+rrr:series_il_primo_fellini a schema:CreativeWork ;
+    dcterms:title "Dal soggetto al film. Serie retrospettiva, 1" .
+
+schema:Book rdfs:subClassOf schema:CreativeWork .
+
+rrr:federico_fellini a foaf:Person ;
+    owl:sameAs <http://viaf.org/viaf/76315386> .
+

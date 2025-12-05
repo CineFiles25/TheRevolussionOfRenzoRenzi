@@ -1,0 +1,43 @@
+@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rrr: <https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/> .
+@prefix schema: <https://schema.org/> .
+
+rrr:renzi_collection a dcterms:Collection ;
+    dcterms:hasPart rrr:caricature_fellini_renzi .
+
+rrr:caricature_fellini_renzi a schema:VisualArtwork ;
+    dc:description "Hand-drawn caricature by Renzo Renzi portraying Federico Fellini with a humorous caption. The drawing later became an emblematic image associated with the Cineteca di Bologna.",
+        "Perché Federico non fa la rivolussione?" ;
+    dcterms:conformsTo "OA" ;
+    dcterms:created "ca. 1960s" ;
+    dcterms:creator rrr:renzo_renzi ;
+    dcterms:extent "13 × 8.6 cm" ;
+    dcterms:location rrr:renzo_renzi_library ;
+    dcterms:material "Cut paper" ;
+    dcterms:medium "Black ink and coloured markers" ;
+    dcterms:rights "© Cineteca di Bologna" ;
+    dcterms:title "Fellini caricature" ;
+    crm:P52_has_current_owner rrr:cineteca_di_bologna ;
+    schema:about rrr:federico_fellini ;
+    schema:alternateName "Caricature with handwritten inscription" ;
+    schema:inLanguage "it" .
+
+rrr:federico_fellini a foaf:Person ;
+    owl:sameAs <http://viaf.org/viaf/76315386> .
+
+rrr:renzo_renzi a foaf:Person ;
+    owl:sameAs <http://viaf.org/viaf/40486517> .
+
+rrr:renzo_renzi_library a schema:Library ;
+    schema:location rrr:cineteca_di_bologna .
+
+schema:VisualArtwork rdfs:subClassOf schema:CreativeWork .
+
+rrr:cineteca_di_bologna a schema:Organization ;
+    owl:sameAs <http://viaf.org/viaf/124960346> .
+
