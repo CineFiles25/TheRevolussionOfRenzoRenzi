@@ -117,7 +117,7 @@ for idx, row in renzi_interview_2000.iterrows():
     if other_title:
         g.add((renzi_interview, schema.alternateName, Literal(other_title)))
 
-    # Resource type (e.g. "video interview")
+    # Resource type
     if resource_type:
         g.add((renzi_interview, dcterms.type, Literal(resource_type)))
 
@@ -126,7 +126,7 @@ for idx, row in renzi_interview_2000.iterrows():
     # Optionally:
     # g.add((renzi_interview, schema.interviewee, renzo_renzi))
 
-    # Interviewer as contributor (literal)
+    # Interviewer as contributor
     if interviewer:
         g.add((renzi_interview, dcterms.contributor, Literal(interviewer)))
         # Optionally:
@@ -156,7 +156,7 @@ for idx, row in renzi_interview_2000.iterrows():
     # Collection membership
     g.add((renzi_collection, dcterms.hasPart, renzi_interview))
 
-    # Rights (as URI if it looks like a URL, otherwise as literal)
+    # Rights
     if rights:
         if str(rights).startswith("http"):
             g.add((renzi_interview, dcterms.rights, URIRef(rights)))
@@ -179,3 +179,4 @@ for idx, row in renzi_interview_2000.iterrows():
 
 g.serialize(format="turtle", destination="../ttl/renzi_interview_2000.ttl")
 print("CSV converted to TTL!")
+
