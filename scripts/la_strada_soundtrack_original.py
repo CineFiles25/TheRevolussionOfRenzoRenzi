@@ -54,25 +54,24 @@ g = graph_bindings()
 la_strada_soundtrack = URIRef(rrr + "la_strada_soundtrack_original")
 la_strada_film       = URIRef(rrr + "la_strada_film")
 nino_rota            = URIRef(rrr + "nino_rota")
-federico_fellini     = URIRef(rrr + "federico_fellini")
 
 # Base types
 g.add((la_strada_film, RDF.type, schema.Movie))
 g.add((schema.MusicRecording, RDFS.subClassOf, schema.CreativeWork))
 
 g.add((nino_rota, RDF.type, FOAF.Person))
-g.add((federico_fellini, RDF.type, FOAF.Person))
 
 # Authority links
 g.add((nino_rota, OWL.sameAs, URIRef("http://viaf.org/viaf/88980189")))
-g.add((federico_fellini, OWL.sameAs, URIRef("http://viaf.org/viaf/76315386")))
+# External authority for the film (Wikidata)
 g.add((la_strada_film, OWL.sameAs, URIRef("https://www.wikidata.org/wiki/Q18402")))
 
 # =========================
 # CSV LOADING
 # =========================
+# N.B. run this script from the `scripts/` directory
 
-la_strada_soundtrack_original = read_csv(
+soundtrack_df = read_csv(
     "../csv/la_strada_soundtrack_original.csv",
     keep_default_na=False,
     encoding="utf-8"
@@ -82,74 +81,163 @@ la_strada_soundtrack_original = read_csv(
 # MAPPING TO RDF
 # =========================
 
-for idx, row in la_strada_soundtrack_original.iterrows():
+for idx, row in soundtrack_df.iterrows():
 
     # Class type
     g.add((la_strada_soundtrack, RDF.type, schema.MusicRecording))
 
-    # Safe field extraction (empty string if column is missing)
-    title               = row.get("title", "")
-    other_title         = row.get("other_title_information", "")
-    soundtrack_type     = row.get("Soundtrack Type", "")
-    release_year        = row.get("Release Year", "")
-    publisher           = row.get("Publisher", "")
-    country             = row.get("Country", "")
-    recording_location  = row.get("Recording Location", "")
-    current_location    = row.get("Current Location", "")
-    language            = row.get("Language", "")
-    standard            = row.get("Standard", "")
-    identifier          = row.get("ID", "")
-    notes               = row.get("Notes", "")
+    # Identifier and reference standard
+    g.add((la_strada_soundtrack, dc.identifier, Literal(row["id"])))
+    if row["identifiers"]:
+        g.add((la_strada_soundtrack, dcterms.identifier, Literal(row["identifiers"])))
+    g.add((la_strada_soundtrack, dcterms.conformsTo, Literal(row["standard"])))
 
-    # Title and alternative title
-    if title:
-        g.add((la_strada_soundtrack, dcterms.title, Literal(title)))
-    if other_title:
-        g.add((la_strada_soundtrack, schema.alternateName, Literal(other_title)))
+    # Titles
+    g.add((la_strada_soundtrack, dcterms.title, Literal(row["title"])))
+    if row["other_title_information"]:
+        g.add(
+            (la_strada_soundtrack, schema.alternateName,
+             Literal(row["other_title_information"]))
+        )
 
-    # Author / composer
-    g.add((la_strada_soundtrack, dcterms.creator, nino_rota))
+    # Responsibility statement as descriptive note
+    if row["responsibility_statement"]:
+        g.add(
+            (la_strada_soundtrack, dc.description,
+             Literal(row["responsibility_statement"]))
+        )
+
+    # ----- COMPOSER AND PERFORMERS -----
+
+    # Literal composer from CSV
+    if row["composer"]:
+        g.add((la_strada_soundtrack, dc.creator, Literal(row["composer"])))
+
+    # Composer as project person node
     g.add((la_strada_soundtrack, schema.composer, nino_rota))
 
-    # Soundtrack type
-    if soundtrack_type:
-        g.add((la_strada_soundtrack, schema.additionalType, Literal(soundtrack_type)))
+    # Composer authority URI from CSV
+    if row["composer_uri"]:
+        g.add(
+            (la_strada_soundtrack, dcterms.relation,
+             Literal(row["composer_uri"], datatype=XSD.anyURI))
+        )
 
-    # Relation with the film "La Strada"
+    # Performers (literal list)
+    if row["performers"]:
+        g.add(
+            (la_strada_soundtrack, dcterms.contributor,
+             Literal(row["performers"]))
+        )
+        # Optional: performers as byArtist literal
+        g.add(
+            (la_strada_soundtrack, schema.byArtist,
+             Literal(row["performers"]))
+        )
+
+    if row["performers_uri"]:
+        g.add(
+            (la_strada_soundtrack, dcterms.relation,
+             Literal(row["performers_uri"], datatype=XSD.anyURI))
+        )
+
+    # ----- PUBLICATION DATA -----
+
+    # Place of publication (literal, e.g. [France])
+    if row["publication_place"]:
+        g.add(
+            (la_strada_soundtrack, dcterms.spatial,
+             Literal(row["publication_place"]))
+        )
+
+    # Publisher and label
+    if row["publisher"]:
+        g.add((la_strada_soundtrack, dcterms.publisher, Literal(row["publisher"])))
+    if row["label"]:
+        g.add((la_strada_soundtrack, schema.publisher, Literal(row["label"])))
+
+    if row["publisher_uri"]:
+        g.add(
+            (la_strada_soundtrack, dcterms.relation,
+             Literal(row["publisher_uri"], datatype=XSD.anyURI))
+        )
+    if row["label_uri"]:
+        g.add(
+            (la_strada_soundtrack, dcterms.relation,
+             Literal(row["label_uri"], datatype=XSD.anyURI))
+        )
+
+    # Catalogue number
+    if row["catalogue_number"]:
+        g.add(
+            (la_strada_soundtrack, dcterms.identifier,
+             Literal(row["catalogue_number"]))
+        )
+
+    # Publication year (kept as string, e.g. "1954?")
+    if row["publication_year"]:
+        g.add(
+            (la_strada_soundtrack, dcterms.issued,
+             Literal(row["publication_year"]))
+        )
+
+    # Carrier type and physical description
+    if row["carrier_type"]:
+        g.add(
+            (la_strada_soundtrack, dcterms.medium,
+             Literal(row["carrier_type"]))
+        )
+    if row["physical_description"]:
+        g.add(
+            (la_strada_soundtrack, dcterms.extent,
+             Literal(row["physical_description"]))
+        )
+
+    # Notes
+    if row["notes"]:
+        g.add(
+            (la_strada_soundtrack, dcterms.description,
+             Literal(row["notes"]))
+        )
+
+    # ----- SUBJECTS AND RELATED WORKS -----
+
+    if row["subjects"]:
+        g.add((la_strada_soundtrack, dc.subject, Literal(row["subjects"])))
+
+    # Internal related work(s) in the project graph
+    if row["related_works"]:
+        for work_id in [w.strip() for w in row["related_works"].split(";") if w.strip()]:
+            related_uri = URIRef(rrr + work_id)
+            g.add((la_strada_soundtrack, dcterms.relation, related_uri))
+
+    # Explicit relation to the La Strada film node
     g.add((la_strada_soundtrack, dcterms.relation, la_strada_film))
     g.add((la_strada_soundtrack, schema.about, la_strada_film))
 
-    # Publication metadata
-    if release_year:
-        g.add((la_strada_soundtrack, schema.datePublished,
-               Literal(release_year, datatype=XSD.gYear)))
+    # External URI for the related work (film authority)
+    if row["related_works_uri"]:
+        g.add(
+            (la_strada_soundtrack, dcterms.relation,
+             Literal(row["related_works_uri"], datatype=XSD.anyURI))
+        )
 
-    if publisher:
-        g.add((la_strada_soundtrack, dcterms.publisher, Literal(publisher)))
+    # ----- RIGHTS / TYPE / LANGUAGE -----
 
-    # Geographic and provenance information
-    if country:
-        g.add((la_strada_soundtrack, schema.countryOfOrigin, Literal(country)))
-    if recording_location:
-        g.add((la_strada_soundtrack, schema.locationCreated, Literal(recording_location)))
-    if current_location:
-        g.add((la_strada_soundtrack, schema.contentLocation, Literal(current_location)))
+    if row["rights"]:
+        g.add((la_strada_soundtrack, dcterms.rights, Literal(row["rights"])))
 
-    # Language
-    if language:
-        g.add((la_strada_soundtrack, schema.inLanguage, Literal(language)))
+    if row["resource_type"]:
+        g.add(
+            (la_strada_soundtrack, dcterms.type,
+             Literal(row["resource_type"]))
+        )
 
-    # Reference standard (ISBD NBM / FIAF)
-    if standard:
-        g.add((la_strada_soundtrack, dcterms.conformsTo, Literal(standard)))
-
-    # Local ID
-    if identifier:
-        g.add((la_strada_soundtrack, dc.identifier, Literal(identifier)))
-
-    # Notes
-    if notes:
-        g.add((la_strada_soundtrack, dcterms.description, Literal(notes)))
+    if row["language"]:
+        g.add(
+            (la_strada_soundtrack, schema.inLanguage,
+             Literal(row["language"]))
+        )
 
 # =========================
 # SERIALIZATION
@@ -157,8 +245,3 @@ for idx, row in la_strada_soundtrack_original.iterrows():
 
 g.serialize(format="turtle", destination="../ttl/la_strada_soundtrack_original.ttl")
 print("CSV converted to TTL!")
-
-
-
-
-
