@@ -4,18 +4,19 @@ renzo_renzi_library,dcterms:hasPart,renzi_collection,iri,The library preserves t
 
 renzi_collection,dcterms:hasPart,book_il_primo_fellini,iri,The collection contains the book
 renzi_collection,dcterms:hasPart,lastrada_screenplay_tei,iri,The collection contains the TEI excerpt
-renzi_collection,dcterms:hasPart,photo_lastrada_premiere,iri,The collection contains the photograph
+renzi_collection,dcterms:hasPart,photo_lastrada_premiere,iri,The collection contains the premiere photograph
 renzi_collection,dcterms:hasPart,caricature_fellini_renzi,iri,The collection contains the caricature
 renzi_collection,dcterms:hasPart,renzi_interview_2000,iri,The collection contains the video interview
 renzi_collection,dcterms:hasPart,la_strada_soundtrack_original,iri,The collection contains the soundtrack
 renzi_collection,dcterms:hasPart,drawing_gelsomina_lastrada,iri,The collection contains the drawing
+renzi_collection,dcterms:hasPart,ferrari_set_photo,iri,The collection contains the set photograph
+renzi_collection,dcterms:hasPart,renzi_letter_1942,iri,The collection contains the 1942 letter
 
 book_il_primo_fellini,dcterms:subject,la_strada_film,iri,The book concerns the film
 lastrada_screenplay_tei,schema:about,la_strada_film,iri,The TEI excerpt represents the film
-
 renzo_renzi,schema:about,la_strada_film,iri,Renzo Renzi writes and comments on the film
 
-photo_lastrada_premiere,schema:about,public_reception,iri,The photograph documents the public reception
+photo_lastrada_premiere,schema:about,public_reception,iri,The photograph documents the public reception of the film
 photo_lastrada_premiere,foaf:depicts,federico_fellini,iri,Federico Fellini appears in the photo
 photo_lastrada_premiere,foaf:depicts,giulietta_masina,iri,Giulietta Masina appears in the photo
 photo_lastrada_premiere,schema:contentLocation,cinema_fulgor,iri,The premiere took place at Cinema Fulgor
@@ -24,24 +25,27 @@ photo_lastrada_premiere,schema:location,renzo_renzi_library,iri,Preserved at the
 
 caricature_fellini_renzi,foaf:depicts,federico_fellini,iri,The caricature depicts Federico Fellini
 caricature_fellini_renzi,dcterms:creator,renzo_renzi,iri,Renzo Renzi is the author of the caricature
-caricature_fellini_renzi,schema:creator,renzo_renzi,iri,Renzo Renzi is the creator of the caricature
 caricature_fellini_renzi,schema:location,renzo_renzi_library,iri,Preserved at the Renzo Renzi Library
+caricature_fellini_renzi,cidoc:P52_has_current_owner,cineteca_di_bologna,iri,Cineteca di Bologna currently owns the caricature
 
 la_strada_soundtrack_original,schema:musicBy,nino_rota,iri,Nino Rota composed the soundtrack
 la_strada_soundtrack_original,schema:about,la_strada_film,iri,The soundtrack is associated with the film La Strada
 la_strada_soundtrack_original,schema:location,renzo_renzi_library,iri,Preserved at the Renzo Renzi Library
+la_strada_soundtrack_original,cidoc:P52_has_current_owner,cineteca_di_bologna,iri,Cineteca di Bologna owns the media copy
+
 renzi_interview_2000,schema:about,renzi_oral_memory,iri,The interview documents Renzi’s oral memory
 renzi_interview_2000,schema:about,la_strada_film,iri,Renzi discusses the film in the interview
 renzi_interview_2000,dcterms:date,2000,literal,Year of production
 renzi_interview_2000,schema:locationCreated,bologna,iri,Produced in Bologna
 renzi_interview_2000,schema:location,renzo_renzi_library,iri,Preserved at the Renzo Renzi Library
+renzi_interview_2000,cidoc:P52_has_current_owner,cineteca_di_bologna,iri,Cineteca di Bologna owns the physical tape
 
 la_strada_film,dcterms:creator,federico_fellini,iri,Fellini directed the film
 la_strada_film,schema:director,federico_fellini,iri,Fellini directed the film
 
 renzo_renzi_library,schema:addressLocality,bologna,iri,The library is located in Bologna
 renzo_renzi_library,schema:dedicatedTo,renzo_renzi,iri,The library is dedicated to Renzo Renzi
-renzo_renzi_library,cidoc:P52_has_current_owner,cineteca_di_bologna,iri,Cineteca di Bologna currently owns the library
+renzo_renzi_library,cidoc:P52_has_current_owner,cineteca_di_bologna,iri,Cineteca di Bologna currently owns and manages the library
 
 quando_il_po_e_dolce,schema:director,renzo_renzi,iri,Renzo Renzi directed the documentary
 quando_il_po_e_dolce,schema:creator,renzo_renzi,iri,Renzo Renzi created the documentary
@@ -55,10 +59,13 @@ ferrari_set_photo,dcterms:creator,aldo_ferrari,iri,Aldo Ferrari took the set pho
 ferrari_set_photo,schema:location,renzo_renzi_library,iri,Preserved at the Renzo Renzi Library
 ferrari_set_photo,cidoc:P52_has_current_owner,cineteca_di_bologna,iri,Cineteca di Bologna owns the set photo
 
-drawing_gelsomina_lastrada,foaf:depicts,giulietta_masina,iri,The drawing depicts Giulietta Masina
+drawing_gelsomina_lastrada,foaf:depicts,giulietta_masina,iri,The drawing depicts Giulietta Masina as Gelsomina
 drawing_gelsomina_lastrada,dcterms:creator,renzo_renzi,iri,Renzo Renzi is the creator of the drawing
 drawing_gelsomina_lastrada,schema:location,renzo_renzi_library,iri,Preserved at the Renzo Renzi Library
 drawing_gelsomina_lastrada,cidoc:P52_has_current_owner,cineteca_di_bologna,iri,Cineteca di Bologna owns the drawing
 drawing_gelsomina_lastrada,dcterms:relation,la_strada_film,iri,The drawing is related to the film La Strada
 
-
+renzi_letter_1942,dcterms:creator,renzo_renzi,iri,Renzo Renzi wrote the letter
+renzi_letter_1942,dcterms:date,1942-07-24,literal,Date of the letter
+renzi_letter_1942,schema:location,renzo_renzi_library,iri,The letter is preserved at the Renzo Renzi Library
+renzi_letter_1942,schema:about,renzi_oral_memory,iri,The letter documents Renzi’s intellectual life and memory during the war
