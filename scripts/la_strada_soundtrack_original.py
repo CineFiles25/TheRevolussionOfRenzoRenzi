@@ -1,4 +1,4 @@
-from pandas import read_csv 
+from pandas import read_csv
 from rdflib import Namespace, Graph, RDF, URIRef, OWL, Literal, XSD, RDFS, FOAF
 
 # =========================
@@ -40,6 +40,7 @@ ns_dict = {
 }
 
 def graph_bindings():
+    """Bind all namespaces to the RDF graph."""
     for prefix, ns in ns_dict.items():
         g.bind(prefix, ns)
     return g
@@ -55,7 +56,7 @@ la_strada_film       = URIRef(rrr + "la_strada_film")
 nino_rota            = URIRef(rrr + "nino_rota")
 federico_fellini     = URIRef(rrr + "federico_fellini")
 
-# Tipi di base
+# Base types
 g.add((la_strada_film, RDF.type, schema.Movie))
 g.add((schema.MusicRecording, RDFS.subClassOf, schema.CreativeWork))
 
@@ -68,7 +69,7 @@ g.add((federico_fellini, OWL.sameAs, URIRef("http://viaf.org/viaf/76315386")))
 g.add((la_strada_film, OWL.sameAs, URIRef("https://www.wikidata.org/wiki/Q18402")))
 
 # =========================
-# CSV
+# CSV LOADING
 # =========================
 
 la_strada_soundtrack_original = read_csv(
@@ -78,14 +79,15 @@ la_strada_soundtrack_original = read_csv(
 )
 
 # =========================
-# MAPPING
+# MAPPING TO RDF
 # =========================
 
 for idx, row in la_strada_soundtrack_original.iterrows():
-    # Tipo dell'oggetto
+
+    # Class type
     g.add((la_strada_soundtrack, RDF.type, schema.MusicRecording))
 
-    # Prendo tutti i campi in modo sicuro (se non esistono → "")
+    # Safe field extraction (empty string if column is missing)
     title               = row.get("title", "")
     other_title         = row.get("other_title_information", "")
     soundtrack_type     = row.get("Soundtrack Type", "")
@@ -99,25 +101,25 @@ for idx, row in la_strada_soundtrack_original.iterrows():
     identifier          = row.get("ID", "")
     notes               = row.get("Notes", "")
 
-    # Titolo e titolo alternativo
+    # Title and alternative title
     if title:
         g.add((la_strada_soundtrack, dcterms.title, Literal(title)))
     if other_title:
         g.add((la_strada_soundtrack, schema.alternateName, Literal(other_title)))
 
-    # Autore / compositore
+    # Author / composer
     g.add((la_strada_soundtrack, dcterms.creator, nino_rota))
     g.add((la_strada_soundtrack, schema.composer, nino_rota))
 
-    # Tipo di soundtrack (se c'è la colonna e il dato)
+    # Soundtrack type (free text; optional)
     if soundtrack_type:
         g.add((la_strada_soundtrack, schema.additionalType, Literal(soundtrack_type)))
 
-    # Relazione con il film La Strada
+    # Relation with the film "La Strada"
     g.add((la_strada_soundtrack, dcterms.relation, la_strada_film))
     g.add((la_strada_soundtrack, schema.about, la_strada_film))
 
-    # Pubblicazione
+    # Publication metadata
     if release_year:
         g.add((la_strada_soundtrack, schema.datePublished,
                Literal(release_year, datatype=XSD.gYear)))
@@ -125,7 +127,7 @@ for idx, row in la_strada_soundtrack_original.iterrows():
     if publisher:
         g.add((la_strada_soundtrack, dcterms.publisher, Literal(publisher)))
 
-    # Luoghi / provenienza (rimangono literal)
+    # Geographic and provenance information
     if country:
         g.add((la_strada_soundtrack, schema.countryOfOrigin, Literal(country)))
     if recording_location:
@@ -133,19 +135,19 @@ for idx, row in la_strada_soundtrack_original.iterrows():
     if current_location:
         g.add((la_strada_soundtrack, schema.contentLocation, Literal(current_location)))
 
-    # Lingua
+    # Language
     if language:
         g.add((la_strada_soundtrack, schema.inLanguage, Literal(language)))
 
-    # Standard di riferimento (ISBD NBM / FIAF ecc.)
+    # Reference standard (ISBD NBM / FIAF)
     if standard:
         g.add((la_strada_soundtrack, dcterms.conformsTo, Literal(standard)))
 
-    # Identificatore locale
+    # Local ID
     if identifier:
         g.add((la_strada_soundtrack, dc.identifier, Literal(identifier)))
 
-    # Note
+    # Notes
     if notes:
         g.add((la_strada_soundtrack, dcterms.description, Literal(notes)))
 
@@ -155,5 +157,7 @@ for idx, row in la_strada_soundtrack_original.iterrows():
 
 g.serialize(format="turtle", destination="../ttl/la_strada_soundtrack_original.ttl")
 print("CSV converted to TTL!")
+
+
 
 
