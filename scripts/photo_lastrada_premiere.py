@@ -1,4 +1,4 @@
-from pandas import read_csv
+vfrom pandas import read_csv
 from rdflib import Namespace, Graph, RDF, URIRef, OWL, Literal, XSD, RDFS, FOAF
 
 # =========================
@@ -51,14 +51,14 @@ g = graph_bindings()
 # ENTITIES
 # =========================
 
-premiere_photo       = URIRef(rrr + "photo_lastrada_premiere")
-la_strada_film       = URIRef(rrr + "la_strada_film")
-federico_fellini     = URIRef(rrr + "federico_fellini")
-giulietta_masina     = URIRef(rrr + "giulietta_masina")
-cinema_fulgor        = URIRef(rrr + "cinema_fulgor")
-cineteca_di_bologna  = URIRef(rrr + "cineteca_di_bologna")
-bologna              = URIRef(rrr + "bologna")
-renzi_collection     = URIRef(rrr + "renzi_collection")
+premiere_photo      = URIRef(rrr + "photo_lastrada_premiere")
+la_strada_film      = URIRef(rrr + "la_strada_film")
+federico_fellini    = URIRef(rrr + "federico_fellini")
+giulietta_masina    = URIRef(rrr + "giulietta_masina")
+cinema_fulgor       = URIRef(rrr + "cinema_fulgor")
+cineteca_di_bologna = URIRef(rrr + "cineteca_di_bologna")
+bologna             = URIRef(rrr + "bologna")
+renzi_collection    = URIRef(rrr + "renzi_collection")
 
 # Base types
 g.add((premiere_photo, RDF.type, schema.Photograph))
@@ -74,7 +74,8 @@ g.add((renzi_collection, RDF.type, dcterms.Collection))
 # Authority links
 g.add((la_strada_film, OWL.sameAs, URIRef("https://www.wikidata.org/wiki/Q18402")))
 g.add((federico_fellini, OWL.sameAs, URIRef("http://viaf.org/viaf/76315386")))
-g.add((giulietta_masina, OWL.sameAs, URIRef("http://viaf.org/viaf/96166248")))
+# Giulietta Masina authority from CSV (second URI)
+g.add((giulietta_masina, OWL.sameAs, URIRef("http://viaf.org/viaf/37021297")))
 g.add((cinema_fulgor, OWL.sameAs, URIRef("https://www.wikidata.org/wiki/Q36839368")))
 g.add((bologna, OWL.sameAs, URIRef("http://viaf.org/viaf/257723025")))
 g.add((cineteca_di_bologna, OWL.sameAs, URIRef("http://viaf.org/viaf/124960346")))
@@ -82,8 +83,9 @@ g.add((cineteca_di_bologna, OWL.sameAs, URIRef("http://viaf.org/viaf/124960346")
 # =========================
 # CSV LOADING
 # =========================
+# N.B. run this script from the `scripts/` directory
 
-photo_lastrada_premiere = read_csv(
+photo_df = read_csv(
     "../csv/photo_lastrada_premiere.csv",
     keep_default_na=False,
     encoding="utf-8"
@@ -93,92 +95,181 @@ photo_lastrada_premiere = read_csv(
 # MAPPING TO RDF
 # =========================
 
-for idx, row in photo_lastrada_premiere.iterrows():
+for idx, row in photo_df.iterrows():
 
-    # Safely extracting all fields (empty string if the column is missing)
-    id_value             = row.get("id", "")
-    standard             = row.get("standard", "")
-    title                = row.get("title", "")
-    object_type          = row.get("object_type", "")
-    inscription          = row.get("inscription", "")
-    language             = row.get("language", "")
-    notes                = row.get("notes", "")
-    creator              = row.get("creator", "")
-    creation_year        = row.get("creation_year", "")
-    colour               = row.get("colour", "")
-    material_technique   = row.get("material_technique", "")
-    physical_description = row.get("physical_description", "")
-    inventory_number     = row.get("inventory_number", "")
-    collection_name      = row.get("collection", "")
-    rights               = row.get("rights", "")
+    # ---------- IDENTIFIERS, STANDARD, TYPE ----------
 
-    # Identifiers and standards
-    if id_value:
-        g.add((premiere_photo, dc.identifier, Literal(id_value)))
-    if standard:
-        g.add((premiere_photo, dcterms.conformsTo, Literal(standard)))
+    g.add((premiere_photo, dc.identifier, Literal(row["id"])))
+    if row["identifiers"]:
+        for ident in [i.strip() for i in row["identifiers"].split(";") if i.strip()]:
+            g.add((premiere_photo, dcterms.identifier, Literal(ident)))
 
-    # Title and object type
-    if title:
-        g.add((premiere_photo, dcterms.title, Literal(title)))
-    if object_type:
-        g.add((premiere_photo, dcterms.type, Literal(object_type)))
+    g.add((premiere_photo, dcterms.conformsTo, Literal(row["standard"])))
 
-    # Inscription (with optional language tag)
-    if inscription:
-        if language:
-            g.add((premiere_photo, dcterms.description,
-                   Literal(inscription, lang=language)))
-        else:
-            g.add((premiere_photo, dcterms.description,
-                   Literal(inscription)))
+    # Resource type (e.g. Photograph)
+    if row["resource_type"]:
+        g.add((premiere_photo, dcterms.type, Literal(row["resource_type"])))
 
-    # Additional descriptive notes
-    if notes:
-        g.add((premiere_photo, dcterms.description, Literal(notes)))
+    # ---------- TITLES AND DESCRIPTION ----------
 
-    # Creator
-    if creator:
-        g.add((premiere_photo, dcterms.creator, Literal(creator)))
+    g.add((premiere_photo, dcterms.title, Literal(row["title"])))
+    if row["other_title_information"]:
+        g.add(
+            (premiere_photo, schema.alternateName,
+             Literal(row["other_title_information"]))
+        )
 
-    # Depicted subjects
+    # Notes from Scheda F
+    if row["notes"]:
+        g.add((premiere_photo, dcterms.description, Literal(row["notes"])))
+
+    # ---------- CREATOR AND DEPICTED SUBJECTS ----------
+
+    if row["creator"]:
+        g.add((premiere_photo, dcterms.creator, Literal(row["creator"])))
+
+    # Depicted people as project nodes
     g.add((premiere_photo, foaf.depicts, federico_fellini))
     g.add((premiere_photo, foaf.depicts, giulietta_masina))
 
-    # Location represented in the photo (Cinema Fulgor, Bologna)
+    # Literal list of depicted people from CSV
+    if row["depicted_people"]:
+        g.add(
+            (premiere_photo, dc.subject,
+             Literal(row["depicted_people"]))
+        )
+
+    # People URIs (Fellini + Masina from CSV)
+    if row["depicted_people_uri"]:
+        for uri_str in [u.strip() for u in row["depicted_people_uri"].split("|") if u.strip()]:
+            g.add(
+                (premiere_photo, dcterms.relation,
+                 Literal(uri_str, datatype=XSD.anyURI))
+            )
+
+    # Depicted event (literal)
+    if row["depicted_event"]:
+        g.add(
+            (premiere_photo, dc.subject,
+             Literal(row["depicted_event"]))
+        )
+
+    if row["depicted_event_uri"]:
+        g.add(
+            (premiere_photo, dcterms.relation,
+             Literal(row["depicted_event_uri"], datatype=XSD.anyURI))
+        )
+
+    # Depicted place: literal + project node
+    if row["depicted_place"]:
+        g.add(
+            (premiere_photo, schema.locationCreated,
+             Literal(row["depicted_place"]))
+        )
+
     g.add((premiere_photo, schema.contentLocation, cinema_fulgor))
     g.add((cinema_fulgor, schema.location, bologna))
 
-    # Creation year
-    if creation_year:
-        g.add((premiere_photo, dcterms.created,
-               Literal(creation_year, datatype=XSD.gYear)))
+    if row["depicted_place_uri"]:
+        g.add(
+            (premiere_photo, dcterms.relation,
+             Literal(row["depicted_place_uri"], datatype=XSD.anyURI))
+        )
 
-    # Color, technique, physical description
-    if colour:
-        g.add((premiere_photo, schema.color, Literal(colour)))
-    if material_technique:
-        g.add((premiere_photo, dcterms.medium, Literal(material_technique)))
-    if physical_description:
-        g.add((premiere_photo, schema.artform, Literal(physical_description)))
+    # ---------- CREATION YEAR / TECHNIQUE / PHYSICAL DESC ----------
+
+    if row["creation_year"]:
+        g.add(
+            (premiere_photo, dcterms.created,
+             Literal(row["creation_year"], datatype=XSD.gYear))
+        )
+
+    if row["colour"]:
+        g.add((premiere_photo, schema.color, Literal(row["colour"])))
+
+    if row["material_technique"]:
+        g.add(
+            (premiere_photo, dcterms.medium,
+             Literal(row["material_technique"]))
+        )
+
+    # Carrier type and physical description
+    if row["carrier_type"]:
+        g.add(
+            (premiere_photo, dcterms.medium,
+             Literal(row["carrier_type"]))
+        )
+
+    if row["physical_description"]:
+        g.add(
+            (premiere_photo, dcterms.extent,
+             Literal(row["physical_description"]))
+        )
 
     # Inventory number
-    if inventory_number:
-        g.add((premiere_photo, dc.identifier, Literal(inventory_number)))
+    if row["inventory_number"]:
+        g.add(
+            (premiere_photo, dcterms.identifier,
+             Literal(row["inventory_number"]))
+        )
 
-    # Ownership, collection membership, rights
+    # ---------- INSTITUTION / COLLECTION / RIGHTS ----------
+
+    # Project-level graph: photo belongs to Renzi collection at Cineteca
     g.add((premiere_photo, crm.P52_has_current_owner, cineteca_di_bologna))
     g.add((renzi_collection, dcterms.hasPart, premiere_photo))
 
-    if collection_name:
-        g.add((renzi_collection, dcterms.title, Literal(collection_name)))
+    if row["collection"]:
+        g.add((renzi_collection, dcterms.title, Literal(row["collection"])))
 
-    if rights:
-        g.add((premiere_photo, dcterms.rights, Literal(rights)))
+    if row["institution"]:
+        g.add(
+            (premiere_photo, dcterms.publisher,
+             Literal(row["institution"]))
+        )
 
-    # Relationship with the film "La Strada"
+    if row["institution_uri"]:
+        g.add(
+            (premiere_photo, dcterms.relation,
+             Literal(row["institution_uri"], datatype=XSD.anyURI))
+        )
+
+    if row["collection_uri"]:
+        for uri_str in [u.strip() for u in row["collection_uri"].split("|") if u.strip()]:
+            g.add(
+                (premiere_photo, dcterms.relation,
+                 Literal(uri_str, datatype=XSD.anyURI))
+            )
+
+    if row["rights"]:
+        g.add((premiere_photo, dcterms.rights, Literal(row["rights"])))
+
+    # ---------- RELATED WORKS (FILM "LA STRADA") ----------
+
+    # Internal related work ids (e.g. la_strada_film)
+    if row["related_works"]:
+        for work_id in [w.strip() for w in row["related_works"].split(";") if w.strip()]:
+            related_uri = URIRef(rrr + work_id)
+            g.add((premiere_photo, dcterms.relation, related_uri))
+
+    # Explicit link to film node
     g.add((premiere_photo, dcterms.relation, la_strada_film))
     g.add((premiere_photo, schema.about, la_strada_film))
+
+    # External URI for related work (film authority)
+    if row["related_works_uri"]:
+        g.add(
+            (premiere_photo, dcterms.relation,
+             Literal(row["related_works_uri"], datatype=XSD.anyURI))
+        )
+
+    # ---------- LANGUAGE ----------
+
+    if row["language"]:
+        g.add(
+            (premiere_photo, schema.inLanguage,
+             Literal(row["language"]))
+        )
 
 # =========================
 # SERIALIZATION
@@ -186,9 +277,4 @@ for idx, row in photo_lastrada_premiere.iterrows():
 
 g.serialize(format="turtle", destination="../ttl/photo_lastrada_premiere.ttl")
 print("CSV converted to TTL!")
-
-g.serialize(format="turtle", destination="../ttl/photo_lastrada_premiere.ttl")
-print("CSV converted to TTL!")
-
-
 
