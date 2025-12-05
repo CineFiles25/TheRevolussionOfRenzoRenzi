@@ -40,6 +40,7 @@ ns_dict = {
 }
 
 def graph_bindings():
+    """Bind all namespaces to the RDF graph."""
     for prefix, ns in ns_dict.items():
         g.bind(prefix, ns)
     return g
@@ -56,7 +57,7 @@ renzo_renzi           = URIRef(rrr + "renzo_renzi")
 federico_fellini      = URIRef(rrr + "federico_fellini")
 bologna               = URIRef(rrr + "bologna")
 
-# Basic typing (miglioria concettuale semplice e pulita)
+# Basic typing
 g.add((renzo_renzi, RDF.type, FOAF.Person))
 g.add((federico_fellini, RDF.type, FOAF.Person))
 g.add((bologna, RDF.type, schema.Place))
@@ -72,7 +73,7 @@ g.add((la_strada_film, OWL.sameAs, URIRef("http://viaf.org/viaf/176979060")))
 g.add((schema.Book, RDFS.subClassOf, schema.CreativeWork))
 
 # =========================
-# CSV
+# CSV LOADING
 # =========================
 
 first_fellini_book = read_csv(
@@ -82,7 +83,7 @@ first_fellini_book = read_csv(
 )
 
 # =========================
-# MAPPING
+# MAPPING TO RDF
 # =========================
 
 for idx, row in first_fellini_book.iterrows():
@@ -93,23 +94,28 @@ for idx, row in first_fellini_book.iterrows():
     # Identifiers and titles
     g.add((book_il_primo_fellini, dc.identifier, Literal(row["id"])))
     g.add((book_il_primo_fellini, dcterms.title, Literal(row["title"])))
-    g.add((book_il_primo_fellini, dcterms.alternative, Literal(row["other_title_information"])))
+    g.add((book_il_primo_fellini, dcterms.alternative,
+           Literal(row["other_title_information"])))
 
-    # Statement of responsibility → textual note (come nello stile di Claudia)
-    g.add((book_il_primo_fellini, dc.description, Literal(row["responsibility_statement"])))
+    # Statement of responsibility → descriptive note
+    g.add((book_il_primo_fellini, dc.description,
+           Literal(row["responsibility_statement"])))
 
     # Agents
     g.add((book_il_primo_fellini, schema.author, renzo_renzi))
     g.add((book_il_primo_fellini, dcterms.contributor, federico_fellini))
-    if row["other_contributors"]:
-        g.add((book_il_primo_fellini, schema.contributor, Literal(row["other_contributors"])))
 
-    # Publisher, place, dates
+    if row["other_contributors"]:
+        g.add((book_il_primo_fellini, schema.contributor,
+               Literal(row["other_contributors"])))
+
+    # Publisher, place, and publication year
     g.add((book_il_primo_fellini, dcterms.publisher, Literal(row["publisher"])))
     g.add((book_il_primo_fellini, dcterms.spatial, bologna))
-    g.add((book_il_primo_fellini, dcterms.issued, Literal(row["publication_year"], datatype=XSD.gYear)))
+    g.add((book_il_primo_fellini, dcterms.issued,
+           Literal(row["publication_year"], datatype=XSD.gYear)))
 
-    # Series (modellazione semplice e uniforme)
+    # Series
     if row["series"]:
         series_uri = URIRef(rrr + "series_il_primo_fellini")
         g.add((series_uri, RDF.type, schema.CreativeWork))
@@ -118,17 +124,20 @@ for idx, row in first_fellini_book.iterrows():
 
     # Extent / notes / rights
     g.add((book_il_primo_fellini, dcterms.extent, Literal(row["extent"])))
+
     if row["notes"]:
         g.add((book_il_primo_fellini, dc.description, Literal(row["notes"])))
+
     if row["rights"]:
         g.add((book_il_primo_fellini, dcterms.rights, Literal(row["rights"])))
 
     # Subjects
     g.add((book_il_primo_fellini, dc.subject, federico_fellini))
+
     if row["subjects"]:
         g.add((book_il_primo_fellini, dc.subject, Literal(row["subjects"])))
 
-    # Relation to the film
+    # Relation to the film La Strada
     g.add((book_il_primo_fellini, dcterms.relation, la_strada_film))
 
     # Language
@@ -137,10 +146,13 @@ for idx, row in first_fellini_book.iterrows():
     # Standard used
     g.add((book_il_primo_fellini, dcterms.conformsTo, Literal(row["standard"])))
 
-
 # =========================
 # SERIALIZATION
 # =========================
 
 g.serialize(format="turtle", destination="../ttl/book_il_primo_fellini.ttl")
 print("CSV converted to TTL!")
+
+g.serialize(format="turtle", destination="../ttl/book_il_primo_fellini.ttl")
+print("CSV converted to TTL!")
+
