@@ -1,4 +1,4 @@
-from pandas import read_csv
+from pandas import read_csv 
 from rdflib import Namespace, Graph, RDF, URIRef, OWL, Literal, XSD, RDFS, FOAF
 
 # =========================
@@ -95,10 +95,11 @@ for idx, row in la_strada_soundtrack_original.iterrows():
     g.add((la_strada_soundtrack, dcterms.creator, nino_rota))
     g.add((la_strada_soundtrack, schema.composer, nino_rota))
 
-    # Tipo di soundtrack (testo libero dallo standard)
-    if row["Soundtrack Type"]:
+    # Tipo di soundtrack (se la colonna esiste davvero ed è valorizzata)
+    soundtrack_type = row.get("Soundtrack Type", "")
+    if soundtrack_type:
         g.add((la_strada_soundtrack, schema.additionalType,
-               Literal(row["Soundtrack Type"])))
+               Literal(soundtrack_type)))
 
     # Relazione con il film La Strada
     g.add((la_strada_soundtrack, dcterms.relation, la_strada_film))
@@ -149,6 +150,7 @@ for idx, row in la_strada_soundtrack_original.iterrows():
 
 g.serialize(format="turtle", destination="../ttl/la_strada_soundtrack_original.ttl")
 print("CSV converted to TTL!")
+
 
 
 
