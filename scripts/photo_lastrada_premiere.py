@@ -93,25 +93,51 @@ photo_lastrada_premiere = read_csv(
 # =========================
 
 for idx, row in photo_lastrada_premiere.iterrows():
+    # Leggo tutti i campi in modo sicuro: se la colonna non esiste → ""
+    id_value            = row.get("id", "")
+    standard            = row.get("standard", "")
+    title               = row.get("title", "")
+    object_type         = row.get("object_type", "")
+    inscription         = row.get("inscription", "")
+    language            = row.get("language", "")
+    notes               = row.get("notes", "")
+    creator             = row.get("creator", "")
+    creation_year       = row.get("creation_year", "")
+    colour              = row.get("colour", "")
+    material_technique  = row.get("material_technique", "")
+    physical_description = row.get("physical_description", "")
+    inventory_number    = row.get("inventory_number", "")
+    collection_name     = row.get("collection", "")
+    rights              = row.get("rights", "")
+
     # Identificatori e standard
-    g.add((premiere_photo, dc.identifier, Literal(row["id"])))
-    g.add((premiere_photo, dcterms.conformsTo, Literal(row["standard"])))
+    if id_value:
+        g.add((premiere_photo, dc.identifier, Literal(id_value)))
+    if standard:
+        g.add((premiere_photo, dcterms.conformsTo, Literal(standard)))
 
     # Titolo e tipo
-    g.add((premiere_photo, dcterms.title, Literal(row["title"])))
-    if row["object_type"]:
-        g.add((premiere_photo, dcterms.type, Literal(row["object_type"])))
+    if title:
+        g.add((premiere_photo, dcterms.title, Literal(title)))
+    if object_type:
+        g.add((premiere_photo, dcterms.type, Literal(object_type)))
 
-    # Iscrizione (con tag di lingua) e note descrittive
-    if row["inscription"]:
-        g.add((premiere_photo, dcterms.description,
-               Literal(row["inscription"], lang=row["language"])))
-    if row["notes"]:
-        g.add((premiere_photo, dcterms.description, Literal(row["notes"])))
+    # Iscrizione (con eventuale lingua)
+    if inscription:
+        if language:
+            g.add((premiere_photo, dcterms.description,
+                   Literal(inscription, lang=language)))
+        else:
+            g.add((premiere_photo, dcterms.description,
+                   Literal(inscription)))
 
-    # Creatore (fotografo, solo come literal se non avete authority)
-    if row["creator"]:
-        g.add((premiere_photo, dcterms.creator, Literal(row["creator"])))
+    # Note descrittive aggiuntive
+    if notes:
+        g.add((premiere_photo, dcterms.description, Literal(notes)))
+
+    # Creatore (fotografo, come literal)
+    if creator:
+        g.add((premiere_photo, dcterms.creator, Literal(creator)))
 
     # Soggetti rappresentati
     g.add((premiere_photo, foaf.depicts, federico_fellini))
@@ -122,31 +148,31 @@ for idx, row in photo_lastrada_premiere.iterrows():
     g.add((cinema_fulgor, schema.location, bologna))
 
     # Data di creazione
-    if row["creation_year"]:
+    if creation_year:
         g.add((premiere_photo, dcterms.created,
-               Literal(row["creation_year"], datatype=XSD.gYear)))
+               Literal(creation_year, datatype=XSD.gYear)))
 
     # Colore, tecnica, descrizione fisica
-    if row["colour"]:
-        g.add((premiere_photo, schema.color, Literal(row["colour"])))
-    if row["material_technique"]:
-        g.add((premiere_photo, dcterms.medium, Literal(row["material_technique"])))
-    if row["physical_description"]:
-        g.add((premiere_photo, schema.artform, Literal(row["physical_description"])))
+    if colour:
+        g.add((premiere_photo, schema.color, Literal(colour)))
+    if material_technique:
+        g.add((premiere_photo, dcterms.medium, Literal(material_technique)))
+    if physical_description:
+        g.add((premiere_photo, schema.artform, Literal(physical_description)))
 
-    # Numero d'inventario (secondo identificatore)
-    if row["inventory_number"]:
-        g.add((premiere_photo, dc.identifier, Literal(row["inventory_number"])))
+    # Numero d'inventario
+    if inventory_number:
+        g.add((premiere_photo, dc.identifier, Literal(inventory_number)))
 
     # Proprietà / collezione / diritti
     g.add((premiere_photo, crm.P52_has_current_owner, cineteca_di_bologna))
     g.add((renzi_collection, dcterms.hasPart, premiere_photo))
 
-    if row["collection"]:
-        g.add((renzi_collection, dcterms.title, Literal(row["collection"])))
+    if collection_name:
+        g.add((renzi_collection, dcterms.title, Literal(collection_name)))
 
-    if row["rights"]:
-        g.add((premiere_photo, dcterms.rights, Literal(row["rights"])))
+    if rights:
+        g.add((premiere_photo, dcterms.rights, Literal(rights)))
 
     # Relazione con il film La Strada
     g.add((premiere_photo, dcterms.relation, la_strada_film))
