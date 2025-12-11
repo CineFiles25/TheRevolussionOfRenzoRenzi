@@ -54,7 +54,7 @@ g.add((bologna, OWL.sameAs, URIRef("http://viaf.org/viaf/257723025")))
 
 # MAPPING TO ONTOLOGIES
 
-portrait_of_renzo_renzi = read_csv("csv/renzi_portrait.csv", keep_default_na=False, encoding="utf-8")
+portrait_of_renzo_renzi = read_csv("../csv/renzi_portrait.csv", keep_default_na=False, encoding="utf-8")
 
 g = graph_bindings()
 
@@ -64,7 +64,7 @@ for idx, row in portrait_of_renzo_renzi.iterrows():
     g.add((renzi_portrait, dc.title, Literal(row["title"])))
     g.add((renzi_portrait, dcterms.creator, Literal(row["creator"])))
     g.add((renzi_portrait, FOAF.depicts, renzo_renzi))
-    g.add((renzi_portrait, schema.locationCreated, Literal(row["depicted_event"])))
+    g.add((renzi_portrait, schema.about, Literal(row["depicted_event"])))
     g.add((renzi_portrait, schema.color, Literal(row["colour"], datatype=XSD.string)))
     g.add((renzi_portrait, schema.material, Literal(row["material_technique"])))
     g.add((renzi_portrait, schema.artform, Literal(row["physical_description"])))
@@ -80,5 +80,5 @@ for idx, row in portrait_of_renzo_renzi.iterrows():
     
 # SERIALIZATION
 
-g.serialize(format="turtle", destination="ttl/renzi_portrait.ttl")
+g.serialize(format="turtle", destination="../ttl/renzi_portrait.ttl")
 print("CSV converted to TTL!")
