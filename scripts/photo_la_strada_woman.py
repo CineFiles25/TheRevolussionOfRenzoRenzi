@@ -1,3 +1,4 @@
+import pandas as pd
 from pandas import read_csv
 from rdflib import Namespace, Graph, RDF, URIRef, OWL, Literal, XSD, RDFS, FOAF
 
@@ -42,7 +43,7 @@ def graph_bindings():
 
 # ENTITIES 
 
-woman_photo = URIRef(rrr + "photo_la_strada_woman")
+woman_photo = URIRef(rrr + "woman_photo")
 giulietta_masina = URIRef(rrr + "giulietta_masina")
 la_strada_film = URIRef(rrr + "la_strada_film")
 
@@ -51,11 +52,11 @@ g.add((giulietta_masina, OWL.sameAs, URIRef("http://viaf.org/viaf/37021297")))
 
 # MAPPING TO ONTOLOGIES
 
-photo_la_strada_woman = read_csv("../csv/photo_la_strada_woman.csv", keep_default_na=False, encoding="utf-8")
+photo_df = pd.read_csv("csv/photo_la_strada_woman.csv", keep_default_na=False, encoding="utf-8")
 
 g = graph_bindings()
 
-for idx, row in photo_la_strada_woman.iterrows():
+for idx, row in photo_df.iterrows():
     g.add((woman_photo, RDF.type, URIRef(schema + "Photograph")))
     g.add((woman_photo, RDFS.subClassOf, URIRef(schema + "CreativeWork")))
     g.add((woman_photo, dcterms.title, Literal(row["title"])))
@@ -66,6 +67,7 @@ for idx, row in photo_la_strada_woman.iterrows():
     g.add((woman_photo, dcterms.created, Literal(row["creation_year"], datatype=XSD.gYear)))
     g.add((woman_photo, schema.colour, Literal(row["colour"])))
     g.add((woman_photo, dcterms.medium, Literal(row["material_technique"])))
+    g.add((woman_photo, schema.identifier, Literal(row["inventory_number"])))
     g.add((woman_photo, dcterms.isPartOf, Literal(row["collection"])))
     g.add((woman_photo, dcterms.extent, Literal(row["physical_description"])))
     g.add((woman_photo, dcterms.description, Literal(row["notes"])))
@@ -77,6 +79,6 @@ for idx, row in photo_la_strada_woman.iterrows():
 
 # SERIALIZATION
 
-g.serialize(format="turtle", destination="../ttl/photo_la_strada_woman.ttl")
+g.serialize(format="turtle", destination="ttl/woman_photo.ttl")
 
 print("CSV converted to TTL!")
