@@ -67,6 +67,7 @@ for idx, row in quando_il_po_è_dolce.iterrows():
     g.add((schema.Movie, RDFS.subClassOf, schema.CreativeWork))
     g.add((po_documentary, dc.title, Literal(row["title"])))
     g.add((po_documentary, schema.alternateName, Literal(row["other_title_information"])))
+    g.add((po_documentary, dc.date, Literal(row["edition"], datatype=XSD.gYear)))
     g.add((po_documentary, schema.director, renzo_renzi))
     g.add((po_documentary, dbo.writer, renzo_renzi))
     g.add((po_documentary, schema.countryOfOrigin, Literal(row["country"])))    
