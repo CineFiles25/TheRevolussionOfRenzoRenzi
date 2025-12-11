@@ -30,11 +30,13 @@ rrr:guida_per_camminare_all_ombra a schema:Manuscript ;
     schema:additionalType schema:ArchiveComponent ;
     schema:holdingArchive rrr:cineteca_di_bologna .
 
-rrr:cineteca_di_bologna owl:sameAs <http://viaf.org/viaf/124960346> .
-
 rrr:renzo_renzi owl:sameAs <http://viaf.org/viaf/40486517> .
+
+rrr:renzo_renzi_collection crm:P52_has_current_owner rrr:cineteca_di_bologna .
 
 schema:ArchiveComponent rdfs:subClassOf schema:CreativeWork .
 
 schema:Manuscript rdfs:subClassOf schema:CreativeWork .
+
+rrr:cineteca_di_bologna owl:sameAs <http://viaf.org/viaf/124960346> .
 

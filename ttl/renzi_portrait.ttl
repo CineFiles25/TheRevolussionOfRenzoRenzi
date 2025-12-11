@@ -8,6 +8,8 @@
 @prefix schema: <https://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
+rrr:bologna owl:sameAs <http://viaf.org/viaf/257723025> .
+
 rrr:portrait_of_renzo_renzi a schema:Photograph ;
     dc:title "Famiglia-Renzi_002" ;
     dcterms:creator "Relative of Renzo Renzi" ;
@@ -25,13 +27,11 @@ rrr:portrait_of_renzo_renzi a schema:Photograph ;
     schema:license "© Renzi Estate" ;
     schema:material "Gelatin silver print" .
 
-rrr:bologna owl:sameAs <http://viaf.org/viaf/257723025> .
-
-rrr:cineteca_di_bologna owl:sameAs <http://viaf.org/viaf/124960346> .
-
 rrr:renzo_renzi owl:sameAs <http://viaf.org/viaf/40486517> .
 
-rrr:renzo_renzi_collection crm:P52_has_current_owner rrr:bologna .
+rrr:renzo_renzi_collection crm:P52_has_current_owner rrr:cineteca_di_bologna .
 
 schema:Photograph rdfs:subClassOf schema:CreativeWork .
+
+rrr:cineteca_di_bologna owl:sameAs <http://viaf.org/viaf/124960346> .
 
