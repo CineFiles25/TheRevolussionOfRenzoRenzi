@@ -23,12 +23,12 @@ rrr:guida_per_camminare_all_ombra a schema:Manuscript ;
     dcterms:provenance "Cineteca di Bologna acquired the item after a donation from the Renzi family to the Renzi Fund" ;
     dcterms:relation "Typed version/Sequences list" ;
     dcterms:rights "© Renzi Estate" ;
-    dcterms:spatial rrr:renzo_renzi_library ;
     dcterms:subject "Portici of Bologna" ;
     dcterms:title "Sceneggiatura manoscritta di \"Guida per camminare all'ombra\"" ;
     crm:P52_has_current_owner "Renzi Estate" ;
     schema:additionalType schema:ArchiveComponent ;
-    schema:holdingArchive rrr:cineteca_di_bologna .
+    schema:holdingArchive rrr:cineteca_di_bologna ;
+    schema:itemLocation rrr:renzo_renzi_library .
 
 rrr:renzo_renzi owl:sameAs <http://viaf.org/viaf/40486517> .
 

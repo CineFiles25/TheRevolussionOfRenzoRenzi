@@ -12,22 +12,23 @@ rrr:cineteca_di_bologna owl:sameAs <http://viaf.org/viaf/124960346> .
 
 rrr:quando_il_po_è_dolce a schema:Movie ;
     dbo:writer rrr:renzo_renzi ;
+    dc:date "1989"^^xsd:gYear ;
     dc:title "Quando il Po è dolce" ;
     schema:about rrr:delta_po_river ;
-    schema:alternateName "English title: 'When the Po River is fresh'" ;
+    schema:alternateName "English title: 'When the Po River is Fresh'" ;
     schema:color "black and white" ;
     schema:contentSize "300 m" ;
     schema:countryOfOrigin "Italy" ;
     schema:datePublished "1952"^^xsd:gYear ;
     schema:director rrr:renzo_renzi ;
-    schema:duration "11 min"^^xsd:duration ;
+    schema:duration "PT11M"^^xsd:duration ;
     schema:encodingFormat "Short documentary" ;
     schema:frameRate "35 mm" ;
     schema:inLanguage "it" ;
+    schema:location rrr:delta_po_river ;
     schema:musicBy rrr:enzo_masetti ;
     schema:productionCompany rrr:columbus_film ;
-    schema:sound "sound" ;
-    schema:spatialCoverage rrr:delta_po_river .
+    schema:sound "sound" .
 
 rrr:enzo_masetti owl:sameAs <http://viaf.org/viaf/56806835> .
 

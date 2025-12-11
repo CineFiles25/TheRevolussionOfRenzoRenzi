@@ -69,3 +69,12 @@ renzi_letter_1942,dcterms:creator,renzo_renzi,iri,Renzo Renzi wrote the letter
 renzi_letter_1942,dcterms:date,1942-07-24,literal,Date of the letter
 renzi_letter_1942,schema:location,renzo_renzi_library,iri,The letter is preserved at the Renzo Renzi Library
 renzi_letter_1942,schema:about,renzi_oral_memory,iri,The letter documents Renzi’s intellectual life and memory during the war
+
+portrait_of_renzo_renzi,foaf:depicts,renzo_renzi,iri,The portrait depicts Renzo Renzi
+portrait_of_renzo_renzi,dcterms:isPartOf,renzi_collection,iri,The portrait is part of the Renzo Renzi Collection
+portrait_of_renzo_renzi,cidoc:P50_has_current_keeper,cineteca_di_bologna,iri,Cineteca di Bologna currently keeps the portrait
+
+guida_per_camminare_all_ombra,dbo:writer,renzo_renzi,iri,Renzo Renzi authored the screenplay
+guida_per_camminare_all_ombra,schema:itemLocation,renzo_renzi_library,iri,Preserved at the Renzo Renzi Library
+guida_per_camminare_all_ombra,dcterms:isPartOf,renzi_collection,iri,The screenplay is part of the Renzo Renzi Collection
+guida_per_camminare_all_ombra,schema:holdingArchive,cineteca_di_bologna,iri,Cineteca di Bologna is the holding archive

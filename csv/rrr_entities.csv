@@ -21,10 +21,12 @@ caricature_fellini_renzi,Fellini → Renzi caricature,schema:VisualArtwork,https
 renzi_interview_2000,'Il cinema a Bologna: Renzo Renzi e la Columbus film',schema:VideoObject,https://cinefiles25.github.io/rrr/work/renzi_interview_2000,
 la_strada_film,Film 'La Strada',schema:Movie,https://cinefiles25.github.io/rrr/work/la_strada_film,http://viaf.org/viaf/176979060
 renzo_renzi_library,Renzo Renzi Library,schema:Library,https://cinefiles25.github.io/rrr/place/renzo_renzi_library,https://sol.unibo.it/SebinaOpac/.do?pb=UBOCX
-ferrari_set_photo,'Le Notti del Melodramma' set photograph,schema:ImageObject,https://cinefiles25.github.io/rrr/work/ferrari_set_photo,
+ferrari_set_photo,'Le Notti del Melodramma' set photograph,schema:Photograph,https://cinefiles25.github.io/rrr/work/ferrari_set_photo,
 quando_il_po_e_dolce,Documentary 'Quando il Po è dolce',schema:Movie,https://cinefiles25.github.io/rrr/work/quando_il_po_e_dolce,
 drawing_gelsomina_lastrada,Drawing 'Gelsomina col tamburo' from 'La Strada',schema:VisualArtwork,https://cinefiles25.github.io/rrr/work/drawing_gelsomina_lastrada,
 la_strada_soundtrack_original,Soundtrack 'La Strada' – original release,schema:MusicRecording,https://cinefiles25.github.io/rrr/work/la_strada_soundtrack_original,
 photo_la_strada_fighter,Photo 'La Strada' – fighter scene,schema:ImageObject,https://cinefiles25.github.io/rrr/work/photo_la_strada_fighter,
-photo_la_strada_woman,Photo 'La Strada' – Gelsomina in rural landscape,schema:ImageObject,https://cinefiles25.github.io/rrr/work/photo_la_strada_woman,
+photo_la_strada_woman,Photo 'La Strada' – Gelsomina in rural landscape,schema:Photographj,https://cinefiles25.github.io/rrr/work/photo_la_strada_woman,
 renzi_letter_1942,Letter to his father (24 July 1942),schema:CreativeWork,https://cinefiles25.github.io/rrr/work/renzi_letter_1942,
+guida_per_camminare_all_ombra,'Guida per camminare all'ombra' screenplay,schema:CreativeWork,https://cinefiles25.github.io/rrr/work/guida_per_camminare_all_ombra,
+portrait_of_renzo_renzi,Portrait of Renzo Renzi,schema:Photograph,https://cinefiles25.github.io/rrr/work/portrait_of_renzo_renzi,

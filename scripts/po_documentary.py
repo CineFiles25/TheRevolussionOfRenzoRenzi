@@ -81,7 +81,7 @@ for idx, row in quando_il_po_è_dolce.iterrows():
     g.add((po_documentary, schema.frameRate, Literal(row["format"])))
     g.add((po_documentary, schema.sound, Literal(row["sound"])))
     g.add((po_documentary, schema.about, delta_po_river))
-    g.add((po_documentary, schema.spatialCoverage, delta_po_river))
+    g.add((po_documentary, schema.location, delta_po_river))
     g.add((po_documentary, schema.musicBy, enzo_masetti))
     
 # SERIALIZATION
