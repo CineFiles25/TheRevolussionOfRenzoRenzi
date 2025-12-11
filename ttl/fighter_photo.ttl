@@ -11,23 +11,24 @@ rrr:cineteca_di_bologna owl:sameAs <http://viaf.org/viaf/124960346> .
 
 rrr:fighter_photo a schema:Photograph ;
     dcterms:alternative "Gelsomina and Zampanò during a circus act" ;
-    dcterms:created "1954 ca."^^xsd:gYear ;
-    dcterms:description "Set photograph from the film 'La Strada' (1954); circus environment." ;
-    dcterms:extent "Gelatin silver print; original physical description not provided." ;
-    dcterms:identifier "" ;
+    dcterms:created "1954"^^xsd:gYear ;
+    dcterms:description "Set photograph from Federico Fellini’s film 'La Strada', showing a circus performance scene." ;
+    dcterms:extent "Vintage gelatin silver print; physical description not fully provided." ;
     dcterms:isPartOf "Fondo Fotografie Cineteca" ;
-    dcterms:language "none" ;
+    dcterms:language "" ;
     dcterms:medium "Gelatin silver print" ;
     dcterms:relation "la_strada_film" ;
-    dcterms:rights "Rights status unknown; to be confirmed" ;
-    dcterms:spatial "Italy" ;
-    dcterms:subject " \"Production still from 'La Strada' (1954)\"",
-        "Giulietta Masina; Anthony Quinn" ;
+    dcterms:rights "© Reporters Associati & Archivi — All rights reserved" ;
+    dcterms:spatial "" ;
+    dcterms:subject "Giulietta Masina; Anthony Quinn",
+        "Production still from the film 'La Strada' (1954)" ;
     dcterms:title "Circus performance scene from 'La Strada'" ;
     dcterms:type "Photograph" ;
     rdfs:subClassOf schema:CreativeWork ;
     schema:about rrr:la_strada_film ;
-    schema:colour "black and white" .
+    schema:colour "black and white" ;
+    schema:identifier "",
+        "26004 - 11" .
 
 rrr:giulietta_masina owl:sameAs <http://viaf.org/viaf/96166248> .
 

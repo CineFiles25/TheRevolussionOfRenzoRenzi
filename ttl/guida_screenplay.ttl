@@ -9,6 +9,8 @@
 
 rrr:guida_per_camminare_all_ombra a schema:Manuscript ;
     dbo:writer rrr:renzo_renzi ;
+    dcterms:accessRights "Access permitted for study and research.",
+        "Reproduction only with permission of the Renzi Estate." ;
     dcterms:alternative "English title:\"Guide to walking in the shade\"" ;
     dcterms:created "1954-10"^^xsd:gYearMonth ;
     dcterms:description "7 opening titles of Guida per camminare allombra",
@@ -24,12 +26,15 @@ rrr:guida_per_camminare_all_ombra a schema:Manuscript ;
     dcterms:spatial rrr:renzo_renzi_library ;
     dcterms:subject "Portici of Bologna" ;
     dcterms:title "Sceneggiatura manoscritta di \"Guida per camminare all'ombra\"" ;
-    crm:P50_has_current_keeper rrr:cineteca_di_bologna ;
-    crm:P52_has_current_owner "Renzi Estate" .
+    crm:P52_has_current_owner "Renzi Estate" ;
+    schema:additionalType schema:ArchiveComponent ;
+    schema:holdingArchive rrr:cineteca_di_bologna .
 
 rrr:cineteca_di_bologna owl:sameAs <http://viaf.org/viaf/124960346> .
 
 rrr:renzo_renzi owl:sameAs <http://viaf.org/viaf/40486517> .
+
+schema:ArchiveComponent rdfs:subClassOf schema:CreativeWork .
 
 schema:Manuscript rdfs:subClassOf schema:CreativeWork .
 
