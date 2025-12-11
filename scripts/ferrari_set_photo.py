@@ -69,7 +69,7 @@ for idx, row in set_photo.iterrows():
     g.add((ferrari_set_photo, crm.P52_has_current_owner, cineteca_di_bologna))
     g.add((cineteca_di_bologna, schema.location, bologna))
     g.add((ferrari_set_photo, schema.description, Literal(row["notes"])))
-    g.add((ferrari_set_photo, schema.license, Literal(row["rights"])))
+    g.add((ferrari_set_photo, dcterms.rights, Literal(row["rights"])))
 
 g.serialize(format="turtle", destination="../ttl/ferrari_set_photo.ttl")
 

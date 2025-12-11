@@ -20,10 +20,9 @@ rrr:ferrari_set_photo a schema:Photograph ;
     schema:dateCreated "1959"^^xsd:gYear ;
     schema:description "Digital surrogate available on the Cineteca di Bologna website." ;
     schema:fileFormat "Digital JPEG surrogate" ;
-    schema:identifier "FAF01878.001"^^xsd:anyURI,
-        "ferrari_set_photo" ;
+    schema:identifier "FAF01878.001"^^xsd:anyURI ;
     schema:license "© Cineteca di Bologna" ;
-    schema:locationCreated "Bologna" ;
+    schema:locationCreated "Set of the documentary 'Le Notti del Melodramma'" ;
     schema:material "Gelatin silver print" .
 
 rrr:aldo_ferrari owl:sameAs <https://www.wikidata.org/wiki/Q3609208> .

@@ -15,6 +15,7 @@ rrr:portrait_of_renzo_renzi a schema:Photograph ;
     dcterms:creator "Relative of Renzo Renzi" ;
     dcterms:isPartOf rrr:renzo_renzi_collection,
         "Renzo Renzi Fund" ;
+    dcterms:rights "© Renzi Estate" ;
     crm:P45_consists_of "Analog photographic print" ;
     crm:P50_has_current_keeper rrr:cineteca_di_bologna ;
     crm:P52_has_current_owner "Renzi Estate" ;
@@ -24,7 +25,6 @@ rrr:portrait_of_renzo_renzi a schema:Photograph ;
     schema:color "black and white"^^xsd:string ;
     schema:description "Digital surrogate available on the Cineteca di Bologna website." ;
     schema:fileFormat "Digital JPEG surrogate" ;
-    schema:license "© Renzi Estate" ;
     schema:material "Gelatin silver print" .
 
 rrr:renzo_renzi owl:sameAs <http://viaf.org/viaf/40486517> .
