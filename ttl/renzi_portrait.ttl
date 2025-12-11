@@ -1,0 +1,37 @@
+@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rrr: <https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/> .
+@prefix schema: <https://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+rrr:portrait_of_renzo_renzi a schema:Photograph ;
+    dc:title "Famiglia-Renzi_002" ;
+    dcterms:creator "Relative of Renzo Renzi" ;
+    dcterms:isPartOf rrr:renzo_renzi_collection,
+        "Renzo Renzi Fund" ;
+    crm:P45_consists_of "Analog photographic print" ;
+    crm:P50_has_current_keeper rrr:cineteca_di_bologna ;
+    crm:P52_has_current_owner "Renzi Estate" ;
+    foaf:depicts rrr:renzo_renzi ;
+    schema:about "Renzo Renzi taking a photograph of the photographer" ;
+    schema:artform "Vintage gelatin silver print. Original analog photograph." ;
+    schema:color "black and white"^^xsd:string ;
+    schema:description "Digital surrogate available on the Cineteca di Bologna website." ;
+    schema:fileFormat "Digital JPEG surrogate" ;
+    schema:license "© Renzi Estate" ;
+    schema:material "Gelatin silver print" .
+
+rrr:bologna owl:sameAs <http://viaf.org/viaf/257723025> .
+
+rrr:cineteca_di_bologna owl:sameAs <http://viaf.org/viaf/124960346> .
+
+rrr:renzo_renzi owl:sameAs <http://viaf.org/viaf/40486517> .
+
+rrr:renzo_renzi_collection crm:P52_has_current_owner rrr:bologna .
+
+schema:Photograph rdfs:subClassOf schema:CreativeWork .
+

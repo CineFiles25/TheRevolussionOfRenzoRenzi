@@ -71,7 +71,7 @@ for idx, row in portrait_of_renzo_renzi.iterrows():
     g.add((renzi_portrait, crm.P45_consists_of, Literal(row["carrier_type"])))
     g.add((renzi_portrait, schema.fileFormat, Literal(row["format"])))
     g.add((renzi_portrait, dcterms.isPartOf, Literal(row["collection"])))
-    g.add((renzi_portrait, crm.P52_has_current_owner, Literal(row["current_owner"])))
+    g.add((renzi_portrait, crm.P52_has_current_owner, Literal(row["owner"])))
     g.add((renzi_portrait, dcterms.isPartOf, renzi_collection))
     g.add((renzi_portrait, crm.P50_has_current_keeper, cineteca_di_bologna))
     g.add((renzi_collection, crm.P52_has_current_owner, bologna))
