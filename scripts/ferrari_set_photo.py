@@ -1,8 +1,5 @@
-import pandas as pd
 from pandas import read_csv
 from rdflib import Namespace, Graph, RDF, URIRef, OWL, Literal, XSD, RDFS, FOAF
-
-# NAMESPACES
 
 rrr = Namespace("https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/")
 rdf = Namespace("http://www.w3.org/1999/02/22-rdf-syntax-ns#")
@@ -16,8 +13,6 @@ crm = Namespace("http://www.cidoc-crm.org/cidoc-crm/")
 foaf = Namespace("http://xmlns.com/foaf/0.1/")
 fiaf = Namespace("https://fiaf.github.io/film-related-materials/objects/")
 skos = Namespace("http://www.w3.org/2004/02/skos/core#")
-
-# GRAPH CREATION
 
 g = Graph()
 
@@ -41,49 +36,42 @@ def graph_bindings():
         g.bind(prefix, ns)
     return g
 
-# ENTITIES 
-
-fighter_photo = URIRef(rrr + "fighter_photo")
-la_strada_film = URIRef(rrr + "la_strada_film")
+ferrari_set_photo = URIRef(rrr + "ferrari_set_photo")
+renzo_renzi = URIRef(rrr + "renzo_renzi")
+aldo_ferrari = URIRef(rrr + "aldo_ferrari")
 cineteca_di_bologna = URIRef(rrr + "cineteca_di_bologna")
-giulietta_masina = URIRef(rrr + "giulietta_masina")
 bologna = URIRef(rrr + "bologna")
 
-g.add((la_strada_film, OWL.sameAs, URIRef("https://www.wikidata.org/wiki/Q18402")))
+g.add((renzo_renzi, OWL.sameAs, URIRef("http://viaf.org/viaf/40486517")))
+g.add((aldo_ferrari, OWL.sameAs, URIRef("https://www.wikidata.org/wiki/Q3609208")))
 g.add((cineteca_di_bologna, OWL.sameAs, URIRef("http://viaf.org/viaf/124960346")))
-g.add((giulietta_masina, OWL.sameAs, URIRef("http://viaf.org/viaf/96166248")))
 g.add((bologna, OWL.sameAs, URIRef("http://viaf.org/viaf/257723025")))
 
-# MAPPING TO ONTOLOGIES
-
-photo_df = pd.read_csv("csv/photo_la_strada_fighter.csv", keep_default_na=False, encoding="utf-8")
+set_photo = read_csv("../csv/ferrari_set_photo.csv", keep_default_na=False, encoding="utf-8")
 
 g = graph_bindings()
 
-for idx, row in photo_df.iterrows():
-    g.add((fighter_photo, RDF.type, URIRef(schema + "Photograph")))
-    g.add((fighter_photo, RDFS.subClassOf, URIRef(schema + "CreativeWork")))
-    g.add((fighter_photo, dcterms.title, Literal(row["title"])))
-    g.add((fighter_photo, dcterms.alternative, Literal(row["other_title_information"])))
-    g.add((fighter_photo, dcterms.subject, Literal(row["depicted_event"])))
-    g.add((fighter_photo, dcterms.subject, Literal(row["depicted_people"])))
-    g.add((fighter_photo, dcterms.spatial, Literal(row["depicted_place"])))
-    g.add((fighter_photo, dcterms.created, Literal(row["creation_year"], datatype=XSD.gYear)))
-    g.add((fighter_photo, schema.colour, Literal(row["colour"])))
-    g.add((fighter_photo, dcterms.medium, Literal(row["material_technique"])))
-    g.add((fighter_photo, schema.identifier, Literal(row["inventory_number"])))
-    g.add((fighter_photo, dcterms.isPartOf, Literal(row["collection"])))
-    g.add((fighter_photo, dcterms.extent, Literal(row["physical_description"])))
-    g.add((fighter_photo, dcterms.description, Literal(row["notes"])))
-    g.add((fighter_photo, schema.identifier, Literal(row["identifiers"])))
-    g.add((fighter_photo, dcterms.relation, Literal(row["related_works"])))
-    g.add((fighter_photo, dcterms.rights, Literal(row["rights"])))
-    g.add((fighter_photo, dcterms.type, Literal(row["resource_type"])))
-    g.add((fighter_photo, dcterms.language, Literal(row["language"])))
-    g.add((fighter_photo, schema.about, la_strada_film))
+for idx, row in set_photo.iterrows():
+    g.add((ferrari_set_photo, RDF.type, schema.Photograph))
+    g.add((schema.Photograph, RDFS.subClassOf, schema.CreativeWork))
+    g.add((ferrari_set_photo, schema.identifier, Literal(row["id"])))
+    g.add((ferrari_set_photo, dc.title, Literal(row["title"])))
+    g.add((ferrari_set_photo, schema.identifier, Literal(row["inventory_number"], datatype=XSD.anyURI)))
+    g.add((ferrari_set_photo, dcterms.creator, aldo_ferrari))
+    g.add((ferrari_set_photo, FOAF.depicts, renzo_renzi))
+    g.add((ferrari_set_photo, schema.dateCreated, Literal(row["creation_year"], datatype=XSD.gYear)))
+    g.add((ferrari_set_photo, schema.locationCreated, Literal(row["depicted_place"])))
+    g.add((ferrari_set_photo, schema.color, Literal(row["colour"], datatype=XSD.string)))
+    g.add((ferrari_set_photo, schema.material, Literal(row["material_technique"])))
+    g.add((ferrari_set_photo, schema.artform, Literal(row["print"])))
+    g.add((ferrari_set_photo, crm.P45_consists_of, Literal(row["original_material"])))
+    g.add((ferrari_set_photo, schema.fileFormat, Literal(row["digital_surrogate"])))
+    g.add((ferrari_set_photo, dcterms.isPartOf, Literal(row["collection"])))
+    g.add((ferrari_set_photo, crm.P52_has_current_owner, cineteca_di_bologna))
+    g.add((cineteca_di_bologna, schema.location, bologna))
+    g.add((ferrari_set_photo, schema.description, Literal(row["notes"])))
+    g.add((ferrari_set_photo, schema.license, Literal(row["rights"])))
 
-# SERIALIZATION
-
-g.serialize(format="turtle", destination="ttl/fighter_photo.ttl")
+g.serialize(format="turtle", destination="../ttl/ferrari_set_photo.ttl")
 
 print("CSV converted to TTL!")
