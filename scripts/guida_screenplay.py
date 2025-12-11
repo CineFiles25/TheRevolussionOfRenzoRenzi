@@ -47,6 +47,7 @@ renzo_renzi = URIRef(rrr + "renzo_renzi")
 cineteca_di_bologna = URIRef(rrr + "cineteca_di_bologna")
 renzi_collection = URIRef(rrr + "renzo_renzi_collection")
 renzi_library = URIRef(rrr + "renzo_renzi_library")
+bologna = URIRef(rrr + "bologna")
 
 g.add((renzo_renzi, OWL.sameAs, URIRef("http://viaf.org/viaf/40486517")))
 g.add((cineteca_di_bologna, OWL.sameAs, URIRef("http://viaf.org/viaf/124960346")))
@@ -77,6 +78,7 @@ for idx, row in guida_per_camminare_all_ombra.iterrows():
     g.add((guida_screenplay, dcterms.language, Literal(row["language"], datatype=XSD.language)))    
     g.add((guida_screenplay, dcterms.relation, Literal(row["related_works"])))
     g.add((guida_screenplay, dcterms.rights, Literal(row["rights"])))
+    g.add((guida_screenplay, dcterms.subject, Literal(row["subject"])))
 
 # SERIALIZATION
 

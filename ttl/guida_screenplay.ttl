@@ -1,0 +1,34 @@
+@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix dbo: <http://dbpedia.org/ontology/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rrr: <https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/> .
+@prefix schema: <https://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+rrr:guida_per_camminare_all_ombra a schema:Manuscript ;
+    dbo:writer rrr:renzo_renzi ;
+    dcterms:alternative "English title:\"Guide to walking in the shade\"" ;
+    dcterms:created "1954-10"^^xsd:gYearMonth ;
+    dcterms:description "7 opening titles of Guida per camminare allombra",
+        "Item",
+        "Narrative" ;
+    dcterms:extent "One leaf" ;
+    dcterms:isPartOf rrr:renzo_renzi_collection ;
+    dcterms:language "it"^^xsd:language ;
+    dcterms:medium "Paper" ;
+    dcterms:provenance "Cineteca di Bologna acquired the item after a donation from the Renzi family to the Renzi Fund" ;
+    dcterms:relation "Typed version/Sequences list" ;
+    dcterms:rights "© Renzi Estate" ;
+    dcterms:spatial rrr:renzo_renzi_library ;
+    dcterms:title "Sceneggiatura manoscritta di \"Guida per camminare all'ombra\"" ;
+    crm:P50_has_current_keeper rrr:cineteca_di_bologna ;
+    crm:P52_has_current_owner "Renzi Estate" .
+
+rrr:cineteca_di_bologna owl:sameAs <http://viaf.org/viaf/124960346> .
+
+rrr:renzo_renzi owl:sameAs <http://viaf.org/viaf/40486517> .
+
+schema:Manuscript rdfs:subClassOf schema:CreativeWork .
+
