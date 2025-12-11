@@ -71,7 +71,7 @@ for idx, row in photo_df.iterrows():
     g.add((woman_photo, dcterms.isPartOf, Literal(row["collection"])))
     g.add((woman_photo, dcterms.extent, Literal(row["physical_description"])))
     g.add((woman_photo, dcterms.description, Literal(row["notes"])))
-    g.add((woman_photo, dcterms.identifier, Literal(row["identifiers"])))
+    g.add((woman_photo, schema.identifier, Literal(row["identifiers"])))
     g.add((woman_photo, dcterms.relation, Literal(row["related_works"])))
     g.add((woman_photo, dcterms.rights, Literal(row["rights"])))
     g.add((woman_photo, dcterms.type, Literal(row["resource_type"])))
