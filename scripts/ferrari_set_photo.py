@@ -54,7 +54,6 @@ g = graph_bindings()
 for idx, row in set_photo.iterrows():
     g.add((ferrari_set_photo, RDF.type, schema.Photograph))
     g.add((schema.Photograph, RDFS.subClassOf, schema.CreativeWork))
-    g.add((ferrari_set_photo, schema.identifier, Literal(row["id"])))
     g.add((ferrari_set_photo, schema.identifier, Literal(row["inventory_number"], datatype=XSD.anyURI)))
     g.add((ferrari_set_photo, dc.title, Literal(row["title"])))
     g.add((ferrari_set_photo, dcterms.creator, aldo_ferrari))
