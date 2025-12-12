@@ -12,6 +12,7 @@ rrr:ferrari_set_photo a schema:Photograph ;
     dc:title "FAF01878.001" ;
     dcterms:creator rrr:aldo_ferrari ;
     dcterms:isPartOf "Fondo Aldo Ferrari – Donazione Costantino e Lucia Della Casa" ;
+    dcterms:rights "© Cineteca di Bologna" ;
     crm:P45_consists_of "Analog photographic print" ;
     crm:P52_has_current_owner rrr:cineteca_di_bologna ;
     foaf:depicts rrr:renzo_renzi ;
@@ -21,11 +22,11 @@ rrr:ferrari_set_photo a schema:Photograph ;
     schema:description "Digital surrogate available on the Cineteca di Bologna website." ;
     schema:fileFormat "Digital JPEG surrogate" ;
     schema:identifier "FAF01878.001"^^xsd:anyURI ;
-    schema:license "© Cineteca di Bologna" ;
     schema:locationCreated "Set of the documentary 'Le Notti del Melodramma'" ;
     schema:material "Gelatin silver print" .
 
-rrr:aldo_ferrari owl:sameAs <https://www.wikidata.org/wiki/Q3609208> .
+rrr:aldo_ferrari a foaf:Person ;
+    owl:sameAs <https://www.wikidata.org/wiki/Q3609208> .
 
 rrr:bologna owl:sameAs <http://viaf.org/viaf/257723025> .
 

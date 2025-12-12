@@ -57,6 +57,7 @@ for idx, row in set_photo.iterrows():
     g.add((ferrari_set_photo, schema.identifier, Literal(row["inventory_number"], datatype=XSD.anyURI)))
     g.add((ferrari_set_photo, dc.title, Literal(row["title"])))
     g.add((ferrari_set_photo, dcterms.creator, aldo_ferrari))
+    g.add((aldo_ferrari, RDF.type, foaf.Person))
     g.add((ferrari_set_photo, FOAF.depicts, renzo_renzi))
     g.add((ferrari_set_photo, schema.dateCreated, Literal(row["creation_year"], datatype=XSD.gYear)))
     g.add((ferrari_set_photo, schema.locationCreated, Literal(row["depicted_event"])))
