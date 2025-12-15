@@ -1,0 +1,66 @@
+@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rrr: <https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/> .
+@prefix schema: <https://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+rrr:renzi_collection a dcterms:Collection ;
+    dcterms:hasPart rrr:photo_lastrada_premiere ;
+    dcterms:title "Fondo Iniziative Cineteca" .
+
+rrr:bologna a schema:Place ;
+    owl:sameAs <http://viaf.org/viaf/257723025> .
+
+rrr:cinema_fulgor a schema:MovieTheater ;
+    owl:sameAs <https://www.wikidata.org/wiki/Q36839368> ;
+    schema:location rrr:bologna .
+
+rrr:cineteca_di_bologna a schema:Organization ;
+    owl:sameAs <http://viaf.org/viaf/124960346> .
+
+rrr:federico_fellini a foaf:Person ;
+    owl:sameAs <http://viaf.org/viaf/76315386> .
+
+rrr:giulietta_masina a foaf:Person ;
+    owl:sameAs <http://viaf.org/viaf/37021297> .
+
+rrr:photo_lastrada_premiere a schema:Photograph ;
+    dc:identifier "photo_lastrada_premiere" ;
+    dc:subject "Federico Fellini; Giulietta Masina",
+        "Film premiere of 'La Strada' (1954)" ;
+    dcterms:conformsTo "Scheda F" ;
+    dcterms:created "1954"^^xsd:gYear ;
+    dcterms:creator "Libero Grandi" ;
+    dcterms:description "Indexed in 'Bologna Fotografata' under: Attori e registi cinematografici; Eventi culturali; Personaggi." ;
+    dcterms:extent "Vintage press photograph." ;
+    dcterms:identifier "FIC0414",
+        "IT-CINETECABOLOGNA-FT0001-050499" ;
+    dcterms:medium "Gelatin silver print",
+        "Photographic print" ;
+    dcterms:publisher "Cineteca di Bologna" ;
+    dcterms:relation rrr:la_strada_film,
+        "http://viaf.org/viaf/124960346"^^xsd:anyURI,
+        "http://viaf.org/viaf/176979060"^^xsd:anyURI,
+        "http://viaf.org/viaf/37021297"^^xsd:anyURI,
+        "http://viaf.org/viaf/76315386"^^xsd:anyURI,
+        "https://www.wikidata.org/wiki/Q36839368"^^xsd:anyURI ;
+    dcterms:rights "© Cineteca di Bologna — All rights reserved" ;
+    dcterms:title "Bologna. Cinema Fulgor. Premiere of 'La Strada' with Federico Fellini and Giulietta Masina" ;
+    dcterms:type "Photograph" ;
+    crm:P52_has_current_owner rrr:cineteca_di_bologna ;
+    foaf:depicts rrr:federico_fellini,
+        rrr:giulietta_masina ;
+    schema:about rrr:la_strada_film ;
+    schema:alternateName "Premiere of 'La Strada' at Cinema Fulgor" ;
+    schema:color "black and white" ;
+    schema:contentLocation rrr:cinema_fulgor ;
+    schema:locationCreated "Bologna, Cinema Fulgor (Via Montegrappa)" .
+
+schema:Photograph rdfs:subClassOf schema:CreativeWork .
+
+rrr:la_strada_film owl:sameAs <https://www.wikidata.org/wiki/Q18402> .
+

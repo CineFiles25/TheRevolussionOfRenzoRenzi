@@ -1,0 +1,56 @@
+@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rrr: <https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/> .
+@prefix schema: <https://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+rrr:renzi_collection a dcterms:Collection ;
+    dcterms:hasPart rrr:renzi_interview_2000 ;
+    dcterms:title "Renzo Renzi Collection" .
+
+rrr:bologna a schema:Place ;
+    owl:sameAs <http://viaf.org/viaf/257723025> .
+
+rrr:cineteca_di_bologna a schema:Organization ;
+    owl:sameAs <http://viaf.org/viaf/124960346> .
+
+rrr:renzi_interview_2000 a schema:Interview ;
+    dc:identifier "renzi_interview_2000" ;
+    dc:subject "Renzo Renzi" ;
+    dcterms:conformsTo "FIAF" ;
+    dcterms:created "2000"^^xsd:gYear ;
+    dcterms:description "Interview recorded in VHS format; director and interviewer are not credited.",
+        "Video interview with Renzo Renzi discussing his work and the history of Columbus Film, produced by the Cineteca di Bologna." ;
+    dcterms:format "VHS",
+        "sound" ;
+    dcterms:location rrr:renzo_renzi_library,
+        "Renzo Renzi Library, Cineteca di Bologna" ;
+    dcterms:publisher "Cineteca di Bologna" ;
+    dcterms:relation "http://viaf.org/viaf/124960346"^^xsd:anyURI,
+        "http://viaf.org/viaf/40486517"^^xsd:anyURI,
+        "https://www.geonames.org/3181928/bologna.html"^^xsd:anyURI ;
+    dcterms:rights "© Cineteca di Bologna" ;
+    dcterms:spatial "Bologna, Italy" ;
+    dcterms:title "Il cinema a Bologna: Renzo Renzi e la Columbus film" ;
+    dcterms:type "Video Interview" ;
+    crm:P52_has_current_owner rrr:cineteca_di_bologna ;
+    schema:about rrr:renzo_renzi ;
+    schema:alternateName "Official title screen: 'Il cinema a Bologna – Renzo Renzi e la Columbus film'" ;
+    schema:color "colour" ;
+    schema:duration "56 min" ;
+    schema:inLanguage "it" ;
+    schema:interviewee rrr:renzo_renzi ;
+    schema:locationCreated rrr:bologna ;
+    schema:productionCompany "Cineteca di Bologna" .
+
+rrr:renzo_renzi_library a schema:Library .
+
+schema:Interview rdfs:subClassOf schema:CreativeWork .
+
+rrr:renzo_renzi a foaf:Person ;
+    owl:sameAs <http://viaf.org/viaf/40486517> .
+
