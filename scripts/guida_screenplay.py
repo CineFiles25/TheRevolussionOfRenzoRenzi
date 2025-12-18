@@ -49,6 +49,8 @@ renzi_collection = URIRef(rrr + "renzo_renzi_collection")
 renzi_library = URIRef(rrr + "renzo_renzi_library")
 bologna = URIRef(rrr + "bologna")
 
+# SAMEAS 
+
 g.add((renzo_renzi, OWL.sameAs, URIRef("http://viaf.org/viaf/40486517")))
 g.add((cineteca_di_bologna, OWL.sameAs, URIRef("http://viaf.org/viaf/124960346")))
 

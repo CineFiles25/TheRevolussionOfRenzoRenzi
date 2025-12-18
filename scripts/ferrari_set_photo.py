@@ -1,6 +1,8 @@
 from pandas import read_csv
 from rdflib import Namespace, Graph, RDF, URIRef, OWL, Literal, XSD, RDFS, FOAF
 
+# NAMESPACES
+
 rrr = Namespace("https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/")
 rdf = Namespace("http://www.w3.org/1999/02/22-rdf-syntax-ns#")
 rdfs = Namespace("http://www.w3.org/2000/01/rdf-schema#")
@@ -13,6 +15,8 @@ crm = Namespace("http://www.cidoc-crm.org/cidoc-crm/")
 foaf = Namespace("http://xmlns.com/foaf/0.1/")
 fiaf = Namespace("https://fiaf.github.io/film-related-materials/objects/")
 skos = Namespace("http://www.w3.org/2004/02/skos/core#")
+
+# GRAPH CREATION
 
 g = Graph()
 
@@ -36,11 +40,15 @@ def graph_bindings():
         g.bind(prefix, ns)
     return g
 
+# ENTITIES
+
 ferrari_set_photo = URIRef(rrr + "ferrari_set_photo")
 renzo_renzi = URIRef(rrr + "renzo_renzi")
 aldo_ferrari = URIRef(rrr + "aldo_ferrari")
 cineteca_di_bologna = URIRef(rrr + "cineteca_di_bologna")
 bologna = URIRef(rrr + "bologna")
+
+# SAMEAS
 
 g.add((renzo_renzi, OWL.sameAs, URIRef("http://viaf.org/viaf/40486517")))
 g.add((aldo_ferrari, OWL.sameAs, URIRef("https://www.wikidata.org/wiki/Q3609208")))
