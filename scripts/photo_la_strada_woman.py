@@ -46,6 +46,7 @@ woman_photo = URIRef(rrr + "woman_photo")
 giulietta_masina = URIRef(rrr + "giulietta_masina")
 la_strada_film = URIRef(rrr + "la_strada_film")
 
+
 g.add((la_strada_film, OWL.sameAs, URIRef("https://www.wikidata.org/wiki/Q18402")))
 g.add((giulietta_masina, OWL.sameAs, URIRef("http://viaf.org/viaf/37021297")))
 
@@ -58,6 +59,7 @@ g = graph_bindings()
 for idx, row in photo_df.iterrows():
     g.add((woman_photo, RDF.type, URIRef(schema + "Photograph")))
     g.add((woman_photo, RDFS.subClassOf, URIRef(schema + "CreativeWork")))
+    g.add((woman_photo, dcterms.isPartOf, la_strada_film)) #new information
     g.add((woman_photo, dcterms.title, Literal(row["title"])))
     g.add((woman_photo, dcterms.alternative, Literal(row["other_title_information"])))
     g.add((woman_photo, dcterms.subject, Literal(row["depicted_event"])))

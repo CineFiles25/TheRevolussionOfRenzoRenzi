@@ -55,13 +55,14 @@ g.add((bologna, OWL.sameAs, URIRef("http://viaf.org/viaf/257723025")))
 
 # MAPPING TO ONTOLOGIES
 
-photo_la_strada_fighter = read_csv("../csv/photo_la_strada_fighter.csv", keep_default_na=False, encoding="utf-8")
+photo_la_strada_fighter = read_csv("csv/photo_la_strada_fighter.csv", keep_default_na=False, encoding="utf-8")
 
 g = graph_bindings()
 
 for idx, row in photo_la_strada_fighter.iterrows():
     g.add((fighter_photo, RDF.type, URIRef(schema + "Photograph")))
     g.add((fighter_photo, RDFS.subClassOf, URIRef(schema + "CreativeWork")))
+    g.add((fighter_photo, dcterms.isPartOf, la_strada_film)) #new information
     g.add((fighter_photo, dcterms.title, Literal(row["title"])))
     g.add((fighter_photo, dcterms.alternative, Literal(row["other_title_information"])))
     g.add((fighter_photo, dcterms.subject, Literal(row["depicted_event"])))
@@ -81,6 +82,6 @@ for idx, row in photo_la_strada_fighter.iterrows():
 
 # SERIALIZATION
 
-g.serialize(format="turtle", destination="../ttl/photo_la_strada_fighter.ttl")
+g.serialize(format="turtle", destination="ttl/fighter_photo.ttl")
 
 print("CSV converted to TTL!")

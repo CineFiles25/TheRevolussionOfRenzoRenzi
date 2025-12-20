@@ -7,24 +7,26 @@
 
 rrr:giulietta_masina owl:sameAs <http://viaf.org/viaf/37021297> .
 
-rrr:la_strada_film owl:sameAs <https://www.wikidata.org/wiki/Q18402> .
-
 rrr:woman_photo a schema:Photograph ;
     dcterms:alternative "Set photograph featuring Giulietta Masina as Gelsomina" ;
-    dcterms:created "1954 ca."^^xsd:gYear ;
-    dcterms:description "Set photograph from the film 'La Strada' (1954); rural environment; exact location not identified." ;
+    dcterms:created " \"ca. 1954\""^^xsd:gYear ;
+    dcterms:description "Set photograph from Federico Fellini’s film 'La Strada', showing Gelsomina in a rural environment; exact location unknown." ;
     dcterms:extent "Gelatin silver print; original physical description not provided." ;
-    dcterms:identifier "" ;
-    dcterms:isPartOf "Fondo Fotografie Cineteca" ;
-    dcterms:language "none" ;
+    dcterms:isPartOf rrr:la_strada_film,
+        "Fondo Fotografie Cineteca" ;
+    dcterms:language "" ;
     dcterms:medium "Gelatin silver print" ;
     dcterms:relation "la_strada_film" ;
-    dcterms:rights "Rights status unknown; to be confirmed" ;
-    dcterms:spatial "Italy" ;
+    dcterms:rights "Farabola / Bridgeman Images" ;
+    dcterms:spatial "" ;
     dcterms:subject "Giulietta Masina",
         "Production still from 'La Strada' (1954)" ;
     dcterms:title "Gelsomina eating bread in rural landscape" ;
     dcterms:type "Photograph" ;
     rdfs:subClassOf schema:CreativeWork ;
-    schema:colour "black and white" .
+    schema:colour "black and white" ;
+    schema:identifier "",
+        "OLA309977" .
+
+rrr:la_strada_film owl:sameAs <https://www.wikidata.org/wiki/Q18402> .
 
