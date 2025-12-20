@@ -50,6 +50,8 @@ bologna = URIRef(rrr + "bologna")
 delta_po_river = URIRef(rrr + "delta_po_river")
 columbus_film = URIRef(rrr + "columbus_film")
 
+# SAMEAS 
+
 g.add((renzo_renzi, OWL.sameAs, URIRef("http://viaf.org/viaf/40486517")))
 g.add((cineteca_di_bologna, OWL.sameAs, URIRef("http://viaf.org/viaf/124960346")))
 g.add((bologna, OWL.sameAs, URIRef("http://viaf.org/viaf/257723025")))
@@ -81,7 +83,7 @@ for idx, row in quando_il_po_è_dolce.iterrows():
     g.add((po_documentary, schema.frameRate, Literal(row["format"])))
     g.add((po_documentary, schema.sound, Literal(row["sound"])))
     g.add((po_documentary, schema.about, delta_po_river))
-    g.add((po_documentary, schema.spatialCoverage, delta_po_river))
+    g.add((po_documentary, schema.location, delta_po_river))
     g.add((po_documentary, schema.musicBy, enzo_masetti))
     
 # SERIALIZATION

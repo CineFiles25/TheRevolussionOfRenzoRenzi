@@ -49,6 +49,8 @@ renzi_collection = URIRef(rrr + "renzo_renzi_collection")
 renzi_library = URIRef(rrr + "renzo_renzi_library")
 bologna = URIRef(rrr + "bologna")
 
+# SAMEAS 
+
 g.add((renzo_renzi, OWL.sameAs, URIRef("http://viaf.org/viaf/40486517")))
 g.add((cineteca_di_bologna, OWL.sameAs, URIRef("http://viaf.org/viaf/124960346")))
 
@@ -73,8 +75,9 @@ for idx, row in guida_per_camminare_all_ombra.iterrows():
     g.add((guida_screenplay, dcterms.provenance, Literal(row["archival_description"])))
     g.add((guida_screenplay, crm.P52_has_current_owner, Literal(row["owner"])))
     g.add((guida_screenplay, dcterms.isPartOf, renzi_collection))
-    g.add((guida_screenplay, dcterms.spatial, renzi_library))
+    g.add((guida_screenplay, schema.itemLocation, renzi_library))
     g.add((guida_screenplay, schema.holdingArchive, cineteca_di_bologna))
+    g.add((renzi_collection, crm.P52_has_current_owner, cineteca_di_bologna))
     g.add((guida_screenplay, dcterms.description, Literal(row["scope"])))
     g.add((guida_screenplay, dcterms.description, Literal(row["content"])))
     g.add((guida_screenplay, dcterms.accessRights, Literal(row["conditions_governing_access"])))
