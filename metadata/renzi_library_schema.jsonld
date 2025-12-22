@@ -24,12 +24,6 @@
   "openingHoursSpecification": [
     {
       "@type": "OpeningHoursSpecification",
-      "dayOfWeek": "Monday",
-      "opens": "14:00",
-      "closes": "20:00"
-    },
-    {
-      "@type": "OpeningHoursSpecification",
       "dayOfWeek": [
         "Tuesday",
         "Wednesday",
