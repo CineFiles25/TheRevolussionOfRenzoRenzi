@@ -74,7 +74,7 @@ for idx, row in guida_per_camminare_all_ombra.iterrows():
     g.add((guida_screenplay, dbo.writer, renzo_renzi))   
     g.add((guida_screenplay, dcterms.provenance, Literal(row["archival_description"])))
     g.add((guida_screenplay, crm.P52_has_current_owner, Literal(row["owner"])))
-    g.add((guida_screenplay, dcterms.isPartOf, renzi_collection))
+    g.add((renzi_collection, dcterms.hasPart, guida_screenplay))
     g.add((guida_screenplay, schema.itemLocation, renzi_library))
     g.add((guida_screenplay, schema.holdingArchive, cineteca_di_bologna))
     g.add((renzi_collection, crm.P52_has_current_owner, cineteca_di_bologna))
