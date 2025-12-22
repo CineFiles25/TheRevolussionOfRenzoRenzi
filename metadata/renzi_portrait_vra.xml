@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vra xmlns="http://www.vraweb.org/vracore4.htm"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xsi:schemaLocation="http://www.vraweb.org/vracore4.htm http://www.loc.gov/standards/vracore/vra.xsd">
+    
+    <work id="renzi_portrait">
+        <agentSet>
+            <agent pref="true">
+                <name type="family">Renzi family</name>
+                <role vocab="aat">photographers</role>
+            </agent>
+            <agent>
+                <name type="personal" vocab="viaf">Renzi, Renzo</name>
+                <role vocab="aat">subjects</role>
+            </agent>
+        </agentSet>
+        
+        <dateSet>
+            <date type="creation" pref="true">
+                <earliestDate>unknown</earliestDate>
+            </date>
+        </dateSet>
+        
+        <descriptionSet>
+            <description pref="true">Photograph of Renzo Renzi taking a photograph. Black and white gelatin silver print from the Renzo Renzi Fund.</description>
+            <description>Vintage gelatin silver print. Original analog photograph.</description>
+            <description>Digital surrogate available on the Cineteca di Bologna website.</description>
+        </descriptionSet>
+        
+        <locationSet>
+            <location type="repository">
+                <name>Cineteca di Bologna</name>
+            </location>
+            <location type="owner">
+                <name>Renzi Estate</name>
+            </location>
+        </locationSet>
+        
+        <materialSet>
+            <material pref="true">gelatin silver print</material>
+        </materialSet>
+        
+        <sourceSet>
+            <source pref="true">
+                <name type="repository">Cineteca di Bologna</name>
+                <name type="collection">Renzo Renzi Fund</name>
+                <refid type="accession">Famiglia-Renzi_002</refid>
+            </source>
+            <source>
+                <name type="owner">Renzi Estate</name>
+            </source>
+        </sourceSet>
+        
+        <subjectSet>
+            <subject>
+                <term type="activity" vocab="aat">photography</term>
+            </subject>
+            <subject>
+                <term type="genre" vocab="aat">portrait photographs</term>
+            </subject>
+        </subjectSet>
+        
+        <techniqueSet>
+            <technique pref="true" vocab="aat">gelatin silver printing</technique>
+        </techniqueSet>
+        
+        <titleSet>
+            <title pref="true">Famiglia-Renzi_002</title>
+        </titleSet>
+        
+        <worktypeSet>
+            <worktype>photograph</worktype>
+        </worktypeSet>
+    </work>
+</vra>

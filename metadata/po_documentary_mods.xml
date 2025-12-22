@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mods xmlns="http://www.loc.gov/mods/v3"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-8.xsd"
+      version="3.8">
+    
+    <titleInfo>
+        <title>Quando il Po è dolce</title>
+    </titleInfo>
+    
+    <titleInfo type="alternative">
+        <title>When the Po River is Fresh</title>
+    </titleInfo>
+    
+    <name type="personal" usage="primary">
+        <namePart>Renzi, Renzo</namePart>
+        <role>
+            <roleTerm type="text">director</roleTerm>
+            <roleTerm type="code" authority="marcrelator">drt</roleTerm>
+        </role>
+    </name>
+    
+    <name type="personal">
+        <namePart>Renzi, Renzo</namePart>
+        <role>
+            <roleTerm type="text">writer</roleTerm>
+            <roleTerm type="code" authority="marcrelator">wrt</roleTerm>
+        </role>
+    </name>
+    
+    <name type="personal">
+        <namePart>Masetti, Enzo</namePart>
+        <role>
+            <roleTerm type="text">composer</roleTerm>
+            <roleTerm type="code" authority="marcrelator">cmp</roleTerm>
+        </role>
+        <nameIdentifier type="viaf">http://viaf.org/viaf/56806835</nameIdentifier>
+    </name>
+    
+    <name type="corporate">
+        <namePart>Columbus Film</namePart>
+        <role>
+            <roleTerm type="text">production company</roleTerm>
+        </role>
+    </name>
+    
+    <typeOfResource>two dimensional moving image</typeOfResource>
+    
+    <genre authority="lccn">short films</genre>
+    <genre authority="lccn">documentary films</genre>
+    <genre authority="aat">documentary films</genre>
+    
+    <originInfo>
+        <place>
+            <placeTerm type="text">Italy</placeTerm>
+            <placeTerm type="code" authority="marccountry">it</placeTerm>
+        </place>
+        <publisher>Columbus Film</publisher>
+        <dateIssued>1952</dateIssued>
+        <dateIssued encoding="iso8601">1952</dateIssued>
+    </originInfo>
+    
+    <language>
+        <languageTerm type="text">Italian</languageTerm>
+        <languageTerm type="code" authority="iso639-2b">ita</languageTerm>
+    </language>
+    
+    <physicalDescription>
+        <form authority="gmd">motion picture</form>
+        <extent>300 m; 11 min.</extent>
+        <note type="material">35 mm film</note>
+        <note type="color">black and white</note>
+        <note type="sound">sound</note>
+    </physicalDescription>
+    
+    <abstract>Documentary short film about the Po Delta region in Italy, exploring the natural landscape and characteristics of the Po River. Directed and written by Renzo Renzi with music by Enzo Masetti.</abstract>
+    
+    <subject>
+        <geographic>Po Delta</geographic>
+    </subject>
+    
+    <subject>
+        <geographic>Italy</geographic>
+    </subject>
+    
+    <subject>
+        <topic>Natural landscape</topic>
+    </subject>
+    
+    <relatedItem type="otherVersion" displayLabel="Work Record">
+        <identifier type="wikidata">https://www.wikidata.org/wiki/Q1530152</identifier>
+    </relatedItem>
+    
+    <identifier type="local">po_documentary</identifier>
+    
+    <note type="cataloging standard">FIAF Cataloguing Rules</note>
+    
+    <note type="format and edition">Edition: 1989; Original: 35 mm, black and white, sound</note>
+    
+    <accessCondition type="use and reproduction">© Cineteca di Bologna — All rights reserved</accessCondition>
+    
+    <recordInfo>
+        <recordContentSource authority="marcorg">IT-CB</recordContentSource>
+        <recordCreationDate encoding="iso8601">2024</recordCreationDate>
+        <languageOfCataloging>
+            <languageTerm type="code" authority="iso639-2b">eng</languageTerm>
+        </languageOfCataloging>
+    </recordInfo>
+    
+</mods>

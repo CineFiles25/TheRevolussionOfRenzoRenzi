@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vra xmlns="http://www.vraweb.org/vracore4.htm"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xsi:schemaLocation="http://www.vraweb.org/vracore4.htm http://www.loc.gov/standards/vracore/vra.xsd">
+    
+    <work id="ferrari_set_photo">
+        <agentSet>
+            <agent pref="true">
+                <name type="personal" vocab="viaf">Ferrari, Aldo</name>
+                <role vocab="aat">photographers</role>
+            </agent>
+            <agent>
+                <name type="personal" vocab="viaf">Renzi, Renzo</name>
+                <role vocab="aat">subjects</role>
+            </agent>
+        </agentSet>
+        
+        <dateSet>
+            <date type="creation" pref="true">
+                <earliestDate>1959</earliestDate>
+                <latestDate>1959</latestDate>
+            </date>
+        </dateSet>
+        
+        <descriptionSet>
+            <description pref="true">Set photograph from the documentary 'Le Notti del Melodramma' showing Renzo Renzi in Bologna.</description>
+            <description>Vintage gelatin silver print. Original analog photograph.</description>
+            <description>Digital surrogate available on the Cineteca di Bologna website.</description>
+        </descriptionSet>
+        
+        <locationSet>
+            <location pref="true" type="creation">
+                <name>Bologna</name>
+            </location>
+            <location type="repository">
+                <name>Cineteca di Bologna</name>
+            </location>
+        </locationSet>
+        
+        <materialSet>
+            <material pref="true">gelatin silver print</material>
+        </materialSet>
+        
+        <relationSet>
+            <relation type="depicts">Set of the documentary 'Le Notti del Melodramma'</relation>
+        </relationSet>
+        
+        <sourceSet>
+            <source pref="true">
+                <name type="corporate" vocab="viaf">Cineteca di Bologna</name>
+                <refid type="repository">FAF01878.001</refid>
+            </source>
+        </sourceSet>
+        
+        <subjectSet>
+            <subject>
+                <term type="event" vocab="aat">documentary film production</term>
+            </subject>
+            <subject>
+                <term type="genre" vocab="aat">documentary photographs</term>
+            </subject>
+        </subjectSet>
+        
+        <techniqueSet>
+            <technique pref="true" vocab="aat">gelatin silver printing</technique>
+        </techniqueSet>
+        
+        <titleSet>
+            <title pref="true" type="repository">FAF01878.001</title>
+        </titleSet>
+        
+        <worktypeSet>
+            <worktype>photograph</worktype>
+        </worktypeSet>
+    </work>    
+</vra>
