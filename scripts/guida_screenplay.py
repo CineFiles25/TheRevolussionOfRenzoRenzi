@@ -40,6 +40,8 @@ def graph_bindings():
         g.bind(prefix, ns)
     return g
 
+g = graph_bindings()
+
 # ENTITIES
 
 guida_screenplay = URIRef(rrr + "guida_per_camminare_all_ombra")
@@ -57,8 +59,6 @@ g.add((cineteca_di_bologna, OWL.sameAs, URIRef("http://viaf.org/viaf/124960346")
 # MAPPING
 
 guida_per_camminare_all_ombra = read_csv("../csv/guida_screenplay.csv", keep_default_na=False, encoding="utf-8")
-
-g = graph_bindings()
 
 for idx, row in guida_per_camminare_all_ombra.iterrows():
     g.add((guida_screenplay, RDF.type, schema.Manuscript))

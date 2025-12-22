@@ -40,6 +40,8 @@ def graph_bindings():
         g.bind(prefix, ns)
     return g
 
+g = graph_bindings()
+
 # ENTITIES
 
 po_documentary = URIRef(rrr + "quando_il_po_è_dolce")
@@ -61,8 +63,6 @@ g.add((enzo_masetti, OWL.sameAs, URIRef("http://viaf.org/viaf/56806835")))
 # MAPPING
 
 quando_il_po_è_dolce = read_csv("../csv/po_documentary.csv", keep_default_na=False, encoding="utf-8")
-
-g = graph_bindings()
 
 for idx, row in quando_il_po_è_dolce.iterrows():
     g.add((po_documentary, RDF.type, schema.Movie))

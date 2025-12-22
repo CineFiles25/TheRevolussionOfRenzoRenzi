@@ -40,6 +40,8 @@ def graph_bindings():
         g.bind(prefix, ns)
     return g
 
+g = graph_bindings()
+
 # ENTITIES
 
 ferrari_set_photo = URIRef(rrr + "ferrari_set_photo")
@@ -56,8 +58,6 @@ g.add((cineteca_di_bologna, OWL.sameAs, URIRef("http://viaf.org/viaf/124960346")
 g.add((bologna, OWL.sameAs, URIRef("http://viaf.org/viaf/257723025")))
 
 set_photo = read_csv("../csv/ferrari_set_photo.csv", keep_default_na=False, encoding="utf-8")
-
-g = graph_bindings()
 
 for idx, row in set_photo.iterrows():
     g.add((ferrari_set_photo, RDF.type, schema.Photograph))

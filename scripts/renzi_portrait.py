@@ -40,6 +40,8 @@ def graph_bindings():
         g.bind(prefix, ns)
     return g
 
+g = graph_bindings()
+
 # ENTITIES 
 
 renzi_portrait = URIRef(rrr + "portrait_of_renzo_renzi")
@@ -54,11 +56,9 @@ g.add((renzo_renzi, OWL.sameAs, URIRef("http://viaf.org/viaf/40486517")))
 g.add((cineteca_di_bologna, OWL.sameAs, URIRef("http://viaf.org/viaf/124960346")))
 g.add((bologna, OWL.sameAs, URIRef("http://viaf.org/viaf/257723025")))
 
-# MAPPING TO ONTOLOGIES
+# MAPPING 
 
 portrait_of_renzo_renzi = read_csv("../csv/renzi_portrait.csv", keep_default_na=False, encoding="utf-8")
-
-g = graph_bindings()
 
 for idx, row in portrait_of_renzo_renzi.iterrows():
     g.add((renzi_portrait, RDF.type, schema.Photograph))

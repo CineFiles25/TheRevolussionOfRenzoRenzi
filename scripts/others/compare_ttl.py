@@ -13,7 +13,7 @@ def load_graph(path: Path) -> Graph:
 
 def main() -> int:
     if len(sys.argv) != 3:
-        print("Usage: python scripts/compare_ttl.py path/to/first.ttl path/to/second.ttl")
+        print("Usage: python scripts/others/compare_ttl.py path/to/first.ttl path/to/second.ttl")
         return 1
 
     first_path = Path(sys.argv[1])
@@ -67,3 +67,5 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
+
+print("Problem found")

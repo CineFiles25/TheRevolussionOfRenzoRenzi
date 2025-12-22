@@ -40,6 +40,8 @@ def graph_bindings():
         g.bind(prefix, ns)
     return g
 
+g = graph_bindings()
+
 # ENTITIES 
 
 renzi_library = URIRef(rrr + "renzo_renzi_library")
@@ -57,8 +59,6 @@ g.add((bologna, OWL.sameAs, URIRef("http://viaf.org/viaf/257723025")))
 # MAPPING 
 
 renzo_renzi_library = read_csv("../csv/renzi_library.csv", keep_default_na=False, encoding="utf-8")
-
-g = graph_bindings()
 
 for idx, row in renzo_renzi_library.iterrows():
     g.add((renzi_library, RDF.type, schema.Library))
