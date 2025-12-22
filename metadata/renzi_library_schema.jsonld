@@ -1,19 +1,17 @@
 {
-  "@context": "[https://schema.org](https://schema.org)",
+  "@context": "https://schema.org",
   "@type": "Library",
-  "@id": "[https://cinetecadibologna.it/biblioteca/#library](https://cinetecadibologna.it/biblioteca/#library)",
+  "@id": "https://cinetecadibologna.it/biblioteca/#library",
   "name": "Biblioteca Renzo Renzi",
   "alternateName": "Library of the Cineteca di Bologna",
   "description": "Library specialized in cinema and photography, part of the Cineteca di Bologna.",
-  "identifier": "IT-BO0286",
-  "url": "[https://cinetecadibologna.it/biblioteca/](https://cinetecadibologna.it/biblioteca/)",
-  "telephone": "+39 0512194843",
+  "url": "https://cinetecadibologna.it/biblioteca/",
   "email": "cinetecabiblioteca@cineteca.bologna.it",
+  "telephone": "+39 0512194843",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "Piazzetta Pier Paolo Pasolini 3/B",
     "addressLocality": "Bologna",
-    "postalCode": "40122",
     "addressCountry": "IT"
   },
   "geo": {
@@ -21,6 +19,44 @@
     "latitude": 44.50284,
     "longitude": 11.33449
   },
+  "areaServed": "Bologna, Italy",
+  "parentOrganization": {
+    "@type": "Organization",
+    "name": "Cineteca di Bologna",
+    "url": "http://viaf.org/viaf/124960346"
+  },
+  "namedAfter": {
+    "@type": "Person",
+    "name": "Renzo Renzi",
+    "url": "http://viaf.org/viaf/40486517"
+  },
+  "foundingDate": "1967",
+  "buildingCompletionDate": "1884",
+  "buildingType": "Architectural complex",
+  "originalFunction": "Former municipal slaughterhouse (ex-Macello)",
+  "structureProperty": {
+    "@type": "PropertyValue",
+    "name": "area",
+    "value": "2,403 m²"
+  },
+  "seatingCapacity": "65",
+  "amenityFeature": [
+    {
+      "@type": "LocationFeatureSpecification",
+      "name": "Accessible",
+      "value": true
+    },
+    {
+      "@type": "LocationFeatureSpecification",
+      "name": "Audio System",
+      "value": "4 speakers; mixer; 2 table microphones; 1 wireless microphone"
+    },
+    {
+      "@type": "LocationFeatureSpecification",
+      "name": "Video System",
+      "value": "2×2 m screen"
+    }
+  ],
   "openingHoursSpecification": [
     {
       "@type": "OpeningHoursSpecification",
@@ -40,14 +76,7 @@
       "closes": "15:00"
     }
   ],
-  "parentOrganization": {
-    "@type": "Organization",
-    "name": "Cineteca di Bologna",
-    "sameAs": "[http://viaf.org/viaf/124960346](http://viaf.org/viaf/124960346)"
-  },
-  "amenityFeature": {
-    "@type": "LocationFeatureSpecification",
-    "name": "Accessible",
-    "value": true
-  }
+  "openingHours": "Tue-Fri: 12:00-18:00 | Sat: 09:30-15:00",
+  "publicAccess": true,
+  "opac": "https://sol.unibo.it/SebinaOpac/.do?pb=UBOCX"
 }
