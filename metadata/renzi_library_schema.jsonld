@@ -1,135 +1,59 @@
 {
-  "@context": "https://schema.org",
+  "@context": "[https://schema.org](https://schema.org)",
   "@type": "Library",
-  "@id": "https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/renzo_renzi_library",
-  "identifier": {
-    "@type": "PropertyValue",
-    "propertyID": "ISIL",
-    "value": "IT-BO0286"
-  },
+  "@id": "[https://cinetecadibologna.it/biblioteca/#library](https://cinetecadibologna.it/biblioteca/#library)",
   "name": "Biblioteca Renzo Renzi",
   "alternateName": "Library of the Cineteca di Bologna",
-  "description": "The Renzo Renzi Library is a specialized library dedicated to cinema and audiovisual arts, housed within the Cineteca di Bologna. It serves as both a research facility and archive.",
-  "url": "https://cinetecadibologna.it/biblioteca/",
-  "email": "cinetecabiblioteca@cineteca.bologna.it",
+  "description": "Library specialized in cinema and photography, part of the Cineteca di Bologna.",
+  "identifier": "IT-BO0286",
+  "url": "[https://cinetecadibologna.it/biblioteca/](https://cinetecadibologna.it/biblioteca/)",
   "telephone": "+39 0512194843",
+  "email": "cinetecabiblioteca@cineteca.bologna.it",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "Piazzetta Pier Paolo Pasolini 3/B",
     "addressLocality": "Bologna",
-    "addressCountry": "IT",
-    "postalCode": "40125"
+    "postalCode": "40122",
+    "addressCountry": "IT"
   },
   "geo": {
     "@type": "GeoCoordinates",
     "latitude": 44.50284,
     "longitude": 11.33449
   },
-  "areaServed": {
-    "@type": "Place",
-    "@id": "https://www.geonames.org/3181928/bologna.html",
-    "name": "Bologna"
-  },
-  "accessibility": "Fully accessible",
-  "knowsAbout": [
-    {
-      "@type": "Thing",
-      "name": "Cinema and Film Studies"
-    },
-    {
-      "@type": "Thing",
-      "name": "Audiovisual Archives"
-    },
-    {
-      "@type": "Thing",
-      "name": "Italian Cinema History"
-    }
-  ],
-  "publicAccess": true,
   "openingHoursSpecification": [
     {
       "@type": "OpeningHoursSpecification",
-      "description": "Monday to Friday: 10:00-18:00; Closed Saturdays and Sundays"
-    }
-  ],
-  "photo": {
-    "@type": "ImageObject",
-    "url": "https://cinetecadibologna.it/biblioteca/"
-  },
-  "isPartOf": {
-    "@type": "Organization",
-    "@id": "http://viaf.org/viaf/124960346",
-    "name": "Cineteca di Bologna",
-    "url": "https://cinetecadibologna.it/"
-  },
-  "owner": {
-    "@type": "Organization",
-    "@id": "http://viaf.org/viaf/124960346",
-    "name": "Cineteca di Bologna"
-  },
-  "namedAfter": {
-    "@type": "Person",
-    "@id": "http://viaf.org/viaf/40486517",
-    "name": "Renzi, Renzo",
-    "description": "Italian filmmaker, screenwriter, and film archivist"
-  },
-  "foundingDate": "1967",
-  "buildingCompletionDate": "1884",
-  "containedIn": {
-    "@type": "Place",
-    "name": "Cineteca di Bologna"
-  },
-  "building": {
-    "@type": "Place",
-    "name": "Former municipal slaughterhouse (ex-Macello)",
-    "description": "Historic architectural complex repurposed as cultural institution"
-  },
-  "floorSize": {
-    "@type": "QuantitativeValue",
-    "value": 2403,
-    "unitCode": "MTK"
-  },
-  "seatingCapacity": 65,
-  "amenityFeature": [
-    {
-      "@type": "LocationFeatureSpecification",
-      "name": "Audio System",
-      "value": "4 speakers; mixer; 2 table microphones; 1 wireless microphone"
+      "dayOfWeek": "Monday",
+      "opens": "14:00",
+      "closes": "20:00"
     },
     {
-      "@type": "LocationFeatureSpecification",
-      "name": "Video System",
-      "value": "2×2 m screen"
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+      ],
+      "opens": "12:00",
+      "closes": "18:00"
     },
     {
-      "@type": "LocationFeatureSpecification",
-      "name": "Reading Rooms",
-      "value": "Multiple specialized reading rooms for archival research"
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Saturday",
+      "opens": "09:30",
+      "closes": "15:00"
     }
   ],
-  "collection": {
-    "@type": "CreativeWork",
-    "name": "Renzo Renzi Fund",
-    "description": "Archival collection including manuscripts, photographs, and audiovisual materials"
-  },
-  "catalog": {
-    "@type": "Thing",
-    "name": "OPAC Catalog",
-    "url": "https://sol.unibo.it/SebinaOpac/.do?pb=UBOCX"
-  },
-  "potentialAction": {
-    "@type": "SearchAction",
-    "target": "https://sol.unibo.it/SebinaOpac/.do?pb=UBOCX",
-    "query-input": "required name=search_term_string"
-  },
-  "copyrightYear": 1967,
-  "copyrightHolder": {
-    "@type": "Organization",
-    "name": "Cineteca di Bologna"
-  },
-  "mainEntity": {
+  "parentOrganization": {
     "@type": "Organization",
     "name": "Cineteca di Bologna",
-    "url": "https://cinetecadibologna.it/"
+    "sameAs": "[http://viaf.org/viaf/124960346](http://viaf.org/viaf/124960346)"
+  },
+  "amenityFeature": {
+    "@type": "LocationFeatureSpecification",
+    "name": "Accessible",
+    "value": true
   }
 }
