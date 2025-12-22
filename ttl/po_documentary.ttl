@@ -1,5 +1,6 @@
 @prefix dbo: <http://dbpedia.org/ontology/> .
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix rrr: <https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/> .
@@ -30,11 +31,13 @@ rrr:quando_il_po_è_dolce a schema:Movie ;
     schema:productionCompany rrr:columbus_film ;
     schema:sound "sound" .
 
-rrr:enzo_masetti owl:sameAs <http://viaf.org/viaf/56806835> .
+rrr:enzo_masetti a foaf:Person ;
+    owl:sameAs <http://viaf.org/viaf/56806835> .
 
 schema:Movie rdfs:subClassOf schema:CreativeWork .
 
-rrr:delta_po_river owl:sameAs <http://viaf.org/viaf/316432038> .
+rrr:delta_po_river a schema:Landform ;
+    owl:sameAs <http://viaf.org/viaf/316432038> .
 
 rrr:renzo_renzi owl:sameAs <http://viaf.org/viaf/40486517> .
 

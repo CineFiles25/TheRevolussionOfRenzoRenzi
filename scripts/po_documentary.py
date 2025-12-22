@@ -84,7 +84,9 @@ for idx, row in quando_il_po_è_dolce.iterrows():
     g.add((po_documentary, schema.sound, Literal(row["sound"])))
     g.add((po_documentary, schema.about, delta_po_river))
     g.add((po_documentary, schema.location, delta_po_river))
+    g.add((delta_po_river, RDF.type, schema.Landform))
     g.add((po_documentary, schema.musicBy, enzo_masetti))
+    g.add((enzo_masetti, RDF.type, foaf.Person))
     
 # SERIALIZATION
 

@@ -30,7 +30,8 @@ rrr:aldo_ferrari a foaf:Person ;
 
 rrr:bologna owl:sameAs <http://viaf.org/viaf/257723025> .
 
-rrr:cineteca_di_bologna owl:sameAs <http://viaf.org/viaf/124960346> ;
+rrr:cineteca_di_bologna a schema:Organization ;
+    owl:sameAs <http://viaf.org/viaf/124960346> ;
     schema:location rrr:bologna .
 
 rrr:renzo_renzi owl:sameAs <http://viaf.org/viaf/40486517> .

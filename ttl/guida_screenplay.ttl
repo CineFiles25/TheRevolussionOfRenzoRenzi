@@ -7,6 +7,10 @@
 @prefix schema: <https://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
+rrr:renzo_renzi_collection a schema:Collection ;
+    dcterms:hasPart rrr:guida_per_camminare_all_ombra ;
+    crm:P52_has_current_owner rrr:cineteca_di_bologna .
+
 rrr:guida_per_camminare_all_ombra a schema:Manuscript ;
     dbo:writer rrr:renzo_renzi ;
     dcterms:accessRights "Access permitted for study and research.",
@@ -17,7 +21,6 @@ rrr:guida_per_camminare_all_ombra a schema:Manuscript ;
         "Item",
         "Narrative" ;
     dcterms:extent "One leaf" ;
-    dcterms:isPartOf rrr:renzo_renzi_collection ;
     dcterms:language "it"^^xsd:language ;
     dcterms:medium "Paper" ;
     dcterms:provenance "Cineteca di Bologna acquired the item after a donation from the Renzi family to the Renzi Fund" ;
@@ -32,11 +35,10 @@ rrr:guida_per_camminare_all_ombra a schema:Manuscript ;
 
 rrr:renzo_renzi owl:sameAs <http://viaf.org/viaf/40486517> .
 
-rrr:renzo_renzi_collection crm:P52_has_current_owner rrr:cineteca_di_bologna .
-
 schema:ArchiveComponent rdfs:subClassOf schema:CreativeWork .
 
 schema:Manuscript rdfs:subClassOf schema:CreativeWork .
 
-rrr:cineteca_di_bologna owl:sameAs <http://viaf.org/viaf/124960346> .
+rrr:cineteca_di_bologna owl:sameAs <http://viaf.org/viaf/124960346> ;
+    schema:location rrr:bologna .
 

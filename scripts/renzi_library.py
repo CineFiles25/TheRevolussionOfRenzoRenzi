@@ -49,6 +49,8 @@ renzo_renzi = URIRef(rrr + "renzo_renzi")
 cineteca_di_bologna = URIRef(rrr + "cineteca_di_bologna")
 bologna = URIRef(rrr + "bologna")
 renzi_collection = URIRef(rrr + "renzi_collection")
+guida_screenplay = URIRef(rrr + "guida_per_camminare_all_ombra")
+book_il_primo_fellini = URIRef(rrr + "book_il_primo_fellini")
 
 # SAMEAS
 
@@ -84,7 +86,13 @@ for idx, row in renzo_renzi_library.iterrows():
     g.add((renzi_library, dc.description, Literal(row["audio_system"])))
     g.add((renzi_library, dc.description, Literal(row["video_system"])))
     g.add((renzi_library, dbo.dedicatedTo, renzo_renzi))
-    g.add((renzi_library, dcterms.hasPart, renzi_collection))
+    g.add((guida_screenplay, schema.location, renzi_library))
+    g.add((book_il_primo_fellini, schema.location, renzi_library))
+    g.add((renzi_collection, schema.location, renzi_library))
+    g.add((renzi_collection, rdf.type, schema.Collection))
+    g.add((renzi_collection, crm.P52_has_current_owner, cineteca_di_bologna))
+    
+   
 
 
 # SERIALIZATION

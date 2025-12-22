@@ -49,6 +49,7 @@ renzo_renzi = URIRef(rrr + "renzo_renzi")
 cineteca_di_bologna = URIRef(rrr + "cineteca_di_bologna")
 bologna = URIRef(rrr + "bologna")
 renzi_collection = URIRef(rrr + "renzo_renzi_collection")
+renzi_library = URIRef(rrr + "renzo_renzi_library")
 
 # SAMEAS
 
@@ -75,8 +76,10 @@ for idx, row in portrait_of_renzo_renzi.iterrows():
     g.add((renzi_portrait, dcterms.isPartOf, Literal(row["collection"])))
     g.add((renzi_portrait, crm.P52_has_current_owner, Literal(row["owner"])))
     g.add((renzi_portrait, dcterms.isPartOf, renzi_collection))
-    g.add((renzi_portrait, crm.P50_has_current_keeper, cineteca_di_bologna))
+    g.add((renzi_collection, schema.location, renzi_library))
+    g.add((renzi_collection, rdf.type, schema.Collection))
     g.add((renzi_collection, crm.P52_has_current_owner, cineteca_di_bologna))
+    g.add((renzi_portrait, crm.P50_has_current_keeper, cineteca_di_bologna))
     g.add((renzi_portrait, schema.description, Literal(row["notes"])))
     g.add((renzi_portrait, dcterms.rights, Literal(row["rights"])))
     
