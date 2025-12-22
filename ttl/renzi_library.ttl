@@ -25,9 +25,6 @@ rrr:cineteca_di_bologna owl:sameAs <http://viaf.org/viaf/124960346> .
 
 rrr:renzo_renzi_library a schema:Library ;
     dbo:dedicatedTo rrr:renzo_renzi ;
-    dc:description "2×2 m screen",
-        "4 speakers; mixer; 2 table microphones; 1 wireless microphone",
-        "Architectural complex" ;
     dc:identifier "IT-BO0286" ;
     crm:P52_has_current_owner rrr:cineteca_di_bologna ;
     owl:sameAs <https://anagrafe.iccu.sbn.it/isil/IT-BO0286> ;
@@ -36,12 +33,16 @@ rrr:renzo_renzi_library a schema:Library ;
     schema:addressLocality rrr:bologna ;
     schema:alternateName "Library of the Cineteca di Bologna" ;
     schema:date "1884"^^xsd:gYear ;
+    schema:description "2×2 m screen",
+        "4 speakers; mixer; 2 table microphones; 1 wireless microphone",
+        "Architectural complex" ;
     schema:email "cinetecabiblioteca@cineteca.bologna.it"^^xsd:anyURI ;
     schema:floorSize "2,403 m²"^^xsd:string ;
     schema:foundingDate "1967"^^xsd:gYear ;
     schema:geo "44.50284, 11.33449" ;
     schema:isAccessibleForFree true ;
     schema:name "Biblioteca Renzo Renzi" ;
+    schema:openingHours "Tue-Fri: 12:00-18:00 | Sat: 09:30-15:00" ;
     schema:seatingCapacity 65 ;
     schema:telephone "+39 0512194843"^^xsd:string ;
     schema:url "https://cinetecadibologna.it/biblioteca/"^^xsd:anyURI .
