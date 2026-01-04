@@ -1,0 +1,502 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+   xmlns:dcterms="http://purl.org/dc/terms/"
+   xmlns:foaf="http://xmlns.com/foaf/0.1/"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+   xmlns:rrr="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/"
+   xmlns:schema="https://schema.org/"
+>
+  <rdf:Description rdf:about="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/seq1_speech_5">
+    <rdf:type rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/Dialog"/>
+    <schema:partOf rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/scene_seq1"/>
+    <schema:position rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</schema:position>
+    <schema:character rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/character_bimbapiccola"/>
+    <rrr:speakerLabel xml:lang="it">Bambina più piccola</rrr:speakerLabel>
+    <schema:text xml:lang="it">Un uomo, grosso, grande...</schema:text>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/seq1-sc3_speech_13">
+    <rdf:type rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/Dialog"/>
+    <schema:partOf rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/scene_seq1-sc3"/>
+    <schema:position rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">13</schema:position>
+    <schema:character rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/character_madre"/>
+    <rrr:speakerLabel xml:lang="it">Madre</rrr:speakerLabel>
+    <schema:text xml:lang="it">Figlia mia! Povera figlia mia!</schema:text>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/character_bambine">
+    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+    <rdf:type rdf:resource="https://schema.org/Person"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/seq1-sc3_speech_7">
+    <rdf:type rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/Dialog"/>
+    <schema:partOf rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/scene_seq1-sc3"/>
+    <schema:position rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">7</schema:position>
+    <schema:character rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/character_madre"/>
+    <rrr:speakerLabel xml:lang="it">Madre</rrr:speakerLabel>
+    <schema:text xml:lang="it">Non ci andare!... Figlia mia, non ci andare!...</schema:text>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/seq1-sc2_para_3">
+    <rdf:type rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/Narrative"/>
+    <schema:partOf rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/scene_seq1-sc2"/>
+    <schema:text xml:lang="it">Ricomincia ad abbracciare e baciare Gelsomina, con un impeto di sincero — ma sempre sgangherato — scoramento amaro.</schema:text>
+    <schema:position rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</schema:position>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/character_madre">
+    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+    <rdf:type rdf:resource="https://schema.org/Person"/>
+    <foaf:name xml:lang="it">Madre di Gelsomina</foaf:name>
+    <schema:name xml:lang="it">Madre di Gelsomina</schema:name>
+    <schema:actor rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/actor_madre"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/character_donna">
+    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+    <rdf:type rdf:resource="https://schema.org/Person"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/seq1-sc3_speech_11">
+    <rdf:type rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/Dialog"/>
+    <schema:partOf rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/scene_seq1-sc3"/>
+    <schema:position rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">11</schema:position>
+    <schema:character rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/character_madre"/>
+    <rrr:speakerLabel xml:lang="it">Madre</rrr:speakerLabel>
+    <schema:text xml:lang="it">La tua roba — Gelsomina, il tuo scialle, il tuo scialle.</schema:text>
+    <rrr:stageDirection xml:lang="it">(agitando uno scialle)</rrr:stageDirection>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/seq1-sc3_speech_8">
+    <rdf:type rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/Dialog"/>
+    <schema:partOf rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/scene_seq1-sc3"/>
+    <schema:position rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8</schema:position>
+    <schema:character rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/character_madre"/>
+    <rrr:speakerLabel xml:lang="it">Madre</rrr:speakerLabel>
+    <schema:text xml:lang="it">Non voglio che te ne vai!... La mia creatura!... La mia figliola!</schema:text>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/seq1-sc2_speech_2">
+    <rdf:type rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/Dialog"/>
+    <schema:partOf rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/scene_seq1-sc2"/>
+    <schema:position rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</schema:position>
+    <schema:character rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/character_madre"/>
+    <rrr:speakerLabel xml:lang="it">Madre</rrr:speakerLabel>
+    <schema:text xml:lang="it">Ti ricordi Zampanò, che prese Rosa?...</schema:text>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/seq1-sc3_speech_3">
+    <rdf:type rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/Dialog"/>
+    <schema:partOf rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/scene_seq1-sc3"/>
+    <schema:position rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</schema:position>
+    <schema:character rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/character_donna"/>
+    <rrr:speakerLabel xml:lang="it">Donna</rrr:speakerLabel>
+    <schema:text xml:lang="it">Dove vai?...</schema:text>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/seq1_speech_1">
+    <rdf:type rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/Dialog"/>
+    <schema:partOf rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/scene_seq1"/>
+    <schema:position rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</schema:position>
+    <schema:character rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/character_bambine"/>
+    <rrr:speakerLabel xml:lang="it">Voci bambine</rrr:speakerLabel>
+    <schema:text xml:lang="it">Gelsomina! ... Gelsomina! ...</schema:text>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/seq1-sc3_para_5">
+    <rdf:type rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/Narrative"/>
+    <schema:partOf rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/scene_seq1-sc3"/>
+    <schema:text xml:lang="it">Zampanò, vicino al carrozzone, si appresta a partire e grida a Gelsomina e alla madre per sollecitarne il commiato.</schema:text>
+    <schema:position rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</schema:position>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/seq1_para_2">
+    <rdf:type rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/Narrative"/>
+    <schema:partOf rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/scene_seq1"/>
+    <schema:text xml:lang="it">Quattro bimbette tra i sei e gli otto anni, scalze, vestite di stracci, si dirigono correndo verso la ragazza che avanza dal fondo, seguitando a chiamarla.</schema:text>
+    <schema:position rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</schema:position>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/seq1-sc2_para_4">
+    <rdf:type rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/Narrative"/>
+    <schema:partOf rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/scene_seq1-sc2"/>
+    <schema:text xml:lang="it">Gelsomina, che ha sempre ascoltato con gli occhi gonfi di lacrime per la morte della sorella, ora ha un lieve sussulto; alza stupefatta, turbata, lo sguardo su sua madre, poi lo volge su Zampanò. La madre continua. Gelsomina tace sempre, turbatissima. Zampanò dice con una cordialità tutta esteriore, da imbonitore:</schema:text>
+    <schema:position rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</schema:position>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/character_zampano">
+    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+    <rdf:type rdf:resource="https://schema.org/Person"/>
+    <foaf:name xml:lang="it">Zampanò</foaf:name>
+    <schema:name xml:lang="it">Zampanò</schema:name>
+    <schema:actor rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/actor_zampano"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/seq1-sc3_speech_12">
+    <rdf:type rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/Dialog"/>
+    <schema:partOf rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/scene_seq1-sc3"/>
+    <schema:position rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">12</schema:position>
+    <schema:character rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/character_zampano"/>
+    <rrr:speakerLabel xml:lang="it">Zampanò</rrr:speakerLabel>
+    <schema:text xml:lang="it">Salta dentro!</schema:text>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/seq1-sc2_speech_7">
+    <rdf:type rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/Dialog"/>
+    <schema:partOf rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/scene_seq1-sc2"/>
+    <schema:position rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">7</schema:position>
+    <schema:character rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/character_madre"/>
+    <rrr:speakerLabel xml:lang="it">Madre</rrr:speakerLabel>
+    <schema:text xml:lang="it">Eh, Gelsomina? Zampanò è buono sai? Ti tratta bene, ti porta in giro per il mondo, canti, balli, e poi vedi cosa mi ha dato, Gelsomina? Mi ha dato diecimila lire! Guarda ce le ho qui... Diecimila lire! Devo fare aggiustare il tetto e queste creature mangiano un po’... Ma perché ci ha lasciato vostro padre! Gelsomina mia! Tu sei già grande un lavoro non l’hai mai fatto, non è mica colpa tua, poverina, se non sei come le altre ragazze... Non vuoi un po' aiutare la tua mamma? E voi le insegnerete un mestiere, vero Zampanò?</schema:text>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/seq1-sc3_para_3">
+    <rdf:type rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/Narrative"/>
+    <schema:partOf rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/scene_seq1-sc3"/>
+    <schema:text xml:lang="it">Tace qualche istante; poi si mette a correre verso la motocicletta, inconsultamente, come per sfuggire alla paura e al pianto. La madre le grida, querula, improvvisamente angosciata:</schema:text>
+    <schema:position rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</schema:position>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/seq1-sc3_para_9">
+    <rdf:type rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/Narrative"/>
+    <schema:partOf rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/scene_seq1-sc3"/>
+    <schema:text xml:lang="it">Il veicolo infila a forte velocità la lunga strada deserta, seguito per un breve tratto dalle sorelline di Gelsomina che continuano a salutare. Gelsomina dall’apertura posteriore del motociclo risponde loro agitando la mano, poi con le lacrime agli occhi e con grande tristezza abbassa lentamente il tendone.</schema:text>
+    <schema:position rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">9</schema:position>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/seq1-sc3_para_7">
+    <rdf:type rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/Narrative"/>
+    <schema:partOf rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/scene_seq1-sc3"/>
+    <schema:text xml:lang="it">Zampanò ha già avviato il motore ed invita bruscamente Gelsomina a salire sulla roulotte.</schema:text>
+    <schema:position rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">7</schema:position>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/seq1-sc3_speech_5">
+    <rdf:type rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/Dialog"/>
+    <schema:partOf rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/scene_seq1-sc3"/>
+    <schema:position rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</schema:position>
+    <schema:character rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/character_donna"/>
+    <rrr:speakerLabel xml:lang="it">Donna</rrr:speakerLabel>
+    <schema:text xml:lang="it">E quando torni?...</schema:text>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/seq1-sc2_speech_10">
+    <rdf:type rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/Dialog"/>
+    <schema:partOf rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/scene_seq1-sc2"/>
+    <schema:position rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</schema:position>
+    <schema:character rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/character_madre"/>
+    <rrr:speakerLabel xml:lang="it">Madre</rrr:speakerLabel>
+    <schema:text xml:lang="it">Gelsomina! ... ma perché fai così? Vieni qui...</schema:text>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/lastrada_screenplay_seq1">
+    <rdf:type rdf:resource="https://schema.org/CreativeWork"/>
+    <rdf:type rdf:resource="http://www.tei-c.org/ns/1.0/TEI"/>
+    <dcterms:title xml:lang="it">La strada — Sequenza I</dcterms:title>
+    <schema:author>Federico Fellini</schema:author>
+    <schema:editor>Renzo Renzi</schema:editor>
+    <schema:publisher>Cappelli</schema:publisher>
+    <schema:datePublished rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear">1969</schema:datePublished>
+    <schema:inLanguage>it</schema:inLanguage>
+    <schema:character rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/character_gelsomina"/>
+    <schema:character rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/character_zampano"/>
+    <schema:character rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/character_madre"/>
+    <schema:character rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/character_bambine"/>
+    <schema:character rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/character_bimbapiccola"/>
+    <schema:character rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/character_bimbagrande"/>
+    <schema:character rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/character_donna"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/seq1-sc3_para_4">
+    <rdf:type rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/Narrative"/>
+    <schema:partOf rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/scene_seq1-sc3"/>
+    <schema:text xml:lang="it">Raggiunge Gelsomina, e prende ad abbracciarla e a stringerla, in modo eccessivo, sgangherato, lamentandosi e piangendo. Poi Gelsomina si china ad abbracciare le sorelline.</schema:text>
+    <schema:position rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</schema:position>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/scene_seq1-sc4">
+    <rdf:type rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/Scene"/>
+    <schema:partOf rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/lastrada_screenplay_seq1"/>
+    <schema:position rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</schema:position>
+    <rrr:setting xml:lang="it">Esterno. Strada costiera. Giorno.</rrr:setting>
+    <schema:location rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/place_strada"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/seq1_para_1">
+    <rdf:type rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/Narrative"/>
+    <schema:partOf rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/scene_seq1"/>
+    <schema:text xml:lang="it">In fondo ad una brughiera deserta, costeggiante una lunghissima spiaggia orlata di spume bianche, si distingue una figuretta femminile, che avanza tra i bassi cespugli recando qualcosa. Voci di bambine gridano un richiamo.</schema:text>
+    <schema:position rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</schema:position>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/seq1_speech_6">
+    <rdf:type rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/Dialog"/>
+    <schema:partOf rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/scene_seq1"/>
+    <schema:position rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6</schema:position>
+    <schema:character rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/character_bimbagrande"/>
+    <rrr:speakerLabel xml:lang="it">Bambina più grande</rrr:speakerLabel>
+    <schema:text xml:lang="it">Dice che Rosa è morta...</schema:text>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/seq1-sc3_para_6">
+    <rdf:type rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/Narrative"/>
+    <schema:partOf rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/scene_seq1-sc3"/>
+    <schema:text xml:lang="it">Gelsomina si mette a correre verso Zampanò. La madre e le sorelline la rincorrono salutandola. Gelsomina si arresta, si volta verso di loro e con atteggiamento buffonesco fa un saluto militare.</schema:text>
+    <schema:position rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6</schema:position>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/seq1-sc2_para_5">
+    <rdf:type rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/Narrative"/>
+    <schema:partOf rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/scene_seq1-sc2"/>
+    <schema:text xml:lang="it">Toglie di tasca del denaro, lo porge ad una delle ragazzine con l’atto e tono di grandiosità istrionica:</schema:text>
+    <schema:position rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</schema:position>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/seq1_speech_4">
+    <rdf:type rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/Dialog"/>
+    <schema:partOf rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/scene_seq1"/>
+    <schema:position rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</schema:position>
+    <schema:character rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/character_gelsomina"/>
+    <rrr:speakerLabel xml:lang="it">Gelsomina</rrr:speakerLabel>
+    <schema:text xml:lang="it">Chi è? ...</schema:text>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/seq1-sc2_speech_9">
+    <rdf:type rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/Dialog"/>
+    <schema:partOf rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/scene_seq1-sc2"/>
+    <schema:position rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">9</schema:position>
+    <schema:character rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/character_zampano"/>
+    <rrr:speakerLabel xml:lang="it">Zampanò</rrr:speakerLabel>
+    <schema:text xml:lang="it">Ehi, bambini, andate a comprare un chilo di salame, mezzo chilo di formaggio e due fiaschi di vino. Sono fatto così, io, tenete, avanti, andate.</schema:text>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/seq1_speech_2">
+    <rdf:type rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/Dialog"/>
+    <schema:partOf rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/scene_seq1"/>
+    <schema:position rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</schema:position>
+    <schema:character rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/character_bambine"/>
+    <rrr:speakerLabel xml:lang="it">Bambine</rrr:speakerLabel>
+    <schema:text xml:lang="it">Gelsomina! ... Gelsomina! ...</schema:text>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/place_capanna">
+    <rdf:type rdf:resource="https://schema.org/Place"/>
+    <schema:name xml:lang="it">capanna di Gelsomina</schema:name>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/seq1_speech_3">
+    <rdf:type rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/Dialog"/>
+    <schema:partOf rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/scene_seq1"/>
+    <schema:position rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</schema:position>
+    <schema:character rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/character_bambine"/>
+    <rrr:speakerLabel xml:lang="it">Bambine</rrr:speakerLabel>
+    <schema:text xml:lang="it">Dice la mamma di andare subito... È venuto un uomo... Dice di andare subito...</schema:text>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/seq1-sc2_speech_11">
+    <rdf:type rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/Dialog"/>
+    <schema:partOf rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/scene_seq1-sc2"/>
+    <schema:position rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">11</schema:position>
+    <schema:character rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/character_madre"/>
+    <rrr:speakerLabel xml:lang="it">Madre (fuori campo)</rrr:speakerLabel>
+    <schema:text xml:lang="it">Gelsomina! …</schema:text>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/seq1-sc4_para_1">
+    <rdf:type rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/Narrative"/>
+    <schema:partOf rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/scene_seq1-sc4"/>
+    <schema:text xml:lang="it">La motocicletta cammina a forte andatura lasciandosi alle spalle le ultime baracche che costeggiano la strada.</schema:text>
+    <schema:position rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</schema:position>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/seq1-sc2_para_6">
+    <rdf:type rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/Narrative"/>
+    <schema:partOf rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/scene_seq1-sc2"/>
+    <schema:text xml:lang="it">Ma Gelsomina, che fino ad ora è rimasta silenziosa, turbata, a occhi bassi, ora si volge verso la spiaggia e senza dir parola si allontana. La madre la chiama, allarmata e lamentosa.</schema:text>
+    <schema:position rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6</schema:position>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/character_gelsomina">
+    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+    <rdf:type rdf:resource="https://schema.org/Person"/>
+    <foaf:name xml:lang="it">Gelsomina</foaf:name>
+    <schema:name xml:lang="it">Gelsomina</schema:name>
+    <schema:actor rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/actor_gelsomina"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/scene_seq1-sc3">
+    <rdf:type rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/Scene"/>
+    <schema:partOf rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/lastrada_screenplay_seq1"/>
+    <schema:position rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</schema:position>
+    <rrr:setting xml:lang="it">Esterno. Capanna di Gelsomina. Giorno.</rrr:setting>
+    <schema:location rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/place_capanna"/>
+    <rrr:transition xml:lang="it">DISSOLVENZA.</rrr:transition>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/character_bimbapiccola">
+    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+    <rdf:type rdf:resource="https://schema.org/Person"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/place_brughiera">
+    <rdf:type rdf:resource="https://schema.org/Place"/>
+    <schema:name xml:lang="it">brughiera</schema:name>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/actor_madre">
+    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+    <foaf:name>Anna Primula</foaf:name>
+    <rdfs:seeAlso rdf:resource="https://viaf.org/viaf/161276276"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/seq1_para_3">
+    <rdf:type rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/Narrative"/>
+    <schema:partOf rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/scene_seq1"/>
+    <schema:text xml:lang="it">La ragazza che avanza è, come le bimbe, scalza e vestita di stracci. Ha una strana espressione, tra grave e svagata, sul volto mutevole. Reca sotto il braccio alcune legne che ha raccolte; i richiami delle bimbe non la inducono affatto ad affrettare il passo.</schema:text>
+    <schema:position rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</schema:position>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/seq1-sc2_para_7">
+    <rdf:type rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/Narrative"/>
+    <schema:partOf rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/scene_seq1-sc2"/>
+    <schema:text xml:lang="it">Gelsomina non risponde. Si piega su sé stessa accovacciandosi sui talloni, e rimane così, con lo sguardo vagante sulle onde. Di nuovo si sente la voce della madre che la chiama.</schema:text>
+    <schema:position rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">7</schema:position>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/actor_gelsomina">
+    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+    <foaf:name>Giulietta Masina</foaf:name>
+    <rdfs:seeAlso rdf:resource="https://viaf.org/viaf/37021297"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/seq1-sc3_speech_4">
+    <rdf:type rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/Dialog"/>
+    <schema:partOf rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/scene_seq1-sc3"/>
+    <schema:position rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</schema:position>
+    <schema:character rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/character_gelsomina"/>
+    <rrr:speakerLabel xml:lang="it">Gelsomina</rrr:speakerLabel>
+    <schema:text xml:lang="it">Vado in giro, a lavorare... M'insegno un mestiere, poi mando i soldi a casa... Faccio anch’io l’artista... Vado a lavorare anch’io come Rosa...</schema:text>
+    <rrr:stageDirection xml:lang="it">(si interrompe bruscamente, come se il nome di Rosa l’avesse ridestata alla realtà, si incupisce)</rrr:stageDirection>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/seq1-sc2_speech_6">
+    <rdf:type rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/Dialog"/>
+    <schema:partOf rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/scene_seq1-sc2"/>
+    <schema:position rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6</schema:position>
+    <schema:character rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/character_madre"/>
+    <rrr:speakerLabel xml:lang="it">Madre</rrr:speakerLabel>
+    <schema:text xml:lang="it">Al posto di Rosa? T'insegna un mestiere anche a te... guadagni qualcosa anche te e qui in casa è una bocca di meno da sfamare...</schema:text>
+    <rrr:stageDirection xml:lang="it">Rivolgendosi a Gelsomina.</rrr:stageDirection>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/seq1-sc2_para_2">
+    <rdf:type rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/Narrative"/>
+    <schema:partOf rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/scene_seq1-sc2"/>
+    <schema:text xml:lang="it">-pienti di latta, ci sono: la madre di Gelsomina, un uomo alto, massiccio, greve, indossante una giacca di cuoio, e le altre sorelline di Gelsomina: quattro bimbe fra i cinque e i dodici anni. La madre, che tiene in braccio un bambino, è una donnetta sfinita dalla miseria, sgangheratamente e pateticamente lamentosa. Subito, come vede Gelsomina, la chiama.</schema:text>
+    <schema:position rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</schema:position>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/seq1-sc2_para_1">
+    <rdf:type rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/Narrative"/>
+    <schema:partOf rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/scene_seq1-sc2"/>
+    <schema:text xml:lang="it">Gelsomina, con le due sorelline, giunge correndo davanti alla sua casa. La casa di Gelsomina è una capanna di assi, allineata con molte altre simili sulla fila di dune che limitano una lunghissima spiaggia semideserta. Davanti alla capanna, su una specie di terrazzino ottenuto con dei reci-</schema:text>
+    <schema:position rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</schema:position>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/seq1-sc2_speech_8">
+    <rdf:type rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/Dialog"/>
+    <schema:partOf rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/scene_seq1-sc2"/>
+    <schema:position rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8</schema:position>
+    <schema:character rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/character_zampano"/>
+    <rrr:speakerLabel xml:lang="it">Zampanò</rrr:speakerLabel>
+    <schema:text xml:lang="it">Sicuro! Faccio imparare persino ai cani io...</schema:text>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/seq1-sc2_speech_1">
+    <rdf:type rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/Dialog"/>
+    <schema:partOf rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/scene_seq1-sc2"/>
+    <schema:position rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</schema:position>
+    <schema:character rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/character_madre"/>
+    <rrr:speakerLabel xml:lang="it">Madre</rrr:speakerLabel>
+    <schema:text xml:lang="it">Gelsomina! ...</schema:text>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/seq1-sc2_speech_3">
+    <rdf:type rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/Dialog"/>
+    <schema:partOf rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/scene_seq1-sc2"/>
+    <schema:position rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</schema:position>
+    <schema:character rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/character_madre"/>
+    <rrr:speakerLabel xml:lang="it">Madre</rrr:speakerLabel>
+    <schema:text xml:lang="it">Povera figlia mia! ... Non vedrò mai nemmeno dove l’hanno sotterrata!</schema:text>
+    <rrr:stageDirection xml:lang="it">(poi, subito, piangendo)</rrr:stageDirection>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/seq1-sc3_speech_1">
+    <rdf:type rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/Dialog"/>
+    <schema:partOf rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/scene_seq1-sc3"/>
+    <schema:position rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</schema:position>
+    <schema:character rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/character_donna"/>
+    <rrr:speakerLabel xml:lang="it">Donna</rrr:speakerLabel>
+    <schema:text xml:lang="it">Te ne vai, Gelsomina?...</schema:text>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/seq1-sc3_speech_2">
+    <rdf:type rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/Dialog"/>
+    <schema:partOf rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/scene_seq1-sc3"/>
+    <schema:position rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</schema:position>
+    <schema:character rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/character_gelsomina"/>
+    <rrr:speakerLabel xml:lang="it">Gelsomina</rrr:speakerLabel>
+    <schema:text xml:lang="it">Parto. Me ne vado.</schema:text>
+    <rrr:stageDirection xml:lang="it">(con stonata baldanzosità)</rrr:stageDirection>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/seq1-sc3_para_8">
+    <rdf:type rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/Narrative"/>
+    <schema:partOf rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/scene_seq1-sc3"/>
+    <schema:text xml:lang="it">Gelsomina ha un attimo di smarrimento poi sale rapidamente sulla motocarrozzetta. La madre sempre più angosciata grida:</schema:text>
+    <schema:position rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8</schema:position>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/scene_seq1-sc2">
+    <rdf:type rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/Scene"/>
+    <schema:partOf rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/lastrada_screenplay_seq1"/>
+    <schema:position rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</schema:position>
+    <rrr:setting xml:lang="it">Esterno. Capanna di Gelsomina. Giorno.</rrr:setting>
+    <schema:location rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/place_capanna"/>
+    <rrr:transition xml:lang="it">DISSOLVENZA INCROCIATA.</rrr:transition>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/place_spiaggia">
+    <rdf:type rdf:resource="https://schema.org/Place"/>
+    <schema:name xml:lang="it">spiaggia</schema:name>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/seq1-sc2_para_8">
+    <rdf:type rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/Narrative"/>
+    <schema:partOf rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/scene_seq1-sc2"/>
+    <schema:text xml:lang="it">Gelsomina non accenna a rispondere. Il suo volto mutevole passa con rapidità da un’ansia lacrimosa a una breve risatina infantile; poi torna ad incupirsi...</schema:text>
+    <schema:position rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8</schema:position>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/seq1-sc3_speech_9">
+    <rdf:type rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/Dialog"/>
+    <schema:partOf rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/scene_seq1-sc3"/>
+    <schema:position rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">9</schema:position>
+    <schema:character rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/character_zampano"/>
+    <rrr:speakerLabel xml:lang="it">Zampanò</rrr:speakerLabel>
+    <schema:text xml:lang="it">Ho detto che torniamo presto!</schema:text>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/seq1-sc3_speech_10">
+    <rdf:type rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/Dialog"/>
+    <schema:partOf rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/scene_seq1-sc3"/>
+    <schema:position rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</schema:position>
+    <schema:character rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/character_gelsomina"/>
+    <rrr:speakerLabel xml:lang="it">Gelsomina</rrr:speakerLabel>
+    <schema:text xml:lang="it">Partenza!</schema:text>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/seq1-sc2_speech_5">
+    <rdf:type rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/Dialog"/>
+    <schema:partOf rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/scene_seq1-sc2"/>
+    <schema:position rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</schema:position>
+    <schema:character rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/character_madre"/>
+    <rrr:speakerLabel xml:lang="it">Madre</rrr:speakerLabel>
+    <schema:text xml:lang="it">Vedete, Zampanò, come le somiglia quest’altra figlia mia... Questa è Gelsomina. Ah! come siamo disgraziati... Io, Zampanò, ve l’ho detto, questa non è come la Rosa. Questa, poverina, è tanto buona... ma se mangia tutti i giorni cambia anche testa... Ci vuoi andare con Zampanò?</schema:text>
+    <rrr:stageDirection xml:lang="it">Rivolgendosi a Zampanò.</rrr:stageDirection>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/seq1-sc3_para_1">
+    <rdf:type rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/Narrative"/>
+    <schema:partOf rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/scene_seq1-sc3"/>
+    <schema:text xml:lang="it">Gelsomina seguita dalle sorelline e dalla madre si avvia rapidamente per raggiungere il carrozzone di Zampanò. Una donna le si fa incontro e le chiede:</schema:text>
+    <schema:position rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</schema:position>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/scene_seq1">
+    <rdf:type rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/Scene"/>
+    <schema:partOf rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/lastrada_screenplay_seq1"/>
+    <schema:position rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</schema:position>
+    <dcterms:title xml:lang="it">PRIMO TEMPO — Sequenza I</dcterms:title>
+    <rrr:logline xml:lang="it">Zampanò compra per diecimila lire circa una ragazza un po’ matta che si chiama Gelsomina, e di notte parte con lei.</rrr:logline>
+    <rrr:setting xml:lang="it">Esterno spiaggia e
+          brughiera. Giorno.</rrr:setting>
+    <rrr:transition xml:lang="it">DISSOLVENZA INCROCIATA.</rrr:transition>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/seq1-sc2_speech_4">
+    <rdf:type rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/Dialog"/>
+    <schema:partOf rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/scene_seq1-sc2"/>
+    <schema:position rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</schema:position>
+    <schema:character rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/character_madre"/>
+    <rrr:speakerLabel xml:lang="it">Madre</rrr:speakerLabel>
+    <schema:text xml:lang="it">È morta... poverina... È morta... Era così bella, così brava, sapeva fare tutto... tutto!</schema:text>
+    <rrr:stageDirection xml:lang="it">(di nuovo a Gelsomina)</rrr:stageDirection>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/seq1-sc3_speech_6">
+    <rdf:type rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/Dialog"/>
+    <schema:partOf rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/scene_seq1-sc3"/>
+    <schema:position rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6</schema:position>
+    <schema:character rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/character_gelsomina"/>
+    <rrr:speakerLabel xml:lang="it">Gelsomina</rrr:speakerLabel>
+    <schema:text xml:lang="it">Quando torno?...</schema:text>
+    <rrr:stageDirection xml:lang="it">(smarrita)</rrr:stageDirection>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/seq1-sc3_para_2">
+    <rdf:type rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/Narrative"/>
+    <schema:partOf rdf:resource="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/scene_seq1-sc3"/>
+    <schema:text xml:lang="it">Gelsomina non risponde subito, smarrita; improvvisamente spaventata, si volge a guardare sua madre.</schema:text>
+    <schema:position rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</schema:position>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/character_bimbagrande">
+    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+    <rdf:type rdf:resource="https://schema.org/Person"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/place_strada">
+    <rdf:type rdf:resource="https://schema.org/Place"/>
+    <schema:name xml:lang="it">strada costiera</schema:name>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/actor_zampano">
+    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+    <foaf:name>Anthony Quinn</foaf:name>
+    <rdfs:seeAlso rdf:resource="https://viaf.org/viaf/14775572"/>
+  </rdf:Description>
+</rdf:RDF>
