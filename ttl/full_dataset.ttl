@@ -224,31 +224,6 @@ rrr:drawing_gelsomina_lastrada a schema:VisualArtwork ;
 rrr:enzo_masetti a foaf:Person ;
     owl:sameAs <http://viaf.org/viaf/56806835> .
 
-rrr:guida_per_camminare_all_ombra a schema:Manuscript ;
-    dbo:writer rrr:renzo_renzi ;
-    dcterms:accessRights "Access permitted for study and research.",
-        "Reproduction only with permission of the Renzi Estate." ;
-    dcterms:alternative "English title:\"Guide to walking in the shade\"" ;
-    dcterms:created "1954-10"^^xsd:gYearMonth ;
-    dcterms:description "7 opening titles of Guida per camminare allombra",
-        "Item",
-        "Narrative" ;
-    dcterms:extent "One leaf" ;
-    dcterms:isPartOf rrr:renzo_renzi_collection ;
-    dcterms:language "it"^^xsd:language ;
-    dcterms:medium "Paper" ;
-    dcterms:provenance "Cineteca di Bologna acquired the item after a donation from the Renzi family to the Renzi Fund" ;
-    dcterms:relation "Typed version/Sequences list" ;
-    dcterms:rights "© Renzi Estate" ;
-    dcterms:spatial rrr:renzo_renzi_library ;
-    dcterms:subject "Portici of Bologna" ;
-    dcterms:title "Sceneggiatura manoscritta di \"Guida per camminare all'ombra\"" ;
-    crm:P52_has_current_owner "Renzi Estate" ;
-    schema:additionalType schema:ArchiveComponent ;
-    schema:holdingArchive rrr:cineteca_di_bologna ;
-    schema:itemLocation rrr:renzo_renzi_library ;
-    schema:location rrr:renzo_renzi_library .
-
 rrr:nino_rota a foaf:Person ;
     owl:sameAs <http://viaf.org/viaf/88980189> .
 
@@ -332,10 +307,36 @@ rrr:giulietta_masina a foaf:Person ;
     owl:sameAs <http://viaf.org/viaf/37021297>,
         <http://viaf.org/viaf/96166248> .
 
+rrr:guida_per_camminare_all_ombra a schema:Manuscript ;
+    dbo:writer rrr:renzo_renzi ;
+    dcterms:accessRights "Access permitted for study and research.",
+        "Reproduction only with permission of the Renzi Estate." ;
+    dcterms:alternative "English title:\"Guide to walking in the shade\"" ;
+    dcterms:created "1954-10"^^xsd:gYearMonth ;
+    dcterms:description "7 opening titles of Guida per camminare allombra",
+        "Item",
+        "Narrative" ;
+    dcterms:extent "One leaf" ;
+    dcterms:isPartOf rrr:renzo_renzi_collection ;
+    dcterms:language "it"^^xsd:language ;
+    dcterms:medium "Paper" ;
+    dcterms:provenance "Cineteca di Bologna acquired the item after a donation from the Renzi family to the Renzi Fund" ;
+    dcterms:relation "Typed version/Sequences list" ;
+    dcterms:rights "© Renzi Estate" ;
+    dcterms:spatial rrr:renzo_renzi_library ;
+    dcterms:subject "Portici of Bologna" ;
+    dcterms:title "Sceneggiatura manoscritta di \"Guida per camminare all'ombra\"" ;
+    crm:P52_has_current_owner "Renzi Estate" ;
+    schema:additionalType schema:ArchiveComponent ;
+    schema:holdingArchive rrr:cineteca_di_bologna ;
+    schema:itemLocation rrr:renzo_renzi_library ;
+    schema:location rrr:renzo_renzi_library .
+
 rrr:renzi_collection a dcterms:Collection,
         schema:Collection ;
     dcterms:hasPart rrr:caricature_fellini_renzi,
         rrr:drawing_gelsomina_lastrada,
+        rrr:guida_per_camminare_all_ombra,
         rrr:photo_lastrada_premiere,
         rrr:renzi_interview_2000 ;
     dcterms:title "Fondo Iniziative Cineteca",

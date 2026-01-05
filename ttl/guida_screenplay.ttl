@@ -7,7 +7,7 @@
 @prefix schema: <https://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-rrr:renzo_renzi_collection a schema:Collection ;
+rrr:renzi_collection a dcterms:Collection ;
     dcterms:hasPart rrr:guida_per_camminare_all_ombra ;
     crm:P52_has_current_owner rrr:cineteca_di_bologna .
 
