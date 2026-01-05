@@ -12,42 +12,42 @@ rrr:place_brughiera a schema:Place ;
 rrr:place_spiaggia a schema:Place ;
     schema:name "spiaggia"@it .
 
-rrr:seq1-sc2_para_1 a <http://purl.org/spar/doco/Paragraph> ;
+rrr:seq1-sc2_para_1 a schema:Text ;
     schema:partOf rrr:scene_seq1-sc2 ;
     schema:position 1 ;
     schema:text "Gelsomina, con le due sorelline, giunge correndo davanti alla sua casa. La casa di Gelsomina è una capanna di assi, allineata con molte altre simili sulla fila di dune che limitano una lunghissima spiaggia semideserta. Davanti alla capanna, su una specie di terrazzino ottenuto con dei reci-"@it .
 
-rrr:seq1-sc2_para_2 a <http://purl.org/spar/doco/Paragraph> ;
+rrr:seq1-sc2_para_2 a schema:Text ;
     schema:partOf rrr:scene_seq1-sc2 ;
     schema:position 2 ;
     schema:text "-pienti di latta, ci sono: la madre di Gelsomina, un uomo alto, massiccio, greve, indossante una giacca di cuoio, e le altre sorelline di Gelsomina: quattro bimbe fra i cinque e i dodici anni. La madre, che tiene in braccio un bambino, è una donnetta sfinita dalla miseria, sgangheratamente e pateticamente lamentosa. Subito, come vede Gelsomina, la chiama."@it .
 
-rrr:seq1-sc2_para_3 a <http://purl.org/spar/doco/Paragraph> ;
+rrr:seq1-sc2_para_3 a schema:Text ;
     schema:partOf rrr:scene_seq1-sc2 ;
     schema:position 3 ;
     schema:text "Ricomincia ad abbracciare e baciare Gelsomina, con un impeto di sincero — ma sempre sgangherato — scoramento amaro."@it .
 
-rrr:seq1-sc2_para_4 a <http://purl.org/spar/doco/Paragraph> ;
+rrr:seq1-sc2_para_4 a schema:Text ;
     schema:partOf rrr:scene_seq1-sc2 ;
     schema:position 4 ;
     schema:text "Gelsomina, che ha sempre ascoltato con gli occhi gonfi di lacrime per la morte della sorella, ora ha un lieve sussulto; alza stupefatta, turbata, lo sguardo su sua madre, poi lo volge su Zampanò. La madre continua. Gelsomina tace sempre, turbatissima. Zampanò dice con una cordialità tutta esteriore, da imbonitore:"@it .
 
-rrr:seq1-sc2_para_5 a <http://purl.org/spar/doco/Paragraph> ;
+rrr:seq1-sc2_para_5 a schema:Text ;
     schema:partOf rrr:scene_seq1-sc2 ;
     schema:position 5 ;
     schema:text "Toglie di tasca del denaro, lo porge ad una delle ragazzine con l’atto e tono di grandiosità istrionica:"@it .
 
-rrr:seq1-sc2_para_6 a <http://purl.org/spar/doco/Paragraph> ;
+rrr:seq1-sc2_para_6 a schema:Text ;
     schema:partOf rrr:scene_seq1-sc2 ;
     schema:position 6 ;
     schema:text "Ma Gelsomina, che fino ad ora è rimasta silenziosa, turbata, a occhi bassi, ora si volge verso la spiaggia e senza dir parola si allontana. La madre la chiama, allarmata e lamentosa."@it .
 
-rrr:seq1-sc2_para_7 a <http://purl.org/spar/doco/Paragraph> ;
+rrr:seq1-sc2_para_7 a schema:Text ;
     schema:partOf rrr:scene_seq1-sc2 ;
     schema:position 7 ;
     schema:text "Gelsomina non risponde. Si piega su sé stessa accovacciandosi sui talloni, e rimane così, con lo sguardo vagante sulle onde. Di nuovo si sente la voce della madre che la chiama."@it .
 
-rrr:seq1-sc2_para_8 a <http://purl.org/spar/doco/Paragraph> ;
+rrr:seq1-sc2_para_8 a schema:Text ;
     schema:partOf rrr:scene_seq1-sc2 ;
     schema:position 8 ;
     schema:text "Gelsomina non accenna a rispondere. Il suo volto mutevole passa con rapidità da un’ansia lacrimosa a una breve risatina infantile; poi torna ad incupirsi..."@it .
@@ -133,47 +133,47 @@ rrr:seq1-sc2_speech_9 a schema:Text ;
     schema:position 9 ;
     schema:text "Ehi, bambini, andate a comprare un chilo di salame, mezzo chilo di formaggio e due fiaschi di vino. Sono fatto così, io, tenete, avanti, andate."@it .
 
-rrr:seq1-sc3_para_1 a <http://purl.org/spar/doco/Paragraph> ;
+rrr:seq1-sc3_para_1 a schema:Text ;
     schema:partOf rrr:scene_seq1-sc3 ;
     schema:position 1 ;
     schema:text "Gelsomina seguita dalle sorelline e dalla madre si avvia rapidamente per raggiungere il carrozzone di Zampanò. Una donna le si fa incontro e le chiede:"@it .
 
-rrr:seq1-sc3_para_2 a <http://purl.org/spar/doco/Paragraph> ;
+rrr:seq1-sc3_para_2 a schema:Text ;
     schema:partOf rrr:scene_seq1-sc3 ;
     schema:position 2 ;
     schema:text "Gelsomina non risponde subito, smarrita; improvvisamente spaventata, si volge a guardare sua madre."@it .
 
-rrr:seq1-sc3_para_3 a <http://purl.org/spar/doco/Paragraph> ;
+rrr:seq1-sc3_para_3 a schema:Text ;
     schema:partOf rrr:scene_seq1-sc3 ;
     schema:position 3 ;
     schema:text "Tace qualche istante; poi si mette a correre verso la motocicletta, inconsultamente, come per sfuggire alla paura e al pianto. La madre le grida, querula, improvvisamente angosciata:"@it .
 
-rrr:seq1-sc3_para_4 a <http://purl.org/spar/doco/Paragraph> ;
+rrr:seq1-sc3_para_4 a schema:Text ;
     schema:partOf rrr:scene_seq1-sc3 ;
     schema:position 4 ;
     schema:text "Raggiunge Gelsomina, e prende ad abbracciarla e a stringerla, in modo eccessivo, sgangherato, lamentandosi e piangendo. Poi Gelsomina si china ad abbracciare le sorelline."@it .
 
-rrr:seq1-sc3_para_5 a <http://purl.org/spar/doco/Paragraph> ;
+rrr:seq1-sc3_para_5 a schema:Text ;
     schema:partOf rrr:scene_seq1-sc3 ;
     schema:position 5 ;
     schema:text "Zampanò, vicino al carrozzone, si appresta a partire e grida a Gelsomina e alla madre per sollecitarne il commiato."@it .
 
-rrr:seq1-sc3_para_6 a <http://purl.org/spar/doco/Paragraph> ;
+rrr:seq1-sc3_para_6 a schema:Text ;
     schema:partOf rrr:scene_seq1-sc3 ;
     schema:position 6 ;
     schema:text "Gelsomina si mette a correre verso Zampanò. La madre e le sorelline la rincorrono salutandola. Gelsomina si arresta, si volta verso di loro e con atteggiamento buffonesco fa un saluto militare."@it .
 
-rrr:seq1-sc3_para_7 a <http://purl.org/spar/doco/Paragraph> ;
+rrr:seq1-sc3_para_7 a schema:Text ;
     schema:partOf rrr:scene_seq1-sc3 ;
     schema:position 7 ;
     schema:text "Zampanò ha già avviato il motore ed invita bruscamente Gelsomina a salire sulla roulotte."@it .
 
-rrr:seq1-sc3_para_8 a <http://purl.org/spar/doco/Paragraph> ;
+rrr:seq1-sc3_para_8 a schema:Text ;
     schema:partOf rrr:scene_seq1-sc3 ;
     schema:position 8 ;
     schema:text "Gelsomina ha un attimo di smarrimento poi sale rapidamente sulla motocarrozzetta. La madre sempre più angosciata grida:"@it .
 
-rrr:seq1-sc3_para_9 a <http://purl.org/spar/doco/Paragraph> ;
+rrr:seq1-sc3_para_9 a schema:Text ;
     schema:partOf rrr:scene_seq1-sc3 ;
     schema:position 9 ;
     schema:text "Il veicolo infila a forte velocità la lunga strada deserta, seguito per un breve tratto dalle sorelline di Gelsomina che continuano a salutare. Gelsomina dall’apertura posteriore del motociclo risponde loro agitando la mano, poi con le lacrime agli occhi e con grande tristezza abbassa lentamente il tendone."@it .
@@ -273,22 +273,22 @@ rrr:seq1-sc3_speech_9 a schema:Text ;
     schema:position 9 ;
     schema:text "Ho detto che torniamo presto!"@it .
 
-rrr:seq1-sc4_para_1 a <http://purl.org/spar/doco/Paragraph> ;
+rrr:seq1-sc4_para_1 a schema:Text ;
     schema:partOf rrr:scene_seq1-sc4 ;
     schema:position 1 ;
     schema:text "La motocicletta cammina a forte andatura lasciandosi alle spalle le ultime baracche che costeggiano la strada."@it .
 
-rrr:seq1_para_1 a <http://purl.org/spar/doco/Paragraph> ;
+rrr:seq1_para_1 a schema:Text ;
     schema:partOf rrr:scene_seq1 ;
     schema:position 1 ;
     schema:text "In fondo ad una brughiera deserta, costeggiante una lunghissima spiaggia orlata di spume bianche, si distingue una figuretta femminile, che avanza tra i bassi cespugli recando qualcosa. Voci di bambine gridano un richiamo."@it .
 
-rrr:seq1_para_2 a <http://purl.org/spar/doco/Paragraph> ;
+rrr:seq1_para_2 a schema:Text ;
     schema:partOf rrr:scene_seq1 ;
     schema:position 2 ;
     schema:text "Quattro bimbette tra i sei e gli otto anni, scalze, vestite di stracci, si dirigono correndo verso la ragazza che avanza dal fondo, seguitando a chiamarla."@it .
 
-rrr:seq1_para_3 a <http://purl.org/spar/doco/Paragraph> ;
+rrr:seq1_para_3 a schema:Text ;
     schema:partOf rrr:scene_seq1 ;
     schema:position 3 ;
     schema:text "La ragazza che avanza è, come le bimbe, scalza e vestita di stracci. Ha una strana espressione, tra grave e svagata, sul volto mutevole. Reca sotto il braccio alcune legne che ha raccolte; i richiami delle bimbe non la inducono affatto ad affrettare il passo."@it .

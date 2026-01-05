@@ -5,7 +5,6 @@ from rdflib.namespace import FOAF, DCTERMS
 rrr = Namespace("https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/")
 tei = Namespace("http://www.tei-c.org/ns/1.0/")
 schema = Namespace("https://schema.org/")
-doco = Namespace("http://purl.org/spar/doco/")
 
 g = Graph()
 
@@ -46,17 +45,17 @@ g.add((screenplay, DCTERMS.title, Literal("La strada — Sequenza I", lang="it")
 # Author
 author = root.find(".//tei:author", tei_ns) # find to get the first <author> element
 if author is not None and author.text:
-    g.add((screenplay, schema.author, Literal(author.text)))
+    g.add((screenplay, schema.author, Literal(author.text, lang="it")))
 
 # Editor who compiled the screenplay
 editor = root.find(".//tei:editor", tei_ns)
 if editor is not None and editor.text:
-    g.add((screenplay, schema.editor, Literal(editor.text)))
+    g.add((screenplay, schema.editor, Literal(editor.text, lang="it")))
 
 # Publisher
 publisher = root.find(".//tei:publisher", tei_ns)
 if publisher is not None and publisher.text:
-    g.add((screenplay, schema.publisher, Literal(publisher.text)))
+    g.add((screenplay, schema.publisher, Literal(publisher.text, lang="it")))
 
 # Publication date
 date = root.find(".//tei:date[@when]", tei_ns)
@@ -150,7 +149,7 @@ for div in root.findall(".//tei:div[@type='scene']", tei_ns):
         para_text = ''.join(para.itertext()).strip() # get full text within <p>, concatenating all text nodes and stripping whitespace
         if para_text:
             para_uri = URIRef(rrr + f"{scene_id}_para_{para_counter}")
-            g.add((para_uri, RDF.type, doco.Paragraph)) # found in DOCO ontology for document components
+            g.add((para_uri, RDF.type, schema.Text)) # found in DOCO ontology for document components
             g.add((para_uri, schema.partOf, scene_uri))
             g.add((para_uri, schema.text, Literal(para_text, lang="it")))
             g.add((para_uri, schema.position, Literal(para_counter, datatype=XSD.integer)))
