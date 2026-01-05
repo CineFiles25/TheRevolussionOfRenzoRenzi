@@ -1,7 +1,6 @@
 import xml.etree.ElementTree as ET
 from rdflib import Graph, Namespace, Literal, URIRef, RDF, RDFS, XSD
 from rdflib.namespace import FOAF, DCTERMS
-import os
 
 rrr = Namespace("https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/")
 tei = Namespace("http://www.tei-c.org/ns/1.0/")
