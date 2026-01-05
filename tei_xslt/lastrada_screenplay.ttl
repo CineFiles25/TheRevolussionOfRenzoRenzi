@@ -1,6 +1,6 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rrr: <https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/> .
 @prefix schema: <https://schema.org/> .
 @prefix tei: <http://www.tei-c.org/ns/1.0/> .
@@ -12,418 +12,411 @@ rrr:place_brughiera a schema:Place ;
 rrr:place_spiaggia a schema:Place ;
     schema:name "spiaggia"@it .
 
-rrr:seq1-sc2_para_1 a rrr:Narrative ;
+rrr:seq1-sc2_para_1 a <http://purl.org/spar/doco/Paragraph> ;
     schema:partOf rrr:scene_seq1-sc2 ;
     schema:position 1 ;
     schema:text "Gelsomina, con le due sorelline, giunge correndo davanti alla sua casa. La casa di Gelsomina è una capanna di assi, allineata con molte altre simili sulla fila di dune che limitano una lunghissima spiaggia semideserta. Davanti alla capanna, su una specie di terrazzino ottenuto con dei reci-"@it .
 
-rrr:seq1-sc2_para_2 a rrr:Narrative ;
+rrr:seq1-sc2_para_2 a <http://purl.org/spar/doco/Paragraph> ;
     schema:partOf rrr:scene_seq1-sc2 ;
     schema:position 2 ;
     schema:text "-pienti di latta, ci sono: la madre di Gelsomina, un uomo alto, massiccio, greve, indossante una giacca di cuoio, e le altre sorelline di Gelsomina: quattro bimbe fra i cinque e i dodici anni. La madre, che tiene in braccio un bambino, è una donnetta sfinita dalla miseria, sgangheratamente e pateticamente lamentosa. Subito, come vede Gelsomina, la chiama."@it .
 
-rrr:seq1-sc2_para_3 a rrr:Narrative ;
+rrr:seq1-sc2_para_3 a <http://purl.org/spar/doco/Paragraph> ;
     schema:partOf rrr:scene_seq1-sc2 ;
     schema:position 3 ;
     schema:text "Ricomincia ad abbracciare e baciare Gelsomina, con un impeto di sincero — ma sempre sgangherato — scoramento amaro."@it .
 
-rrr:seq1-sc2_para_4 a rrr:Narrative ;
+rrr:seq1-sc2_para_4 a <http://purl.org/spar/doco/Paragraph> ;
     schema:partOf rrr:scene_seq1-sc2 ;
     schema:position 4 ;
     schema:text "Gelsomina, che ha sempre ascoltato con gli occhi gonfi di lacrime per la morte della sorella, ora ha un lieve sussulto; alza stupefatta, turbata, lo sguardo su sua madre, poi lo volge su Zampanò. La madre continua. Gelsomina tace sempre, turbatissima. Zampanò dice con una cordialità tutta esteriore, da imbonitore:"@it .
 
-rrr:seq1-sc2_para_5 a rrr:Narrative ;
+rrr:seq1-sc2_para_5 a <http://purl.org/spar/doco/Paragraph> ;
     schema:partOf rrr:scene_seq1-sc2 ;
     schema:position 5 ;
     schema:text "Toglie di tasca del denaro, lo porge ad una delle ragazzine con l’atto e tono di grandiosità istrionica:"@it .
 
-rrr:seq1-sc2_para_6 a rrr:Narrative ;
+rrr:seq1-sc2_para_6 a <http://purl.org/spar/doco/Paragraph> ;
     schema:partOf rrr:scene_seq1-sc2 ;
     schema:position 6 ;
     schema:text "Ma Gelsomina, che fino ad ora è rimasta silenziosa, turbata, a occhi bassi, ora si volge verso la spiaggia e senza dir parola si allontana. La madre la chiama, allarmata e lamentosa."@it .
 
-rrr:seq1-sc2_para_7 a rrr:Narrative ;
+rrr:seq1-sc2_para_7 a <http://purl.org/spar/doco/Paragraph> ;
     schema:partOf rrr:scene_seq1-sc2 ;
     schema:position 7 ;
     schema:text "Gelsomina non risponde. Si piega su sé stessa accovacciandosi sui talloni, e rimane così, con lo sguardo vagante sulle onde. Di nuovo si sente la voce della madre che la chiama."@it .
 
-rrr:seq1-sc2_para_8 a rrr:Narrative ;
+rrr:seq1-sc2_para_8 a <http://purl.org/spar/doco/Paragraph> ;
     schema:partOf rrr:scene_seq1-sc2 ;
     schema:position 8 ;
     schema:text "Gelsomina non accenna a rispondere. Il suo volto mutevole passa con rapidità da un’ansia lacrimosa a una breve risatina infantile; poi torna ad incupirsi..."@it .
 
-rrr:seq1-sc2_speech_1 a rrr:Dialog ;
-    rrr:speakerLabel "Madre"@it ;
-    schema:character rrr:character_madre ;
+rrr:seq1-sc2_speech_1 a schema:Text ;
+    schema:character rrr:character_uri_madre ;
+    schema:name "Madre"@it ;
     schema:partOf rrr:scene_seq1-sc2 ;
     schema:position 1 ;
     schema:text "Gelsomina! ..."@it .
 
-rrr:seq1-sc2_speech_10 a rrr:Dialog ;
-    rrr:speakerLabel "Madre"@it ;
-    schema:character rrr:character_madre ;
+rrr:seq1-sc2_speech_10 a schema:Text ;
+    schema:character rrr:character_uri_madre ;
+    schema:name "Madre"@it ;
     schema:partOf rrr:scene_seq1-sc2 ;
     schema:position 10 ;
     schema:text "Gelsomina! ... ma perché fai così? Vieni qui..."@it .
 
-rrr:seq1-sc2_speech_11 a rrr:Dialog ;
-    rrr:speakerLabel "Madre (fuori campo)"@it ;
-    schema:character rrr:character_madre ;
+rrr:seq1-sc2_speech_11 a schema:Text ;
+    schema:character rrr:character_uri_madre ;
+    schema:name "Madre (fuori campo)"@it ;
     schema:partOf rrr:scene_seq1-sc2 ;
     schema:position 11 ;
     schema:text "Gelsomina! …"@it .
 
-rrr:seq1-sc2_speech_2 a rrr:Dialog ;
-    rrr:speakerLabel "Madre"@it ;
-    schema:character rrr:character_madre ;
+rrr:seq1-sc2_speech_2 a schema:Text ;
+    schema:character rrr:character_uri_madre ;
+    schema:name "Madre"@it ;
     schema:partOf rrr:scene_seq1-sc2 ;
     schema:position 2 ;
     schema:text "Ti ricordi Zampanò, che prese Rosa?..."@it .
 
-rrr:seq1-sc2_speech_3 a rrr:Dialog ;
-    rrr:speakerLabel "Madre"@it ;
-    rrr:stageDirection "(poi, subito, piangendo)"@it ;
-    schema:character rrr:character_madre ;
+rrr:seq1-sc2_speech_3 a schema:Text ;
+    schema:character rrr:character_uri_madre ;
+    schema:description "(poi, subito, piangendo)"@it ;
+    schema:name "Madre"@it ;
     schema:partOf rrr:scene_seq1-sc2 ;
     schema:position 3 ;
     schema:text "Povera figlia mia! ... Non vedrò mai nemmeno dove l’hanno sotterrata!"@it .
 
-rrr:seq1-sc2_speech_4 a rrr:Dialog ;
-    rrr:speakerLabel "Madre"@it ;
-    rrr:stageDirection "(di nuovo a Gelsomina)"@it ;
-    schema:character rrr:character_madre ;
+rrr:seq1-sc2_speech_4 a schema:Text ;
+    schema:character rrr:character_uri_madre ;
+    schema:description "(di nuovo a Gelsomina)"@it ;
+    schema:name "Madre"@it ;
     schema:partOf rrr:scene_seq1-sc2 ;
     schema:position 4 ;
     schema:text "È morta... poverina... È morta... Era così bella, così brava, sapeva fare tutto... tutto!"@it .
 
-rrr:seq1-sc2_speech_5 a rrr:Dialog ;
-    rrr:speakerLabel "Madre"@it ;
-    rrr:stageDirection "Rivolgendosi a Zampanò."@it ;
-    schema:character rrr:character_madre ;
+rrr:seq1-sc2_speech_5 a schema:Text ;
+    schema:character rrr:character_uri_madre ;
+    schema:description "Rivolgendosi a Zampanò."@it ;
+    schema:name "Madre"@it ;
     schema:partOf rrr:scene_seq1-sc2 ;
     schema:position 5 ;
     schema:text "Vedete, Zampanò, come le somiglia quest’altra figlia mia... Questa è Gelsomina. Ah! come siamo disgraziati... Io, Zampanò, ve l’ho detto, questa non è come la Rosa. Questa, poverina, è tanto buona... ma se mangia tutti i giorni cambia anche testa... Ci vuoi andare con Zampanò?"@it .
 
-rrr:seq1-sc2_speech_6 a rrr:Dialog ;
-    rrr:speakerLabel "Madre"@it ;
-    rrr:stageDirection "Rivolgendosi a Gelsomina."@it ;
-    schema:character rrr:character_madre ;
+rrr:seq1-sc2_speech_6 a schema:Text ;
+    schema:character rrr:character_uri_madre ;
+    schema:description "Rivolgendosi a Gelsomina."@it ;
+    schema:name "Madre"@it ;
     schema:partOf rrr:scene_seq1-sc2 ;
     schema:position 6 ;
     schema:text "Al posto di Rosa? T'insegna un mestiere anche a te... guadagni qualcosa anche te e qui in casa è una bocca di meno da sfamare..."@it .
 
-rrr:seq1-sc2_speech_7 a rrr:Dialog ;
-    rrr:speakerLabel "Madre"@it ;
-    schema:character rrr:character_madre ;
+rrr:seq1-sc2_speech_7 a schema:Text ;
+    schema:character rrr:character_uri_madre ;
+    schema:name "Madre"@it ;
     schema:partOf rrr:scene_seq1-sc2 ;
     schema:position 7 ;
     schema:text "Eh, Gelsomina? Zampanò è buono sai? Ti tratta bene, ti porta in giro per il mondo, canti, balli, e poi vedi cosa mi ha dato, Gelsomina? Mi ha dato diecimila lire! Guarda ce le ho qui... Diecimila lire! Devo fare aggiustare il tetto e queste creature mangiano un po’... Ma perché ci ha lasciato vostro padre! Gelsomina mia! Tu sei già grande un lavoro non l’hai mai fatto, non è mica colpa tua, poverina, se non sei come le altre ragazze... Non vuoi un po' aiutare la tua mamma? E voi le insegnerete un mestiere, vero Zampanò?"@it .
 
-rrr:seq1-sc2_speech_8 a rrr:Dialog ;
-    rrr:speakerLabel "Zampanò"@it ;
-    schema:character rrr:character_zampano ;
+rrr:seq1-sc2_speech_8 a schema:Text ;
+    schema:character rrr:character_uri_zampano ;
+    schema:name "Zampanò"@it ;
     schema:partOf rrr:scene_seq1-sc2 ;
     schema:position 8 ;
     schema:text "Sicuro! Faccio imparare persino ai cani io..."@it .
 
-rrr:seq1-sc2_speech_9 a rrr:Dialog ;
-    rrr:speakerLabel "Zampanò"@it ;
-    schema:character rrr:character_zampano ;
+rrr:seq1-sc2_speech_9 a schema:Text ;
+    schema:character rrr:character_uri_zampano ;
+    schema:name "Zampanò"@it ;
     schema:partOf rrr:scene_seq1-sc2 ;
     schema:position 9 ;
     schema:text "Ehi, bambini, andate a comprare un chilo di salame, mezzo chilo di formaggio e due fiaschi di vino. Sono fatto così, io, tenete, avanti, andate."@it .
 
-rrr:seq1-sc3_para_1 a rrr:Narrative ;
+rrr:seq1-sc3_para_1 a <http://purl.org/spar/doco/Paragraph> ;
     schema:partOf rrr:scene_seq1-sc3 ;
     schema:position 1 ;
     schema:text "Gelsomina seguita dalle sorelline e dalla madre si avvia rapidamente per raggiungere il carrozzone di Zampanò. Una donna le si fa incontro e le chiede:"@it .
 
-rrr:seq1-sc3_para_2 a rrr:Narrative ;
+rrr:seq1-sc3_para_2 a <http://purl.org/spar/doco/Paragraph> ;
     schema:partOf rrr:scene_seq1-sc3 ;
     schema:position 2 ;
     schema:text "Gelsomina non risponde subito, smarrita; improvvisamente spaventata, si volge a guardare sua madre."@it .
 
-rrr:seq1-sc3_para_3 a rrr:Narrative ;
+rrr:seq1-sc3_para_3 a <http://purl.org/spar/doco/Paragraph> ;
     schema:partOf rrr:scene_seq1-sc3 ;
     schema:position 3 ;
     schema:text "Tace qualche istante; poi si mette a correre verso la motocicletta, inconsultamente, come per sfuggire alla paura e al pianto. La madre le grida, querula, improvvisamente angosciata:"@it .
 
-rrr:seq1-sc3_para_4 a rrr:Narrative ;
+rrr:seq1-sc3_para_4 a <http://purl.org/spar/doco/Paragraph> ;
     schema:partOf rrr:scene_seq1-sc3 ;
     schema:position 4 ;
     schema:text "Raggiunge Gelsomina, e prende ad abbracciarla e a stringerla, in modo eccessivo, sgangherato, lamentandosi e piangendo. Poi Gelsomina si china ad abbracciare le sorelline."@it .
 
-rrr:seq1-sc3_para_5 a rrr:Narrative ;
+rrr:seq1-sc3_para_5 a <http://purl.org/spar/doco/Paragraph> ;
     schema:partOf rrr:scene_seq1-sc3 ;
     schema:position 5 ;
     schema:text "Zampanò, vicino al carrozzone, si appresta a partire e grida a Gelsomina e alla madre per sollecitarne il commiato."@it .
 
-rrr:seq1-sc3_para_6 a rrr:Narrative ;
+rrr:seq1-sc3_para_6 a <http://purl.org/spar/doco/Paragraph> ;
     schema:partOf rrr:scene_seq1-sc3 ;
     schema:position 6 ;
     schema:text "Gelsomina si mette a correre verso Zampanò. La madre e le sorelline la rincorrono salutandola. Gelsomina si arresta, si volta verso di loro e con atteggiamento buffonesco fa un saluto militare."@it .
 
-rrr:seq1-sc3_para_7 a rrr:Narrative ;
+rrr:seq1-sc3_para_7 a <http://purl.org/spar/doco/Paragraph> ;
     schema:partOf rrr:scene_seq1-sc3 ;
     schema:position 7 ;
     schema:text "Zampanò ha già avviato il motore ed invita bruscamente Gelsomina a salire sulla roulotte."@it .
 
-rrr:seq1-sc3_para_8 a rrr:Narrative ;
+rrr:seq1-sc3_para_8 a <http://purl.org/spar/doco/Paragraph> ;
     schema:partOf rrr:scene_seq1-sc3 ;
     schema:position 8 ;
     schema:text "Gelsomina ha un attimo di smarrimento poi sale rapidamente sulla motocarrozzetta. La madre sempre più angosciata grida:"@it .
 
-rrr:seq1-sc3_para_9 a rrr:Narrative ;
+rrr:seq1-sc3_para_9 a <http://purl.org/spar/doco/Paragraph> ;
     schema:partOf rrr:scene_seq1-sc3 ;
     schema:position 9 ;
     schema:text "Il veicolo infila a forte velocità la lunga strada deserta, seguito per un breve tratto dalle sorelline di Gelsomina che continuano a salutare. Gelsomina dall’apertura posteriore del motociclo risponde loro agitando la mano, poi con le lacrime agli occhi e con grande tristezza abbassa lentamente il tendone."@it .
 
-rrr:seq1-sc3_speech_1 a rrr:Dialog ;
-    rrr:speakerLabel "Donna"@it ;
-    schema:character rrr:character_donna ;
+rrr:seq1-sc3_speech_1 a schema:Text ;
+    schema:character rrr:character_uri_donna ;
+    schema:name "Donna"@it ;
     schema:partOf rrr:scene_seq1-sc3 ;
     schema:position 1 ;
     schema:text "Te ne vai, Gelsomina?..."@it .
 
-rrr:seq1-sc3_speech_10 a rrr:Dialog ;
-    rrr:speakerLabel "Gelsomina"@it ;
-    schema:character rrr:character_gelsomina ;
+rrr:seq1-sc3_speech_10 a schema:Text ;
+    schema:character rrr:character_uri_gelsomina ;
+    schema:name "Gelsomina"@it ;
     schema:partOf rrr:scene_seq1-sc3 ;
     schema:position 10 ;
     schema:text "Partenza!"@it .
 
-rrr:seq1-sc3_speech_11 a rrr:Dialog ;
-    rrr:speakerLabel "Madre"@it ;
-    rrr:stageDirection "(agitando uno scialle)"@it ;
-    schema:character rrr:character_madre ;
+rrr:seq1-sc3_speech_11 a schema:Text ;
+    schema:character rrr:character_uri_madre ;
+    schema:description "(agitando uno scialle)"@it ;
+    schema:name "Madre"@it ;
     schema:partOf rrr:scene_seq1-sc3 ;
     schema:position 11 ;
     schema:text "La tua roba — Gelsomina, il tuo scialle, il tuo scialle."@it .
 
-rrr:seq1-sc3_speech_12 a rrr:Dialog ;
-    rrr:speakerLabel "Zampanò"@it ;
-    schema:character rrr:character_zampano ;
+rrr:seq1-sc3_speech_12 a schema:Text ;
+    schema:character rrr:character_uri_zampano ;
+    schema:name "Zampanò"@it ;
     schema:partOf rrr:scene_seq1-sc3 ;
     schema:position 12 ;
     schema:text "Salta dentro!"@it .
 
-rrr:seq1-sc3_speech_13 a rrr:Dialog ;
-    rrr:speakerLabel "Madre"@it ;
-    schema:character rrr:character_madre ;
+rrr:seq1-sc3_speech_13 a schema:Text ;
+    schema:character rrr:character_uri_madre ;
+    schema:name "Madre"@it ;
     schema:partOf rrr:scene_seq1-sc3 ;
     schema:position 13 ;
     schema:text "Figlia mia! Povera figlia mia!"@it .
 
-rrr:seq1-sc3_speech_2 a rrr:Dialog ;
-    rrr:speakerLabel "Gelsomina"@it ;
-    rrr:stageDirection "(con stonata baldanzosità)"@it ;
-    schema:character rrr:character_gelsomina ;
+rrr:seq1-sc3_speech_2 a schema:Text ;
+    schema:character rrr:character_uri_gelsomina ;
+    schema:description "(con stonata baldanzosità)"@it ;
+    schema:name "Gelsomina"@it ;
     schema:partOf rrr:scene_seq1-sc3 ;
     schema:position 2 ;
     schema:text "Parto. Me ne vado."@it .
 
-rrr:seq1-sc3_speech_3 a rrr:Dialog ;
-    rrr:speakerLabel "Donna"@it ;
-    schema:character rrr:character_donna ;
+rrr:seq1-sc3_speech_3 a schema:Text ;
+    schema:character rrr:character_uri_donna ;
+    schema:name "Donna"@it ;
     schema:partOf rrr:scene_seq1-sc3 ;
     schema:position 3 ;
     schema:text "Dove vai?..."@it .
 
-rrr:seq1-sc3_speech_4 a rrr:Dialog ;
-    rrr:speakerLabel "Gelsomina"@it ;
-    rrr:stageDirection "(si interrompe bruscamente, come se il nome di Rosa l’avesse ridestata alla realtà, si incupisce)"@it ;
-    schema:character rrr:character_gelsomina ;
+rrr:seq1-sc3_speech_4 a schema:Text ;
+    schema:character rrr:character_uri_gelsomina ;
+    schema:description "(si interrompe bruscamente, come se il nome di Rosa l’avesse ridestata alla realtà, si incupisce)"@it ;
+    schema:name "Gelsomina"@it ;
     schema:partOf rrr:scene_seq1-sc3 ;
     schema:position 4 ;
     schema:text "Vado in giro, a lavorare... M'insegno un mestiere, poi mando i soldi a casa... Faccio anch’io l’artista... Vado a lavorare anch’io come Rosa..."@it .
 
-rrr:seq1-sc3_speech_5 a rrr:Dialog ;
-    rrr:speakerLabel "Donna"@it ;
-    schema:character rrr:character_donna ;
+rrr:seq1-sc3_speech_5 a schema:Text ;
+    schema:character rrr:character_uri_donna ;
+    schema:name "Donna"@it ;
     schema:partOf rrr:scene_seq1-sc3 ;
     schema:position 5 ;
     schema:text "E quando torni?..."@it .
 
-rrr:seq1-sc3_speech_6 a rrr:Dialog ;
-    rrr:speakerLabel "Gelsomina"@it ;
-    rrr:stageDirection "(smarrita)"@it ;
-    schema:character rrr:character_gelsomina ;
+rrr:seq1-sc3_speech_6 a schema:Text ;
+    schema:character rrr:character_uri_gelsomina ;
+    schema:description "(smarrita)"@it ;
+    schema:name "Gelsomina"@it ;
     schema:partOf rrr:scene_seq1-sc3 ;
     schema:position 6 ;
     schema:text "Quando torno?..."@it .
 
-rrr:seq1-sc3_speech_7 a rrr:Dialog ;
-    rrr:speakerLabel "Madre"@it ;
-    schema:character rrr:character_madre ;
+rrr:seq1-sc3_speech_7 a schema:Text ;
+    schema:character rrr:character_uri_madre ;
+    schema:name "Madre"@it ;
     schema:partOf rrr:scene_seq1-sc3 ;
     schema:position 7 ;
     schema:text "Non ci andare!... Figlia mia, non ci andare!..."@it .
 
-rrr:seq1-sc3_speech_8 a rrr:Dialog ;
-    rrr:speakerLabel "Madre"@it ;
-    schema:character rrr:character_madre ;
+rrr:seq1-sc3_speech_8 a schema:Text ;
+    schema:character rrr:character_uri_madre ;
+    schema:name "Madre"@it ;
     schema:partOf rrr:scene_seq1-sc3 ;
     schema:position 8 ;
     schema:text "Non voglio che te ne vai!... La mia creatura!... La mia figliola!"@it .
 
-rrr:seq1-sc3_speech_9 a rrr:Dialog ;
-    rrr:speakerLabel "Zampanò"@it ;
-    schema:character rrr:character_zampano ;
+rrr:seq1-sc3_speech_9 a schema:Text ;
+    schema:character rrr:character_uri_zampano ;
+    schema:name "Zampanò"@it ;
     schema:partOf rrr:scene_seq1-sc3 ;
     schema:position 9 ;
     schema:text "Ho detto che torniamo presto!"@it .
 
-rrr:seq1-sc4_para_1 a rrr:Narrative ;
+rrr:seq1-sc4_para_1 a <http://purl.org/spar/doco/Paragraph> ;
     schema:partOf rrr:scene_seq1-sc4 ;
     schema:position 1 ;
     schema:text "La motocicletta cammina a forte andatura lasciandosi alle spalle le ultime baracche che costeggiano la strada."@it .
 
-rrr:seq1_para_1 a rrr:Narrative ;
+rrr:seq1_para_1 a <http://purl.org/spar/doco/Paragraph> ;
     schema:partOf rrr:scene_seq1 ;
     schema:position 1 ;
     schema:text "In fondo ad una brughiera deserta, costeggiante una lunghissima spiaggia orlata di spume bianche, si distingue una figuretta femminile, che avanza tra i bassi cespugli recando qualcosa. Voci di bambine gridano un richiamo."@it .
 
-rrr:seq1_para_2 a rrr:Narrative ;
+rrr:seq1_para_2 a <http://purl.org/spar/doco/Paragraph> ;
     schema:partOf rrr:scene_seq1 ;
     schema:position 2 ;
     schema:text "Quattro bimbette tra i sei e gli otto anni, scalze, vestite di stracci, si dirigono correndo verso la ragazza che avanza dal fondo, seguitando a chiamarla."@it .
 
-rrr:seq1_para_3 a rrr:Narrative ;
+rrr:seq1_para_3 a <http://purl.org/spar/doco/Paragraph> ;
     schema:partOf rrr:scene_seq1 ;
     schema:position 3 ;
     schema:text "La ragazza che avanza è, come le bimbe, scalza e vestita di stracci. Ha una strana espressione, tra grave e svagata, sul volto mutevole. Reca sotto il braccio alcune legne che ha raccolte; i richiami delle bimbe non la inducono affatto ad affrettare il passo."@it .
 
-rrr:seq1_speech_1 a rrr:Dialog ;
-    rrr:speakerLabel "Voci bambine"@it ;
-    schema:character rrr:character_bambine ;
+rrr:seq1_speech_1 a schema:Text ;
+    schema:character rrr:character_uri_bambine ;
+    schema:name "Voci bambine"@it ;
     schema:partOf rrr:scene_seq1 ;
     schema:position 1 ;
     schema:text "Gelsomina! ... Gelsomina! ..."@it .
 
-rrr:seq1_speech_2 a rrr:Dialog ;
-    rrr:speakerLabel "Bambine"@it ;
-    schema:character rrr:character_bambine ;
+rrr:seq1_speech_2 a schema:Text ;
+    schema:character rrr:character_uri_bambine ;
+    schema:name "Bambine"@it ;
     schema:partOf rrr:scene_seq1 ;
     schema:position 2 ;
     schema:text "Gelsomina! ... Gelsomina! ..."@it .
 
-rrr:seq1_speech_3 a rrr:Dialog ;
-    rrr:speakerLabel "Bambine"@it ;
-    schema:character rrr:character_bambine ;
+rrr:seq1_speech_3 a schema:Text ;
+    schema:character rrr:character_uri_bambine ;
+    schema:name "Bambine"@it ;
     schema:partOf rrr:scene_seq1 ;
     schema:position 3 ;
     schema:text "Dice la mamma di andare subito... È venuto un uomo... Dice di andare subito..."@it .
 
-rrr:seq1_speech_4 a rrr:Dialog ;
-    rrr:speakerLabel "Gelsomina"@it ;
-    schema:character rrr:character_gelsomina ;
+rrr:seq1_speech_4 a schema:Text ;
+    schema:character rrr:character_uri_gelsomina ;
+    schema:name "Gelsomina"@it ;
     schema:partOf rrr:scene_seq1 ;
     schema:position 4 ;
     schema:text "Chi è? ..."@it .
 
-rrr:seq1_speech_5 a rrr:Dialog ;
-    rrr:speakerLabel "Bambina più piccola"@it ;
-    schema:character rrr:character_bimbapiccola ;
+rrr:seq1_speech_5 a schema:Text ;
+    schema:character rrr:character_uri_bimbapiccola ;
+    schema:name "Bambina più piccola"@it ;
     schema:partOf rrr:scene_seq1 ;
     schema:position 5 ;
     schema:text "Un uomo, grosso, grande..."@it .
 
-rrr:seq1_speech_6 a rrr:Dialog ;
-    rrr:speakerLabel "Bambina più grande"@it ;
-    schema:character rrr:character_bimbagrande ;
+rrr:seq1_speech_6 a schema:Text ;
+    schema:character rrr:character_uri_bimbagrande ;
+    schema:name "Bambina più grande"@it ;
     schema:partOf rrr:scene_seq1 ;
     schema:position 6 ;
     schema:text "Dice che Rosa è morta..."@it .
 
 rrr:actor_gelsomina a foaf:Person ;
-    rdfs:seeAlso <https://viaf.org/viaf/37021297> ;
+    owl:sameAs <https://viaf.org/viaf/37021297> ;
     foaf:name "Giulietta Masina" .
 
 rrr:actor_madre a foaf:Person ;
-    rdfs:seeAlso <https://viaf.org/viaf/161276276> ;
+    owl:sameAs <https://viaf.org/viaf/161276276> ;
     foaf:name "Anna Primula" .
 
 rrr:actor_zampano a foaf:Person ;
-    rdfs:seeAlso <https://viaf.org/viaf/14775572> ;
+    owl:sameAs <https://viaf.org/viaf/14775572> ;
     foaf:name "Anthony Quinn" .
 
 rrr:place_strada a schema:Place ;
     schema:name "strada costiera"@it .
 
-rrr:scene_seq1-sc4 a rrr:Scene ;
-    rrr:setting "Esterno. Strada costiera. Giorno."@it ;
+rrr:scene_seq1-sc4 a schema:CreativeWork ;
+    dcterms:abstract "Esterno. Strada costiera. Giorno."@it ;
     schema:location rrr:place_strada ;
     schema:partOf rrr:lastrada_screenplay_seq1 ;
     schema:position 4 .
 
-rrr:character_bimbagrande a foaf:Person,
-        schema:Person .
+rrr:character_uri_bimbagrande a foaf:Person .
 
-rrr:character_bimbapiccola a foaf:Person,
-        schema:Person .
+rrr:character_uri_bimbapiccola a foaf:Person .
 
 rrr:place_capanna a schema:Place ;
     schema:name "capanna di Gelsomina"@it .
 
-rrr:character_bambine a foaf:Person,
-        schema:Person .
+rrr:character_uri_bambine a foaf:Person .
 
-rrr:character_donna a foaf:Person,
-        schema:Person .
+rrr:character_uri_donna a foaf:Person .
 
 rrr:lastrada_screenplay_seq1 a tei:TEI,
         schema:CreativeWork ;
     dcterms:title "La strada — Sequenza I"@it ;
     schema:author "Federico Fellini" ;
-    schema:character rrr:character_bambine,
-        rrr:character_bimbagrande,
-        rrr:character_bimbapiccola,
-        rrr:character_donna,
-        rrr:character_gelsomina,
-        rrr:character_madre,
-        rrr:character_zampano ;
+    schema:character rrr:character_uri_bambine,
+        rrr:character_uri_bimbagrande,
+        rrr:character_uri_bimbapiccola,
+        rrr:character_uri_donna,
+        rrr:character_uri_gelsomina,
+        rrr:character_uri_madre,
+        rrr:character_uri_zampano ;
     schema:datePublished "1969"^^xsd:gYear ;
     schema:editor "Renzo Renzi" ;
     schema:inLanguage "it" ;
     schema:publisher "Cappelli" .
 
-rrr:character_zampano a foaf:Person,
-        schema:Person ;
+rrr:character_uri_zampano a foaf:Person ;
     foaf:name "Zampanò"@it ;
     schema:actor rrr:actor_zampano ;
     schema:name "Zampanò"@it .
 
-rrr:character_gelsomina a foaf:Person,
-        schema:Person ;
+rrr:character_uri_gelsomina a foaf:Person ;
     foaf:name "Gelsomina"@it ;
     schema:actor rrr:actor_gelsomina ;
     schema:name "Gelsomina"@it .
 
-rrr:scene_seq1 a rrr:Scene ;
+rrr:scene_seq1 a schema:CreativeWork ;
+    dcterms:abstract """Esterno spiaggia e
+          brughiera. Giorno."""@it,
+        "Zampanò compra per diecimila lire circa una ragazza un po’ matta che si chiama Gelsomina, e di notte parte con lei."@it ;
     dcterms:title "PRIMO TEMPO — Sequenza I"@it ;
-    rrr:logline "Zampanò compra per diecimila lire circa una ragazza un po’ matta che si chiama Gelsomina, e di notte parte con lei."@it ;
-    rrr:setting """Esterno spiaggia e
-          brughiera. Giorno."""@it ;
-    rrr:transition "DISSOLVENZA INCROCIATA."@it ;
+    schema:description "DISSOLVENZA INCROCIATA."@it ;
     schema:partOf rrr:lastrada_screenplay_seq1 ;
     schema:position 1 .
 
-rrr:character_madre a foaf:Person,
-        schema:Person ;
+rrr:character_uri_madre a foaf:Person ;
     foaf:name "Madre di Gelsomina"@it ;
     schema:actor rrr:actor_madre ;
     schema:name "Madre di Gelsomina"@it .
 
-rrr:scene_seq1-sc2 a rrr:Scene ;
-    rrr:setting "Esterno. Capanna di Gelsomina. Giorno."@it ;
-    rrr:transition "DISSOLVENZA INCROCIATA."@it ;
+rrr:scene_seq1-sc2 a schema:CreativeWork ;
+    dcterms:abstract "Esterno. Capanna di Gelsomina. Giorno."@it ;
+    schema:description "DISSOLVENZA INCROCIATA."@it ;
     schema:location rrr:place_capanna ;
     schema:partOf rrr:lastrada_screenplay_seq1 ;
     schema:position 2 .
 
-rrr:scene_seq1-sc3 a rrr:Scene ;
-    rrr:setting "Esterno. Capanna di Gelsomina. Giorno."@it ;
-    rrr:transition "DISSOLVENZA."@it ;
+rrr:scene_seq1-sc3 a schema:CreativeWork ;
+    dcterms:abstract "Esterno. Capanna di Gelsomina. Giorno."@it ;
+    schema:description "DISSOLVENZA."@it ;
     schema:location rrr:place_capanna ;
     schema:partOf rrr:lastrada_screenplay_seq1 ;
     schema:position 3 .
