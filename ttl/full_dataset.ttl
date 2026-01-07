@@ -58,7 +58,6 @@ rrr:ferrari_set_photo a schema:Photograph ;
     schema:fileFormat "Digital JPEG surrogate" ;
     schema:identifier "FAF01878.001"^^xsd:anyURI,
         "ferrari_set_photo" ;
-    schema:license "© Cineteca di Bologna" ;
     schema:locationCreated "Bologna",
         "Set of the documentary 'Le Notti del Melodramma'" ;
     schema:material "Gelatin silver print" .
