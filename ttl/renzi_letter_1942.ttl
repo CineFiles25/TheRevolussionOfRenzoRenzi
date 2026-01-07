@@ -1,0 +1,44 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rrr: <https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/> .
+@prefix schema: <https://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+rrr:renzi_letter_1942 a schema:ArchiveComponent ;
+    dcterms:accessRights "Access permitted for study and research." ;
+    dcterms:alternative "Original title: 'Lettera al padre'" ;
+    dcterms:conformsTo "ISAD(G)" ;
+    dcterms:contributor "" ;
+    dcterms:created "1942-07-24"^^xsd:date ;
+    dcterms:creator rrr:renzo_renzi ;
+    dcterms:description "Personal letter written by Renzo Renzi to his father during World War II, describing his intellectual life at the front." ;
+    dcterms:extent "3 manuscript pages" ;
+    dcterms:identifier "IT-CB-0016-2-9_0001",
+        "renzi_letter_1942" ;
+    dcterms:isPartOf rrr:renzo_renzi_collection ;
+    dcterms:language "it" ;
+    dcterms:medium "Three manuscript pages." ;
+    dcterms:relation "" ;
+    dcterms:rights "Reproduction only with permission of the Renzi Estate.",
+        "© Renzi Estate" ;
+    dcterms:spatial "Renzo Renzi Library, Cineteca di Bologna" ;
+    dcterms:title "Letter to his father" ;
+    dcterms:type "Item" ;
+    schema:additionalType "Handwritten letter" ;
+    schema:associatedMedia <https://cinetecadibologna.it/biblioteca/storia-di-renzo-renzi/#media-slider-13f604c5-01aa-44ab-9b19-0af9195cb28e-3>,
+        <https://cinetecadibologna.it/biblioteca/storia-di-renzo-renzi/#media-slider-13f604c5-01aa-44ab-9b19-0af9195cb28e-4>,
+        <https://cinetecadibologna.it/biblioteca/storia-di-renzo-renzi/#media-slider-13f604c5-01aa-44ab-9b19-0af9195cb28e-5> ;
+    schema:holdingArchive rrr:cineteca_di_bologna ;
+    schema:numberOfPages 3 .
+
+rrr:cineteca_di_bologna dcterms:title "Cineteca di Bologna" ;
+    owl:sameAs <http://viaf.org/viaf/124960346> .
+
+rrr:renzo_renzi owl:sameAs <http://viaf.org/viaf/40486517> .
+
+rrr:renzo_renzi_collection dcterms:title "Renzo Renzi Collection" ;
+    owl:sameAs <http://viaf.org/viaf/124960346> .
+
+schema:ArchiveComponent rdfs:subClassOf schema:CreativeWork .
+
