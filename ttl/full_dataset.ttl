@@ -344,10 +344,6 @@ rrr:renzi_collection a dcterms:Collection,
     crm:P52_has_current_owner rrr:cineteca_di_bologna ;
     schema:location rrr:renzo_renzi_library .
 
-rrr:renzo_renzi_collection a schema:Collection ;
-    dcterms:hasPart rrr:guida_per_camminare_all_ombra ;
-    crm:P52_has_current_owner rrr:cineteca_di_bologna .
-
 schema:Movie rdfs:subClassOf schema:CreativeWork .
 
 schema:VisualArtwork rdfs:subClassOf schema:CreativeWork .
