@@ -791,5 +791,113 @@ a:hover {
   font-style: italic;
 }
 
+/* ===================================================================== */
+/* ADDITIONS for patched index.html (Items table + RDF download + hub box) */
+/* ===================================================================== */
 
+.table-wrap {
+  margin-top: 1rem;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: 14px;
+  border: 1px solid rgba(210, 197, 180, 0.85);
+  background: #ffffff;
+}
 
+.items-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+  min-width: 860px; /* keeps columns readable; container scrolls on mobile */
+}
+
+.items-table thead th {
+  position: sticky;
+  top: 0;
+  background: #f4ece0;
+  color: #4e4337;
+  text-align: left;
+  font-weight: 600;
+  padding: 0.65rem 0.8rem;
+  border-bottom: 1px solid rgba(210, 197, 180, 0.9);
+}
+
+.items-table td {
+  padding: 0.65rem 0.8rem;
+  border-bottom: 1px solid rgba(224, 213, 197, 0.9);
+  vertical-align: top;
+}
+
+.items-table tbody tr:nth-child(even) {
+  background: #f8f3eb;
+}
+
+.items-table a {
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(180, 90, 43, 0.35);
+}
+
+.items-table a:hover {
+  border-bottom-color: rgba(180, 90, 43, 0.75);
+}
+
+.muted {
+  color: #6a5a4c;
+}
+
+.note-muted {
+  margin-top: 0.9rem;
+  font-size: 0.92rem;
+  color: #6a5a4c;
+  font-style: italic;
+}
+
+.download-row {
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  align-items: center;
+}
+
+.hub-card h3 {
+  margin-top: 0;
+}
+
+.hub-links {
+  list-style: none;
+  padding-left: 0;
+  margin: 0.75rem 0 0.6rem;
+}
+
+.hub-links li {
+  margin-bottom: 0.25rem;
+}
+
+/* Dark mode tweaks for new components */
+@media (prefers-color-scheme: dark) {
+  .table-wrap {
+    background: #1b130f;
+    border-color: #3c2920;
+  }
+
+  .items-table thead th {
+    background: #231710;
+    color: #e2d0bf;
+    border-bottom-color: #3c2920;
+  }
+
+  .items-table td {
+    border-bottom-color: #3c2920;
+  }
+
+  .items-table tbody tr:nth-child(even) {
+    background: #231813;
+  }
+
+  .muted,
+  .note-muted {
+    color: #c4b19c;
+  }
+}
