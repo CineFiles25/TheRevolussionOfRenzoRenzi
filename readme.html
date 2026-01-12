@@ -27,10 +27,22 @@
           </p>
 
           <div class="hero-actions">
-            <a href="index.html#docs" class="btn-ghost">← Back to the main site</a>
-            <a href="project-documentation.html" class="btn-primary">Open Documentation</a>
+            <a href="index.html" class="btn-ghost">← Back to the main site</a>
+            <a href="index.html#docs" class="btn-primary">Docs &amp; Downloads</a>
           </div>
         </div>
+
+        <nav class="site-nav" aria-label="Secondary navigation">
+          <a href="#overview">Overview</a>
+          <a href="#structure">Project structure</a>
+          <a href="#objectives">Objectives</a>
+          <a href="#data">Data types</a>
+          <a href="#standards">Technologies &amp; standards</a>
+          <a href="#scripts">Scripts</a>
+          <a href="#website">Website</a>
+          <a href="#contributors">Contributors</a>
+          <a href="#license">License</a>
+        </nav>
       </div>
     </header>
 
@@ -42,25 +54,14 @@
           <strong>Information Science and Cultural Heritage – University of Bologna (2024–2025)</strong>
         </p>
 
-        <div class="box-muted">
-          <h2 style="margin-top: 0">Quick links</h2>
-          <ul>
-            <li><a href="index.html">Website home</a></li>
-            <li><a href="index.html#items">Items table</a></li>
-            <li><a href="index.html#tei">TEI &amp; HTML edition</a></li>
-            <li><a href="index.html#rdf">RDF &amp; dataset downloads</a></li>
-            <li><a href="project-documentation.html">Project documentation</a></li>
-          </ul>
-        </div>
-
         <hr />
 
-        <h2>Overview</h2>
+        <h2 id="overview">Overview</h2>
 
         <p>
           <em>The “Revolussion” of Renzo Renzi</em> is a Digital Humanities project dedicated to the archival,
-          bibliographic, and audiovisual materials related to <strong>Renzo Renzi</strong> (1919–2004), a
-          key figure in the history of film culture in Bologna as critic, filmmaker, researcher, and curator.
+          bibliographic, and audiovisual materials related to <strong>Renzo Renzi</strong> (1919–2004), a key
+          figure in the history of film culture in Bologna as critic, filmmaker, researcher, and curator.
         </p>
 
         <p>
@@ -88,9 +89,9 @@
 
         <hr />
 
-        <h2>Project Structure</h2>
+        <h2 id="structure">Project Structure</h2>
 
-        <pre><code>csv/                  → Metadata tables for all items
+        <pre class="code-block"><code>csv/                  → Metadata tables for all items
 html/                 → HTML pages (incl. TEI-to-HTML edition)
 img/                  → Photographs, stills and visual materials
 scripts/              → Python scripts for dataset generation
@@ -109,7 +110,7 @@ style.css             → Website stylesheet
 
         <hr />
 
-        <h2>Objectives</h2>
+        <h2 id="objectives">Objectives</h2>
 
         <ol>
           <li>
@@ -138,7 +139,7 @@ style.css             → Website stylesheet
 
         <hr />
 
-        <h2>Data Types Included</h2>
+        <h2 id="data">Data Types Included</h2>
 
         <ul>
           <li><strong>Book / full text</strong> – <em>Il primo Fellini</em></li>
@@ -163,7 +164,7 @@ style.css             → Website stylesheet
 
         <hr />
 
-        <h2>Technologies &amp; Standards</h2>
+        <h2 id="standards">Technologies &amp; Standards</h2>
 
         <h3>Metadata Standards</h3>
         <ul>
@@ -194,27 +195,23 @@ style.css             → Website stylesheet
 
         <hr />
 
-        <h2>Scripts Included</h2>
+        <h2 id="scripts">Scripts Included</h2>
 
-        <h3><code>build_rr_rdf.py</code></h3>
+        <h3><code>build_rrr_rdf.py</code></h3>
         <p>
           Transforms CSV metadata into a structured RDF graph using RDFLib, generating
           individual Turtle files in the <code>ttl/</code> directory (one <code>.ttl</code> per item).
         </p>
 
         <h3><code>compare_ttl.py</code></h3>
-        <p>
-          Compares two Turtle serializations to detect differences or validate updates.
-        </p>
+        <p>Compares two Turtle serializations to detect differences or validate updates.</p>
 
         <h3><code>tei2html_lastrada.xsl</code></h3>
-        <p>
-          Transforms the TEI edition of <em>La Strada</em> into HTML.
-        </p>
+        <p>Transforms the TEI edition of <em>La Strada</em> into HTML.</p>
 
         <hr />
 
-        <h2>Website</h2>
+        <h2 id="website">Website</h2>
 
         <p>The website presents:</p>
         <ul>
@@ -239,21 +236,18 @@ style.css             → Website stylesheet
 
         <hr />
 
-        <h2>Contributors</h2>
+        <h2 id="contributors">Contributors</h2>
 
         <p>The project was developed by:</p>
         <ul>
           <li>
-            <strong>Laura Bortoli</strong> – TEI encoding, XSLT, RDF generation,
-            CSV metadata creation and harmonisation
+            <strong>Laura Bortoli</strong> – TEI encoding, XSLT, RDF generation, CSV metadata creation and harmonisation
           </li>
           <li>
-            <strong>Claudia Romanello</strong> – Photographic and documentary metadata,
-            screenplay analysis, Python scripts
+            <strong>Claudia Romanello</strong> – Photographic and documentary metadata, screenplay analysis, Python scripts
           </li>
           <li>
-            <strong>Qinghao (River) Chen</strong> – Additional items, film metadata,
-            interface work, RDF validation
+            <strong>Qinghao (River) Chen</strong> – Additional items, film metadata, interface work, RDF validation
           </li>
         </ul>
 
@@ -264,7 +258,7 @@ style.css             → Website stylesheet
 
         <hr />
 
-        <h2>References</h2>
+        <h2 id="references">References</h2>
 
         <ul>
           <li>
@@ -274,7 +268,7 @@ style.css             → Website stylesheet
             </a>
           </li>
           <li>
-            <strong>Cineteca di Bologna – Renzi Fund:</strong>
+            <strong>Cineteca di Bologna – Biblioteca:</strong>
             <a href="https://cinetecadibologna.it/biblioteca/" target="_blank" rel="noopener">
               https://cinetecadibologna.it/biblioteca/
             </a>
@@ -287,10 +281,8 @@ style.css             → Website stylesheet
 
         <hr />
 
-        <h2>License</h2>
-        <p>
-          This project is released under a <strong>CC BY-SA 4.0</strong> license.
-        </p>
+        <h2 id="license">License</h2>
+        <p>This project is released under a <strong>CC BY-SA 4.0</strong> license.</p>
       </article>
     </main>
 
@@ -301,5 +293,38 @@ style.css             → Website stylesheet
         (source of archival materials) · University of Bologna – DHDK.
       </p>
     </footer>
+
+    <script>
+      // Highlight current section in nav (same behavior as index)
+      document.addEventListener("DOMContentLoaded", function () {
+        const sections = document.querySelectorAll("main .section [id], main .section h2[id]");
+        const navLinks = document.querySelectorAll('.site-nav a[href^="#"]');
+
+        const sectionMap = {};
+        navLinks.forEach((link) => {
+          const id = link.getAttribute("href").slice(1);
+          sectionMap[id] = link;
+        });
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              const id = entry.target.id;
+              const link = sectionMap[id];
+              if (!link) return;
+              if (entry.isIntersecting) {
+                navLinks.forEach((l) => l.classList.remove("is-active"));
+                link.classList.add("is-active");
+              }
+            });
+          },
+          { rootMargin: "-45% 0px -45% 0px", threshold: 0.01 }
+        );
+
+        // Observe headings with id
+        const headings = document.querySelectorAll("h2[id]");
+        headings.forEach((h) => observer.observe(h));
+      });
+    </script>
   </body>
 </html>
