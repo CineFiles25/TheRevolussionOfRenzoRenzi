@@ -19,16 +19,43 @@
   <body>
     <main class="page">
       <!-- Title + subtitle -->
-      <section class="section">
+      <section class="section" id="top">
         <h1>Project Documentation</h1>
         <p class="section-intro">
           <strong>The “Revolussion” of Renzo Renzi</strong><br />
           <em>Information Science and Cultural Heritage – University of Bologna (2024–2025)</em>
         </p>
+
+        <div class="download-row" style="margin-top: 0.9rem;">
+          <a class="btn-primary" href="index.html">← Back to website</a>
+          <a class="btn-ghost" href="#toc">Jump to sections</a>
+        </div>
+      </section>
+
+      <!-- Quick TOC -->
+      <section class="section" id="toc">
+        <h2>Contents</h2>
+        <ul>
+          <li><a href="#overview">1. Project Overview</a></li>
+          <li><a href="#goals">2. Project Goals</a></li>
+          <li><a href="#items">3. Selected Items</a></li>
+          <li><a href="#standards">4. Metadata Standards Used</a></li>
+          <li><a href="#theoretical">5. Theoretical Model</a></li>
+          <li><a href="#conceptual">6. Conceptual Model</a></li>
+          <li><a href="#csv">7. Data Production (CSV)</a></li>
+          <li><a href="#tei">8. TEI Encoding &amp; XSLT</a></li>
+          <li><a href="#rdf">9. RDF Dataset</a></li>
+          <li><a href="#website">10. Website</a></li>
+          <li><a href="#authorities">11. Institutions &amp; Authority Files</a></li>
+          <li><a href="#team">12. Team Roles</a></li>
+        </ul>
+        <p class="note-muted">
+          This page is intended as an instructor-oriented overview of the project workflow, standards, and deliverables.
+        </p>
       </section>
 
       <!-- 1. Project Overview -->
-      <section class="section">
+      <section class="section" id="overview">
         <h2>1. Project Overview</h2>
         <p>
           <em>The “Revolussion” of Renzo Renzi</em> is a Digital Humanities project focused on the archival,
@@ -44,7 +71,7 @@
       </section>
 
       <!-- 2. Project Goals -->
-      <section class="section">
+      <section class="section" id="goals">
         <h2>2. Project Goals</h2>
         <p>
           The project follows the official requirements of the course <em>Information Science and Cultural Heritage</em>,
@@ -82,7 +109,7 @@
       </section>
 
       <!-- 3. Selected Items -->
-      <section class="section">
+      <section class="section" id="items">
         <h2>3. Selected Items</h2>
         <p>
           The dataset includes <strong>15 cultural heritage objects</strong>, chosen to represent different media,
@@ -98,7 +125,7 @@
           <li>Photograph “La Strada 01” — <strong>Scheda F</strong></li>
           <li>Photograph “La Strada 004” — <strong>Scheda F</strong></li>
           <li>
-            Videointerview: <em>Il cinema a Bologna: Renzo Renzi e la Columbus film, il</em> (2000) — 
+            Videointerview: <em>Il cinema a Bologna: Renzo Renzi e la Columbus film</em> (2000) —
             <strong>FIAF</strong>
           </li>
           <li>Film <em>La Strada</em> (1954) — <strong>ISBD(NBM) + FIAF</strong></li>
@@ -108,10 +135,15 @@
           <li>Renzo Renzi Library — <strong>ICCU / ISIL identification</strong></li>
           <li>Letter (film-related material) — <strong>FIAF Film-Related Materials</strong></li>
         </ol>
+
+        <p class="note-muted">
+          The full selection with source links is available on the main website page:
+          <a href="index.html#items">Items &amp; Selection</a>.
+        </p>
       </section>
 
       <!-- 4. Metadata Standards Used -->
-      <section class="section">
+      <section class="section" id="standards">
         <h2>4. Metadata Standards Used</h2>
 
         <h3>Bibliographic (Books, Textual Items)</h3>
@@ -134,11 +166,12 @@
         <h3>Audiovisual / Film</h3>
         <ul>
           <li><strong>FIAF Cataloguing Rules</strong></li>
+          <li><strong>FIAF Film-Related Materials</strong> (for documents such as letters)</li>
         </ul>
       </section>
 
       <!-- 5. Theoretical Model -->
-      <section class="section">
+      <section class="section" id="theoretical">
         <h2>5. Theoretical Model (Natural-Language Analysis)</h2>
         <p>
           Each object was analysed following the descriptive logic of its reference standard, identifying:
@@ -165,10 +198,36 @@
           These narratives form the <strong>theoretical model</strong> that underpins the conceptual model and the
           RDF representation.
         </p>
+
+        <div class="box-muted" style="margin-top: 1.2rem;">
+          <h3 style="margin-top: 0;">Theoretical graph (Miro)</h3>
+          <p class="muted">
+            The graph visualizes entities and relations in natural language and supports the transition from
+            descriptive analysis to formal semantic modelling.
+          </p>
+
+          <div class="table-wrap" style="border-radius: 12px; overflow: hidden; margin-top: 0.9rem;">
+            <iframe
+              title="Theoretical graph (Miro)"
+              src="https://miro.com/app/embed/uXjVGXlSL-Q=/?share_link_id=346384357827"
+              width="100%"
+              height="600"
+              frameborder="0"
+              allowfullscreen
+            ></iframe>
+          </div>
+
+          <p class="note-muted" style="margin-top: 0.8rem;">
+            If the embedded board is not visible, open it here:
+            <a href="https://miro.com/app/board/uXjVGXlSL-Q=/?share_link_id=346384357827" target="_blank" rel="noopener">
+              Miro board link
+            </a>.
+          </p>
+        </div>
       </section>
 
       <!-- 6. Conceptual Model -->
-      <section class="section">
+      <section class="section" id="conceptual">
         <h2>6. Conceptual Model (Ontological Reuse)</h2>
         <p>
           The conceptual model does not introduce a new ontology. Instead, it reuses existing vocabularies to describe
@@ -205,14 +264,28 @@
           <li><code>foaf:depicts</code></li>
         </ul>
 
-        <p>
-          The conceptual model is summarized in a Grafoo-style diagram included in the documentation
-          (e.g. <code>docs/conceptual_model.png</code>).
-        </p>
+        <div class="box-muted" style="margin-top: 1.2rem;">
+          <h3 style="margin-top: 0;">Conceptual diagram</h3>
+          <p class="muted">
+            A Graffoo-style diagram summarises the main classes and relationships reused in the project model.
+          </p>
+
+          <!-- If you add the image, place it in /img/conceptual_model.png -->
+          <figure style="margin: 0.9rem 0 0;">
+            <img
+              src="img/conceptual_model.png"
+              alt="Conceptual model diagram (Graffoo-style)"
+              style="width: 100%; height: auto; border-radius: 14px; border: 1px solid rgba(210,197,180,0.85);"
+            />
+            <figcaption class="note-muted" style="margin-top: 0.6rem;">
+              If the image is missing, add it to <code>img/conceptual_model.png</code> (or update the path here).
+            </figcaption>
+          </figure>
+        </div>
       </section>
 
       <!-- 7. Data Production (CSV) -->
-      <section class="section">
+      <section class="section" id="csv">
         <h2>7. Data Production (CSV)</h2>
         <p>
           A dedicated CSV file was created for each of the 15 items. In addition, two global files organise the semantic
@@ -228,7 +301,7 @@
       </section>
 
       <!-- 8. TEI Encoding & XSLT -->
-      <section class="section">
+      <section class="section" id="tei">
         <h2>8. TEI Encoding &amp; XSLT Transformation</h2>
         <p>
           One item, related to <em>La Strada</em>, was encoded using <strong>TEI P5</strong>. The encoding focuses on a
@@ -244,42 +317,55 @@
         </p>
       </section>
 
-      <section class="section">
+      <!-- 9. RDF Dataset -->
+      <section class="section" id="rdf">
         <h2>9. RDF Dataset</h2>
-        
+
         <p>
           The RDF dataset is generated from CSV metadata using Python and RDFLib.
           Each cultural heritage item is exported as an individual Turtle file,
           resulting in a modular Linked Open Data dataset.
         </p>
-        
+
         <p>
           All Turtle files can be consulted and downloaded from the project’s
-          <a href="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/tree/main/ttl" target="_blank">
+          <a href="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/tree/main/ttl" target="_blank" rel="noopener">
             RDF dataset directory (GitHub)
           </a>.
         </p>
-        
-        <h3><code>build_rrr_rdf.py</code></h3>
+
+        <div class="download-row">
+          <a class="btn-primary" href="ttl/rrr.ttl">Download full dataset (Turtle)</a>
+          <a
+            class="btn-ghost"
+            href="https://raw.githubusercontent.com/CineFiles25/TheRevolussionOfRenzoRenzi/main/ttl/rrr.ttl"
+            target="_blank"
+            rel="noopener"
+          >
+            Raw mirror
+          </a>
+        </div>
+
+        <h3 style="margin-top: 1.3rem;"><code>build_rrr_rdf.py</code></h3>
         <ul>
           <li>reads each item’s CSV metadata</li>
           <li>maps it to RDF triples using RDFLib</li>
           <li>serializes one Turtle file per cultural heritage item</li>
         </ul>
-        
+
         <h3><code>compare_ttl.py</code></h3>
         <ul>
           <li>compares two Turtle serializations</li>
           <li>helps track differences between RDF versions</li>
         </ul>
-        
+
         <p>
           The modular dataset can be loaded as separate RDF graphs or merged into a single graph for querying.
         </p>
       </section>
 
       <!-- 10. Website -->
-      <section class="section">
+      <section class="section" id="website">
         <h2>10. Website</h2>
         <p>
           The project is published as a <strong>GitHub Pages</strong> website which presents:
@@ -293,14 +379,15 @@
           <li>documentation and team information</li>
         </ul>
         <p>
-          URL: <a href="https://cinefiles25.github.io/TheRevolussionOfRenzoRenzi/">
+          URL:
+          <a href="https://cinefiles25.github.io/TheRevolussionOfRenzoRenzi/">
             https://cinefiles25.github.io/TheRevolussionOfRenzoRenzi/
           </a>
         </p>
       </section>
 
       <!-- 11. Institutions & Authority Files -->
-      <section class="section">
+      <section class="section" id="authorities">
         <h2>11. Institutions &amp; Authority Files</h2>
         <p>
           The project systematically uses authority files for people, places, and institutions, primarily:
@@ -319,7 +406,7 @@
               <td>Renzo Renzi</td>
               <td>
                 VIAF:
-                <a href="http://viaf.org/viaf/40486517">http://viaf.org/viaf/40486517</a> — 
+                <a href="http://viaf.org/viaf/40486517">http://viaf.org/viaf/40486517</a> —
                 Wikidata:
                 <a href="https://www.wikidata.org/wiki/Q56179169">Q56179169</a>
               </td>
@@ -328,7 +415,7 @@
               <td>Federico Fellini</td>
               <td>
                 VIAF:
-                <a href="http://viaf.org/viaf/76315386">http://viaf.org/viaf/76315386</a> — 
+                <a href="http://viaf.org/viaf/76315386">http://viaf.org/viaf/76315386</a> —
                 Wikidata:
                 <a href="https://www.wikidata.org/wiki/Q7371">Q7371</a>
               </td>
@@ -337,7 +424,7 @@
               <td>Cineteca di Bologna</td>
               <td>
                 VIAF:
-                <a href="http://viaf.org/viaf/124960346">http://viaf.org/viaf/124960346</a> — 
+                <a href="http://viaf.org/viaf/124960346">http://viaf.org/viaf/124960346</a> —
                 Wikidata:
                 <a href="https://www.wikidata.org/wiki/Q1092493">Q1092493</a>
               </td>
@@ -361,7 +448,7 @@
       </section>
 
       <!-- 12. Team Roles -->
-      <section class="section">
+      <section class="section" id="team">
         <h2>12. Team Roles</h2>
         <p>The project was collaboratively developed by:</p>
 
@@ -388,6 +475,11 @@
           <li>Interface work and website structure</li>
           <li>RDF checking and consistency review</li>
         </ul>
+
+        <div class="download-row" style="margin-top: 1.2rem;">
+          <a class="btn-ghost" href="#top">↑ Back to top</a>
+          <a class="btn-primary" href="index.html">← Back to website</a>
+        </div>
       </section>
 
       <!-- End -->
