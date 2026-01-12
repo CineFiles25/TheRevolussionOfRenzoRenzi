@@ -925,3 +925,143 @@ a:hover {
   }
 }
 
+/* =========================================================
+   EXTRA COMPONENTS (tables, utilities, docs layout)
+   ========================================================= */
+
+/* ---------- Utilities ---------- */
+
+.muted {
+  color: #7c6b57;
+  font-size: 0.88rem;
+}
+
+.note-muted {
+  font-size: 0.88rem;
+  color: #6a5a4c;
+  margin-top: 0.8rem;
+  font-style: italic;
+}
+
+/* ---------- Tables ---------- */
+
+.table-wrap {
+  width: 100%;
+  overflow-x: auto;
+  margin-top: 1.2rem;
+}
+
+.items-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.items-table th,
+.items-table td {
+  padding: 0.55rem 0.7rem;
+  border-bottom: 1px solid #e0d5c5;
+  text-align: left;
+  vertical-align: top;
+}
+
+.items-table thead th {
+  font-weight: 600;
+  color: #4e4337;
+  background: #f4ece0;
+}
+
+.items-table tbody tr:nth-child(even) {
+  background: #faf6f0;
+}
+
+.items-table a {
+  font-weight: 500;
+}
+
+/* ---------- Download buttons row ---------- */
+
+.download-row {
+  margin-top: 0.9rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+/* ---------- Hub card (RDF section) ---------- */
+
+.hub-card {
+  background: #f4e9dc;
+  border-left: 4px solid #b46838;
+}
+
+.hub-card h3 {
+  margin-top: 0;
+  color: #7a4b2a;
+}
+
+.hub-links {
+  padding-left: 1.1rem;
+  margin: 0.4rem 0;
+}
+
+.hub-links li {
+  margin-bottom: 0.25rem;
+}
+
+/* ---------- README & docs tweaks ---------- */
+
+pre {
+  background: #f3ede4;
+  padding: 0.9rem 1.1rem;
+  border-radius: 12px;
+  overflow-x: auto;
+}
+
+pre code {
+  background: transparent;
+  padding: 0;
+  font-size: 0.85rem;
+}
+
+/* ---------- Responsive tables ---------- */
+
+@media (max-width: 700px) {
+  .items-table {
+    font-size: 0.85rem;
+  }
+}
+
+/* ---------- Dark mode patch ---------- */
+
+@media (prefers-color-scheme: dark) {
+
+  .items-table thead th {
+    background: #2b1b14;
+    color: #f3ddc5;
+  }
+
+  .items-table th,
+  .items-table td {
+    border-bottom-color: #3c2920;
+  }
+
+  .items-table tbody tr:nth-child(even) {
+    background: #231813;
+  }
+
+  pre {
+    background: #2b1b14;
+  }
+
+  .muted,
+  .note-muted {
+    color: #c4b19c;
+  }
+
+  .hub-card {
+    background: #231710;
+    border-left-color: #d18a54;
+  }
+}
+
