@@ -17,19 +17,19 @@
   </head>
 
   <body>
-    <!-- Consistent header -->
     <header class="site-header">
       <div class="header-inner">
         <div class="site-branding">
-          <p class="site-kicker">Information Science and Cultural Heritage · UniBo</p>
+          <p class="site-kicker">
+            Information Science and Cultural Heritage · UniBo
+          </p>
           <h1 class="site-title">Project Documentation</h1>
           <p class="site-subtitle">
-            The “Revolussion” of Renzo Renzi · Methods, workflow, standards, and deliverables.
+            The “Revolussion” of Renzo Renzi · Methods, workflow &amp; modelling.
           </p>
 
           <div class="hero-actions">
             <a href="index.html#docs" class="btn-ghost">← Back to the main site</a>
-            <a href="readme.html" class="btn-primary">Open README</a>
           </div>
         </div>
       </div>
@@ -42,11 +42,6 @@
         <p class="section-intro">
           <strong>The “Revolussion” of Renzo Renzi</strong><br />
           <em>Information Science and Cultural Heritage – University of Bologna (2024–2025)</em>
-        </p>
-
-        <p class="note-muted">
-          This page provides an instructor-oriented overview of the project workflow, methodological choices,
-          standards, and outputs.
         </p>
       </section>
 
@@ -121,7 +116,7 @@
           <li>Photograph “La Strada 01” — <strong>Scheda F</strong></li>
           <li>Photograph “La Strada 004” — <strong>Scheda F</strong></li>
           <li>
-            Videointerview: <em>Il cinema a Bologna: Renzo Renzi e la Columbus film</em> (2000) —
+            Videointerview: <em>Il cinema a Bologna: Renzo Renzi e la Columbus film, il</em> (2000) —
             <strong>FIAF</strong>
           </li>
           <li>Film <em>La Strada</em> (1954) — <strong>ISBD(NBM) + FIAF</strong></li>
@@ -131,10 +126,6 @@
           <li>Renzo Renzi Library — <strong>ICCU / ISIL identification</strong></li>
           <li>Letter (film-related material) — <strong>FIAF Film-Related Materials</strong></li>
         </ol>
-
-        <p class="note-muted">
-          See also the full items table on the homepage: <a href="index.html#items">index.html#items</a>.
-        </p>
       </section>
 
       <!-- 4. Metadata Standards Used -->
@@ -194,31 +185,9 @@
         </p>
       </section>
 
-      <!-- NEW: Theoretical graph -->
-      <section class="section">
-        <h2>6. Theoretical Graph (Miro)</h2>
-        <p class="section-intro">
-          We produced a theoretical graph to visualise the main entities and relationships of the domain (Renzo Renzi as
-          hub, items, people, places, institutions, and connections).
-        </p>
-
-        <p class="cta-link">
-          <a
-            href="https://miro.com/app/board/uXjVGXlSL-Q=/?share_link_id=346384357827"
-            target="_blank"
-            rel="noopener"
-            >→ Open the theoretical graph (Miro)</a
-          >
-        </p>
-
-        <p class="note-muted">
-          If needed, a static export (PNG/PDF) can be added to the repository for long-term preservation.
-        </p>
-      </section>
-
       <!-- 6. Conceptual Model -->
       <section class="section">
-        <h2>7. Conceptual Model (Ontological Reuse)</h2>
+        <h2>6. Conceptual Model (Ontological Reuse)</h2>
         <p>
           The conceptual model does not introduce a new ontology. Instead, it reuses existing vocabularies to describe
           entities and relationships in a coherent way.
@@ -254,15 +223,15 @@
           <li><code>foaf:depicts</code></li>
         </ul>
 
-        <p class="note-muted">
-          The conceptual model can be documented with a diagram (Grafoo-style) and/or a static export included in the
-          repository (e.g. <code>img/conceptual_model.png</code>).
+        <p>
+          The conceptual model is summarized in a Grafoo-style diagram included in the documentation
+          (e.g. <code>docs/conceptual_model.png</code>).
         </p>
       </section>
 
       <!-- 7. Data Production (CSV) -->
       <section class="section">
-        <h2>8. Data Production (CSV)</h2>
+        <h2>7. Data Production (CSV)</h2>
         <p>
           A dedicated CSV file was created for each of the 15 items. In addition, two global files organise the semantic
           layer:
@@ -278,7 +247,7 @@
 
       <!-- 8. TEI Encoding & XSLT -->
       <section class="section">
-        <h2>9. TEI Encoding &amp; XSLT Transformation</h2>
+        <h2>8. TEI Encoding &amp; XSLT Transformation</h2>
         <p>
           One item, related to <em>La Strada</em>, was encoded using <strong>TEI P5</strong>. The encoding focuses on a
           selected sequence and aims to:
@@ -293,9 +262,8 @@
         </p>
       </section>
 
-      <!-- 9. RDF Dataset -->
       <section class="section">
-        <h2>10. RDF Dataset</h2>
+        <h2>9. RDF Dataset</h2>
 
         <p>
           The RDF dataset is generated from CSV metadata using Python and RDFLib.
@@ -304,13 +272,16 @@
         </p>
 
         <p>
+          The project also provides a merged file for easier evaluation:
+          <a href="ttl/full_dataset.ttl">full_dataset.ttl</a>
+          (or its raw mirror on GitHub).
+        </p>
+
+        <p>
           All Turtle files can be consulted and downloaded from the project’s
-          <a
-            href="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/tree/main/ttl"
-            target="_blank"
-            rel="noopener"
-            >RDF dataset directory (GitHub)</a
-          >.
+          <a href="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/tree/main/ttl" target="_blank" rel="noopener">
+            TTL directory (GitHub)
+          </a>.
         </p>
 
         <h3><code>build_rrr_rdf.py</code></h3>
@@ -333,7 +304,7 @@
 
       <!-- 10. Website -->
       <section class="section">
-        <h2>11. Website</h2>
+        <h2>10. Website</h2>
         <p>
           The project is published as a <strong>GitHub Pages</strong> website which presents:
         </p>
@@ -344,21 +315,19 @@
           <li>the RDF dataset (downloadable as Turtle files)</li>
           <li>visual materials (images, stills)</li>
           <li>documentation and team information</li>
+          <li>documentation and downloads</li>
         </ul>
         <p>
           URL:
-          <a
-            href="https://cinefiles25.github.io/TheRevolussionOfRenzoRenzi/"
-            target="_blank"
-            rel="noopener"
-            >https://cinefiles25.github.io/TheRevolussionOfRenzoRenzi/</a
-          >
+          <a href="https://cinefiles25.github.io/TheRevolussionOfRenzoRenzi/" target="_blank" rel="noopener">
+            https://cinefiles25.github.io/TheRevolussionOfRenzoRenzi/
+          </a>
         </p>
       </section>
 
       <!-- 11. Institutions & Authority Files -->
       <section class="section">
-        <h2>12. Institutions &amp; Authority Files</h2>
+        <h2>11. Institutions &amp; Authority Files</h2>
         <p>
           The project systematically uses authority files for people, places, and institutions, primarily:
           <strong>VIAF</strong>, <strong>Wikidata</strong>, <strong>ISIL/ICCU</strong>, and <strong>ISNI</strong>.
@@ -376,56 +345,41 @@
               <td>Renzo Renzi</td>
               <td>
                 VIAF:
-                <a href="http://viaf.org/viaf/40486517" target="_blank" rel="noopener"
-                  >http://viaf.org/viaf/40486517</a
-                >
-                —
+                <a href="http://viaf.org/viaf/40486517">http://viaf.org/viaf/40486517</a> —
                 Wikidata:
-                <a href="https://www.wikidata.org/wiki/Q56179169" target="_blank" rel="noopener"
-                  >Q56179169</a
-                >
+                <a href="https://www.wikidata.org/wiki/Q56179169">Q56179169</a>
               </td>
             </tr>
             <tr>
               <td>Federico Fellini</td>
               <td>
                 VIAF:
-                <a href="http://viaf.org/viaf/76315386" target="_blank" rel="noopener"
-                  >http://viaf.org/viaf/76315386</a
-                >
-                —
+                <a href="http://viaf.org/viaf/76315386">http://viaf.org/viaf/76315386</a> —
                 Wikidata:
-                <a href="https://www.wikidata.org/wiki/Q7371" target="_blank" rel="noopener">Q7371</a>
+                <a href="https://www.wikidata.org/wiki/Q7371">Q7371</a>
               </td>
             </tr>
             <tr>
               <td>Cineteca di Bologna</td>
               <td>
                 VIAF:
-                <a href="http://viaf.org/viaf/124960346" target="_blank" rel="noopener"
-                  >http://viaf.org/viaf/124960346</a
-                >
-                —
+                <a href="http://viaf.org/viaf/124960346">http://viaf.org/viaf/124960346</a> —
                 Wikidata:
-                <a href="https://www.wikidata.org/wiki/Q1092493" target="_blank" rel="noopener"
-                  >Q1092493</a
-                >
+                <a href="https://www.wikidata.org/wiki/Q1092493">Q1092493</a>
               </td>
             </tr>
             <tr>
               <td>Bologna (place)</td>
               <td>
                 Wikidata:
-                <a href="https://www.wikidata.org/wiki/Q1891" target="_blank" rel="noopener">Q1891</a>
+                <a href="https://www.wikidata.org/wiki/Q1891">Q1891</a>
               </td>
             </tr>
             <tr>
               <td>Cinema Fulgor</td>
               <td>
                 Wikidata:
-                <a href="https://www.wikidata.org/wiki/Q36839368" target="_blank" rel="noopener"
-                  >Q36839368</a
-                >
+                <a href="https://www.wikidata.org/wiki/Q36839368">Q36839368</a>
               </td>
             </tr>
           </tbody>
@@ -434,7 +388,7 @@
 
       <!-- 12. Team Roles -->
       <section class="section">
-        <h2>13. Team Roles</h2>
+        <h2>12. Team Roles</h2>
         <p>The project was collaboratively developed by:</p>
 
         <h3>Laura Bortoli</h3>
@@ -475,9 +429,10 @@
     <footer class="site-footer">
       <p>
         &copy; 2024–2025 · The “Revolussion” of Renzo Renzi ·
-        <a href="https://cinetecadibologna.it/" target="_blank" rel="noopener">Cineteca di Bologna</a>
+        <a href="https://cinetecadibologna.it/">Cineteca di Bologna</a>
         (source of archival materials) · University of Bologna – DHDK.
       </p>
     </footer>
   </body>
 </html>
+
