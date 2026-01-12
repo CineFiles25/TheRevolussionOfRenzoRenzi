@@ -17,7 +17,7 @@
   </head>
 
   <body>
-    <header class="site-header">
+    <header class="site-header" id="top">
       <div class="header-inner">
         <div class="site-branding">
           <p class="site-kicker">
@@ -29,7 +29,27 @@
           </p>
 
           <div class="hero-actions">
-            <a href="index.html#docs" class="btn-ghost">← Back to the main site</a>
+            <a href="index.html" class="btn-primary">← Back to website</a>
+            <a href="project-documentation.html" class="btn-ghost">Project Documentation</a>
+            <a href="html/lastrada.html" class="btn-ghost">TEI → HTML edition</a>
+          </div>
+
+          <div class="download-row" style="margin-top: 0.8rem;">
+            <a class="btn-ghost" href="ttl/rrr.ttl">Download full RDF (Turtle)</a>
+            <a
+              class="btn-ghost"
+              href="https://raw.githubusercontent.com/CineFiles25/TheRevolussionOfRenzoRenzi/main/ttl/rrr.ttl"
+              target="_blank"
+              rel="noopener"
+              >Raw mirror</a
+            >
+            <a
+              class="btn-ghost"
+              href="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi"
+              target="_blank"
+              rel="noopener"
+              >GitHub repo</a
+            >
           </div>
         </div>
       </div>
@@ -38,10 +58,40 @@
     <main class="page">
       <article class="section">
         <h1>The “Revolussion” of Renzo Renzi</h1>
-        <p>
+        <p class="section-intro">
           <em>A Digital Humanities &amp; Linked Open Data Project</em><br />
           <strong>Information Science and Cultural Heritage – University of Bologna (2024–2025)</strong>
         </p>
+
+        <div class="box-muted" style="margin-top: 1rem;">
+          <h2 style="margin-top: 0;">Quick links</h2>
+          <ul style="margin: 0.6rem 0 0.2rem;">
+            <li><a href="index.html">Main website</a></li>
+            <li><a href="project-documentation.html">Project documentation (workflow &amp; modelling)</a></li>
+            <li><a href="html/lastrada.html">TEI-based edition of <em>La Strada</em></a></li>
+            <li>
+              RDF dataset directory:
+              <a
+                href="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/tree/main/ttl"
+                target="_blank"
+                rel="noopener"
+                >ttl/ (GitHub)</a
+              >
+            </li>
+            <li>
+              CSV metadata directory:
+              <a
+                href="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/tree/main/csv"
+                target="_blank"
+                rel="noopener"
+                >csv/ (GitHub)</a
+              >
+            </li>
+          </ul>
+          <p class="note-muted">
+            For the full narrative of choices, standards, and deliverables, see <a href="project-documentation.html">Project Documentation</a>.
+          </p>
+        </div>
 
         <hr />
 
@@ -94,7 +144,7 @@ style.css             → Website stylesheet
 
         <p>
           A full explanation of the workflow and modelling choices is provided in
-          <strong>project-documentation.html</strong>.
+          <strong><a href="project-documentation.html">project-documentation.html</a></strong>.
         </p>
 
         <hr />
@@ -119,7 +169,7 @@ style.css             → Website stylesheet
           </li>
           <li>
             Produce a complete <strong>RDF dataset</strong> where each selected object is exported as an
-            individual Turtle file.
+            individual Turtle file (plus a merged dataset file for download).
           </li>
           <li>
             Publish all deliverables in an accessible <strong>website</strong> built with GitHub Pages.
@@ -186,10 +236,11 @@ style.css             → Website stylesheet
 
         <h2>Scripts Included</h2>
 
-        <h3><code>build_rr_rdf.py</code></h3>
+        <h3><code>build_rrr_rdf.py</code></h3>
         <p>
           Transforms CSV metadata into a structured RDF graph using RDFLib, generating
           individual Turtle files in the <code>ttl/</code> directory (one <code>.ttl</code> per item).
+          A merged Turtle export is also provided for convenient download (<code>ttl/rrr.ttl</code>).
         </p>
 
         <h3><code>compare_ttl.py</code></h3>
@@ -210,17 +261,17 @@ style.css             → Website stylesheet
         <ul>
           <li>TEI-encoded <em>La Strada</em> edition</li>
           <li>Metadata tables and analysis</li>
-          <li>RDF dataset (modular Turtle files)</li>
+          <li>RDF dataset (modular Turtle files + merged download)</li>
           <li>Image gallery</li>
           <li>Team and acknowledgements</li>
           <li>Documentation and downloads</li>
         </ul>
-        
+
         <p>
-          RDF Turtle files are available in the project’s
-          <a href="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/tree/main/ttl" target="_blank">
-            RDF dataset directory (GitHub)
-          </a>.
+          Website:
+          <a href="https://cinefiles25.github.io/TheRevolussionOfRenzoRenzi/">
+            https://cinefiles25.github.io/TheRevolussionOfRenzoRenzi/
+          </a>
         </p>
 
         <hr />
@@ -245,7 +296,7 @@ style.css             → Website stylesheet
 
         <p>
           A per-member breakdown of contributions is available in
-          <em>project-documentation.html</em>.
+          <a href="project-documentation.html"><em>project-documentation.html</em></a>.
         </p>
 
         <hr />
@@ -260,7 +311,7 @@ style.css             → Website stylesheet
             </a>
           </li>
           <li>
-            <strong>Cineteca di Bologna – Renzi Fund:</strong>
+            <strong>Cineteca di Bologna – Library/Collections:</strong>
             <a href="https://cinetecadibologna.it/biblioteca/">
               https://cinetecadibologna.it/biblioteca/
             </a>
@@ -277,6 +328,11 @@ style.css             → Website stylesheet
         <p>
           This project is released under a <strong>CC BY-SA 4.0</strong> license.
         </p>
+
+        <div class="download-row" style="margin-top: 1.3rem;">
+          <a class="btn-ghost" href="#top">↑ Back to top</a>
+          <a class="btn-primary" href="index.html">← Back to website</a>
+        </div>
       </article>
     </main>
 
@@ -289,4 +345,3 @@ style.css             → Website stylesheet
     </footer>
   </body>
 </html>
-
