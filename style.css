@@ -860,3 +860,30 @@ a:hover {
 @media (max-width: 780px){
   .items-table{ min-width: 640px; }
 }
+
+/* ---------- Miro embed (responsive) ---------- */
+
+.embed-wrap {
+  position: relative;
+  margin-top: 1.1rem;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(210, 197, 180, 0.9);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+  background: #f8f3eb;
+}
+
+/* 16:9 responsive ratio */
+.embed-wrap::before {
+  content: "";
+  display: block;
+  padding-top: 56.25%;
+}
+
+.embed-frame {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
