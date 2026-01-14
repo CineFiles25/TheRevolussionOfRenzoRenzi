@@ -1,0 +1,77 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Photograph",
+  "@id": "https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/metadata/photo_lastrada_premiere_schema.jsonld#work",
+  "name": "Bologna. Cinema Fulgor. Premiere of 'La Strada' with Federico Fellini and Giulietta Masina",
+  "alternativeHeadline": "Premiere of 'La Strada' at Cinema Fulgor",
+  "creator": {
+    "@type": "Person",
+    "name": "Libero Grandi"
+  },
+  "dateCreated": "1954",
+  "inLanguage": "it",
+  "color": "black and white",
+  "material": "Gelatin silver print",
+  "description": [
+    "Vintage press photograph.",
+    "Indexed in 'Bologna Fotografata' under: Attori e registi cinematografici; Eventi culturali; Personaggi."
+  ],
+  "identifier": [
+    "FIC0414",
+    "IT-CINETECABOLOGNA-FT0001-050499",
+    "FIC0414"
+  ],
+  "provider": {
+    "@type": "Organization",
+    "name": "Cineteca di Bologna",
+    "url": "http://viaf.org/viaf/124960346"
+  },
+  "isPartOf": {
+    "@type": "Collection",
+    "name": "Fondo Iniziative Cineteca"
+  },
+  "contentLocation": {
+    "@type": "Place",
+    "name": "Bologna, Cinema Fulgor (Via Montegrappa)",
+    "url": "https://www.wikidata.org/wiki/Q36839368"
+  },
+  "about": [
+    {
+      "@type": "Event",
+      "name": "Film premiere of 'La Strada' (1954)"
+    },
+    {
+      "@type": "Person",
+      "name": "Federico Fellini",
+      "url": "http://viaf.org/viaf/76315386"
+    },
+    {
+      "@type": "Person",
+      "name": "Giulietta Masina",
+      "url": "http://viaf.org/viaf/37021297"
+    }
+  ],
+  "isRelatedTo": {
+    "@type": "CreativeWork",
+    "name": "La strada",
+    "url": "http://viaf.org/viaf/176979060"
+  },
+  "copyrightNotice": "© Cineteca di Bologna — All rights reserved",
+  "additionalProperty": [
+    {
+      "@type": "PropertyValue",
+      "name": "standard",
+      "value": "Scheda F"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "carrier_type",
+      "value": "Photographic print"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "resource_type",
+      "value": "Photograph"
+    }
+  ]
+}

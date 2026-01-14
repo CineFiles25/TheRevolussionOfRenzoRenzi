@@ -1,0 +1,51 @@
+{
+  "@context": "https://schema.org",
+  "@type": "VisualArtwork",
+  "@id": "https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/metadata/caricature_fellini_renzi_schema.jsonld#work",
+  "name": "Fellini caricature",
+  "alternativeHeadline": "Caricature with handwritten caption",
+  "creator": {
+    "@type": "Person",
+    "name": "Renzo Renzi",
+    "url": "http://viaf.org/viaf/40486517"
+  },
+  "dateCreated": "ca. 1960s",
+  "inLanguage": "it",
+  "artMedium": "Black ink and coloured markers",
+  "material": "Cut paper",
+  "size": "13 × 8.6 cm",
+  "text": "Perché Federico non fa la rivolussione?",
+  "description": "Hand-drawn caricature by Renzo Renzi depicting Federico Fellini with a humorous handwritten caption. Created in the 1960s, the drawing became an emblematic image associated with the Renzo Renzi Collection of the Cineteca di Bologna.",
+  "about": {
+    "@type": "Person",
+    "name": "Federico Fellini",
+    "url": "http://viaf.org/viaf/76315386"
+  },
+  "provider": {
+    "@type": "Organization",
+    "name": "Cineteca di Bologna",
+    "url": "http://viaf.org/viaf/124960346"
+  },
+  "isPartOf": {
+    "@type": "Collection",
+    "name": "Renzo Renzi Collection"
+  },
+  "locationCreated": {
+    "@type": "Place",
+    "name": "Biblioteca Renzo Renzi. Cinema e Fotografia",
+    "url": "http://viaf.org/viaf/124960346"
+  },
+  "copyrightNotice": "© Cineteca di Bologna",
+  "additionalProperty": [
+    {
+      "@type": "PropertyValue",
+      "name": "standard",
+      "value": "OA"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "resource_type",
+      "value": "Drawing"
+    }
+  ]
+}
