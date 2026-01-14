@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vra xmlns="http://www.vraweb.org/vracore4.htm"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xsi:schemaLocation="http://www.vraweb.org/vracore4.htm http://www.loc.gov/standards/vracore/vra.xsd">
+
+    <work id="photo_lastrada_premiere">
+
+        <!-- Agents -->
+        <agentSet>
+            <agent pref="true">
+                <name type="personal">Grandi, Libero</name>
+                <role vocab="aat">photographers</role>
+            </agent>
+            <agent>
+                <name type="personal" vocab="viaf">Fellini, Federico</name>
+                <role vocab="aat">subjects</role>
+            </agent>
+            <agent>
+                <name type="personal" vocab="viaf">Masina, Giulietta</name>
+                <role vocab="aat">subjects</role>
+            </agent>
+        </agentSet>
+
+        <!-- Date -->
+        <dateSet>
+            <date type="creation" pref="true">
+                <earliestDate>1954</earliestDate>
+                <latestDate>1954</latestDate>
+            </date>
+        </dateSet>
+
+        <!-- Titles -->
+        <titleSet>
+            <title pref="true" type="repository">Bologna. Cinema Fulgor. Premiere of 'La Strada' with Federico Fellini and Giulietta Masina</title>
+            <title type="alternative">Premiere of 'La Strada' at Cinema Fulgor</title>
+        </titleSet>
+
+        <!-- Descriptions / notes -->
+        <descriptionSet>
+            <description pref="true">Press photograph documenting the premiere of 'La Strada' (1954) at Cinema Fulgor in Bologna, featuring Federico Fellini and Giulietta Masina.</description>
+            <description>Vintage press photograph. Black and white gelatin silver print.</description>
+            <description>Indexed in 'Bologna Fotografata' under: Attori e registi cinematografici; Eventi culturali; Personaggi.</description>
+        </descriptionSet>
+
+        <!-- Location -->
+        <locationSet>
+            <location pref="true" type="creation">
+                <name>Bologna, Cinema Fulgor (Via Montegrappa)</name>
+            </location>
+            <location type="repository">
+                <name>Cineteca di Bologna</name>
+            </location>
+        </locationSet>
+
+        <!-- Material / technique -->
+        <materialSet>
+            <material pref="true">Gelatin silver print</material>
+        </materialSet>
+
+        <techniqueSet>
+            <technique pref="true" vocab="aat">gelatin silver printing</technique>
+        </techniqueSet>
+
+        <!-- Work type -->
+        <worktypeSet>
+            <worktype>photograph</worktype>
+        </worktypeSet>
+
+        <!-- Event / subjects -->
+        <subjectSet>
+            <subject>
+                <term type="event">Film premiere of 'La Strada' (1954)</term>
+            </subject>
+            <subject>
+                <term type="person" vocab="viaf">Fellini, Federico</term>
+            </subject>
+            <subject>
+                <term type="person" vocab="viaf">Masina, Giulietta</term>
+            </subject>
+            <subject>
+                <term type="place">Bologna, Cinema Fulgor (Via Montegrappa)</term>
+            </subject>
+            <subject>
+                <term type="genre" vocab="aat">press photographs</term>
+            </subject>
+            <subject>
+                <term type="style">black and white</term>
+            </subject>
+        </subjectSet>
+
+        <!-- Relations -->
+        <relationSet>
+            <relation type="depicts">Film premiere of 'La Strada' (1954)</relation>
+            <relation type="relatedTo">La strada (film)</relation>
+        </relationSet>
+
+        <!-- Source / identifiers -->
+        <sourceSet>
+            <source pref="true">
+                <name type="corporate" vocab="viaf">Cineteca di Bologna</name>
+                <refid type="inventory">FIC0414</refid>
+                <refid type="local">IT-CINETECABOLOGNA-FT0001-050499</refid>
+            </source>
+        </sourceSet>
+
+        <!-- Rights -->
+        <rightsSet>
+            <rights pref="true">© Cineteca di Bologna — All rights reserved</rights>
+        </rightsSet>
+
+    </work>
+
+</vra>

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vra xmlns="http://www.vraweb.org/vracore4.htm"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xsi:schemaLocation="http://www.vraweb.org/vracore4.htm http://www.loc.gov/standards/vracore/vra.xsd">
+
+    <work id="caricature_fellini_renzi">
+
+        <!-- Agents -->
+        <agentSet>
+            <agent pref="true">
+                <name type="personal" vocab="viaf">Renzi, Renzo</name>
+                <role vocab="aat">artists</role>
+            </agent>
+            <agent>
+                <name type="personal" vocab="viaf">Fellini, Federico</name>
+                <role vocab="aat">subjects</role>
+            </agent>
+        </agentSet>
+
+        <!-- Date -->
+        <dateSet>
+            <date type="creation" pref="true">
+                <earliestDate>1960</earliestDate>
+                <latestDate>1969</latestDate>
+                <text>ca. 1960s</text>
+            </date>
+        </dateSet>
+
+        <!-- Titles -->
+        <titleSet>
+            <title pref="true" type="repository">Fellini caricature</title>
+            <title type="alternative">Caricature with handwritten caption</title>
+        </titleSet>
+
+        <!-- Inscription -->
+        <inscriptionSet>
+            <inscription pref="true">
+                <text>Perché Federico non fa la rivolussione?</text>
+                <type>caption</type>
+            </inscription>
+        </inscriptionSet>
+
+        <!-- Descriptions -->
+        <descriptionSet>
+            <description pref="true">
+                Hand-drawn caricature by Renzo Renzi depicting Federico Fellini with a humorous handwritten caption. 
+                Created in the 1960s, the drawing became an emblematic image associated with the Renzo Renzi Collection 
+                of the Cineteca di Bologna.
+            </description>
+        </descriptionSet>
+
+        <!-- Location -->
+        <locationSet>
+            <location pref="true" type="repository">
+                <name>Biblioteca Renzo Renzi. Cinema e Fotografia</name>
+            </location>
+            <location type="current">
+                <name>Cineteca di Bologna</name>
+            </location>
+        </locationSet>
+
+        <!-- Material -->
+        <materialSet>
+            <material pref="true">Cut paper</material>
+        </materialSet>
+
+        <!-- Technique -->
+        <techniqueSet>
+            <technique pref="true">Black ink and coloured markers</technique>
+        </techniqueSet>
+
+        <!-- Measurements -->
+        <measurementsSet>
+            <measurements type="dimensions" pref="true">
+                <measurement>13 × 8.6 cm</measurement>
+            </measurements>
+        </measurementsSet>
+
+        <!-- Source -->
+        <sourceSet>
+            <source pref="true">
+                <name type="corporate" vocab="viaf">Cineteca di Bologna</name>
+                <refid type="collection">Renzo Renzi Collection</refid>
+            </source>
+        </sourceSet>
+
+        <!-- Subjects -->
+        <subjectSet>
+            <subject>
+                <term type="genre" vocab="aat">caricatures</term>
+            </subject>
+            <subject>
+                <term type="person" vocab="viaf">Fellini, Federico</term>
+            </subject>
+        </subjectSet>
+
+        <!-- Rights -->
+        <rightsSet>
+            <rights pref="true">© Cineteca di Bologna</rights>
+        </rightsSet>
+
+        <!-- Work type -->
+        <worktypeSet>
+            <worktype>drawing</worktype>
+        </worktypeSet>
+
+    </work>
+
+</vra>

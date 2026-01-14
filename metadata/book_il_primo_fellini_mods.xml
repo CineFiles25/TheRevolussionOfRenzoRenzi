@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mods xmlns="http://www.loc.gov/mods/v3"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-8.xsd"
+      version="3.8">
+
+    <!-- Title -->
+    <titleInfo>
+        <title>Il primo Fellini</title>
+        <subTitle>Lo sceicco bianco; I vitelloni; La strada; Il bidone. Dal soggetto al film</subTitle>
+    </titleInfo>
+
+    <!-- Statement of responsibility -->
+    <note type="statement of responsibility">Introduction by Renzo Renzi; edited by Liliana Betti and Eschilo Tarquini; screenplays by Federico Fellini</note>
+
+    <!-- Main creator -->
+    <name type="personal" usage="primary">
+        <namePart>Fellini, Federico</namePart>
+        <nameIdentifier type="viaf">http://viaf.org/viaf/76315386</nameIdentifier>
+        <role>
+            <roleTerm type="text">author</roleTerm>
+            <roleTerm type="code" authority="marcrelator">aut</roleTerm>
+        </role>
+    </name>
+
+    <!-- Other contributors -->
+    <name type="personal">
+        <namePart>Renzi, Renzo</namePart>
+        <nameIdentifier type="viaf">http://viaf.org/viaf/40486517</nameIdentifier>
+        <role>
+            <roleTerm type="text">writer of introduction</roleTerm>
+            <roleTerm type="code" authority="marcrelator">aui</roleTerm>
+        </role>
+    </name>
+
+    <name type="personal">
+        <namePart>Betti, Liliana</namePart>
+        <nameIdentifier type="viaf">http://viaf.org/viaf/93378537</nameIdentifier>
+        <role>
+            <roleTerm type="text">editor</roleTerm>
+            <roleTerm type="code" authority="marcrelator">edt</roleTerm>
+        </role>
+    </name>
+
+    <name type="personal">
+        <namePart>Tarquini, Eschilo</namePart>
+        <role>
+            <roleTerm type="text">editor</roleTerm>
+            <roleTerm type="code" authority="marcrelator">edt</roleTerm>
+        </role>
+    </name>
+
+    <!-- Resource type -->
+    <typeOfResource>text</typeOfResource>
+    <genre authority="aat">books</genre>
+
+    <!-- Publication -->
+    <originInfo>
+        <place>
+            <placeTerm type="text">Bologna</placeTerm>
+            <placeTerm type="code" authority="marccountry">it</placeTerm>
+        </place>
+        <publisher>Cappelli Editore</publisher>
+        <dateIssued>1969</dateIssued>
+        <dateIssued encoding="iso8601">1969</dateIssued>
+    </originInfo>
+
+    <!-- Series -->
+    <relatedItem type="series">
+        <titleInfo>
+            <title>Dal soggetto al film. Serie retrospettiva</title>
+        </titleInfo>
+        <part>
+            <detail type="number">
+                <number>1</number>
+            </detail>
+        </part>
+    </relatedItem>
+
+    <!-- Physical description -->
+    <physicalDescription>
+        <extent>326 p. : ill. ; 25 cm</extent>
+    </physicalDescription>
+
+    <!-- Language -->
+    <language>
+        <languageTerm type="text">Italian</languageTerm>
+        <languageTerm type="code" authority="iso639-2b">ita</languageTerm>
+    </language>
+
+    <!-- Notes -->
+    <note>The volume contains the screenplays of four Fellini films: 'Lo sceicco bianco', 'I vitelloni', 'La strada', and 'Il bidone'. Only a selected sequence of 'La strada' is used for the TEI encoding in this project.</note>
+
+    <!-- Subjects -->
+    <subject><topic>Screenplays</topic></subject>
+    <subject><topic>Italian cinema</topic></subject>
+    <subject><topic>Neorealism</topic></subject>
+
+    <subject>
+        <name type="personal">
+            <namePart>Fellini, Federico</namePart>
+            <nameIdentifier type="viaf">http://viaf.org/viaf/76315386</nameIdentifier>
+        </name>
+    </subject>
+
+    <subject><titleInfo><title>Lo sceicco bianco</title></titleInfo></subject>
+    <subject><titleInfo><title>I vitelloni</title></titleInfo></subject>
+    <subject><titleInfo><title>La strada</title></titleInfo></subject>
+    <subject><titleInfo><title>Il bidone</title></titleInfo></subject>
+
+    <!-- Related works -->
+    <relatedItem type="isReferencedBy" displayLabel="Related work">
+        <identifier type="local">lo_sceicco_bianco_film</identifier>
+        <identifier type="viaf">http://viaf.org/viaf/194805029</identifier>
+    </relatedItem>
+
+    <relatedItem type="isReferencedBy" displayLabel="Related work">
+        <identifier type="local">i_vitelloni_film</identifier>
+        <identifier type="viaf">http://viaf.org/viaf/190907461</identifier>
+    </relatedItem>
+
+    <relatedItem type="isReferencedBy" displayLabel="Related work">
+        <identifier type="local">la_strada_film</identifier>
+        <identifier type="viaf">http://viaf.org/viaf/176979060</identifier>
+    </relatedItem>
+
+    <relatedItem type="isReferencedBy" displayLabel="Related work">
+        <identifier type="local">il_bidone_film</identifier>
+        <identifier type="viaf">http://viaf.org/viaf/190737556</identifier>
+    </relatedItem>
+
+    <!-- Local identifier -->
+    <identifier type="local">book_il_primo_fellini</identifier>
+
+    <!-- Standard note -->
+    <note type="cataloging standard">ISBD(G)</note>
+
+    <!-- Rights -->
+    <accessCondition type="use and reproduction">Copyright © Cappelli Editore</accessCondition>
+
+    <!-- Record info -->
+    <recordInfo>
+        <recordContentSource authority="marcorg">IT-CB</recordContentSource>
+        <recordCreationDate encoding="iso8601">2024</recordCreationDate>
+        <languageOfCataloging>
+            <languageTerm type="code" authority="iso639-2b">eng</languageTerm>
+        </languageOfCataloging>
+    </recordInfo>
+
+</mods>

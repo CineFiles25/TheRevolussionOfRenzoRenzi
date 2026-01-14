@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mods xmlns="http://www.loc.gov/mods/v3"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-8.xsd"
+      version="3.8">
+
+    <!-- Titles -->
+    <titleInfo>
+        <title>Il cinema a Bologna: Renzo Renzi e la Columbus film</title>
+    </titleInfo>
+
+    <titleInfo type="alternative">
+        <title>Official title screen: "Il cinema a Bologna – Renzo Renzi e la Columbus film"</title>
+    </titleInfo>
+
+    <!-- Interviewee -->
+    <name type="personal" usage="primary">
+        <namePart>Renzi, Renzo</namePart>
+        <nameIdentifier type="viaf">http://viaf.org/viaf/40486517</nameIdentifier>
+        <role>
+            <roleTerm type="text">interviewee</roleTerm>
+            <roleTerm type="code" authority="marcrelator">ive</roleTerm>
+        </role>
+    </name>
+
+    <!-- Production company -->
+    <name type="corporate">
+        <namePart>Cineteca di Bologna</namePart>
+        <nameIdentifier type="viaf">http://viaf.org/viaf/124960346</nameIdentifier>
+        <role>
+            <roleTerm type="text">production company</roleTerm>
+        </role>
+    </name>
+
+    <!-- Resource type -->
+    <typeOfResource>two dimensional moving image</typeOfResource>
+    <genre authority="aat">video recordings</genre>
+    <genre authority="aat">interviews</genre>
+
+    <!-- Production info -->
+    <originInfo>
+        <place>
+            <placeTerm type="text">Bologna, Italy</placeTerm>
+            <placeTerm type="code" authority="marccountry">it</placeTerm>
+        </place>
+        <publisher>Cineteca di Bologna</publisher>
+        <dateIssued>2000</dateIssued>
+        <dateIssued encoding="iso8601">2000</dateIssued>
+    </originInfo>
+
+    <!-- Physical description -->
+    <physicalDescription>
+        <form authority="gmd">videorecording</form>
+        <extent>56 min</extent>
+        <note type="color">colour</note>
+        <note type="sound">sound</note>
+        <note type="format">VHS</note>
+    </physicalDescription>
+
+    <!-- Language -->
+    <language>
+        <languageTerm type="text">Italian</languageTerm>
+        <languageTerm type="code" authority="iso639-2b">ita</languageTerm>
+    </language>
+
+    <!-- Abstract -->
+    <abstract>
+        Video interview with Renzo Renzi discussing his work and the history of Columbus Film, 
+        produced by the Cineteca di Bologna.
+    </abstract>
+
+    <!-- Notes -->
+    <note>Interview recorded in VHS format; director and interviewer are not credited.</note>
+
+    <!-- Holding institution -->
+    <location>
+        <physicalLocation>Cineteca di Bologna</physicalLocation>
+        <holdingSimple>
+            <copyInformation>
+                <subLocation>Renzo Renzi Library</subLocation>
+            </copyInformation>
+        </holdingSimple>
+    </location>
+
+    <!-- Collection -->
+    <relatedItem type="host">
+        <titleInfo>
+            <title>Renzo Renzi Collection</title>
+        </titleInfo>
+    </relatedItem>
+
+    <!-- Identifier -->
+    <identifier type="local">renzi_interview_2000</identifier>
+
+    <!-- Cataloguing standard -->
+    <note type="cataloging standard">FIAF</note>
+
+    <!-- Rights -->
+    <accessCondition type="use and reproduction">© Cineteca di Bologna</accessCondition>
+
+    <!-- Record info -->
+    <recordInfo>
+        <recordContentSource authority="marcorg">IT-CB</recordContentSource>
+        <recordCreationDate encoding="iso8601">2024</recordCreationDate>
+        <languageOfCataloging>
+            <languageTerm type="code" authority="iso639-2b">eng</languageTerm>
+        </languageOfCataloging>
+    </recordInfo>
+
+</mods>
