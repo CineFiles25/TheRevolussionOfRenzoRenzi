@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ead xmlns="urn:isbn:1-931666-22-9"
+     xmlns:xlink="http://www.w3.org/1999/xlink">
+
+  <eadheader>
+    <eadid countrycode="IT" mainagencycode="IT-CB">renzi_letter_1942</eadid>
+
+    <filedesc>
+      <titlestmt>
+        <titleproper>Renzo Renzi Collection: Letter to his father (1942-07-24)</titleproper>
+        <author>Generated from renzi_letter_1942.ttl</author>
+      </titlestmt>
+      <publicationstmt>
+        <publisher>Cineteca di Bologna</publisher>
+      </publicationstmt>
+    </filedesc>
+
+    <!-- dcterms:conformsTo "ISAD(G)" -->
+    <profiledesc>
+      <descrules>ISAD(G)</descrules>
+      <langusage>
+        <language langcode="ita">Italian</language>
+      </langusage>
+    </profiledesc>
+  </eadheader>
+
+  <archdesc level="collection">
+    <did>
+      <unittitle>Renzo Renzi Collection</unittitle>
+
+      <!-- schema:holdingArchive / dcterms:spatial -->
+      <repository>
+        <corpname>Cineteca di Bologna</corpname>
+      </repository>
+      <physloc>Renzo Renzi Library, Cineteca di Bologna</physloc>
+    </did>
+
+    <!-- collection  -->
+    <scopecontent>
+      <p>Collection-level description not provided in source TTL.</p>
+    </scopecontent>
+
+    <!-- Item 组件 -->
+    <dsc>
+      <c level="item" id="renzi_letter_1942">
+        <did>
+          <unittitle>Letter to his father</unittitle>
+          <unitdate normal="1942-07-24">1942-07-24</unitdate>
+          <unitid>IT-CB-0016-2-9_0001</unitid>
+          <unitid type="local">renzi_letter_1942</unitid>
+          <origination label="Creator">
+            <persname>Renzo Renzi</persname>
+          </origination>
+
+          <physdesc>
+            <extent>3 manuscript pages</extent>
+            <extent>3 pages</extent>
+          </physdesc>
+
+          <langmaterial>
+            <language langcode="ita">Italian</language>
+          </langmaterial>
+
+          <physfacet>Handwritten letter</physfacet>
+
+          <relatedmaterial>
+              <p>Digital surrogates are available via the Cineteca di Bologna website (media viewer):</p>
+              <p>Page 1: https://cinetecadibologna.it/...#media-slider-...-3</p>
+              <p>Page 2: https://cinetecadibologna.it/...#media-slider-...-4</p>
+              <p>Page 3: https://cinetecadibologna.it/...#media-slider-...-5</p>
+          </relatedmaterial>
+
+        </did>
+
+        <odd type="alternativeTitle">
+          <p>Original title: "Lettera al padre"</p>
+        </odd>
+
+        <scopecontent>
+          <p>Personal letter written by Renzo Renzi to his father during World War II, describing his intellectual life at the front.</p>
+        </scopecontent>
+
+        <accessrestrict>
+          <p>Access permitted for study and research.</p>
+        </accessrestrict>
+
+        <userestrict>
+          <p>Reproduction only with permission of the Renzi Estate.</p>
+          <p>© Renzi Estate</p>
+        </userestrict>
+      </c>
+    </dsc>
+  </archdesc>
+</ead>
