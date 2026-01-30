@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mods xmlns="http://www.loc.gov/mods/v3"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      version="3.8"
+      xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-8.xsd">
+
+  <!-- Title -->
+  <titleInfo>
+    <title>La strada</title>
+  </titleInfo>
+
+  <titleInfo type="alternative">
+    <title>National title in Italy: 'La strada'</title>
+  </titleInfo>
+
+  <!-- Names / Roles -->
+  <name type="personal" usage="primary">
+    <namePart>Fellini, Federico</namePart>
+    <role>
+      <roleTerm type="text">director</roleTerm>
+    </role>
+    <role>
+      <roleTerm type="text">creator</roleTerm>
+    </role>
+  </name>
+
+  <!-- Resource type / Genre -->
+  <typeOfResource>moving image</typeOfResource>
+  <genre>Film</genre>
+
+  <!-- Description -->
+  <abstract>Fiction film</abstract>
+
+  <!-- Origin / Publication -->
+  <originInfo eventType="production">
+    <place>
+      <placeTerm type="text">Italy</placeTerm>
+    </place>
+    <dateIssued encoding="w3cdtf">1954</dateIssued>
+  </originInfo>
+
+  <originInfo eventType="publication">
+    <agent>
+      <namePart>Ponti–De Laurentiis Cinematografica</namePart>
+      <role>
+        <roleTerm type="text">publisher</roleTerm>
+      </role>
+    </agent>
+    <dateIssued encoding="w3cdtf">1954</dateIssued>
+  </originInfo>
+
+  <!-- Language (gave "it"; MODS commonly uses iso639-2b "ita") -->
+  <language>
+    <languageTerm authority="iso639-2b" type="code">ita</languageTerm>
+  </language>
+
+  <!-- Physical / Technical -->
+  <physicalDescription>
+    <form type="format">35 mm</form>
+    <extent>3220m</extent>
+    <note type="duration">108 min</note>
+    <note type="color">black and white</note>
+    <note type="sound">sound</note>
+  </physicalDescription>
+
+  <!-- Subjects (spatial coverage) -->
+  <subject>
+    <geographic>Italy</geographic>
+  </subject>
+
+  <!-- Identifiers -->
+  <identifier type="wikidata">Q18402</identifier>
+  <location>
+    <url usage="primary display">https://www.wikidata.org/wiki/Q18402</url>
+  </location>
+
+</mods>
