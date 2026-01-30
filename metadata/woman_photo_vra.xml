@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vra xmlns="http://www.vraweb.org/vracore4.htm"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xsi:schemaLocation="http://www.vraweb.org/vracore4.htm http://www.vraweb.org/schema/vracore4.xsd">
+
+  <!-- WORK: the physical photograph (early collection description) -->
+  <work id="woman_photo">
+
+    <!-- What it is -->
+    <worktype>
+      <term>photograph</term>
+    </worktype>
+
+    <!-- Title(s) -->
+    <titleSet>
+      <title>Gelsomina eating bread in rural landscape</title>
+    </titleSet>
+
+    <titleSet>
+      <title type="alternative">Set photograph featuring Giulietta Masina as Gelsomina</title>
+    </titleSet>
+
+    <!-- Date (as given, approximate) -->
+    <dateSet>
+      <date type="creation">ca. 1954</date>
+    </dateSet>
+
+    <!-- Physical / Material -->
+    <materialSet>
+      <material>gelatin silver print</material>
+    </materialSet>
+
+    <techniqueSet>
+      <technique>photographic print</technique>
+    </techniqueSet>
+
+    <physicalDescriptionSet>
+      <physicalDescription>Gelatin silver print; original physical description not provided.</physicalDescription>
+    </physicalDescriptionSet>
+
+    <!-- Color -->
+    <measurementsSet>
+      <measurements type="color">black and white</measurements>
+    </measurementsSet>
+
+    <!-- Description -->
+    <descriptionSet>
+      <description>Set photograph from Federico Fellini’s film "La Strada", showing Gelsomina in a rural environment; exact location unknown.</description>
+    </descriptionSet>
+
+    <!-- Subjects (who/what is shown) -->
+    <subjectSet>
+      <subject>
+        <term type="person">Giulietta Masina</term>
+      </subject>
+      <subject>
+        <term type="concept">Production still from "La Strada" (1954)</term>
+      </subject>
+    </subjectSet>
+
+    <!-- Relations (collection + related work/film) -->
+    <relationSet>
+      <relation type="isPartOf">
+        <subject>
+          <name>Fondo Fotografie Cineteca</name>
+          <term type="collection">collection</term>
+        </subject>
+      </relation>
+
+      <relation type="relatedTo">
+        <subject>
+          <name>La Strada</name>
+          <term type="work">motion picture</term>
+        </subject>
+      </relation>
+    </relationSet>
+
+    <!-- Identifier (keep the meaningful one; ignore empty) -->
+    <identifierSet>
+      <identifier type="local">OLA309977</identifier>
+    </identifierSet>
+
+    <!-- Rights -->
+    <rightsSet>
+      <rights>Farabola / Bridgeman Images</rights>
+    </rightsSet>
+
+    <!-- Repository (kept minimal; TTL didn't explicitly state it, so not asserted) -->
+    <noteSet>
+      <note type="source">Created from woman_photo.ttl as an early-stage collection VRA work record; no digital object asserted.</note>
+    </noteSet>
+
+  </work>
+
+</vra>

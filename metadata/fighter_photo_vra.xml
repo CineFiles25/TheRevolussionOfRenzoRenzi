@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vra xmlns="http://www.vraweb.org/vracore4.htm"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xsi:schemaLocation="http://www.vraweb.org/vracore4.htm http://www.vraweb.org/schema/vracore4.xsd">
+
+  <!-- WORK: the physical photograph (early collection description) -->
+  <work id="photo_la_strada_fighter">
+
+    <!-- what it is -->
+    <worktype>
+      <term>photograph</term>
+    </worktype>
+
+    <!-- titles -->
+    <titleSet>
+      <title>Circus performance scene from "La Strada"</title>
+    </titleSet>
+
+    <titleSet>
+      <title type="alternative">Gelsomina and Zampanò during a circus act</title>
+    </titleSet>
+
+    <!-- date -->
+    <dateSet>
+      <date type="creation">1954</date>
+    </dateSet>
+
+    <!-- physical / material -->
+    <materialSet>
+      <material>gelatin silver print</material>
+    </materialSet>
+
+    <techniqueSet>
+      <technique>photographic print</technique>
+    </techniqueSet>
+
+    <physicalDescriptionSet>
+      <physicalDescription>Vintage gelatin silver print; physical description not fully provided.</physicalDescription>
+    </physicalDescriptionSet>
+
+    <!-- color -->
+    <measurementsSet>
+      <measurements type="color">black and white</measurements>
+    </measurementsSet>
+
+    <!-- description -->
+    <descriptionSet>
+      <description>Set photograph from Federico Fellini’s film "La Strada", showing a circus performance scene.</description>
+    </descriptionSet>
+
+    <!-- subjects (who/what is shown) -->
+    <subjectSet>
+      <subject>
+        <term type="person">Giulietta Masina</term>
+      </subject>
+      <subject>
+        <term type="person">Anthony Quinn</term>
+      </subject>
+      <subject>
+        <term type="concept">Production still from the film "La Strada" (1954)</term>
+      </subject>
+    </subjectSet>
+
+    <!-- relations: part of / related work -->
+    <relationSet>
+      <relation type="isPartOf">
+        <subject>
+          <name>Fondo Fotografie Cineteca</name>
+          <term type="collection">collection</term>
+        </subject>
+      </relation>
+
+      <relation type="isPartOf">
+        <subject>
+          <name>La strada</name>
+          <term type="work">motion picture</term>
+          <identifier type="wikidata">Q18402</identifier>
+        </subject>
+      </relation>
+    </relationSet>
+
+    <!-- rights -->
+    <rightsSet>
+      <rights>© Reporters Associati &amp; Archivi — All rights reserved</rights>
+    </rightsSet>
+
+    <!-- location / repository (kept minimal & early-stage) -->
+    <locationSet>
+      <location>
+        <name>Cineteca di Bologna</name>
+        <type>repository</type>
+      </location>
+    </locationSet>
+
+    <!-- internal note / provenance -->
+    <noteSet>
+      <note type="source">Created from fighter_photo.ttl (early collection-level VRA work record; no digital object asserted).</note>
+    </noteSet>
+
+  </work>
+
+</vra>

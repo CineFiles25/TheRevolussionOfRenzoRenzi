@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vra xmlns="http://www.vraweb.org/vracore4.htm"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xsi:schemaLocation="http://www.vraweb.org/vracore4.htm
+                         http://www.vraweb.org/schema/vracore4.xsd">
+
+  <!-- Work record -->
+  <work id="drawing_gelsomina_lastrada">
+    
+    <!-- What the object is -->
+    <worktype>
+      <term>drawing</term>
+    </worktype>
+
+    <!-- Title -->
+    <titleSet>
+      <title>Drawing of Gelsomina (La strada)</title>
+    </titleSet>
+
+    <!-- Creator (if known; if not, still a node, not a guess) -->
+    <agentSet>
+      <agent>
+        <name>Unknown artist</name>
+        <role>artist</role>
+      </agent>
+    </agentSet>
+
+    <!-- Date (approximate / contextual) -->
+    <dateSet>
+      <date type="creation">circa 1954</date>
+    </dateSet>
+
+    <!-- Physical description -->
+    <materialSet>
+      <material>paper</material>
+    </materialSet>
+
+    <techniqueSet>
+      <technique>drawing</technique>
+    </techniqueSet>
+
+    <!-- Cultural / contextual relation -->
+    <relationSet>
+      <relation type="depicts">
+        <subject>
+          <name>Gelsomina</name>
+          <term type="character">film character</term>
+        </subject>
+      </relation>
+
+      <relation type="relatedTo">
+        <subject>
+          <name>La strada</name>
+          <term type="film">motion picture</term>
+        </subject>
+      </relation>
+    </relationSet>
+
+    <!-- Location / holding institution -->
+    <locationSet>
+      <location>
+        <name>Cineteca di Bologna</name>
+        <type>repository</type>
+      </location>
+    </locationSet>
+
+    <!-- Notes -->
+    <descriptionSet>
+      <description>
+        Drawing depicting the character Gelsomina from Federico Fellini’s film La strada.
+      </description>
+    </descriptionSet>
+
+  </work>
+</vra>
