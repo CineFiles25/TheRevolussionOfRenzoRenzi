@@ -132,22 +132,19 @@ rrr:quando_il_po_è_dolce a schema:Movie ;
     dc:date "1989"^^xsd:gYear ;
     dc:title "Quando il Po è dolce" ;
     schema:about rrr:delta_po_river ;
-    schema:alternateName "English title: 'When the Po River is Fresh'",
-        "English title: 'When the Po River is fresh'" ;
+    schema:alternateName "English title: 'When the Po River is Fresh'" ;
     schema:color "black and white" ;
     schema:contentSize "300 m" ;
     schema:countryOfOrigin "Italy" ;
     schema:datePublished "1952"^^xsd:gYear ;
     schema:director rrr:renzo_renzi ;
-    schema:duration "11 min"^^xsd:duration,
-        "PT11M"^^xsd:duration ;
+    schema:duration "PT11M"^^xsd:duration ;
     schema:encodingFormat "Short documentary" ;
-    schema:frameRate "35 mm" ;
-    schema:inLanguage "it" ;
+    schema:videoFrameSize "35 mm" ;
+    schema:inLanguage "it"^^xsd:language ;
     schema:location rrr:delta_po_river ;
     schema:musicBy rrr:enzo_masetti ;
     schema:productionCompany "Columbus Film" ;
-    schema:videoFrameSize "35 mm" ;
     schema:sound "sound" ;
     schema:spatialCoverage rrr:delta_po_river .
 
