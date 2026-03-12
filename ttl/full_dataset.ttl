@@ -408,10 +408,6 @@ rrr:la_strada_film a schema:Movie ;
 
 rrr:renzo_renzi_library a schema:Library ;
     dbo:dedicatedTo rrr:renzo_renzi ;
-    dc:description "2×2 m screen",
-        "4 speakers, mixer, 2 table microphones, one wireless microphone",
-        "4 speakers; mixer; 2 table microphones; 1 wireless microphone",
-        "Architectural complex" ;
     dc:identifier "IT-BO0286" ;
     dcterms:hasPart rrr:renzi_collection ;
     crm:P52_has_current_owner rrr:cineteca_di_bologna ;
@@ -419,15 +415,13 @@ rrr:renzo_renzi_library a schema:Library ;
     schema:additionalType "Former municipal slaughterhouse (ex-Macello)" ;
     schema:address "Piazzetta Pier Paolo Pasolini 3/B" ;
     schema:addressLocality rrr:bologna ;
-    schema:alternateName "Biblioteca della Cineteca",
-        "Library of the Cineteca di Bologna" ;
+    schema:alternateName "Library of the Cineteca di Bologna" ;
     schema:date "1884"^^xsd:gYear ;
     schema:description "2×2 m screen",
         "4 speakers; mixer; 2 table microphones; 1 wireless microphone",
         "Architectural complex" ;
     schema:email "cinetecabiblioteca@cineteca.bologna.it"^^xsd:anyURI ;
-    schema:floorSize "2403 m²"^^xsd:float,
-        "2,403 m²"^^xsd:string ;
+    schema:floorSize "2403 m²"^^xsd:float ;
     schema:foundingDate "1967"^^xsd:gYear ;
     schema:geo "44.50284, 11.33449" ;
     schema:isAccessibleForFree true ;
