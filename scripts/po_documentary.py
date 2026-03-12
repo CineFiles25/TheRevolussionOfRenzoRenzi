@@ -74,7 +74,7 @@ for idx, row in quando_il_po_è_dolce.iterrows():
     g.add((po_documentary, dbo.writer, renzo_renzi))
     g.add((po_documentary, schema.countryOfOrigin, Literal(row["country"])))    
     g.add((po_documentary, schema.inLanguage, Literal(row["language"])))
-    g.add((po_documentary, schema.productionCompany, columbus_film))    
+    g.add((po_documentary, schema.productionCompany, Literal(row["production_company"])))    
     g.add((po_documentary, schema.datePublished, Literal(row["publication_year"], datatype=XSD.gYear)))
     g.add((po_documentary, schema.contentSize, Literal(row["length"])))   
     g.add((po_documentary, schema.duration, Literal(row["duration"], datatype=XSD.duration)))
