@@ -80,7 +80,7 @@ for idx, row in quando_il_po_è_dolce.iterrows():
     g.add((po_documentary, schema.duration, Literal(row["duration"], datatype=XSD.duration)))
     g.add((po_documentary, schema.color, Literal(row["colour"])))
     g.add((po_documentary, schema.encodingFormat, Literal(row["film_type"])))
-    g.add((po_documentary, schema.size, Literal(row["format"])))
+    g.add((po_documentary, schema.videoFrameSize, Literal(row["format"])))
     g.add((po_documentary, schema.sound, Literal(row["sound"])))
     g.add((po_documentary, schema.about, delta_po_river))
     g.add((po_documentary, schema.location, delta_po_river))

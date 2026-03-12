@@ -149,7 +149,8 @@ rrr:quando_il_po_è_dolce a schema:Movie ;
     schema:productionCompany "Columbus Film" ;
     schema:size "35 mm" ;
     schema:sound "sound" ;
-    schema:spatialCoverage rrr:delta_po_river .
+    schema:spatialCoverage rrr:delta_po_river ;
+    schema:videoFrameSize "35 mm" .
 
 rrr:renzi_letter_1942 a schema:ArchiveComponent ;
     dcterms:accessRights "Access permitted for study and research." ;
