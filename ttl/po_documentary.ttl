@@ -24,11 +24,11 @@ rrr:quando_il_po_è_dolce a schema:Movie ;
     schema:director rrr:renzo_renzi ;
     schema:duration "PT11M"^^xsd:duration ;
     schema:encodingFormat "Short documentary" ;
-    schema:frameRate "35 mm" ;
     schema:inLanguage "it" ;
     schema:location rrr:delta_po_river ;
     schema:musicBy rrr:enzo_masetti ;
     schema:productionCompany "Columbus Film" ;
+    schema:size "35 mm" ;
     schema:sound "sound" .
 
 rrr:enzo_masetti a foaf:Person ;
