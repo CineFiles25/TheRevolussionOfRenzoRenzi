@@ -146,7 +146,7 @@ rrr:quando_il_po_è_dolce a schema:Movie ;
     schema:inLanguage "it" ;
     schema:location rrr:delta_po_river ;
     schema:musicBy rrr:enzo_masetti ;
-    schema:productionCompany rrr:columbus_film ;
+    schema:productionCompany "Columbus Film" ;
     schema:sound "sound" ;
     schema:spatialCoverage rrr:delta_po_river .
 
