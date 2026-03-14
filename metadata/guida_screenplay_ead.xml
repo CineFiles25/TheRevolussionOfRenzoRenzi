@@ -99,7 +99,8 @@
             </relatedmaterial>
         </descgrp>
         
-        <phystech type="conservation_notes">
+        <phystech>
+            <head>Conservation Notes</head>
             <p>Original: Handwritten ink on paper</p>
             <p>Location: Renzo Renzi Library, Cineteca di Bologna</p>
         </phystech>

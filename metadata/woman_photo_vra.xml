@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <vra xmlns="http://www.vraweb.org/vracore4.htm"
      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-     xsi:schemaLocation="http://www.vraweb.org/vracore4.htm http://www.vraweb.org/schema/vracore4.xsd">
+     xsi:schemaLocation="http://www.vraweb.org/vracore4.htm http://www.loc.gov/standards/vracore/vra.xsd">
 
   <!-- WORK: the physical photograph (early collection description) -->
   <work id="woman_photo">
 
     <!-- What it is -->
-    <worktype>
-      <term>photograph</term>
-    </worktype>
+    <worktypeSet>
+      <worktype>photograph</worktype>
+    </worktypeSet>
 
     <!-- Title(s) -->
     <titleSet>
@@ -34,10 +34,6 @@
       <technique>photographic print</technique>
     </techniqueSet>
 
-    <physicalDescriptionSet>
-      <physicalDescription>Gelatin silver print; original physical description not provided.</physicalDescription>
-    </physicalDescriptionSet>
-
     <!-- Color -->
     <measurementsSet>
       <measurements type="color">black and white</measurements>
@@ -60,19 +56,8 @@
 
     <!-- Relations (collection + related work/film) -->
     <relationSet>
-      <relation type="isPartOf">
-        <subject>
-          <name>Fondo Fotografie Cineteca</name>
-          <term type="collection">collection</term>
-        </subject>
-      </relation>
-
-      <relation type="relatedTo">
-        <subject>
-          <name>La Strada</name>
-          <term type="work">motion picture</term>
-        </subject>
-      </relation>
+      <relation type="isPartOf">Fondo Fotografie Cineteca</relation>
+      <relation type="relatedTo">La Strada</relation>
     </relationSet>
 
     <!-- Identifier (keep the meaningful one; ignore empty) -->
