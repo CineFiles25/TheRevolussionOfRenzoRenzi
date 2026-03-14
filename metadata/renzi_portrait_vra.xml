@@ -17,7 +17,7 @@
         
         <dateSet>
             <date type="creation" pref="true">
-                <earliestDate>unknown</earliestDate>
+                <earliestDate></earliestDate>
             </date>
         </dateSet>
         

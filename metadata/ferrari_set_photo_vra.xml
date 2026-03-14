@@ -7,11 +7,11 @@
         <agentSet>
             <agent pref="true">
                 <name type="personal" vocab="viaf">Ferrari, Aldo</name>
-                <role vocab="aat">photographers</role>
+                <role vocab="aat">photographer</role>
             </agent>
             <agent>
                 <name type="personal" vocab="viaf">Renzi, Renzo</name>
-                <role vocab="aat">subjects</role>
+                <role vocab="aat">subject</role>
             </agent>
         </agentSet>
         

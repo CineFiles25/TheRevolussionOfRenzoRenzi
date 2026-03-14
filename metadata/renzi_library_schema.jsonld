@@ -39,7 +39,8 @@
     "name": "area",
     "value": "2,403 m²"
   },
-  "seatingCapacity": "65",
+  "floorSize": "2,403 m²",
+  "seatingCapacity": 65,
   "amenityFeature": [
     {
       "@type": "LocationFeatureSpecification",
