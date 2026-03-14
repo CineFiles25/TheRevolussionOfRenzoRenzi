@@ -4,7 +4,7 @@
   "@id": "https://cinetecadibologna.it/biblioteca/#library",
   "name": "Biblioteca Renzo Renzi",
   "alternateName": "Library of the Cineteca di Bologna",
-  "description": "Library specialized in cinema and photography, part of the Cineteca di Bologna.",
+  "description": "Library specialized in cinema and photography, part of the Cineteca di Bologna. Named after the film historian and critic Renzo Renzi (http://viaf.org/viaf/40486517).",
   "url": "https://cinetecadibologna.it/biblioteca/",
   "email": "cinetecabiblioteca@cineteca.bologna.it",
   "telephone": "+39 0512194843",
@@ -23,17 +23,32 @@
   "parentOrganization": {
     "@type": "Organization",
     "name": "Cineteca di Bologna",
-    "url": "http://viaf.org/viaf/124960346"
-  },
-  "namedAfter": {
-    "@type": "Person",
-    "name": "Renzo Renzi",
-    "url": "http://viaf.org/viaf/40486517"
+    "@id": "http://viaf.org/viaf/124960346"
   },
   "foundingDate": "1967",
-  "buildingCompletionDate": "1884",
-  "buildingType": "Architectural complex",
-  "originalFunction": "Former municipal slaughterhouse (ex-Macello)",
+  "additionalProperty": [
+    {
+      "@type": "PropertyValue",
+      "name": "buildingCompletionDate",
+      "value": "1884"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "buildingType",
+      "value": "Architectural complex"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "originalFunction",
+      "value": "Former municipal slaughterhouse (ex-Macello)"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "opac",
+      "value": "https://sol.unibo.it/SebinaOpac/.do?pb=UBOCX",
+      "description": "Online Public Access Catalog"
+    }
+  ],
   "structureProperty": {
     "@type": "PropertyValue",
     "name": "area",
@@ -62,22 +77,21 @@
     {
       "@type": "OpeningHoursSpecification",
       "dayOfWeek": [
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday"
+        "https://schema.org/Tuesday",
+        "https://schema.org/Wednesday",
+        "https://schema.org/Thursday",
+        "https://schema.org/Friday"
       ],
       "opens": "12:00",
       "closes": "18:00"
     },
     {
       "@type": "OpeningHoursSpecification",
-      "dayOfWeek": "Saturday",
+      "dayOfWeek": "https://schema.org/Saturday",
       "opens": "09:30",
       "closes": "15:00"
     }
   ],
   "openingHours": "Tue-Fri: 12:00-18:00 | Sat: 09:30-15:00",
-  "publicAccess": true,
-  "opac": "https://sol.unibo.it/SebinaOpac/.do?pb=UBOCX"
+  "publicAccess": true
 }
