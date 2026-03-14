@@ -1,21 +1,26 @@
 import xml.etree.ElementTree as ET
-from rdflib import Graph, Namespace, Literal, URIRef, RDF, RDFS, XSD, OWL
-from rdflib.namespace import FOAF, DCTERMS
+from rdflib import Namespace, Graph, RDF, URIRef, OWL, Literal, XSD, RDFS, FOAF
+
+# NAMESPACES
 
 rrr = Namespace("https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/")
 tei = Namespace("http://www.tei-c.org/ns/1.0/")
 schema = Namespace("https://schema.org/")
+dcterms = Namespace("http://purl.org/dc/terms/")
+
+# GRAPH CREATION
 
 g = Graph()
 
 ns_dict = {
     "rrr": rrr,
     "tei": tei,
-    "schema": schema,
-    "dcterms": DCTERMS,
-    "foaf": FOAF,
     "rdf": RDF,
-    "rdfs": RDFS
+    "rdfs": RDFS,
+    "owl": OWL,
+    "schema": schema,
+    "dcterms": dcterms,
+    "foaf": FOAF
 }
 
 def graph_bindings():
@@ -25,22 +30,22 @@ def graph_bindings():
 
 g = graph_bindings()
 
-# TEI namespace for XML queries
+# ENTITIES
+
 tei_ns = {'tei': 'http://www.tei-c.org/ns/1.0'}
+xml_ns = '{http://www.w3.org/XML/1998/namespace}'
+screenplay = URIRef(rrr + "lastrada_screenplay_seq1")
+
+# MAPPING
 
 # Parse XML file
 tree = ET.parse("../../tei_xslt/lastrada.xml")
 root = tree.getroot() # root = <TEI> element
 
-# URI for the screenplay
-screenplay = URIRef(rrr + "lastrada_screenplay_seq1")
-
-# EXTRACTING METADATA AND CONTENT
-
 # Screenplay metadata
 g.add((screenplay, RDF.type, schema.CreativeWork))
 g.add((screenplay, RDF.type, tei.TEI))
-g.add((screenplay, DCTERMS.title, Literal("La strada — Sequenza I", lang="it")))
+g.add((screenplay, dcterms.title, Literal("La strada — Sequenza I", lang="it")))
 
 # Author
 author = root.find(".//tei:author", tei_ns) # find to get the first <author> element
@@ -70,7 +75,7 @@ if lang is not None:
 # Characters and Actors    
 # iterating over children nodes
 for person in root.findall(".//tei:person", tei_ns): # findall() to get all <person> elements, not just the first
-    person_id = person.get('{http://www.w3.org/XML/1998/namespace}id')
+    person_id = person.get(f'{xml_ns}id')
     if not person_id: # skip if no id attribute
         continue
     
@@ -99,7 +104,7 @@ for person in root.findall(".//tei:person", tei_ns): # findall() to get all <per
             
 # Places
 for place in root.findall(".//tei:place", tei_ns): # findall() to get all <place> elements
-    place_id = place.get('{http://www.w3.org/XML/1998/namespace}id')
+    place_id = place.get(f'{xml_ns}id')
     if not place_id:
         continue
     
@@ -114,27 +119,27 @@ for place in root.findall(".//tei:place", tei_ns): # findall() to get all <place
 scene_counter = 0 # to number scenes sequentially
 for div in root.findall(".//tei:div[@type='scene']", tei_ns):
     scene_counter += 1
-    scene_id = div.get('{http://www.w3.org/XML/1998/namespace}id') or f"scene_{scene_counter}"
+    scene_id = div.get(f'{xml_ns}id') or f"scene_{scene_counter}"
     scene_num = div.get('n', str(scene_counter))
     
     scene_uri = URIRef(rrr + f"scene_{scene_id}")
     g.add((scene_uri, RDF.type, schema.CreativeWork))
-    g.add((scene_uri, schema.partOf, screenplay))
+    g.add((scene_uri, schema.isPartOf, screenplay))
     g.add((scene_uri, schema.position, Literal(scene_num, datatype=XSD.integer))) # converte to int for position
     
     # Scene headings
     for head in div.findall("tei:head", tei_ns): # find all <head> elements within the scene
         if head.text:
             if head.get('type') == 'logline': # brief summary of the scene
-                g.add((scene_uri, DCTERMS.abstract, Literal(head.text, lang="it")))
+                g.add((scene_uri, dcterms.abstract, Literal(head.text, lang="it")))
             else:
-                g.add((scene_uri, DCTERMS.title, Literal(head.text, lang="it")))
+                g.add((scene_uri, dcterms.title, Literal(head.text, lang="it")))
     
     # Stage directions (that describe settings)
     for stage in div.findall("tei:stage[@type='setting']", tei_ns):
         setting_text = ''.join(stage.itertext()).strip() # get full text within <stage>, concatenating all text nodes and stripping whitespace
         if setting_text:
-            g.add((scene_uri, DCTERMS.abstract, Literal(setting_text, lang="it")))
+            g.add((scene_uri, dcterms.abstract, Literal(setting_text, lang="it")))
         
         where_ref = stage.get('where') # check if stage direction references a place
         if where_ref:
@@ -150,7 +155,7 @@ for div in root.findall(".//tei:div[@type='scene']", tei_ns):
         if para_text:
             para_uri = URIRef(rrr + f"{scene_id}_para_{para_counter}")
             g.add((para_uri, RDF.type, schema.Text)) # found in DOCO ontology for document components
-            g.add((para_uri, schema.partOf, scene_uri))
+            g.add((para_uri, schema.isPartOf, scene_uri))
             g.add((para_uri, schema.text, Literal(para_text, lang="it")))
             g.add((para_uri, schema.position, Literal(para_counter, datatype=XSD.integer)))
     
@@ -162,7 +167,7 @@ for div in root.findall(".//tei:div[@type='scene']", tei_ns):
         
         speech_uri = URIRef(rrr + f"{scene_id}_speech_{speech_counter}")
         g.add((speech_uri, RDF.type, schema.Text))
-        g.add((speech_uri, schema.partOf, scene_uri))
+        g.add((speech_uri, schema.isPartOf, scene_uri))
         g.add((speech_uri, schema.position, Literal(speech_counter, datatype=XSD.integer)))
         
         if speaker_ref: # link speech to character
@@ -192,14 +197,7 @@ for div in root.findall(".//tei:div[@type='scene']", tei_ns):
 
 # SERIALIZATION
 
-print(f"Total triples created: {len(g)}")
+g.serialize(format="turtle", destination="../../tei_xslt/lastrada_screenplay.ttl")
+g.serialize(format="xml", destination="../../tei_xslt/lastrada_screenplay.rdf")
 
-# Serialize to Turtle
-g.serialize(destination="../../tei_xslt/lastrada_screenplay.ttl", format='turtle')
-print("Turtle file saved to lastrada_screenplay.ttl")
-
-# Serialize to RDF/XML
-g.serialize(destination="../../tei_xslt/lastrada_screenplay.rdf", format='xml')
-print("RDF/XML file saved to lastrada_screenplay.rdf")
-
-print("XML successfully converted to RDF!")
+print("XML converted to RDF!!")
