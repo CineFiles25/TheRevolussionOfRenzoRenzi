@@ -2,31 +2,84 @@
   "@context": "https://schema.org",
   "@type": "Library",
   "@id": "https://cinetecadibologna.it/biblioteca/#library",
-  "name": "Biblioteca Renzo Renzi",
-  "alternateName": "Library of the Cineteca di Bologna",
+  "name": "Biblioteca Renzo Renzi. Cinema e Fotografia",
+  "alternateName": [
+    "Library of the Cineteca di Bologna",
+    "Biblioteca della Cineteca"
+  ],
   "description": "Library specialized in cinema and photography, part of the Cineteca di Bologna. Named after the film historian and critic Renzo Renzi (http://viaf.org/viaf/40486517).",
   "url": "https://cinetecadibologna.it/biblioteca/",
-  "email": "cinetecabiblioteca@cineteca.bologna.it",
-  "telephone": "+39 0512194843",
+  "email": [
+    "cinetecabiblioteca@cineteca.bologna.it",
+    "anna.fiaccarini@cineteca.bologna.it"
+  ],
+  "telephone": [
+    "+39 0512194843",
+    "+39 0512195300"
+  ],
+  "faxNumber": "+39 0512194847",
+  "identifier": [
+    {
+      "@type": "PropertyValue",
+      "name": "ISIL",
+      "value": "IT-BO0286"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "ACNP",
+      "value": "BO854"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "SBN",
+      "value": "UBOCX"
+    }
+  ],
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "Piazzetta Pier Paolo Pasolini 3/B",
+    "postalCode": "40122",
     "addressLocality": "Bologna",
+    "addressRegion": "EMILIA-ROMAGNA",
     "addressCountry": "IT"
   },
   "geo": {
     "@type": "GeoCoordinates",
-    "latitude": 44.50284,
-    "longitude": 11.33449
+    "latitude": 44.50271,
+    "longitude": 11.3347322
   },
   "areaServed": "Bologna, Italy",
   "parentOrganization": {
     "@type": "Organization",
-    "name": "Cineteca di Bologna",
-    "@id": "http://viaf.org/viaf/124960346"
+    "name": "Fondazione Cineteca di Bologna"
   },
   "foundingDate": "1967",
   "additionalProperty": [
+    {
+      "@type": "PropertyValue",
+      "name": "censusYear",
+      "value": "2024"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "updateDate",
+      "value": "2025-11-26"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "administrativeType",
+      "value": "Academies, associations, foundations, institutes, private societies"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "functionalType",
+      "value": "Specialized"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "reservedAccess",
+      "value": false
+    },
     {
       "@type": "PropertyValue",
       "name": "buildingCompletionDate",
