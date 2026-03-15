@@ -7,16 +7,13 @@
   <work id="photo_la_strada_fighter">
 
     <!-- what it is -->
-    <worktype>
-      <term>photograph</term>
-    </worktype>
+    <worktypeSet>
+      <worktype>photograph</worktype>
+    </worktypeSet>
 
     <!-- titles -->
     <titleSet>
-      <title>Circus performance scene from "La Strada"</title>
-    </titleSet>
-
-    <titleSet>
+      <title pref="true" type="repository">Circus performance scene from "La Strada"</title>
       <title type="alternative">Gelsomina and Zampanò during a circus act</title>
     </titleSet>
 

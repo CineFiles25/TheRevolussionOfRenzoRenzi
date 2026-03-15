@@ -38,7 +38,7 @@
         </locationSet>
         
         <materialSet>
-            <material pref="true">gelatin silver print</material>
+            <material pref="true">Gelatin Silver Print</material>
         </materialSet>
         
         <relationSet>
@@ -47,22 +47,22 @@
         
         <sourceSet>
             <source pref="true">
-                <name type="corporate" vocab="viaf">Cineteca di Bologna</name>
+                <name type="corporate">Cineteca di Bologna</name>
                 <refid type="repository">FAF01878.001</refid>
             </source>
         </sourceSet>
         
         <subjectSet>
             <subject>
-                <term type="event" vocab="aat">documentary film production</term>
+                <term type="event" vocab="aat">Documentary Film Production</term>
             </subject>
             <subject>
-                <term type="genre" vocab="aat">documentary photographs</term>
+                <term type="genre" vocab="aat">Documentary Photographs</term>
             </subject>
         </subjectSet>
         
         <techniqueSet>
-            <technique pref="true" vocab="aat">gelatin silver printing</technique>
+            <technique pref="true" vocab="aat">Gelatin Silver Printing</technique>
         </techniqueSet>
         
         <titleSet>
@@ -70,7 +70,7 @@
         </titleSet>
         
         <worktypeSet>
-            <worktype>photograph</worktype>
+            <worktype>Photograph</worktype>
         </worktypeSet>
     </work>    
 </vra>
