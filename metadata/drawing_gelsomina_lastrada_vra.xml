@@ -4,7 +4,7 @@
      xsi:schemaLocation="http://www.vraweb.org/vracore4.htm
                          http://www.loc.gov/standards/vracore/vra.xsd">
 
-    <work id="caricature_fellini_renzi">
+    <work id="drawing_gelsomina_lastrada">
 
         <agentSet>
             <agent pref="true">
@@ -16,32 +16,24 @@
             <agent>
                 <name type="personal"
                       vocab="viaf"
-                      refid="http://viaf.org/viaf/76315386">Fellini, Federico</name>
+                      refid="http://viaf.org/viaf/37021297">Masina, Giulietta</name>
                 <role vocab="aat">subjects</role>
             </agent>
         </agentSet>
 
         <dateSet>
             <date type="creation" pref="true">
-                <earliestDate>1960</earliestDate>
-                <latestDate>1969</latestDate>
+                <earliestDate>1950</earliestDate>
+                <latestDate>1959</latestDate>
             </date>
         </dateSet>
 
         <descriptionSet>
             <description pref="true">
-                Hand-drawn caricature by Renzo Renzi depicting Federico Fellini with a
-                humorous handwritten caption. Created in the 1960s, the drawing became
-                an emblematic image associated with the Renzo Renzi Collection of the
-                Cineteca di Bologna.
+                Portrait drawing by Renzo Renzi depicting Giulietta Masina as Gelsomina
+                from Federico Fellini's film La Strada, shown playing a small drum.
             </description>
         </descriptionSet>
-
-        <inscriptionSet>
-            <inscription pref="true">
-                <text>Perché Federico non fa la rivolussione?</text>
-            </inscription>
-        </inscriptionSet>
 
         <locationSet>
             <location pref="true" type="repository">
@@ -58,17 +50,17 @@
         </locationSet>
 
         <materialSet>
-            <material pref="true" type="medium">Cut paper</material>
+            <material pref="true" type="medium">Cardboard</material>
         </materialSet>
 
         <measurementsSet>
-            <measurements type="dimensions" unit="cm" pref="true">13 × 8.6</measurements>
+            <measurements type="dimensions" unit="cm" pref="true">25.2 × 17.2</measurements>
         </measurementsSet>
 
         <rightsSet>
             <rights type="copyrighted" pref="true">
-                <rightsHolder>Cineteca di Bologna</rightsHolder>
-                <text>© Cineteca di Bologna</text>
+                <rightsHolder>Renzi Estate</rightsHolder>
+                <text>© Renzi Estate</text>
             </rights>
         </rightsSet>
 
@@ -85,23 +77,22 @@
             <subject pref="true">
                 <term type="personalName"
                       vocab="viaf"
-                      refid="http://viaf.org/viaf/76315386">Fellini, Federico</term>
-            </subject>
-            <subject>
-                <term type="genre" vocab="aat">caricatures (commentary)</term>
+                      refid="http://viaf.org/viaf/37021297">Masina, Giulietta</term>
             </subject>
             <subject>
                 <term type="genre" vocab="aat">drawings (visual works)</term>
             </subject>
+            <subject>
+                <term type="genre" vocab="aat">portrait drawings</term>
+            </subject>
         </subjectSet>
 
         <techniqueSet>
-            <technique pref="true">Black ink and coloured markers</technique>
+            <technique pref="true">Pencil and coloured markers</technique>
         </techniqueSet>
 
         <titleSet>
-            <title pref="true" type="repository">Fellini Caricature</title>
-            <title type="alternative">Caricature with handwritten caption</title>
+            <title pref="true">La Strada: Gelsomina col tamburo</title>
         </titleSet>
 
         <worktypeSet>

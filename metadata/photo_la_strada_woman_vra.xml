@@ -4,18 +4,12 @@
      xsi:schemaLocation="http://www.vraweb.org/vracore4.htm
                          http://www.loc.gov/standards/vracore/vra.xsd">
 
-    <work id="photo_lastrada_premiere">
+    <work id="photo_la_strada_woman">
 
         <agentSet>
             <agent pref="true">
-                <name type="personal">Grandi, Libero</name>
+                <name type="personal">Unknown photographer</name>
                 <role vocab="aat">photographers</role>
-            </agent>
-            <agent>
-                <name type="personal"
-                      vocab="viaf"
-                      refid="http://viaf.org/viaf/76315386">Fellini, Federico</name>
-                <role vocab="aat">subjects</role>
             </agent>
             <agent>
                 <name type="personal"
@@ -27,33 +21,29 @@
 
         <dateSet>
             <date type="creation" pref="true">
-                <earliestDate>1954</earliestDate>
+                <earliestDate>1953</earliestDate>
                 <latestDate>1954</latestDate>
             </date>
         </dateSet>
 
         <descriptionSet>
             <description pref="true">
-                Press photograph documenting the premiere of La Strada (1954) at
-                Cinema Fulgor in Bologna, featuring Federico Fellini and Giulietta Masina.
-                Indexed in Bologna Fotografata under: Attori e registi cinematografici;
-                Eventi culturali; Personaggi.
+                Set photograph from Federico Fellini's film La Strada, showing
+                Gelsomina (Giulietta Masina) eating bread in a rural environment.
+                Exact location unknown.
             </description>
             <description>
-                Vintage press photograph. Black and white.
+                Gelatin silver print; original physical description not provided.
+                Black and white. Photographic print.
             </description>
         </descriptionSet>
 
         <locationSet>
-            <location pref="true" type="creation">
-                <name type="geographic">Bologna, Cinema Fulgor (Via Montegrappa)</name>
-                <refid type="wikidata">https://www.wikidata.org/wiki/Q36839368</refid>
-            </location>
-            <location type="repository">
+            <location pref="true" type="repository">
                 <name type="corporate"
                       vocab="viaf"
                       refid="http://viaf.org/viaf/124960346">Cineteca di Bologna</name>
-                <refid type="collection">Fondo Iniziative Cineteca</refid>
+                <refid type="collection">Fondo Fotografie Cineteca</refid>
             </location>
         </locationSet>
 
@@ -67,8 +57,8 @@
 
         <rightsSet>
             <rights type="copyrighted" pref="true">
-                <rightsHolder>Cineteca di Bologna</rightsHolder>
-                <text>© Cineteca di Bologna — All rights reserved</text>
+                <rightsHolder>Farabola / Bridgeman Images</rightsHolder>
+                <text>Farabola / Bridgeman Images</text>
             </rights>
         </rightsSet>
 
@@ -77,30 +67,22 @@
                 <name type="corporate"
                       vocab="viaf"
                       refid="http://viaf.org/viaf/124960346">Cineteca di Bologna</name>
-                <refid type="inventory">FIC0414</refid>
-                <refid type="local">IT-CINETECABOLOGNA-FT0001-050499</refid>
+                <refid type="accession">OLA309977</refid>
+                <refid type="collection">Fondo Fotografie Cineteca</refid>
             </source>
         </sourceSet>
 
         <subjectSet>
             <subject pref="true">
-                <term type="event">Film premiere of La Strada (1954)</term>
-            </subject>
-            <subject>
-                <term type="personalName"
-                      vocab="viaf"
-                      refid="http://viaf.org/viaf/76315386">Fellini, Federico</term>
-            </subject>
-            <subject>
                 <term type="personalName"
                       vocab="viaf"
                       refid="http://viaf.org/viaf/37021297">Masina, Giulietta</term>
             </subject>
             <subject>
-                <term type="geographicPlace">Bologna, Cinema Fulgor</term>
+                <term type="descriptiveTopic">Production still from the film La Strada (1954)</term>
             </subject>
             <subject>
-                <term type="genre" vocab="aat">press photographs</term>
+                <term type="genre" vocab="aat">motion picture stills</term>
             </subject>
         </subjectSet>
 
@@ -109,8 +91,8 @@
         </techniqueSet>
 
         <titleSet>
-            <title pref="true" type="repository">Bologna. Cinema Fulgor. Premiere of La Strada with Federico Fellini and Giulietta Masina</title>
-            <title type="alternative">Premiere of La Strada at Cinema Fulgor</title>
+            <title pref="true">Gelsomina eating bread in rural landscape</title>
+            <title type="alternative">Set photograph featuring Giulietta Masina as Gelsomina</title>
         </titleSet>
 
         <worktypeSet>
