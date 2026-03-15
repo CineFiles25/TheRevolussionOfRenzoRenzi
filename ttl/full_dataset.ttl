@@ -140,13 +140,13 @@ rrr:quando_il_po_è_dolce a schema:Movie ;
     schema:director rrr:renzo_renzi ;
     schema:duration "PT11M"^^xsd:duration ;
     schema:encodingFormat "Short documentary" ;
-    schema:videoFrameSize "35 mm" ;
     schema:inLanguage "it"^^xsd:language ;
     schema:location rrr:delta_po_river ;
     schema:musicBy rrr:enzo_masetti ;
     schema:productionCompany "Columbus Film" ;
     schema:sound "sound" ;
-    schema:spatialCoverage rrr:delta_po_river .
+    schema:spatialCoverage rrr:delta_po_river ;
+    schema:videoFrameSize "35 mm" .
 
 rrr:renzi_letter_1942 a schema:ArchiveComponent ;
     dcterms:accessRights "Access permitted for study and research." ;
@@ -421,7 +421,8 @@ rrr:renzo_renzi_library a schema:Library ;
         "4 speakers; mixer; 2 table microphones; 1 wireless microphone",
         "Architectural complex" ;
     schema:email "cinetecabiblioteca@cineteca.bologna.it"^^xsd:anyURI ;
-    schema:floorSize "2403 m²"^^xsd:float ;
+    schema:floorSize "2403 m²"^^xsd:float,
+        "2,403 m²"^^xsd:string ;
     schema:foundingDate "1967"^^xsd:gYear ;
     schema:geo "44.50284, 11.33449" ;
     schema:isAccessibleForFree true ;
