@@ -1,5 +1,4 @@
 @prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
-@prefix dbo: <http://dbpedia.org/ontology/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -12,33 +11,32 @@ rrr:renzi_collection a dcterms:Collection ;
     crm:P52_has_current_owner rrr:cineteca_di_bologna .
 
 rrr:guida_per_camminare_all_ombra a schema:Manuscript ;
-    dbo:writer rrr:renzo_renzi ;
-    dcterms:accessRights "Access permitted for study and research.",
-        "Reproduction only with permission of the Renzi Estate." ;
-    dcterms:alternative "English title:\"Guide to walking in the shade\"" ;
+    schema:creator rrr:renzo_renzi ;
+    dcterms:accessRights "Access permitted for study and research." ,
+                         "Reproduction only with permission of the Renzi Estate." ;
+    dcterms:alternative "English title: 'Guide to walking in the shade'" ;
     dcterms:created "1954-10"^^xsd:gYearMonth ;
-    dcterms:description "7 opening titles of Guida per camminare allombra",
-        "Item",
-        "Narrative" ;
+    dcterms:description "7 opening titles of 'Guida per camminare all'ombra'." ;
     dcterms:extent "One leaf" ;
     dcterms:language "it"^^xsd:language ;
     dcterms:medium "Paper" ;
-    dcterms:provenance "Cineteca di Bologna acquired the item after a donation from the Renzi family to the Renzi Fund" ;
-    dcterms:relation "Typed version/Sequences list" ;
+    dcterms:provenance "Cineteca di Bologna acquired the item after a donation from the Renzi family to the Renzi Fund." ;
     dcterms:rights "© Renzi Estate" ;
     dcterms:subject "Portici of Bologna" ;
-    dcterms:title "Sceneggiatura manoscritta di \"Guida per camminare all'ombra\"" ;
-    crm:P52_has_current_owner "Renzi Estate" ;
+    dcterms:title "Sceneggiatura manoscritta di 'Guida per camminare all'ombra'" ;
     schema:additionalType schema:ArchiveComponent ;
     schema:holdingArchive rrr:cineteca_di_bologna ;
-    schema:itemLocation rrr:renzo_renzi_library .
+    schema:location rrr:renzo_renzi_library .
 
-rrr:renzo_renzi owl:sameAs <http://viaf.org/viaf/40486517> .
+rrr:renzo_renzi a schema:Person ;
+    owl:sameAs <http://viaf.org/viaf/40486517> .
 
 schema:ArchiveComponent rdfs:subClassOf schema:CreativeWork .
-
 schema:Manuscript rdfs:subClassOf schema:CreativeWork .
 
-rrr:cineteca_di_bologna owl:sameAs <http://viaf.org/viaf/124960346> ;
+rrr:cineteca_di_bologna a schema:Organization ;
+    owl:sameAs <http://viaf.org/viaf/124960346> ;
     schema:location rrr:bologna .
 
+rrr:bologna a schema:Place ;
+    owl:sameAs <https://www.geonames.org/3181928/bologna.html> .
