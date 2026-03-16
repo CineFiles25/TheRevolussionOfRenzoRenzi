@@ -1,85 +1,87 @@
 from pandas import read_csv
-from rdflib import Namespace, Graph, RDF, URIRef, OWL, Literal, XSD, RDFS, FOAF
+from rdflib import Namespace, Graph, RDF, URIRef, Literal, XSD
 
 # NAMESPACES
 
 rrr = Namespace("https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/")
-rdf = Namespace("http://www.w3.org/1999/02/22-rdf-syntax-ns#")
-rdfs = Namespace("http://www.w3.org/2000/01/rdf-schema#")
-owl = Namespace("http://www.w3.org/2002/07/owl#")
 schema = Namespace("https://schema.org/")
-dc = Namespace("http://purl.org/dc/elements/1.1/")
 dcterms = Namespace("http://purl.org/dc/terms/")
-dbo = Namespace("http://dbpedia.org/ontology/")
+dc = Namespace("http://purl.org/dc/elements/1.1/")
 crm = Namespace("http://www.cidoc-crm.org/cidoc-crm/")
 foaf = Namespace("http://xmlns.com/foaf/0.1/")
-fiaf = Namespace("https://fiaf.github.io/film-related-materials/objects/")
-skos = Namespace("http://www.w3.org/2004/02/skos/core#")
 
-# GRAPH CREATION
-
+# GRAPH
 g = Graph()
 
-ns_dict = { 
-    "rrr": rrr,   
-    "rdf": rdf,
-    "rdfs": rdfs,
-    "owl": owl,
-    "schema": schema,
-    "dc": dc,
-    "dcterms": dcterms,
-    "dbo": dbo,
-    "crm": crm,
-    "foaf": foaf,
-    "fiaf": fiaf,
-    "skos": skos,
-}
+# Bindings
+g.bind("rrr", rrr)
+g.bind("schema", schema)
+g.bind("dcterms", dcterms)
+g.bind("dc", dc)
+g.bind("crm", crm)
+g.bind("foaf", foaf)
 
-def graph_bindings():
-    for prefix, ns in ns_dict.items():
-        g.bind(prefix, ns)
-    return g
-
-# ENTITIES 
-
-drawing_gelsomina = URIRef(rrr + "drawing_gelsomina_lastrada")
-la_strada_film = URIRef(rrr + "la_strada_film")
-renzo_renzi = URIRef(rrr + "renzo_renzi")
-giulietta_masina = URIRef(rrr + "giulietta_masina")
+# ENTITIES
+artwork = URIRef(rrr + "drawing_gelsomina_lastrada")
+la_strada = URIRef(rrr + "la_strada_film")
+renzi = URIRef(rrr + "renzo_renzi")
+masina = URIRef(rrr + "giulietta_masina")
 renzi_collection = URIRef(rrr + "renzi_collection")
 renzi_library = URIRef(rrr + "renzo_renzi_library")
-cineteca_di_bologna = URIRef(rrr + "cineteca_di_bologna")
+cineteca = URIRef(rrr + "cineteca_di_bologna")
 
-g.add((la_strada_film, OWL.sameAs, URIRef("https://www.wikidata.org/wiki/Q18402")))
-g.add((renzo_renzi, OWL.sameAs, URIRef("http://viaf.org/viaf/40486517")))
-g.add((cineteca_di_bologna, OWL.sameAs, URIRef("http://viaf.org/viaf/124960346")))
+# LOAD CSV
+df = read_csv("../csv/drawing_gelsomina_lastrada.csv", keep_default_na=False, encoding="utf-8")
 
-# MAPPING TO ONTOLOGIES
+# RESOURCE TYPE
+g.add((artwork, RDF.type, schema.VisualArtwork))
 
-drawing_df = read_csv("../csv/drawing_gelsomina_lastrada.csv", keep_default_na=False, encoding="utf-8")
+# CSV → RDF MAPPING
+for _, row in df.iterrows():
 
-g = graph_bindings()
+    # Title
+    if row.get("title"):
+        g.add((artwork, dcterms.title, Literal(row["title"])))
 
-for idx, row in drawing_df.iterrows():
-    g.add((drawing_gelsomina, RDF.type, schema.VisualArtwork))
-    g.add((schema.VisualArtwork, RDFS.subClassOf, schema.CreativeWork))
-    g.add((drawing_gelsomina, dc.title, Literal(row["title"])))
-    g.add((drawing_gelsomina, dcterms.creator, renzo_renzi))
-    g.add((drawing_gelsomina, foaf.depicts, giulietta_masina))
-    g.add((drawing_gelsomina, schema.dateCreated, Literal(row["creation_date"], datatype=XSD.gYear)))
-    g.add((drawing_gelsomina, dcterms.medium, Literal(row["technique"])))
-    g.add((drawing_gelsomina, dcterms.material, Literal(row["material"])))
-    g.add((drawing_gelsomina, dcterms.extent, Literal(row["dimensions"])))
-    g.add((drawing_gelsomina, crm.P52_has_current_owner, cineteca_di_bologna))
-    g.add((renzi_collection, dcterms.hasPart, drawing_gelsomina))
-    g.add((drawing_gelsomina, schema.location, renzi_library))
-    g.add((drawing_gelsomina, dcterms.rights, Literal(row["rights"])))
-    g.add((drawing_gelsomina, dc.description , URIRef(row["description"])))
-    g.add((drawing_gelsomina, dcterms.relation, la_strada_film))
+    # Creator (resource)
+    g.add((artwork, schema.creator, renzi))
+
+    # Depicted person
+    g.add((artwork, foaf.depicts, masina))
+
+    # Creation date
+    if row.get("creation_date"):
+        g.add((artwork, dcterms.created, Literal(row["creation_date"], datatype=XSD.gYear)))
+
+    # Technique / material
+    if row.get("technique"):
+        g.add((artwork, dcterms.medium, Literal(row["technique"])))
+
+    if row.get("material"):
+        g.add((artwork, dcterms.material, Literal(row["material"])))
+
+    # Dimensions
+    if row.get("dimensions"):
+        g.add((artwork, dcterms.extent, Literal(row["dimensions"])))
+
+    # Rights
+    if row.get("rights"):
+        g.add((artwork, dcterms.rights, Literal(row["rights"])))
+
+    # Description
+    if row.get("description"):
+        g.add((artwork, dcterms.description, Literal(row["description"])))
+
+    # Link to La Strada
+    g.add((artwork, schema.about, la_strada))
+
+    # COLLECTION & LOCATION
+    g.add((artwork, dcterms.isPartOf, renzi_collection))
+    g.add((renzi_collection, dcterms.hasPart, artwork))
+    g.add((artwork, schema.location, renzi_library))
+    g.add((artwork, crm.P52_has_current_owner, cineteca))
+
 
 # SERIALIZATION
-
 g.serialize(format="turtle", destination="../ttl/drawing_gelsomina_lastrada.ttl")
-
-print("CSV converted to TTL!")
-
+print("drawing_gelsomina_lastrada.ttl generated successfully!")
