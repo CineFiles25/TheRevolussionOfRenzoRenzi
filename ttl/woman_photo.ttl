@@ -4,29 +4,26 @@
 @prefix rrr: <https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/> .
 @prefix schema: <https://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
 
-rrr:giulietta_masina owl:sameAs <http://viaf.org/viaf/37021297> .
+rrr:giulietta_masina a foaf:Person ;
+    owl:sameAs <http://viaf.org/viaf/37021297> .
 
 rrr:woman_photo a schema:Photograph ;
     dcterms:alternative "Set photograph featuring Giulietta Masina as Gelsomina" ;
-    dcterms:created " \"ca. 1954\""^^xsd:gYear ;
-    dcterms:description "Set photograph from Federico Fellini’s film 'La Strada', showing Gelsomina in a rural environment; exact location unknown." ;
+    dcterms:created "circa 1954" ;
+    dcterms:description "Set photograph from Federico Fellini’s film 'La Strada', showing Gelsomina in a rural environment; exact location unknown. Production still from 'La Strada' (1954)." ;
     dcterms:extent "Gelatin silver print; original physical description not provided." ;
-    dcterms:isPartOf rrr:la_strada_film,
-        "Fondo Fotografie Cineteca" ;
-    dcterms:language "" ;
+    dcterms:isPartOf rrr:la_strada_film ;
     dcterms:medium "Gelatin silver print" ;
-    dcterms:relation "la_strada_film" ;
     dcterms:rights "Farabola / Bridgeman Images" ;
-    dcterms:spatial "" ;
-    dcterms:subject "Giulietta Masina",
-        "Production still from 'La Strada' (1954)" ;
     dcterms:title "Gelsomina eating bread in rural landscape" ;
     dcterms:type "Photograph" ;
-    rdfs:subClassOf schema:CreativeWork ;
-    schema:colour "black and white" ;
-    schema:identifier "",
-        "OLA309977" .
+    foaf:depicts rrr:giulietta_masina ;
+    schema:color "black and white" ;
+    schema:identifier "OLA309977" .
 
-rrr:la_strada_film owl:sameAs <https://www.wikidata.org/wiki/Q18402> .
+rrr:la_strada_film a schema:Movie ;
+    owl:sameAs <https://www.wikidata.org/wiki/Q18402> .
 
+schema:Photograph rdfs:subClassOf schema:CreativeWork .
