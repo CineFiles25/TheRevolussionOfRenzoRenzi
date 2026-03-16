@@ -1,5 +1,4 @@
 @prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
-@prefix dbo: <http://dbpedia.org/ontology/> .
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
@@ -9,327 +8,350 @@
 @prefix schema: <https://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-rrr:book_il_primo_fellini a schema:Book ;
-    dc:creator "Federico Fellini" ;
-    dc:description "Introduction by Renzo Renzi; edited by Liliana Betti and Eschilo Tarquini; screenplays by Federico Fellini",
-        "The volume contains the screenplays of four Fellini films: 'Lo sceicco bianco', 'I vitelloni', 'La strada', and 'Il bidone'. Only a selected sequence of 'La strada' is used for the TEI encoding in this project." ;
-    dc:identifier "book_il_primo_fellini" ;
-    dc:subject rrr:federico_fellini,
-        "Screenplays; Italian cinema; Neorealism; Federico Fellini; Lo sceicco bianco; I vitelloni; La strada; Il bidone" ;
-    dcterms:alternative "Lo sceicco bianco; I vitelloni; La strada; Il bidone. Dal soggetto al film" ;
-    dcterms:conformsTo "ISBD(G)" ;
-    dcterms:contributor rrr:renzo_renzi,
-        "Renzo Renzi; Liliana Betti; Eschilo Tarquini" ;
-    dcterms:extent "326 p. : ill. ; 25 cm" ;
-    dcterms:isPartOf rrr:series_il_primo_fellini ;
-    dcterms:issued "1969"^^xsd:gYear ;
-    dcterms:publisher "Cappelli Editore" ;
-    dcterms:relation rrr:i_vitelloni_film,
-        rrr:il_bidone_film,
-        rrr:la_strada_film,
-        rrr:lo_sceicco_bianco_film,
-        "http://viaf.org/viaf/176979060"^^xsd:anyURI,
-        "http://viaf.org/viaf/190737556"^^xsd:anyURI,
-        "http://viaf.org/viaf/190907461"^^xsd:anyURI,
-        "http://viaf.org/viaf/194805029"^^xsd:anyURI,
-        "http://viaf.org/viaf/40486517"^^xsd:anyURI,
-        "http://viaf.org/viaf/76315386"^^xsd:anyURI,
-        "http://viaf.org/viaf/93378537"^^xsd:anyURI ;
-    dcterms:rights "Copyright © Cappelli Editore" ;
-    dcterms:spatial "Bologna" ;
-    dcterms:title "Il primo Fellini" ;
-    dcterms:type "Book" ;
-    schema:author rrr:federico_fellini ;
-    schema:inLanguage "it" ;
-    schema:location rrr:renzo_renzi_library .
+############################################################
+# 1. PEOPLE
+############################################################
 
-rrr:ferrari_set_photo a schema:Photograph ;
-    dc:title "FAF01878.001" ;
-    dcterms:creator rrr:aldo_ferrari ;
-    dcterms:isPartOf "Fondo Aldo Ferrari – Donazione Costantino e Lucia Della Casa" ;
-    dcterms:rights "© Cineteca di Bologna" ;
-    crm:P45_consists_of "Analog photographic print" ;
-    crm:P52_has_current_owner rrr:cineteca_di_bologna ;
-    foaf:depicts rrr:renzo_renzi ;
-    schema:artform "Vintage gelatin silver print. Original analog photograph." ;
-    schema:color "black and white"^^xsd:string ;
-    schema:dateCreated "1959"^^xsd:gYear ;
-    schema:description "Digital surrogate available on the Cineteca di Bologna website." ;
-    schema:fileFormat "Digital JPEG surrogate" ;
-    schema:identifier "FAF01878.001"^^xsd:anyURI,
-        "ferrari_set_photo" ;
-    schema:locationCreated "Bologna",
-        "Set of the documentary 'Le Notti del Melodramma'" ;
-    schema:material "Gelatin silver print" .
+rrr:renzo_renzi a foaf:Person ;
+    owl:sameAs <http://viaf.org/viaf/40486517> .
 
-rrr:la_strada_soundtrack_original a schema:MusicRecording ;
-    dc:creator "Nino Rota" ;
-    dc:description "Music by Nino Rota; performed by Grand Orchestre Jo Moutet" ;
-    dc:identifier "la_strada_soundtrack_original" ;
-    dc:subject "Film music; Italian cinema" ;
-    dcterms:conformsTo "ISBD(NBM)" ;
-    dcterms:contributor "Grand Orchestre Jo Moutet" ;
-    dcterms:description "From the original soundtrack of the 1954 film. Contains: Side A — 'Gelsomina', 'Dona-Manolita'. Side B — 'La strada', 'Comprate i miei fiori'." ;
-    dcterms:extent "1 sound disc : 45 rpm ; 17.5 cm" ;
-    dcterms:identifier "460V084",
-        "UBO02159840" ;
-    dcterms:issued "1954?" ;
-    dcterms:medium "1 sound disc" ;
-    dcterms:relation rrr:la_strada_film,
-        "http://viaf.org/viaf/139728467"^^xsd:anyURI,
-        "http://viaf.org/viaf/176979060"^^xsd:anyURI,
-        "http://viaf.org/viaf/88980189"^^xsd:anyURI ;
-    dcterms:rights "© Ducretet Thomson; © Nino Rota Estate" ;
-    dcterms:spatial "[France]" ;
-    dcterms:title "La strada : [musique du film]" ;
-    dcterms:type "Music recording" ;
-    schema:about rrr:la_strada_film ;
-    schema:alternateName "Grand Orchestre Jo Moutet" ;
-    schema:byArtist "Grand Orchestre Jo Moutet" ;
-    schema:composer rrr:nino_rota ;
-    schema:inLanguage "fr" ;
-    schema:publisher "Ducretet Thomson" .
+rrr:federico_fellini a foaf:Person ;
+    owl:sameAs <http://viaf.org/viaf/76315386> .
 
-rrr:photo_la_strada_fighter a schema:Photograph ;
-    dcterms:alternative "Gelsomina and Zampanò during a circus act" ;
-    dcterms:created "1954"^^xsd:gYear ;
-    dcterms:description "Set photograph from Federico Fellini’s film 'La Strada', showing a circus performance scene." ;
-    dcterms:extent "Vintage gelatin silver print; physical description not fully provided." ;
-    dcterms:identifier "" ;
-    dcterms:isPartOf rrr:la_strada_film,
-        "Fondo Fotografie Cineteca" ;
-    dcterms:language "" ;
-    dcterms:medium "Gelatin silver print" ;
-    dcterms:relation "la_strada_film" ;
-    dcterms:rights "© Reporters Associati & Archivi — All rights reserved" ;
-    dcterms:spatial "" ;
-    dcterms:subject "Giulietta Masina; Anthony Quinn",
-        "Production still from the film 'La Strada' (1954)" ;
-    dcterms:title "Circus performance scene from 'La Strada'" ;
-    dcterms:type "Photograph" ;
-    rdfs:subClassOf schema:CreativeWork ;
-    schema:color "black and white" .
+rrr:giulietta_masina a foaf:Person ;
+    owl:sameAs <http://viaf.org/viaf/96166248> .
 
-rrr:portrait_of_renzo_renzi a schema:Photograph ;
-    dc:title "Famiglia-Renzi_002" ;
-    dcterms:creator "Relative of Renzo Renzi" ;
-    dcterms:isPartOf rrr:renzo_renzi_collection,
-        "Renzo Renzi Fund" ;
-    dcterms:rights "© Renzi Estate" ;
-    crm:P45_consists_of "Analog photographic print" ;
-    crm:P50_has_current_keeper rrr:cineteca_di_bologna ;
-    crm:P52_has_current_owner "Renzi Estate" ;
-    foaf:depicts rrr:renzo_renzi ;
-    schema:about "Renzo Renzi taking a photograph of the photographer" ;
-    schema:artform "Vintage gelatin silver print. Original analog photograph." ;
-    schema:color "black and white"^^xsd:string ;
-    schema:description "Digital surrogate available on the Cineteca di Bologna website." ;
-    schema:fileFormat "Digital JPEG surrogate" ;
-    schema:material "Gelatin silver print" .
+rrr:nino_rota a foaf:Person ;
+    owl:sameAs <http://viaf.org/viaf/88980189> .
 
-rrr:quando_il_po_è_dolce a schema:Movie ;
-    dbo:writer rrr:renzo_renzi ;
-    dc:date "1989"^^xsd:gYear ;
-    dc:title "Quando il Po è dolce" ;
-    schema:about rrr:delta_po_river ;
-    schema:alternateName "English title: 'When the Po River is Fresh'" ;
-    schema:color "black and white" ;
-    schema:contentSize "300 m" ;
-    schema:countryOfOrigin "Italy" ;
-    schema:datePublished "1952"^^xsd:gYear ;
-    schema:director rrr:renzo_renzi ;
-    schema:duration "PT11M"^^xsd:duration ;
-    schema:encodingFormat "Short documentary" ;
-    schema:inLanguage "it"^^xsd:language ;
-    schema:location rrr:delta_po_river ;
-    schema:musicBy rrr:enzo_masetti ;
-    schema:productionCompany "Columbus Film" ;
-    schema:sound "sound" ;
-    schema:spatialCoverage rrr:delta_po_river ;
-    schema:videoFrameSize "35 mm" .
-
-rrr:renzi_letter_1942 a schema:ArchiveComponent ;
-    dcterms:accessRights "Access permitted for study and research." ;
-    dcterms:alternative "Original title: 'Lettera al padre'" ;
-    dcterms:conformsTo "ISAD(G)" ;
-    dcterms:contributor "" ;
-    dcterms:created "1942-07-24"^^xsd:date ;
-    dcterms:creator rrr:renzo_renzi ;
-    dcterms:description "Personal letter written by Renzo Renzi to his father during World War II, describing his intellectual life at the front." ;
-    dcterms:extent "3 manuscript pages" ;
-    dcterms:identifier "IT-CB-0016-2-9_0001",
-        "renzi_letter_1942" ;
-    dcterms:isPartOf rrr:renzo_renzi_collection ;
-    dcterms:language "it" ;
-    dcterms:medium "Three manuscript pages." ;
-    dcterms:relation "" ;
-    dcterms:rights "Reproduction only with permission of the Renzi Estate.",
-        "© Renzi Estate" ;
-    dcterms:spatial "Renzo Renzi Library, Cineteca di Bologna" ;
-    dcterms:title "Letter to his father" ;
-    dcterms:type "Item" ;
-    schema:additionalType "Handwritten letter" ;
-    schema:associatedMedia <https://cinetecadibologna.it/biblioteca/storia-di-renzo-renzi/#media-slider-13f604c5-01aa-44ab-9b19-0af9195cb28e-3>,
-        <https://cinetecadibologna.it/biblioteca/storia-di-renzo-renzi/#media-slider-13f604c5-01aa-44ab-9b19-0af9195cb28e-4>,
-        <https://cinetecadibologna.it/biblioteca/storia-di-renzo-renzi/#media-slider-13f604c5-01aa-44ab-9b19-0af9195cb28e-5> ;
-    schema:holdingArchive rrr:cineteca_di_bologna ;
-    schema:numberOfPages 3 .
-
-rrr:woman_photo a schema:Photograph ;
-    dcterms:alternative "Set photograph featuring Giulietta Masina as Gelsomina" ;
-    dcterms:created " \"ca. 1954\""^^xsd:gYear ;
-    dcterms:description "Set photograph from Federico Fellini’s film 'La Strada', showing Gelsomina in a rural environment; exact location unknown." ;
-    dcterms:extent "Gelatin silver print; original physical description not provided." ;
-    dcterms:isPartOf rrr:la_strada_film,
-        "Fondo Fotografie Cineteca" ;
-    dcterms:language "" ;
-    dcterms:medium "Gelatin silver print" ;
-    dcterms:relation "la_strada_film" ;
-    dcterms:rights "Farabola / Bridgeman Images" ;
-    dcterms:spatial "" ;
-    dcterms:subject "Giulietta Masina",
-        "Production still from 'La Strada' (1954)" ;
-    dcterms:title "Gelsomina eating bread in rural landscape" ;
-    dcterms:type "Photograph" ;
-    rdfs:subClassOf schema:CreativeWork ;
-    schema:colour "black and white" ;
-    schema:identifier "",
-        "OLA309977" .
+rrr:enzo_masetti a foaf:Person ;
+    owl:sameAs <http://viaf.org/viaf/56806835> .
 
 rrr:aldo_ferrari a foaf:Person ;
     owl:sameAs <https://www.wikidata.org/wiki/Q3609208> .
 
-rrr:caricature_fellini_renzi a schema:VisualArtwork ;
-    dc:creator "Renzo Renzi" ;
-    dc:description "Hand-drawn caricature by Renzo Renzi depicting Federico Fellini with a humorous handwritten caption. Created in the 1960s, the drawing became an emblematic image associated with the Renzo Renzi Collection of the Cineteca di Bologna.",
-        "Perché Federico non fa la rivolussione?" ;
-    dc:identifier "caricature_fellini_renzi" ;
-    dc:subject "Federico Fellini" ;
-    dcterms:conformsTo "OA" ;
-    dcterms:created "ca. 1960s" ;
-    dcterms:extent "13 × 8.6 cm" ;
-    dcterms:isPartOf rrr:renzi_collection,
-        "Renzo Renzi Collection" ;
-    dcterms:location rrr:renzo_renzi_library,
-        "Biblioteca Renzo Renzi. Cinema e Fotografia" ;
-    dcterms:material "Cut paper" ;
-    dcterms:medium "Black ink and coloured markers" ;
-    dcterms:publisher "Cineteca di Bologna" ;
-    dcterms:relation "http://viaf.org/viaf/124960346"^^xsd:anyURI,
-        "http://viaf.org/viaf/40486517"^^xsd:anyURI,
-        "http://viaf.org/viaf/76315386"^^xsd:anyURI ;
-    dcterms:rights "© Cineteca di Bologna" ;
-    dcterms:title "Fellini caricature" ;
-    dcterms:type "Drawing" ;
-    crm:P52_has_current_owner rrr:cineteca_di_bologna ;
-    schema:about rrr:federico_fellini ;
-    schema:alternateName "Caricature with handwritten caption" ;
-    schema:creator rrr:renzo_renzi ;
-    schema:inLanguage "it" .
+############################################################
+# 2. PLACES
+############################################################
+
+rrr:bologna a schema:Place ;
+    owl:sameAs <https://www.geonames.org/3181928/bologna.html> .
+
+rrr:delta_po_river a schema:Landform ;
+    owl:sameAs <https://www.wikidata.org/wiki/Q1530152> .
+
+############################################################
+# 3. ORGANIZATIONS
+############################################################
+
+rrr:cineteca_di_bologna a schema:Organization ;
+    dcterms:title "Cineteca di Bologna" ;
+    owl:sameAs <http://viaf.org/viaf/124960346> ;
+    schema:location rrr:bologna .
 
 rrr:cinema_fulgor a schema:MovieTheater ;
     owl:sameAs <https://www.wikidata.org/wiki/Q36839368> ;
     schema:location rrr:bologna .
 
-rrr:drawing_gelsomina_lastrada a schema:VisualArtwork ;
-    dc:description "Portrait drawing by Renzo Renzi depicting Giulietta Masina as Gelsomina from Fellini's film 'La Strada', playing a drum." ;
-    dc:title "La Strada: Gelsomina col tamburo" ;
-    dcterms:creator rrr:renzo_renzi ;
-    dcterms:extent "25.2 × 17.2 cm" ;
-    dcterms:material "Cardboard" ;
-    dcterms:medium "Pencil and markers" ;
-    dcterms:relation rrr:la_strada_film ;
-    dcterms:rights "Rights status unknown; to be confirmed" ;
+############################################################
+# 4. ARCHIVAL STRUCTURES
+############################################################
+
+rrr:renzo_renzi_library a schema:Library ;
+    dc:identifier "IT-BO0286" ;
+    owl:sameAs <https://anagrafe.iccu.sbn.it/isil/IT-BO0286> ;
+    schema:name "Renzo Renzi Library" ;
+    schema:alternateName "Library of the Cineteca di Bologna" ;
+    schema:address "Piazzetta Pier Paolo Pasolini 3/B" ;
+    schema:addressLocality rrr:bologna ;
+    schema:foundingDate "1967"^^xsd:gYear ;
+    schema:date "1884"^^xsd:gYear ;
+    schema:description "Architectural complex; includes a 2×2 m screen and audio equipment (4 speakers, mixer, table microphones, and wireless microphone)." ;
+    schema:email "cinetecabiblioteca@cineteca.bologna.it" ;
+    schema:floorSize "2403 m²" ;
+    schema:isAccessibleForFree true ;
+    schema:openingHours "Tue–Fri: 12:00–18:00 | Sat: 09:30–15:00" ;
+    schema:seatingCapacity 65 ;
+    schema:telephone "+39 0512194843" ;
+    schema:url "https://cinetecadibologna.it/biblioteca/" ;
     crm:P52_has_current_owner rrr:cineteca_di_bologna ;
+    schema:dedicatedTo rrr:renzo_renzi .
+
+############################################################
+# 5. COLLECTIONS
+############################################################
+
+rrr:renzi_collection a dcterms:Collection ;
+    dcterms:title "Renzo Renzi Collection" ;
+    crm:P52_has_current_owner rrr:cineteca_di_bologna ;
+    schema:location rrr:renzo_renzi_library .
+
+rrr:series_il_primo_fellini a schema:CreativeWork ;
+    dcterms:title "Dal soggetto al film. Retrospective Series, 1" .
+
+############################################################
+# 6. FILMS
+############################################################
+
+### LA STRADA (1954)
+
+rrr:la_strada_film a schema:Movie ;
+    dcterms:title "La strada" ;
+    dcterms:alternative "National title in Italy: 'La strada'" ;
+    dcterms:description "Feature fiction film directed by Federico Fellini." ;
+    dcterms:issued "1954"^^xsd:gYear ;
+    dcterms:extent "3220 m" ;
+    dcterms:format "35 mm" ;
+    dcterms:language "it" ;
+    dcterms:spatial "Italy" ;
+    dcterms:type "Film" ;
+    schema:director rrr:federico_fellini ;
+    schema:color "black and white" ;
+    schema:duration "108 min" ;
+    owl:sameAs <https://www.wikidata.org/wiki/Q18402> .
+
+### QUANDO IL PO È DOLCE (1952)
+
+rrr:quando_il_po_e_dolce a schema:Movie ;
+    dcterms:title "Quando il Po è dolce" ;
+    schema:alternateName "English title: 'When the Po River is Fresh'" ;
+    dcterms:description "Short documentary film directed by Renzo Renzi, focusing on the Po River delta." ;
+    schema:director rrr:renzo_renzi ;
+    schema:creator rrr:renzo_renzi ;
+    schema:musicBy rrr:enzo_masetti ;
+    schema:about rrr:delta_po_river ;
+    schema:location rrr:delta_po_river ;
+    schema:spatialCoverage rrr:delta_po_river ;
+    schema:duration "PT11M"^^xsd:duration ;
+    schema:color "black and white" ;
+    schema:inLanguage "it" ;
+    schema:countryOfOrigin "Italy" ;
+    schema:productionCompany "Columbus Film" ;
+    schema:datePublished "1952"^^xsd:gYear .
+
+############################################################
+# 7. PHOTOGRAPHS
+############################################################
+
+### PHOTO — Ferrari Set Photo (Aldo Ferrari)
+
+rrr:ferrari_set_photo a schema:Photograph ;
+    dc:title "FAF01878.001" ;
+    dcterms:creator rrr:aldo_ferrari ;
+    dcterms:description "Set photograph taken by Aldo Ferrari, showing Renzo Renzi during the production of the documentary 'Le Notti del Melodramma'." ;
+    dcterms:rights "© Cineteca di Bologna" ;
+    crm:P45_consists_of "Analog photographic print" ;
+    crm:P52_has_current_owner rrr:cineteca_di_bologna ;
+    foaf:depicts rrr:renzo_renzi ;
+    schema:color "black and white" ;
+    schema:dateCreated "1959"^^xsd:gYear ;
+    schema:fileFormat "Digital JPEG surrogate" ;
+    schema:identifier "FAF01878.001" ;
+    schema:material "Gelatin silver print" ;
+    schema:locationCreated rrr:bologna .
+
+### PHOTO — La Strada: Circus Performance Scene
+
+rrr:photo_la_strada_fighter a schema:Photograph ;
+    dcterms:title "Circus performance scene from 'La Strada'" ;
+    dcterms:alternative "Gelsomina and Zampanò during a circus act" ;
+    dcterms:created "1954"^^xsd:gYear ;
+    dcterms:description "Set photograph from Federico Fellini’s film 'La Strada', showing a circus performance scene." ;
+    dcterms:extent "Vintage gelatin silver print" ;
+    dcterms:isPartOf rrr:la_strada_film ;
+    dcterms:medium "Gelatin silver print" ;
+    dcterms:rights "© Reporters Associati & Archivi — All rights reserved" ;
     foaf:depicts rrr:giulietta_masina ;
-    schema:dateCreated "ca. 1950s"^^xsd:gYear ;
-    schema:location rrr:renzo_renzi_library .
+    schema:color "black and white" .
 
-rrr:enzo_masetti a foaf:Person ;
-    owl:sameAs <http://viaf.org/viaf/56806835> .
-
-rrr:guida_per_camminare_all_ombra a schema:Manuscript ;
-    dbo:writer rrr:renzo_renzi ;
-    dcterms:accessRights "Access permitted for study and research.",
-        "Reproduction only with permission of the Renzi Estate." ;
-    dcterms:alternative "English title:\"Guide to walking in the shade\"" ;
-    dcterms:created "1954-10"^^xsd:gYearMonth ;
-    dcterms:description "7 opening titles of Guida per camminare allombra",
-        "Item",
-        "Narrative" ;
-    dcterms:extent "One leaf" ;
-    dcterms:isPartOf rrr:renzo_renzi_collection ;
-    dcterms:language "it"^^xsd:language ;
-    dcterms:medium "Paper" ;
-    dcterms:provenance "Cineteca di Bologna acquired the item after a donation from the Renzi family to the Renzi Fund" ;
-    dcterms:relation "Typed version/Sequences list" ;
-    dcterms:rights "© Renzi Estate" ;
-    dcterms:spatial rrr:renzo_renzi_library ;
-    dcterms:subject "Portici of Bologna" ;
-    dcterms:title "Sceneggiatura manoscritta di \"Guida per camminare all'ombra\"" ;
-    crm:P52_has_current_owner "Renzi Estate" ;
-    schema:additionalType schema:ArchiveComponent ;
-    schema:holdingArchive rrr:cineteca_di_bologna ;
-    schema:itemLocation rrr:renzo_renzi_library ;
-    schema:location rrr:renzo_renzi_library .
-
-rrr:nino_rota a foaf:Person ;
-    owl:sameAs <http://viaf.org/viaf/88980189> .
+### PHOTO — La Strada Premiere at Cinema Fulgor
 
 rrr:photo_lastrada_premiere a schema:Photograph ;
     dc:identifier "photo_lastrada_premiere" ;
-    dc:subject "Federico Fellini; Giulietta Masina",
-        "Film premiere of 'La Strada' (1954)" ;
-    dcterms:conformsTo "Scheda F" ;
-    dcterms:created "1954"^^xsd:gYear ;
-    dcterms:creator "Libero Grandi" ;
-    dcterms:description "Indexed in 'Bologna Fotografata' under: Attori e registi cinematografici; Eventi culturali; Personaggi." ;
-    dcterms:extent "Vintage press photograph." ;
-    dcterms:identifier "FIC0414",
-        "IT-CINETECABOLOGNA-FT0001-050499" ;
-    dcterms:medium "Gelatin silver print",
-        "Photographic print" ;
-    dcterms:publisher "Cineteca di Bologna" ;
-    dcterms:relation rrr:la_strada_film,
-        "http://viaf.org/viaf/124960346"^^xsd:anyURI,
-        "http://viaf.org/viaf/176979060"^^xsd:anyURI,
-        "http://viaf.org/viaf/37021297"^^xsd:anyURI,
-        "http://viaf.org/viaf/76315386"^^xsd:anyURI,
-        "https://www.wikidata.org/wiki/Q36839368"^^xsd:anyURI ;
-    dcterms:rights "© Cineteca di Bologna — All rights reserved" ;
     dcterms:title "Bologna. Cinema Fulgor. Premiere of 'La Strada' with Federico Fellini and Giulietta Masina" ;
-    dcterms:type "Photograph" ;
+    dcterms:created "1954"^^xsd:gYear ;
+    dcterms:description "Press photograph documenting the premiere of 'La Strada' at Cinema Fulgor in Bologna." ;
+    dcterms:extent "Vintage press photograph" ;
+    dcterms:medium "Gelatin silver print" ;
+    dcterms:rights "© Cineteca di Bologna — All rights reserved" ;
     crm:P52_has_current_owner rrr:cineteca_di_bologna ;
-    foaf:depicts rrr:federico_fellini,
-        rrr:giulietta_masina ;
+    foaf:depicts rrr:federico_fellini, rrr:giulietta_masina ;
     schema:about rrr:la_strada_film ;
-    schema:alternateName "Premiere of 'La Strada' at Cinema Fulgor" ;
     schema:color "black and white" ;
-    schema:contentLocation rrr:cinema_fulgor ;
-    schema:locationCreated "Bologna, Cinema Fulgor (Via Montegrappa)" .
+    schema:contentLocation rrr:cinema_fulgor .
+
+### PHOTO — Portrait of Renzo Renzi
+
+rrr:portrait_of_renzo_renzi a schema:Photograph ;
+    dc:title "Famiglia-Renzi_002" ;
+    dcterms:isPartOf rrr:renzi_collection ;
+    dcterms:rights "© Renzi Estate" ;
+    crm:P45_consists_of "Analog photographic print" ;
+    crm:P50_has_current_keeper rrr:cineteca_di_bologna ;
+    foaf:depicts rrr:renzo_renzi ;
+    schema:color "black and white" ;
+    schema:description "Vintage gelatin silver print showing Renzo Renzi taking a photograph of the photographer. Digital surrogate available on the Cineteca di Bologna website." ;
+    schema:fileFormat "Digital JPEG surrogate" ;
+    schema:material "Gelatin silver print" .
+
+### PHOTO — Woman Photo (Gelsomina Eating Bread)
+
+rrr:woman_photo a schema:Photograph ;
+    dcterms:title "Gelsomina eating bread in rural landscape" ;
+    dcterms:alternative "Set photograph featuring Giulietta Masina as Gelsomina" ;
+    dcterms:created "circa 1954" ;
+    dcterms:description "Set photograph from Federico Fellini’s film 'La Strada', showing Gelsomina in a rural environment; exact location unknown." ;
+    dcterms:extent "Gelatin silver print" ;
+    dcterms:isPartOf rrr:la_strada_film ;
+    dcterms:medium "Gelatin silver print" ;
+    dcterms:rights "Farabola / Bridgeman Images" ;
+    foaf:depicts rrr:giulietta_masina ;
+    schema:color "black and white" ;
+    schema:identifier "OLA309977" .
+
+############################################################
+# 8. TEXTUAL WORKS — BOOKS, MANUSCRIPTS, LETTERS
+############################################################
+
+### BOOK — "Il primo Fellini"
+
+rrr:book_il_primo_fellini a schema:Book ;
+    dcterms:title "Il primo Fellini" ;
+    dcterms:alternative "Lo sceicco bianco; I vitelloni; La strada; Il bidone. Dal soggetto al film" ;
+    dcterms:issued "1969"^^xsd:gYear ;
+    dcterms:extent "326 pages : illustrations ; 25 cm" ;
+    dcterms:conformsTo "ISBD(G)" ;
+    dcterms:publisher "Cappelli Editore" ;
+    dcterms:isPartOf rrr:series_il_primo_fellini ;
+    dcterms:description "Volume containing the screenplays of four Fellini films: 'Lo sceicco bianco', 'I vitelloni', 'La strada', and 'Il bidone'. Only a selected sequence of 'La strada' is used for TEI encoding in this project." ;
+    dcterms:relation rrr:lo_sceicco_bianco_film,
+                     rrr:i_vitelloni_film,
+                     rrr:la_strada_film,
+                     rrr:il_bidone_film ;
+    schema:author rrr:federico_fellini ;
+    schema:inLanguage "it" ;
+    schema:location rrr:renzo_renzi_library ;
+    dc:identifier "book_il_primo_fellini" .
+
+### MANUSCRIPT — "Guida per camminare all’ombra" (Handwritten screenplay)
+
+rrr:guida_per_camminare_all_ombra a schema:Manuscript ;
+    dcterms:title "Handwritten screenplay of 'Guida per camminare all'ombra'" ;
+    dcterms:alternative "English title: 'Guide to Walking in the Shade'" ;
+    dcterms:created "1954-10"^^xsd:gYearMonth ;
+    dcterms:description "Handwritten screenplay leaf for the project 'Guida per camminare all’ombra'. Includes seven opening titles and narrative notes." ;
+    dcterms:extent "One leaf" ;
+    dcterms:language "it" ;
+    dcterms:medium "Paper" ;
+    dcterms:provenance "Donated by the Renzi family to the Renzi Fund at the Cineteca di Bologna." ;
+    dcterms:rights "© Renzi Estate" ;
+    dcterms:isPartOf rrr:renzi_collection ;
+    dcterms:subject "Portici of Bologna" ;
+    crm:P52_has_current_owner rrr:cineteca_di_bologna ;
+    schema:holdingArchive rrr:renzo_renzi_library ;
+    schema:itemLocation rrr:renzo_renzi_library ;
+    schema:location rrr:renzo_renzi_library ;
+    dbo:writer rrr:renzo_renzi .
+
+### LETTER — Renzo Renzi Letter to His Father (1942)
+
+rrr:renzi_letter_1942 a schema:ArchiveComponent ;
+    dcterms:title "Letter to his father" ;
+    dcterms:alternative "Original title: 'Lettera al padre'" ;
+    dcterms:created "1942-07-24"^^xsd:date ;
+    dcterms:description "Personal letter written by Renzo Renzi to his father during World War II, describing his intellectual life at the front." ;
+    dcterms:extent "3 manuscript pages" ;
+    dcterms:language "it" ;
+    dcterms:medium "Paper" ;
+    dcterms:rights "© Renzi Estate ; reproduction permitted only with authorization" ;
+    dcterms:isPartOf rrr:renzi_collection ;
+    dcterms:spatial rrr:renzo_renzi_library ;
+    schema:associatedMedia <https://cinetecadibologna.it/biblioteca/storia-di-renzo-renzi/#media-slider-13f604c5-01aa-44ab-9b19-0af9195cb28e-3>,
+                           <https://cinetecadibologna.it/biblioteca/storia-di-renzo-renzi/#media-slider-13f604c5-01aa-44ab-9b19-0af9195cb28e-4>,
+                           <https://cinetecadibologna.it/biblioteca/storia-di-renzo-renzi/#media-slider-13f604c5-01aa-44ab-9b19-0af9195cb28e-5> ;
+    schema:numberOfPages 3 ;
+    crm:P52_has_current_owner rrr:cineteca_di_bologna ;
+    dcterms:creator rrr:renzo_renzi .
+
+############################################################
+# 9. VISUAL ARTWORKS — DRAWINGS & CARICATURES
+############################################################
+
+### VISUAL ARTWORK — Caricature of Federico Fellini by Renzo Renzi
+
+rrr:caricature_fellini_renzi a schema:VisualArtwork ;
+    dcterms:title "Fellini caricature" ;
+    dcterms:created "circa 1960s" ;
+    dcterms:description "Hand-drawn caricature by Renzo Renzi depicting Federico Fellini with a humorous handwritten caption. The drawing became an emblematic image associated with the Renzo Renzi Collection of the Cineteca di Bologna." ;
+    dcterms:extent "13 × 8.6 cm" ;
+    dcterms:material "Cut paper" ;
+    dcterms:medium "Black ink and coloured markers" ;
+    dcterms:rights "© Cineteca di Bologna" ;
+    dcterms:isPartOf rrr:renzi_collection ;
+    dcterms:location rrr:renzo_renzi_library ;
+    crm:P52_has_current_owner rrr:cineteca_di_bologna ;
+    schema:creator rrr:renzo_renzi ;
+    schema:about rrr:federico_fellini ;
+    schema:alternateName "Caricature with handwritten caption" .
+
+### VISUAL ARTWORK — Drawing of Gelsomina (La Strada)
+
+rrr:drawing_gelsomina_lastrada a schema:VisualArtwork ;
+    dcterms:title "La Strada: Gelsomina with drum" ;
+    dcterms:description "Portrait drawing by Renzo Renzi depicting Giulietta Masina as Gelsomina from Fellini's film 'La Strada', playing a drum." ;
+    dcterms:created "circa 1950s" ;
+    dcterms:extent "25.2 × 17.2 cm" ;
+    dcterms:material "Cardboard" ;
+    dcterms:medium "Pencil and markers" ;
+    dcterms:rights "Rights status unknown; to be confirmed" ;
+    dcterms:isPartOf rrr:renzi_collection ;
+    crm:P52_has_current_owner rrr:cineteca_di_bologna ;
+    foaf:depicts rrr:giulietta_masina ;
+    schema:location rrr:renzo_renzi_library ;
+    schema:about rrr:la_strada_film .
+
+############################################################
+# 10. MUSIC RECORDINGS & AUDIO MATERIALS
+############################################################
+
+### MUSIC RECORDING — La Strada Original Soundtrack (1954)
+
+rrr:la_strada_soundtrack_original a schema:MusicRecording ;
+    dcterms:title "La strada: original soundtrack" ;
+    dcterms:description "Original soundtrack of the 1954 film 'La Strada'. Music composed by Nino Rota and performed by the Grand Orchestre Jo Moutet." ;
+    dcterms:issued "circa 1954" ;
+    dcterms:extent "1 sound disc : 45 rpm ; 17.5 cm" ;
+    dcterms:medium "Sound disc" ;
+    dcterms:conformsTo "ISBD(NBM)" ;
+    dcterms:rights "© Ducretet Thomson ; © Nino Rota Estate" ;
+    dcterms:identifier "460V084", "UBO02159840" ;
+    dcterms:relation rrr:la_strada_film ;
+    dcterms:spatial "France" ;
+    dcterms:type "Music recording" ;
+    schema:composer rrr:nino_rota ;
+    schema:byArtist "Grand Orchestre Jo Moutet" ;
+    schema:inLanguage "fr" ;
+    schema:publisher "Ducretet Thomson" ;
+    schema:about rrr:la_strada_film .
+
+############################################################
+# 11. INTERVIEWS
+############################################################
+
+### INTERVIEW — "Il cinema a Bologna: Renzo Renzi e la Columbus Film" (2000)
 
 rrr:renzi_interview_2000 a schema:Interview ;
-    dc:identifier "renzi_interview_2000" ;
-    dc:subject "Renzo Renzi" ;
-    dcterms:conformsTo "FIAF" ;
+    dcterms:title "Il cinema a Bologna: Renzo Renzi e la Columbus Film" ;
     dcterms:created "2000"^^xsd:gYear ;
-    dcterms:description "Interview recorded in VHS format; director and interviewer are not credited.",
-        "Video interview with Renzo Renzi discussing his work and the history of Columbus Film, produced by the Cineteca di Bologna." ;
-    dcterms:format "VHS",
-        "sound" ;
-    dcterms:location rrr:renzo_renzi_library,
-        "Renzo Renzi Library, Cineteca di Bologna" ;
+    dcterms:description "Video interview with Renzo Renzi discussing his work and the history of Columbus Film, produced by the Cineteca di Bologna. Recorded in VHS format; director and interviewer are not credited." ;
+    dcterms:format "VHS" ;
     dcterms:publisher "Cineteca di Bologna" ;
-    dcterms:relation "http://viaf.org/viaf/124960346"^^xsd:anyURI,
-        "http://viaf.org/viaf/40486517"^^xsd:anyURI,
-        "https://www.geonames.org/3181928/bologna.html"^^xsd:anyURI ;
     dcterms:rights "© Cineteca di Bologna" ;
     dcterms:spatial "Bologna, Italy" ;
-    dcterms:title "Il cinema a Bologna: Renzo Renzi e la Columbus film" ;
-    dcterms:type "Video Interview" ;
+    dcterms:type "Video interview" ;
     crm:P52_has_current_owner rrr:cineteca_di_bologna ;
     schema:about rrr:renzo_renzi ;
-    schema:alternateName "Official title screen: 'Il cinema a Bologna – Renzo Renzi e la Columbus film'" ;
+    schema:alternateName "Official title screen: 'Il cinema a Bologna – Renzo Renzi e la Columbus Film'" ;
     schema:color "colour" ;
     schema:duration "56 min" ;
     schema:inLanguage "it" ;
@@ -337,107 +359,105 @@ rrr:renzi_interview_2000 a schema:Interview ;
     schema:locationCreated rrr:bologna ;
     schema:productionCompany "Cineteca di Bologna" .
 
-rrr:series_il_primo_fellini a schema:CreativeWork ;
-    dcterms:title "Dal soggetto al film. Serie retrospettiva, 1" .
+############################################################
+# 12. FELLINI FILMOGRAPHIC LINKS
+############################################################
+
+### FILM — Lo sceicco bianco (1952)
+
+rrr:lo_sceicco_bianco_film a schema:Movie ;
+    dcterms:title "Lo sceicco bianco" ;
+    dcterms:issued "1952"^^xsd:gYear ;
+    dcterms:description "Feature film directed by Federico Fellini." ;
+    schema:director rrr:federico_fellini ;
+    owl:sameAs <https://www.wikidata.org/wiki/Q319616> .
+
+### FILM — I vitelloni (1953)
+
+rrr:i_vitelloni_film a schema:Movie ;
+    dcterms:title "I vitelloni" ;
+    dcterms:issued "1953"^^xsd:gYear ;
+    dcterms:description "Feature film directed by Federico Fellini." ;
+    schema:director rrr:federico_fellini ;
+    owl:sameAs <https://www.wikidata.org/wiki/Q319623> .
+
+### FILM — Il bidone (1955)
+
+rrr:il_bidone_film a schema:Movie ;
+    dcterms:title "Il bidone" ;
+    dcterms:issued "1955"^^xsd:gYear ;
+    dcterms:description "Feature film directed by Federico Fellini." ;
+    schema:director rrr:federico_fellini ;
+    owl:sameAs <https://www.wikidata.org/wiki/Q319618> .
+
+############################################################
+# 13. STRUCTURAL DECLARATIONS & CLASS HIERARCHY
+############################################################
+
+### Schema.org class hierarchy (local declarations)
+
+schema:CreativeWork rdfs:subClassOf schema:Thing .
 
 schema:Book rdfs:subClassOf schema:CreativeWork .
-
-schema:Interview rdfs:subClassOf schema:CreativeWork .
-
-schema:Library rdfs:subClassOf schema:LocalBusiness .
-
 schema:Manuscript rdfs:subClassOf schema:CreativeWork .
-
-schema:MusicRecording rdfs:subClassOf schema:CreativeWork .
-
-rrr:giulietta_masina a foaf:Person ;
-    owl:sameAs <http://viaf.org/viaf/37021297>,
-        <http://viaf.org/viaf/96166248> .
-
-rrr:renzi_collection a dcterms:Collection,
-        schema:Collection ;
-    dcterms:hasPart rrr:caricature_fellini_renzi,
-        rrr:drawing_gelsomina_lastrada,
-        rrr:guida_per_camminare_all_ombra,
-        rrr:photo_lastrada_premiere,
-        rrr:renzi_interview_2000 ;
-    dcterms:title "Fondo Iniziative Cineteca",
-        "Renzo Renzi Collection" ;
-    crm:P52_has_current_owner rrr:cineteca_di_bologna ;
-    schema:location rrr:renzo_renzi_library .
-
 schema:ArchiveComponent rdfs:subClassOf schema:CreativeWork .
-
+schema:MusicRecording rdfs:subClassOf schema:CreativeWork .
+schema:VisualArtwork rdfs:subClassOf schema:CreativeWork .
+schema:Photograph rdfs:subClassOf schema:CreativeWork .
+schema:Interview rdfs:subClassOf schema:CreativeWork .
 schema:Movie rdfs:subClassOf schema:CreativeWork .
 
-schema:VisualArtwork rdfs:subClassOf schema:CreativeWork .
+### Library as a place of knowledge, not a business
 
-rrr:delta_po_river a schema:Landform ;
-    owl:sameAs <http://viaf.org/viaf/316432038> .
+schema:Library rdfs:subClassOf schema:Place .
 
-rrr:renzo_renzi_collection dcterms:title "Renzo Renzi Collection" ;
-    crm:P52_has_current_owner rrr:cineteca_di_bologna ;
-    owl:sameAs <http://viaf.org/viaf/124960346> .
+### Additional structural relationships
 
-rrr:bologna a schema:Place ;
-    owl:sameAs <http://viaf.org/viaf/257723025> .
+rrr:renzi_collection dcterms:hasPart
+    rrr:caricature_fellini_renzi,
+    rrr:drawing_gelsomina_lastrada,
+    rrr:guida_per_camminare_all_ombra,
+    rrr:photo_lastrada_premiere,
+    rrr:renzi_interview_2000,
+    rrr:renzi_letter_1942,
+    rrr:portrait_of_renzo_renzi .
 
-schema:Photograph rdfs:subClassOf schema:CreativeWork .
+### Ensure all films referenced in the book are linked
 
-rrr:federico_fellini a foaf:Person ;
-    owl:sameAs <http://viaf.org/viaf/76315386> .
+rrr:book_il_primo_fellini dcterms:relation
+    rrr:lo_sceicco_bianco_film,
+    rrr:i_vitelloni_film,
+    rrr:la_strada_film,
+    rrr:il_bidone_film .
 
-rrr:la_strada_film a schema:Movie ;
-    dcterms:alternative "National title in Italy: 'La strada'" ;
-    dcterms:creator rrr:federico_fellini ;
-    dcterms:description "Fiction film" ;
-    dcterms:extent "3220m" ;
-    dcterms:format "35 mm" ;
-    dcterms:issued "1954"^^xsd:gYear ;
-    dcterms:language "it" ;
-    dcterms:publisher "Ponti–De Laurentiis Cinematografica" ;
-    dcterms:spatial "Italy" ;
-    dcterms:title "La strada" ;
-    dcterms:type "Film" ;
-    owl:sameAs <http://viaf.org/viaf/176979060>,
-        <https://www.wikidata.org/wiki/Q18402> ;
-    schema:color "black and white" ;
-    schema:director rrr:federico_fellini ;
-    schema:duration "108 min" ;
-    schema:sound "sound" .
+### Ensure all photographs referencing La Strada point to the same film entity
 
-rrr:renzo_renzi_library a schema:Library ;
-    dbo:dedicatedTo rrr:renzo_renzi ;
-    dc:identifier "IT-BO0286" ;
-    dcterms:hasPart rrr:renzi_collection ;
-    crm:P52_has_current_owner rrr:cineteca_di_bologna ;
-    owl:sameAs <https://anagrafe.iccu.sbn.it/isil/IT-BO0286> ;
-    schema:additionalType "Former municipal slaughterhouse (ex-Macello)" ;
-    schema:address "Piazzetta Pier Paolo Pasolini 3/B" ;
-    schema:addressLocality rrr:bologna ;
-    schema:alternateName "Library of the Cineteca di Bologna" ;
-    schema:date "1884"^^xsd:gYear ;
-    schema:description "2×2 m screen",
-        "4 speakers; mixer; 2 table microphones; 1 wireless microphone",
-        "Architectural complex" ;
-    schema:email "cinetecabiblioteca@cineteca.bologna.it"^^xsd:anyURI ;
-    schema:floorSize "2403 m²"^^xsd:float,
-        "2,403 m²"^^xsd:string ;
-    schema:foundingDate "1967"^^xsd:gYear ;
-    schema:geo "44.50284, 11.33449" ;
-    schema:isAccessibleForFree true ;
-    schema:location rrr:cineteca_di_bologna ;
-    schema:name "Biblioteca Renzo Renzi" ;
-    schema:openingHours "Tue-Fri: 12:00-18:00 | Sat: 09:30-15:00" ;
-    schema:seatingCapacity 65 ;
-    schema:telephone "+39 0512194843"^^xsd:string ;
-    schema:url "https://cinetecadibologna.it/biblioteca/"^^xsd:anyURI .
+rrr:photo_la_strada_fighter schema:about rrr:la_strada_film .
+rrr:woman_photo schema:about rrr:la_strada_film .
+rrr:photo_lastrada_premiere schema:about rrr:la_strada_film .
+rrr:drawing_gelsomina_lastrada schema:about rrr:la_strada_film .
 
-rrr:cineteca_di_bologna a schema:Organization ;
-    dcterms:title "Cineteca di Bologna" ;
-    owl:sameAs <http://viaf.org/viaf/124960346> ;
-    schema:location rrr:bologna .
+### Ensure all Renzo Renzi–related items link to the same person entity
 
-rrr:renzo_renzi a foaf:Person ;
-    owl:sameAs <http://viaf.org/viaf/40486517> .
+rrr:portrait_of_renzo_renzi foaf:depicts rrr:renzo_renzi .
+rrr:ferrari_set_photo foaf:depicts rrr:renzo_renzi .
+rrr:renzi_interview_2000 schema:about rrr:renzo_renzi .
+rrr:renzi_letter_1942 dcterms:creator rrr:renzo_renzi .
+rrr:guida_per_camminare_all_ombra dbo:writer rrr:renzo_renzi .
+
+### Ensure all Giulietta Masina–related items link to the same person entity
+
+rrr:photo_la_strada_fighter foaf:depicts rrr:giulietta_masina .
+rrr:woman_photo foaf:depicts rrr:giulietta_masina .
+rrr:drawing_gelsomina_lastrada foaf:depicts rrr:giulietta_masina .
+rrr:photo_lastrada_premiere foaf:depicts rrr:giulietta_masina .
+
+### Ensure all Fellini-related items link to the same person entity
+
+rrr:caricature_fellini_renzi schema:about rrr:federico_fellini .
+rrr:photo_lastrada_premiere foaf:depicts rrr:federico_fellini .
+rrr:la_strada_film schema:director rrr:federico_fellini .
+rrr:lo_sceicco_bianco_film schema:director rrr:federico_fellini .
+rrr:i_vitelloni_film schema:director rrr:federico_fellini .
+rrr:il_bidone_film schema:director rrr:federico_fellini .
 
