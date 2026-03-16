@@ -8,27 +8,30 @@
 @prefix schema: <https://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-rrr:renzi_collection dcterms:hasPart rrr:drawing_gelsomina_lastrada .
+rrr:renzi_collection a dcterms:Collection ;
+    dcterms:hasPart rrr:drawing_gelsomina_lastrada .
 
-rrr:cineteca_di_bologna owl:sameAs <http://viaf.org/viaf/124960346> .
+rrr:cineteca_di_bologna a schema:Organization ;
+    owl:sameAs <http://viaf.org/viaf/124960346> .
+
+rrr:la_strada_film a schema:Movie ;
+    owl:sameAs <https://www.wikidata.org/wiki/Q18402> .
+
+rrr:renzo_renzi a foaf:Person ;
+    owl:sameAs <http://viaf.org/viaf/40486517> .
 
 rrr:drawing_gelsomina_lastrada a schema:VisualArtwork ;
     dc:description "Portrait drawing by Renzo Renzi depicting Giulietta Masina as Gelsomina from Fellini's film 'La Strada', playing a drum." ;
     dc:title "La Strada: Gelsomina col tamburo" ;
-    dcterms:creator rrr:renzo_renzi ;
+    schema:creator rrr:renzo_renzi ;
     dcterms:extent "25.2 × 17.2 cm" ;
     dcterms:material "Cardboard" ;
     dcterms:medium "Pencil and markers" ;
     dcterms:relation rrr:la_strada_film ;
-    dcterms:rights "Rights status unknown; to be confirmed" ;
+    dcterms:rights "Rights status unknown" ;
     crm:P52_has_current_owner rrr:cineteca_di_bologna ;
     foaf:depicts rrr:giulietta_masina ;
-    schema:dateCreated "ca. 1950s"^^xsd:gYear ;
+    schema:dateCreated "1950s" ;
     schema:location rrr:renzo_renzi_library .
 
-rrr:la_strada_film owl:sameAs <https://www.wikidata.org/wiki/Q18402> .
-
-rrr:renzo_renzi owl:sameAs <http://viaf.org/viaf/40486517> .
-
 schema:VisualArtwork rdfs:subClassOf schema:CreativeWork .
-
