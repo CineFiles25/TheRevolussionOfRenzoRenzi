@@ -1,5 +1,5 @@
-@prefix dbo: <http://dbpedia.org/ontology/> .
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -7,37 +7,34 @@
 @prefix schema: <https://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-rrr:bologna owl:sameAs <http://viaf.org/viaf/257723025> .
+rrr:bologna a schema:Place ;
+    owl:sameAs <https://www.geonames.org/3181928/bologna.html> .
 
-rrr:cineteca_di_bologna owl:sameAs <http://viaf.org/viaf/124960346> .
+rrr:cineteca_di_bologna a schema:Organization ;
+    owl:sameAs <http://viaf.org/viaf/124960346> .
 
-rrr:quando_il_po_è_dolce a schema:Movie ;
-    dbo:writer rrr:renzo_renzi ;
-    dc:date "1989"^^xsd:gYear ;
-    dc:title "Quando il Po è dolce" ;
-    schema:about rrr:delta_po_river ;
-    schema:alternateName "English title: 'When the Po River is Fresh'" ;
-    schema:color "black and white" ;
-    schema:contentSize "300 m" ;
-    schema:countryOfOrigin "Italy" ;
-    schema:datePublished "1952"^^xsd:gYear ;
-    schema:director rrr:renzo_renzi ;
-    schema:duration "PT11M"^^xsd:duration ;
-    schema:encodingFormat "Short documentary" ;
-    schema:inLanguage "it"^^xsd:language ;
-    schema:location rrr:delta_po_river ;
-    schema:musicBy rrr:enzo_masetti ;
-    schema:productionCompany "Columbus Film" ;
-    schema:sound "sound" ;
-    schema:videoFrameSize "35 mm" .
+rrr:renzo_renzi a foaf:Person ;
+    owl:sameAs <http://viaf.org/viaf/40486517> .
 
 rrr:enzo_masetti a foaf:Person ;
     owl:sameAs <http://viaf.org/viaf/56806835> .
 
-schema:Movie rdfs:subClassOf schema:CreativeWork .
-
 rrr:delta_po_river a schema:Landform ;
-    owl:sameAs <http://viaf.org/viaf/316432038> .
+    owl:sameAs <https://www.wikidata.org/wiki/Q1530152> .
 
-rrr:renzo_renzi owl:sameAs <http://viaf.org/viaf/40486517> .
+rrr:quando_il_po_e_dolce a schema:Movie ;
+    dc:title "Quando il Po è dolce" ;
+    schema:alternateName "English title: 'When the Po River is Fresh'" ;
+    schema:director rrr:renzo_renzi ;
+    schema:creator rrr:renzo_renzi ;
+    schema:musicBy rrr:enzo_masetti ;
+    schema:about rrr:delta_po_river ;
+    schema:location rrr:delta_po_river ;
+    schema:productionCompany "Columbus Film" ;
+    schema:duration "PT11M"^^xsd:duration ;
+    schema:color "black and white" ;
+    schema:inLanguage "it" ;
+    schema:countryOfOrigin "Italy" ;
+    schema:datePublished "1952"^^xsd:gYear .
 
+schema:Movie rdfs:subClassOf schema:CreativeWork .
