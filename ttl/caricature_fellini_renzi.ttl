@@ -9,24 +9,17 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 rrr:caricature_fellini_renzi a schema:VisualArtwork ;
-    dc:creator "Renzo Renzi" ;
-    dc:description "Hand-drawn caricature by Renzo Renzi depicting Federico Fellini with a humorous handwritten caption. Created in the 1960s, the drawing became an emblematic image associated with the Renzo Renzi Collection of the Cineteca di Bologna.",
-        "Perché Federico non fa la rivolussione?" ;
+    dc:description "Hand-drawn caricature by Renzo Renzi depicting Federico Fellini with a humorous handwritten caption. Created in the 1960s, the drawing became an emblematic image associated with the Renzo Renzi Collection of the Cineteca di Bologna." ,
+                   "Perché Federico non fa la rivolussione?" ;
     dc:identifier "caricature_fellini_renzi" ;
-    dc:subject "Federico Fellini" ;
+    dc:subject rrr:federico_fellini ;
     dcterms:conformsTo "OA" ;
-    dcterms:created "ca. 1960s" ;
+    dcterms:created "1960s" ;
     dcterms:extent "13 × 8.6 cm" ;
-    dcterms:isPartOf rrr:renzi_collection,
-        "Renzo Renzi Collection" ;
-    dcterms:location rrr:renzo_renzi_library,
-        "Biblioteca Renzo Renzi. Cinema e Fotografia" ;
+    dcterms:isPartOf rrr:renzi_collection ;
+    dcterms:location rrr:renzo_renzi_library ;
     dcterms:material "Cut paper" ;
     dcterms:medium "Black ink and coloured markers" ;
-    dcterms:publisher "Cineteca di Bologna" ;
-    dcterms:relation "http://viaf.org/viaf/124960346"^^xsd:anyURI,
-        "http://viaf.org/viaf/40486517"^^xsd:anyURI,
-        "http://viaf.org/viaf/76315386"^^xsd:anyURI ;
     dcterms:rights "© Cineteca di Bologna" ;
     dcterms:title "Fellini caricature" ;
     dcterms:type "Drawing" ;
@@ -45,11 +38,7 @@ rrr:renzi_collection a dcterms:Collection ;
 rrr:renzo_renzi a foaf:Person ;
     owl:sameAs <http://viaf.org/viaf/40486517> .
 
-rrr:renzo_renzi_library a schema:Library ;
-    schema:location rrr:cineteca_di_bologna .
-
 schema:VisualArtwork rdfs:subClassOf schema:CreativeWork .
 
 rrr:cineteca_di_bologna a schema:Organization ;
     owl:sameAs <http://viaf.org/viaf/124960346> .
-
