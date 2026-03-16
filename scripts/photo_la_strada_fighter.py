@@ -1,87 +1,112 @@
 from pandas import read_csv
-from rdflib import Namespace, Graph, RDF, URIRef, OWL, Literal, XSD, RDFS, FOAF
+from rdflib import Namespace, Graph, RDF, URIRef, Literal, XSD
 
 # NAMESPACES
 
 rrr = Namespace("https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/")
-rdf = Namespace("http://www.w3.org/1999/02/22-rdf-syntax-ns#")
-rdfs = Namespace("http://www.w3.org/2000/01/rdf-schema#")
-owl = Namespace("http://www.w3.org/2002/07/owl#")
 schema = Namespace("https://schema.org/")
-dc = Namespace("http://purl.org/dc/elements/1.1/")
 dcterms = Namespace("http://purl.org/dc/terms/")
-dbo = Namespace("http://dbpedia.org/ontology/")
+dc = Namespace("http://purl.org/dc/elements/1.1/")
 crm = Namespace("http://www.cidoc-crm.org/cidoc-crm/")
 foaf = Namespace("http://xmlns.com/foaf/0.1/")
-fiaf = Namespace("https://fiaf.github.io/film-related-materials/objects/")
-skos = Namespace("http://www.w3.org/2004/02/skos/core#")
 
-# GRAPH CREATION
-
+# GRAPH
 g = Graph()
 
-ns_dict = { 
-    "rrr": rrr,   
-    "rdf": rdf,
-    "rdfs": rdfs,
-    "owl": owl,
-    "schema": schema,
-    "dc": dc,
-    "dcterms": dcterms,
-    "dbo": dbo,
-    "crm": crm,
-    "foaf": foaf,
-    "fiaf": fiaf,
-    "skos": skos
-}
+# Bindings
+g.bind("rrr", rrr)
+g.bind("schema", schema)
+g.bind("dcterms", dcterms)
+g.bind("dc", dc)
+g.bind("crm", crm)
+g.bind("foaf", foaf)
 
-def graph_bindings():
-    for prefix, ns in ns_dict.items():
-        g.bind(prefix, ns)
-    return g
-
-# ENTITIES 
-
-fighter_photo = URIRef(rrr + "photo_la_strada_fighter")
-la_strada_film = URIRef(rrr + "la_strada_film")
-cineteca_di_bologna = URIRef(rrr + "cineteca_di_bologna")
-giulietta_masina = URIRef(rrr + "giulietta_masina")
+# ENTITIES
+photo = URIRef(rrr + "photo_la_strada_fighter")
+film = URIRef(rrr + "la_strada_film")
+masina = URIRef(rrr + "giulietta_masina")
+cineteca = URIRef(rrr + "cineteca_di_bologna")
 bologna = URIRef(rrr + "bologna")
+renzi_collection = URIRef(rrr + "renzi_collection")
 
-g.add((la_strada_film, OWL.sameAs, URIRef("https://www.wikidata.org/wiki/Q18402")))
-g.add((cineteca_di_bologna, OWL.sameAs, URIRef("http://viaf.org/viaf/124960346")))
-g.add((giulietta_masina, OWL.sameAs, URIRef("http://viaf.org/viaf/96166248")))
-g.add((bologna, OWL.sameAs, URIRef("http://viaf.org/viaf/257723025")))
+# LOAD CSV
+df = read_csv("../csv/photo_la_strada_fighter.csv", keep_default_na=False, encoding="utf-8")
 
-# MAPPING TO ONTOLOGIES
+# RESOURCE TYPE
+g.add((photo, RDF.type, schema.Photograph))
 
-photo_la_strada_fighter = read_csv("csv/photo_la_strada_fighter.csv", keep_default_na=False, encoding="utf-8")
+# CSV → RDF MAPPING
+for _, row in df.iterrows():
 
-g = graph_bindings()
+    # Title
+    if row.get("title"):
+        g.add((photo, dcterms.title, Literal(row["title"])))
 
-for idx, row in photo_la_strada_fighter.iterrows():
-    g.add((fighter_photo, RDF.type, URIRef(schema + "Photograph")))
-    g.add((fighter_photo, RDFS.subClassOf, URIRef(schema + "CreativeWork")))
-    g.add((fighter_photo, dcterms.isPartOf, la_strada_film)) #new information
-    g.add((fighter_photo, dcterms.title, Literal(row["title"])))
-    g.add((fighter_photo, dcterms.alternative, Literal(row["other_title_information"])))
-    g.add((fighter_photo, dcterms.subject, Literal(row["depicted_event"])))
-    g.add((fighter_photo, dcterms.subject, Literal(row["depicted_people"])))
-    g.add((fighter_photo, dcterms.spatial, Literal(row["depicted_place"])))
-    g.add((fighter_photo, dcterms.created, Literal(row["creation_year"], datatype=XSD.gYear)))
-    g.add((fighter_photo, schema.color, Literal(row["colour"])))
-    g.add((fighter_photo, dcterms.medium, Literal(row["material_technique"])))
-    g.add((fighter_photo, dcterms.isPartOf, Literal(row["collection"])))
-    g.add((fighter_photo, dcterms.extent, Literal(row["physical_description"])))
-    g.add((fighter_photo, dcterms.description, Literal(row["notes"])))
-    g.add((fighter_photo, dcterms.identifier, Literal(row["identifiers"])))
-    g.add((fighter_photo, dcterms.relation, Literal(row["related_works"])))
-    g.add((fighter_photo, dcterms.rights, Literal(row["rights"])))
-    g.add((fighter_photo, dcterms.type, Literal(row["resource_type"])))
-    g.add((fighter_photo, dcterms.language, Literal(row["language"])))
+    # Alternative title
+    if row.get("other_title_information"):
+        g.add((photo, dcterms.alternative, Literal(row["other_title_information"])))
+
+    # Depicted person (resource)
+    g.add((photo, foaf.depicts, masina))
+
+    # Depicted event (literal)
+    if row.get("depicted_event"):
+        g.add((photo, dc.subject, Literal(row["depicted_event"])))
+
+    # Depicted place (literal description)
+    if row.get("depicted_place"):
+        g.add((photo, dcterms.spatial, Literal(row["depicted_place"])))
+
+    # Creation year
+    if row.get("creation_year"):
+        g.add((photo, dcterms.created, Literal(row["creation_year"], datatype=XSD.gYear)))
+
+    # Color
+    if row.get("colour"):
+        g.add((photo, schema.color, Literal(row["colour"])))
+
+    # Material / technique
+    if row.get("material_technique"):
+        g.add((photo, dcterms.medium, Literal(row["material_technique"])))
+
+    # Physical description
+    if row.get("physical_description"):
+        g.add((photo, dcterms.extent, Literal(row["physical_description"])))
+
+    # Notes
+    if row.get("notes"):
+        g.add((photo, dcterms.description, Literal(row["notes"])))
+
+    # Identifiers
+    if row.get("identifiers"):
+        g.add((photo, dcterms.identifier, Literal(row["identifiers"])))
+
+    # Related works (literal description)
+    if row.get("related_works"):
+        g.add((photo, dcterms.relation, Literal(row["related_works"])))
+
+    # Rights
+    if row.get("rights"):
+        g.add((photo, dcterms.rights, Literal(row["rights"])))
+
+    # Resource type
+    if row.get("resource_type"):
+        g.add((photo, dcterms.type, Literal(row["resource_type"])))
+
+    # Language
+    if row.get("language"):
+        g.add((photo, dcterms.language, Literal(row["language"])))
+
+    # Link to La Strada (resource)
+    g.add((photo, schema.about, film))
+
+    # COLLECTION & LOCATION
+    g.add((photo, dcterms.isPartOf, renzi_collection))
+    g.add((renzi_collection, dcterms.hasPart, photo))
+    g.add((photo, crm.P52_has_current_owner, cineteca))
+    g.add((photo, schema.location, bologna))
+
 
 # SERIALIZATION
-
-g.serialize(format="turtle", destination="ttl/fighter_photo.ttl")
-
-print("CSV converted to TTL!")
+g.serialize(format="turtle", destination="../ttl/photo_la_strada_fighter.ttl")
+print("photo_la_strada_fighter.ttl generated successfully!")
