@@ -1,184 +1,115 @@
 from pandas import read_csv
-from rdflib import Namespace, Graph, RDF, URIRef, OWL, Literal, XSD, RDFS, FOAF
+from rdflib import Namespace, Graph, RDF, URIRef, Literal, XSD
 
 # NAMESPACES
 
 rrr = Namespace("https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/")
-rdf = Namespace("http://www.w3.org/1999/02/22-rdf-syntax-ns#")
-rdfs = Namespace("http://www.w3.org/2000/01/rdf-schema#")
-owl = Namespace("http://www.w3.org/2002/07/owl#")
 schema = Namespace("https://schema.org/")
 dc = Namespace("http://purl.org/dc/elements/1.1/")
 dcterms = Namespace("http://purl.org/dc/terms/")
-dbo = Namespace("http://dbpedia.org/ontology/")
-crm = Namespace("http://www.cidoc-crm.org/cidoc-crm/")
-foaf = Namespace("http://xmlns.com/foaf/0.1/")
-fiaf = Namespace("https://fiaf.github.io/film-related-materials/objects/")
-skos = Namespace("http://www.w3.org/2004/02/skos/core#")
 
+# GRAPH
 g = Graph()
 
-ns_dict = {
-    "rrr": rrr,
-    "rdf": rdf,
-    "rdfs": rdfs,
-    "owl": owl,
-    "schema": schema,
-    "dc": dc,
-    "dcterms": dcterms,
-    "dbo": dbo,
-    "crm": crm,
-    "foaf": foaf,
-    "fiaf": fiaf,
-    "skos": skos
-}
-
-def graph_bindings():
-    for prefix, ns in ns_dict.items():
-        g.bind(prefix, ns)
-    return g
-
+# Bindings
+g.bind("rrr", rrr)
+g.bind("schema", schema)
+g.bind("dc", dc)
+g.bind("dcterms", dcterms)
 
 # ENTITIES
+book = URIRef(rrr + "book_il_primo_fellini")
+fellini = URIRef(rrr + "federico_fellini")
+renzi = URIRef(rrr + "renzo_renzi")
+series = URIRef(rrr + "series_il_primo_fellini")
 
-book_il_primo_fellini = URIRef(rrr + "book_il_primo_fellini")
-la_strada_film = URIRef(rrr + "la_strada_film")
-renzo_renzi = URIRef(rrr + "renzo_renzi")
-federico_fellini = URIRef(rrr + "federico_fellini")
-bologna = URIRef(rrr + "bologna")
+# FILMS referenced in the book (already defined in the dataset)
+lo_sceicco = URIRef(rrr + "lo_sceicco_bianco_film")
+i_vitelloni = URIRef(rrr + "i_vitelloni_film")
+la_strada = URIRef(rrr + "la_strada_film")
+il_bidone = URIRef(rrr + "il_bidone_film")
 
-g.add((renzo_renzi, RDF.type, foaf.Person))
-g.add((federico_fellini, RDF.type, foaf.Person))
-g.add((bologna, RDF.type, schema.Place))
-g.add((la_strada_film, RDF.type, schema.Movie))
+# LOAD CSV
+df = read_csv("../csv/book_il_primo_fellini.csv", keep_default_na=False, encoding="utf-8")
 
-g.add((renzo_renzi, OWL.sameAs, URIRef("http://viaf.org/viaf/40486517")))
-g.add((federico_fellini, OWL.sameAs, URIRef("http://viaf.org/viaf/76315386")))
-g.add((bologna, OWL.sameAs, URIRef("http://viaf.org/viaf/257723025")))
-g.add((la_strada_film, OWL.sameAs, URIRef("http://viaf.org/viaf/176979060")))
+# RESOURCE TYPE
+g.add((book, RDF.type, schema.Book))
 
-g.add((schema.Book, RDFS.subClassOf, schema.CreativeWork))
+# CSV → RDF MAPPING
+for _, row in df.iterrows():
 
-
-# CSV LOADING
-# N.B. run this script from the `scripts/` directory
-
-first_fellini_book = read_csv(
-    "../csv/book_il_primo_fellini.csv",
-    keep_default_na=False,
-    encoding="utf-8"
-)
-
-g = graph_bindings()
-
-
-# MAPPING TO RDF
-
-for _, row in first_fellini_book.iterrows():
-
-    g.add((book_il_primo_fellini, RDF.type, schema.Book))
-
-    # Identifiers and titles
+    # Identifier
     if row.get("id"):
-        g.add((book_il_primo_fellini, dcterms.identifier, Literal(row["id"])))
+        g.add((book, dcterms.identifier, Literal(row["id"])))
 
+    # Title
     if row.get("title"):
-        g.add((book_il_primo_fellini, dcterms.title, Literal(row["title"])))
+        g.add((book, dcterms.title, Literal(row["title"])))
 
+    # Alternative titles
     if row.get("other_title_information"):
-        g.add((book_il_primo_fellini, dcterms.alternative, Literal(row["other_title_information"])))
+        g.add((book, dcterms.alternative, Literal(row["other_title_information"])))
 
-    # Responsibility statement -> description
+    # Description / notes
     if row.get("responsibility_statement"):
-        g.add((book_il_primo_fellini, dcterms.description, Literal(row["responsibility_statement"])))
-
-    # CREATOR AND CONTRIBUTORS
-
-    # Literal creator from CSV (kept)
-    if row.get("creator"):
-        g.add((book_il_primo_fellini, dcterms.creator, Literal(row["creator"])))
-
-    # Resource-level author
-    g.add((book_il_primo_fellini, schema.author, federico_fellini))
-
-    # Renzi as contributor (resource)
-    g.add((book_il_primo_fellini, dcterms.contributor, renzo_renzi))
-
-    # Other contributors (literal)
-    if row.get("other_contributors"):
-        g.add((book_il_primo_fellini, dcterms.contributor, Literal(row["other_contributors"])))
-
-    # External URIs for people
-    if row.get("creator_uri"):
-        g.add((book_il_primo_fellini, dcterms.relation, Literal(row["creator_uri"], datatype=XSD.anyURI)))
-
-    if row.get("other_contributors_uri"):
-        for uri_str in [u.strip() for u in row["other_contributors_uri"].split("|") if u.strip()]:
-            g.add((book_il_primo_fellini, dcterms.relation, Literal(uri_str, datatype=XSD.anyURI)))
-
-    # PUBLICATION
-
-    if row.get("publisher"):
-        g.add((book_il_primo_fellini, dcterms.publisher, Literal(row["publisher"])))
-
-    if row.get("publication_place"):
-        g.add((book_il_primo_fellini, dcterms.spatial, Literal(row["publication_place"])))
-
-    if row.get("publication_year"):
-        g.add((book_il_primo_fellini, dcterms.issued, Literal(row["publication_year"], datatype=XSD.gYear)))
-
-    # SERIES
-
-    if row.get("series"):
-        series_uri = URIRef(rrr + "series_il_primo_fellini")
-        g.add((series_uri, RDF.type, schema.CreativeWork))
-        g.add((series_uri, dcterms.title, Literal(row["series"])))
-        g.add((book_il_primo_fellini, dcterms.isPartOf, series_uri))
-
-    # PHYSICAL DESCRIPTION / NOTES / RIGHTS
-
-    if row.get("extent"):
-        g.add((book_il_primo_fellini, dcterms.extent, Literal(row["extent"])))
+        g.add((book, dcterms.description, Literal(row["responsibility_statement"])))
 
     if row.get("notes"):
-        g.add((book_il_primo_fellini, dcterms.description, Literal(row["notes"])))
+        g.add((book, dcterms.description, Literal(row["notes"])))
 
+    # Author (resource)
+    g.add((book, schema.author, fellini))
+
+    # Contributors
+    g.add((book, dcterms.contributor, renzi))
+
+    if row.get("other_contributors"):
+        g.add((book, dcterms.contributor, Literal(row["other_contributors"])))
+
+    # Publication
+    if row.get("publisher"):
+        g.add((book, dcterms.publisher, Literal(row["publisher"])))
+
+    if row.get("publication_year"):
+        g.add((book, dcterms.issued, Literal(row["publication_year"], datatype=XSD.gYear)))
+
+    # Series
+    g.add((book, dcterms.isPartOf, series))
+
+    # Physical extent
+    if row.get("extent"):
+        g.add((book, dcterms.extent, Literal(row["extent"])))
+
+    # Rights
     if row.get("rights"):
-        g.add((book_il_primo_fellini, dcterms.rights, Literal(row["rights"])))
+        g.add((book, dcterms.rights, Literal(row["rights"])))
 
-    # SUBJECTS
-
-    g.add((book_il_primo_fellini, dc.subject, federico_fellini))
+    # Subjects
+    g.add((book, dc.subject, fellini))
 
     if row.get("subjects"):
-        g.add((book_il_primo_fellini, dc.subject, Literal(row["subjects"])))
+        g.add((book, dc.subject, Literal(row["subjects"])))
 
-    # RELATED WORKS
+    # Related works (resources, not literals)
+    g.add((book, dcterms.relation, lo_sceicco))
+    g.add((book, dcterms.relation, i_vitelloni))
+    g.add((book, dcterms.relation, la_strada))
+    g.add((book, dcterms.relation, il_bidone))
 
-    if row.get("related_works"):
-        for work_id in [w.strip() for w in row["related_works"].split(";") if w.strip()]:
-            related_uri = URIRef(rrr + work_id)
-            g.add((book_il_primo_fellini, dcterms.relation, related_uri))
-
-    if row.get("related_works_uri"):
-        for uri_str in [u.strip() for u in row["related_works_uri"].split("|") if u.strip()]:
-            g.add((book_il_primo_fellini, dcterms.relation, Literal(uri_str, datatype=XSD.anyURI)))
-
-    g.add((book_il_primo_fellini, dcterms.relation, la_strada_film))
-
-    # RESOURCE TYPE AND LANGUAGE
-
+    # Resource type
     if row.get("resource_type"):
-        g.add((book_il_primo_fellini, dcterms.type, Literal(row["resource_type"])))
+        g.add((book, dcterms.type, Literal(row["resource_type"])))
 
+    # Language
     if row.get("language"):
-        g.add((book_il_primo_fellini, schema.inLanguage, Literal(row["language"])))
+        g.add((book, schema.inLanguage, Literal(row["language"])))
 
+    # Cataloguing standard
     if row.get("standard"):
-        g.add((book_il_primo_fellini, dcterms.conformsTo, Literal(row["standard"])))
+        g.add((book, dcterms.conformsTo, Literal(row["standard"])))
 
 
 # SERIALIZATION
-
 g.serialize(format="turtle", destination="../ttl/book_il_primo_fellini.ttl")
-print("CSV converted to TTL!")
+print("book_il_primo_fellini.ttl generated successfully!")
+
