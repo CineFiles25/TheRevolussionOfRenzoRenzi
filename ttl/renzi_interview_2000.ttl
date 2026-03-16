@@ -13,26 +13,22 @@ rrr:renzi_collection a dcterms:Collection ;
     dcterms:title "Renzo Renzi Collection" .
 
 rrr:bologna a schema:Place ;
-    owl:sameAs <http://viaf.org/viaf/257723025> .
+    owl:sameAs <https://www.geonames.org/3181928/bologna.html> .
 
 rrr:cineteca_di_bologna a schema:Organization ;
     owl:sameAs <http://viaf.org/viaf/124960346> .
 
+rrr:renzo_renzi_library a schema:Library .
+
 rrr:renzi_interview_2000 a schema:Interview ;
     dc:identifier "renzi_interview_2000" ;
-    dc:subject "Renzo Renzi" ;
+    dc:subject rrr:renzo_renzi ;
     dcterms:conformsTo "FIAF" ;
     dcterms:created "2000"^^xsd:gYear ;
-    dcterms:description "Interview recorded in VHS format; director and interviewer are not credited.",
-        "Video interview with Renzo Renzi discussing his work and the history of Columbus Film, produced by the Cineteca di Bologna." ;
-    dcterms:format "VHS",
-        "sound" ;
-    dcterms:location rrr:renzo_renzi_library,
-        "Renzo Renzi Library, Cineteca di Bologna" ;
-    dcterms:publisher "Cineteca di Bologna" ;
-    dcterms:relation "http://viaf.org/viaf/124960346"^^xsd:anyURI,
-        "http://viaf.org/viaf/40486517"^^xsd:anyURI,
-        "https://www.geonames.org/3181928/bologna.html"^^xsd:anyURI ;
+    dcterms:description "Interview recorded in VHS format; director and interviewer are not credited." ,
+                        "Video interview with Renzo Renzi discussing his work and the history of Columbus Film, produced by the Cineteca di Bologna." ;
+    dcterms:format "VHS" ;
+    dcterms:location rrr:renzo_renzi_library ;
     dcterms:rights "© Cineteca di Bologna" ;
     dcterms:spatial "Bologna, Italy" ;
     dcterms:title "Il cinema a Bologna: Renzo Renzi e la Columbus film" ;
@@ -47,10 +43,7 @@ rrr:renzi_interview_2000 a schema:Interview ;
     schema:locationCreated rrr:bologna ;
     schema:productionCompany "Cineteca di Bologna" .
 
-rrr:renzo_renzi_library a schema:Library .
-
 schema:Interview rdfs:subClassOf schema:CreativeWork .
 
 rrr:renzo_renzi a foaf:Person ;
     owl:sameAs <http://viaf.org/viaf/40486517> .
-
