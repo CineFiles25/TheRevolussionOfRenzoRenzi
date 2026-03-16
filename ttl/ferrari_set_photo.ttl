@@ -11,30 +11,30 @@
 rrr:ferrari_set_photo a schema:Photograph ;
     dc:title "FAF01878.001" ;
     dcterms:creator rrr:aldo_ferrari ;
-    dcterms:isPartOf "Fondo Aldo Ferrari – Donazione Costantino e Lucia Della Casa" ;
     dcterms:rights "© Cineteca di Bologna" ;
     crm:P45_consists_of "Analog photographic print" ;
     crm:P52_has_current_owner rrr:cineteca_di_bologna ;
     foaf:depicts rrr:renzo_renzi ;
-    schema:artform "Vintage gelatin silver print. Original analog photograph." ;
-    schema:color "black and white"^^xsd:string ;
+    schema:artform "photography" ;
+    schema:color "black and white" ;
     schema:dateCreated "1959"^^xsd:gYear ;
-    schema:description "Digital surrogate available on the Cineteca di Bologna website." ;
+    schema:description "Vintage gelatin silver print. Original analog photograph. Digital surrogate available on the Cineteca di Bologna website." ;
     schema:fileFormat "Digital JPEG surrogate" ;
-    schema:identifier "FAF01878.001"^^xsd:anyURI ;
-    schema:locationCreated "Set of the documentary 'Le Notti del Melodramma'" ;
-    schema:material "Gelatin silver print" .
+    schema:identifier "FAF01878.001" ;
+    schema:material "Gelatin silver print" ;
+    schema:location rrr:renzo_renzi_library .
 
 rrr:aldo_ferrari a foaf:Person ;
     owl:sameAs <https://www.wikidata.org/wiki/Q3609208> .
 
-rrr:bologna owl:sameAs <http://viaf.org/viaf/257723025> .
+rrr:bologna a schema:Place ;
+    owl:sameAs <https://www.geonames.org/3181928/bologna.html> .
 
 rrr:cineteca_di_bologna a schema:Organization ;
     owl:sameAs <http://viaf.org/viaf/124960346> ;
     schema:location rrr:bologna .
 
-rrr:renzo_renzi owl:sameAs <http://viaf.org/viaf/40486517> .
+rrr:renzo_renzi a foaf:Person ;
+    owl:sameAs <http://viaf.org/viaf/40486517> .
 
 schema:Photograph rdfs:subClassOf schema:CreativeWork .
-
