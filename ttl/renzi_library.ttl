@@ -1,49 +1,43 @@
 @prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
-@prefix dbo: <http://dbpedia.org/ontology/> .
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix rrr: <https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/> .
 @prefix schema: <https://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-rrr:book_il_primo_fellini schema:location rrr:renzo_renzi_library .
+rrr:bologna a schema:Place ;
+    owl:sameAs <https://www.geonames.org/3181928/bologna.html> .
 
+rrr:cineteca_di_bologna a schema:Organization ;
+    owl:sameAs <http://viaf.org/viaf/124960346> .
+
+rrr:renzo_renzi a schema:Person ;
+    owl:sameAs <http://viaf.org/viaf/40486517> .
+
+rrr:renzi_collection a dcterms:Collection ;
+    crm:P52_has_current_owner rrr:cineteca_di_bologna .
+
+rrr:book_il_primo_fellini schema:location rrr:renzo_renzi_library .
 rrr:guida_per_camminare_all_ombra schema:location rrr:renzo_renzi_library .
 
-rrr:renzi_collection a schema:Collection ;
-    crm:P52_has_current_owner rrr:cineteca_di_bologna ;
-    schema:location rrr:renzo_renzi_library .
-
-rrr:bologna owl:sameAs <http://viaf.org/viaf/257723025> .
-
-rrr:renzo_renzi owl:sameAs <http://viaf.org/viaf/40486517> .
-
-schema:Library rdfs:subClassOf schema:LocalBusiness .
-
-rrr:cineteca_di_bologna owl:sameAs <http://viaf.org/viaf/124960346> .
-
 rrr:renzo_renzi_library a schema:Library ;
-    dbo:dedicatedTo rrr:renzo_renzi ;
+    schema:dedicatedTo rrr:renzo_renzi ;
     dc:identifier "IT-BO0286" ;
     crm:P52_has_current_owner rrr:cineteca_di_bologna ;
     owl:sameAs <https://anagrafe.iccu.sbn.it/isil/IT-BO0286> ;
-    schema:additionalType "Former municipal slaughterhouse (ex-Macello)" ;
     schema:address "Piazzetta Pier Paolo Pasolini 3/B" ;
     schema:addressLocality rrr:bologna ;
     schema:alternateName "Library of the Cineteca di Bologna" ;
     schema:date "1884"^^xsd:gYear ;
-    schema:description "2×2 m screen",
-        "4 speakers; mixer; 2 table microphones; 1 wireless microphone",
-        "Architectural complex" ;
+    schema:description "Architectural complex; includes a 2×2 m screen and audio equipment (4 speakers, mixer, table and wireless microphones)." ;
     schema:email "cinetecabiblioteca@cineteca.bologna.it"^^xsd:anyURI ;
-    schema:floorSize "2,403 m²"^^xsd:string ;
+    schema:floorSize "2,403 m²" ;
     schema:foundingDate "1967"^^xsd:gYear ;
-    schema:geo "44.50284, 11.33449" ;
     schema:isAccessibleForFree true ;
     schema:name "Biblioteca Renzo Renzi" ;
     schema:openingHours "Tue-Fri: 12:00-18:00 | Sat: 09:30-15:00" ;
     schema:seatingCapacity 65 ;
-    schema:telephone "+39 0512194843"^^xsd:string ;
+    schema:telephone "+39 0512194843" ;
     schema:url "https://cinetecadibologna.it/biblioteca/"^^xsd:anyURI .
-
