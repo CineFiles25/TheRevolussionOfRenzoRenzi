@@ -1,98 +1,130 @@
 from pandas import read_csv
-from rdflib import Namespace, Graph, RDF, URIRef, OWL, Literal, XSD, RDFS
+from rdflib import Namespace, Graph, RDF, URIRef, Literal, XSD
 
 # NAMESPACES
 
 rrr = Namespace("https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/")
-rdf = Namespace("http://www.w3.org/1999/02/22-rdf-syntax-ns#")
-rdfs = Namespace("http://www.w3.org/2000/01/rdf-schema#")
-owl = Namespace("http://www.w3.org/2002/07/owl#")
 schema = Namespace("https://schema.org/")
-dc = Namespace("http://purl.org/dc/elements/1.1/")
 dcterms = Namespace("http://purl.org/dc/terms/")
-dbo = Namespace("http://dbpedia.org/ontology/")
+dc = Namespace("http://purl.org/dc/elements/1.1/")
 crm = Namespace("http://www.cidoc-crm.org/cidoc-crm/")
-foaf = Namespace("http://xmlns.com/foaf/0.1/")
-fiaf = Namespace("https://fiaf.github.io/film-related-materials/objects/")
-skos = Namespace("http://www.w3.org/2004/02/skos/core#")
 
-# GRAPH CREATION
-
+# GRAPH
 g = Graph()
 
-ns_dict = { 
-    "rrr": rrr,   
-    "rdf": rdf,
-    "rdfs": rdfs,
-    "owl": owl,
-    "schema": schema,
-    "dc": dc,
-    "dcterms": dcterms,
-    "dbo": dbo,
-    "crm": crm,
-    "foaf": foaf,
-    "fiaf": fiaf,
-    "skos": skos
-}
+# Bindings
+g.bind("rrr", rrr)
+g.bind("schema", schema)
+g.bind("dcterms", dcterms)
+g.bind("dc", dc)
+g.bind("crm", crm)
 
-def graph_bindings():
-    for prefix, ns in ns_dict.items():
-        g.bind(prefix, ns)
-    return g
+# ENTITIES
+letter = URIRef(rrr + "renzi_letter_1942")
+renzi = URIRef(rrr + "renzo_renzi")
+renzi_collection = URIRef(rrr + "renzi_collection")
+cineteca = URIRef(rrr + "cineteca_di_bologna")
 
-# ENTITIES 
+# LOAD CSV
+df = read_csv("../csv/renzi_letter_1942.csv", keep_default_na=False, encoding="utf-8")
 
-renzi_letter_1942 = URIRef(rrr + "renzi_letter_1942")
-renzo_renzi = URIRef(rrr + "renzo_renzi")
-cineteca_di_bologna = URIRef(rrr + "cineteca_di_bologna")
-renzo_renzi_collection = URIRef(rrr + "renzo_renzi_collection")
+# RESOURCE TYPE
+g.add((letter, RDF.type, schema.CreativeWork))
 
-# SAMEAS
+# CSV → RDF MAPPING
+for _, row in df.iterrows():
 
-g.add((renzo_renzi, OWL.sameAs, URIRef("http://viaf.org/viaf/40486517")))
-g.add((cineteca_di_bologna, OWL.sameAs, URIRef("http://viaf.org/viaf/124960346")))
-g.add((renzo_renzi_collection, OWL.sameAs, URIRef("http://viaf.org/viaf/124960346")))
+    # Identifiers
+    if row.get("id"):
+        g.add((letter, dcterms.identifier, Literal(row["id"])))
 
-# CSV LOADING
+    if row.get("identifiers"):
+        g.add((letter, dcterms.identifier, Literal(row["identifiers"])))
 
-renzi_letter = read_csv("../csv/renzi_letter_1942.csv", keep_default_na=False, encoding="utf-8")
+    # Standard
+    if row.get("standard"):
+        g.add((letter, dcterms.conformsTo, Literal(row["standard"])))
 
-g = graph_bindings()
+    # Titles
+    if row.get("title"):
+        g.add((letter, dcterms.title, Literal(row["title"])))
 
-# MAPPING
+    if row.get("other_title_information"):
+        g.add((letter, dcterms.alternative, Literal(row["other_title_information"])))
 
-for idx, row in renzi_letter.iterrows():
-    g.add((renzi_letter_1942, RDF.type, schema.ArchiveComponent))
-    g.add((schema.ArchiveComponent, RDFS.subClassOf, schema.CreativeWork))
-    g.add((renzi_letter_1942, dcterms.identifier, Literal(row["id"])))
-    g.add((renzi_letter_1942, dcterms.identifier, Literal(row["identifiers"])))
-    g.add((renzi_letter_1942, dcterms.conformsTo, Literal(row["standard"])))
-    g.add((renzi_letter_1942, dcterms.title, Literal(row["title"])))
-    g.add((renzi_letter_1942, dcterms.alternative, Literal(row["other_title_information"])))
-    g.add((renzi_letter_1942, dcterms.creator, renzo_renzi))
-    g.add((renzi_letter_1942, dcterms.contributor, Literal(row["other_creators"])))
-    g.add((renzi_letter_1942, dcterms.created, Literal(row["date"], datatype=XSD.date)))
-    g.add((renzi_letter_1942, dcterms.type, Literal(row["level_of_description"])))
-    g.add((renzi_letter_1942, dcterms.extent, Literal(row["extent"])))
-    g.add((renzi_letter_1942, dcterms.description, Literal(row["scope_and_content"])))
-    g.add((renzi_letter_1942, dcterms.medium, Literal(row["physical_description"])))
-    g.add((renzi_letter_1942, schema.additionalType, Literal(row["material_type"])))
-    g.add((renzi_letter_1942, dcterms.language, Literal(row["language"])))
-    g.add((renzi_letter_1942, schema.numberOfPages, Literal(row["pages"], datatype=XSD.integer)))
-    for uri in row["page_uris"].split("|"):
-        g.add((renzi_letter_1942, schema.associatedMedia, URIRef(uri.strip())))
-    g.add((renzi_letter_1942, schema.holdingArchive, cineteca_di_bologna))
-    g.add((cineteca_di_bologna, dcterms.title, Literal(row["institution"])))
-    g.add((renzi_letter_1942, dcterms.isPartOf, renzo_renzi_collection))
-    g.add((renzo_renzi_collection, dcterms.title, Literal(row["collection"])))
-    g.add((renzi_letter_1942, dcterms.spatial, Literal(row["current_location"])))
-    g.add((renzi_letter_1942, dcterms.accessRights, Literal(row["conditions_governing_access"])))
-    g.add((renzi_letter_1942, dcterms.rights, Literal(row["conditions_governing_reproduction"])))
-    g.add((renzi_letter_1942, dcterms.relation, Literal(row["related_works"])))
-    g.add((renzi_letter_1942, dcterms.rights, Literal(row["rights"])))
+    # Creator
+    g.add((letter, dcterms.creator, renzi))
+
+    # Other contributors
+    if row.get("other_creators"):
+        g.add((letter, dcterms.contributor, Literal(row["other_creators"])))
+
+    # Date
+    if row.get("date"):
+        g.add((letter, dcterms.created, Literal(row["date"], datatype=XSD.date)))
+
+    # Level of description
+    if row.get("level_of_description"):
+        g.add((letter, dcterms.type, Literal(row["level_of_description"])))
+
+    # Extent
+    if row.get("extent"):
+        g.add((letter, dcterms.extent, Literal(row["extent"])))
+
+    # Scope and content
+    if row.get("scope_and_content"):
+        g.add((letter, dcterms.description, Literal(row["scope_and_content"])))
+
+    # Physical description
+    if row.get("physical_description"):
+        g.add((letter, dcterms.medium, Literal(row["physical_description"])))
+
+    # Material type
+    if row.get("material_type"):
+        g.add((letter, dcterms.medium, Literal(row["material_type"])))
+
+    # Language
+    if row.get("language"):
+        g.add((letter, dcterms.language, Literal(row["language"])))
+
+    # Number of pages
+    if row.get("pages"):
+        g.add((letter, schema.numberOfPages, Literal(row["pages"], datatype=XSD.integer)))
+
+    # Page URIs (resources)
+    if row.get("page_uris"):
+        for uri in row["page_uris"].split("|"):
+            cleaned = uri.strip()
+            if cleaned:
+                g.add((letter, schema.associatedMedia, URIRef(cleaned)))
+
+    # Holding archive
+    g.add((letter, crm.P52_has_current_owner, cineteca))
+
+    # Collection
+    g.add((letter, dcterms.isPartOf, renzi_collection))
+    g.add((renzi_collection, dcterms.hasPart, letter))
+
+    # Current location (literal)
+    if row.get("current_location"):
+        g.add((letter, dcterms.spatial, Literal(row["current_location"])))
+
+    # Access conditions
+    if row.get("conditions_governing_access"):
+        g.add((letter, dcterms.accessRights, Literal(row["conditions_governing_access"])))
+
+    # Reproduction conditions
+    if row.get("conditions_governing_reproduction"):
+        g.add((letter, dcterms.rights, Literal(row["conditions_governing_reproduction"])))
+
+    # Related works (literal)
+    if row.get("related_works"):
+        g.add((letter, dcterms.relation, Literal(row["related_works"])))
+
+    # Rights
+    if row.get("rights"):
+        g.add((letter, dcterms.rights, Literal(row["rights"])))
 
 # SERIALIZATION
-
 g.serialize(format="turtle", destination="../ttl/renzi_letter_1942.ttl")
-
-print("CSV converted to TTL!")
+print("renzi_letter_1942.ttl generated successfully!")
