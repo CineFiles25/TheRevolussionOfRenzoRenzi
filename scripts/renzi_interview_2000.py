@@ -1,189 +1,130 @@
 from pandas import read_csv
-from rdflib import Namespace, Graph, RDF, URIRef, OWL, Literal, XSD, RDFS
+from rdflib import Namespace, Graph, RDF, URIRef, Literal, XSD
 
 # NAMESPACES
 
 rrr = Namespace("https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/")
-rdf = Namespace("http://www.w3.org/1999/02/22-rdf-syntax-ns#")
-rdfs = Namespace("http://www.w3.org/2000/01/rdf-schema#")
-owl = Namespace("http://www.w3.org/2002/07/owl#")
 schema = Namespace("https://schema.org/")
-dc = Namespace("http://purl.org/dc/elements/1.1/")
 dcterms = Namespace("http://purl.org/dc/terms/")
-dbo = Namespace("http://dbpedia.org/ontology/")
+dc = Namespace("http://purl.org/dc/elements/1.1/")
 crm = Namespace("http://www.cidoc-crm.org/cidoc-crm/")
-foaf = Namespace("http://xmlns.com/foaf/0.1/")
-fiaf = Namespace("https://fiaf.github.io/film-related-materials/objects/")
-skos = Namespace("http://www.w3.org/2004/02/skos/core#")
 
+# GRAPH
 g = Graph()
 
-ns_dict = {
-    "rrr": rrr,
-    "rdf": rdf,
-    "rdfs": rdfs,
-    "owl": owl,
-    "schema": schema,
-    "dc": dc,
-    "dcterms": dcterms,
-    "dbo": dbo,
-    "crm": crm,
-    "foaf": foaf,
-    "fiaf": fiaf,
-    "skos": skos
-}
-
-def graph_bindings():
-    for prefix, ns in ns_dict.items():
-        g.bind(prefix, ns)
-    return g
-
-g = graph_bindings()
+# Bindings
+g.bind("rrr", rrr)
+g.bind("schema", schema)
+g.bind("dcterms", dcterms)
+g.bind("dc", dc)
+g.bind("crm", crm)
 
 # ENTITIES
-
-renzi_interview = URIRef(rrr + "renzi_interview_2000")
-renzo_renzi = URIRef(rrr + "renzo_renzi")
-bologna = URIRef(rrr + "bologna")
-cineteca_di_bologna = URIRef(rrr + "cineteca_di_bologna")
+interview = URIRef(rrr + "renzi_interview_2000")
+renzi = URIRef(rrr + "renzo_renzi")
 renzi_collection = URIRef(rrr + "renzi_collection")
 renzi_library = URIRef(rrr + "renzo_renzi_library")
+cineteca = URIRef(rrr + "cineteca_di_bologna")
+bologna = URIRef(rrr + "bologna")
 
-# Base types
-g.add((renzi_interview, RDF.type, schema.Interview))
-g.add((schema.Interview, RDFS.subClassOf, schema.CreativeWork))
+# LOAD CSV
+df = read_csv("../csv/renzi_interview_2000.csv", keep_default_na=False, encoding="utf-8")
 
-g.add((renzo_renzi, RDF.type, foaf.Person))
-g.add((bologna, RDF.type, schema.Place))
-g.add((cineteca_di_bologna, RDF.type, schema.Organization))
-g.add((renzi_collection, RDF.type, dcterms.Collection))
-g.add((renzi_library, RDF.type, schema.Library))
+# RESOURCE TYPE
+g.add((interview, RDF.type, schema.Interview))
 
-# Authority links
-g.add((renzo_renzi, OWL.sameAs, URIRef("http://viaf.org/viaf/40486517")))
-g.add((bologna, OWL.sameAs, URIRef("http://viaf.org/viaf/257723025")))
-g.add((cineteca_di_bologna, OWL.sameAs, URIRef("http://viaf.org/viaf/124960346")))
+# CSV → RDF MAPPING
+for _, row in df.iterrows():
 
-# CSV LOADING
-# N.B. run this script from the `scripts/` directory
-
-interview_df = read_csv(
-    "../csv/renzi_interview_2000.csv",
-    keep_default_na=False,
-    encoding="utf-8"
-)
-
-# MAPPING TO RDF
-
-for _, row in interview_df.iterrows():
-
-    # IDENTIFIER, STANDARD, TYPE
+    # Identifier
     if row.get("id"):
-        g.add((renzi_interview, dcterms.identifier, Literal(row["id"])))
+        g.add((interview, dcterms.identifier, Literal(row["id"])))
 
+    # Standard
     if row.get("standard"):
-        g.add((renzi_interview, dcterms.conformsTo, Literal(row["standard"])))
+        g.add((interview, dcterms.conformsTo, Literal(row["standard"])))
 
+    # Resource type
     if row.get("resource_type"):
-        g.add((renzi_interview, dcterms.type, Literal(row["resource_type"])))
+        g.add((interview, dcterms.type, Literal(row["resource_type"])))
 
-    # TITLES
+    # Titles
     if row.get("title"):
-        g.add((renzi_interview, dcterms.title, Literal(row["title"])))
+        g.add((interview, dcterms.title, Literal(row["title"])))
 
     if row.get("other_title_information"):
-        g.add((renzi_interview, schema.alternateName, Literal(row["other_title_information"])))
+        g.add((interview, dcterms.alternative, Literal(row["other_title_information"])))
 
-    # PEOPLE (INTERVIEWEE / DIRECTOR / INTERVIEWER)
+    # Interviewee (resource)
+    g.add((interview, schema.interviewee, renzi))
+    g.add((interview, schema.about, renzi))
 
-    g.add((renzi_interview, schema.interviewee, renzo_renzi))
-    g.add((renzi_interview, schema.about, renzo_renzi))
-
+    # Interviewee (literal)
     if row.get("interviewee"):
-        g.add((renzi_interview, dc.subject, Literal(row["interviewee"])))
+        g.add((interview, dc.subject, Literal(row["interviewee"])))
 
-    if row.get("interviewee_uri"):
-        g.add((renzi_interview, dcterms.relation, Literal(row["interviewee_uri"], datatype=XSD.anyURI)))
-
+    # Director (literal only)
     if row.get("director"):
-        g.add((renzi_interview, schema.director, Literal(row["director"])))
-    if row.get("director_uri"):
-        g.add((renzi_interview, dcterms.relation, Literal(row["director_uri"], datatype=XSD.anyURI)))
+        g.add((interview, schema.director, Literal(row["director"])))
 
+    # Interviewer
     if row.get("interviewer"):
-        g.add((renzi_interview, dcterms.contributor, Literal(row["interviewer"])))
-        g.add((renzi_interview, schema.interviewer, Literal(row["interviewer"])))
-    if row.get("interviewer_uri"):
-        g.add((renzi_interview, dcterms.relation, Literal(row["interviewer_uri"], datatype=XSD.anyURI)))
+        g.add((interview, schema.interviewer, Literal(row["interviewer"])))
+        g.add((interview, dcterms.contributor, Literal(row["interviewer"])))
 
-    # PRODUCTION COMPANY / PLACE / YEAR
-
+    # Production company
     if row.get("production_company"):
-        g.add((renzi_interview, schema.productionCompany, Literal(row["production_company"])))
-        g.add((renzi_interview, dcterms.publisher, Literal(row["production_company"])))
+        g.add((interview, dcterms.publisher, Literal(row["production_company"])))
 
-    if row.get("production_company_uri"):
-        g.add((renzi_interview, dcterms.relation, Literal(row["production_company_uri"], datatype=XSD.anyURI)))
-
+    # Production place (literal)
     if row.get("production_place"):
-        g.add((renzi_interview, dcterms.spatial, Literal(row["production_place"])))
+        g.add((interview, dcterms.spatial, Literal(row["production_place"])))
 
-    g.add((renzi_interview, schema.locationCreated, bologna))
+    # Production place (resource)
+    g.add((interview, schema.locationCreated, bologna))
 
-    if row.get("production_place_uri"):
-        g.add((renzi_interview, dcterms.relation, Literal(row["production_place_uri"], datatype=XSD.anyURI)))
-
+    # Production year
     if row.get("production_year"):
-        g.add((renzi_interview, dcterms.created, Literal(row["production_year"], datatype=XSD.gYear)))
+        g.add((interview, dcterms.created, Literal(row["production_year"], datatype=XSD.gYear)))
 
-    # TECHNICAL FEATURES
-
+    # Duration
     if row.get("duration"):
-        g.add((renzi_interview, schema.duration, Literal(row["duration"])))
+        g.add((interview, schema.duration, Literal(row["duration"])))
 
+    # Color
     if row.get("colour"):
-        g.add((renzi_interview, schema.color, Literal(row["colour"])))
+        g.add((interview, schema.color, Literal(row["colour"])))
 
+    # Sound
     if row.get("sound"):
-        g.add((renzi_interview, dcterms["format"], Literal(row["sound"])))
+        g.add((interview, dcterms.format, Literal(row["sound"])))
 
+    # Format
     if row.get("format"):
-        g.add((renzi_interview, dcterms["format"], Literal(row["format"])))
+        g.add((interview, dcterms.format, Literal(row["format"])))
 
+    # Language
     if row.get("language"):
-        g.add((renzi_interview, schema.inLanguage, Literal(row["language"])))
+        g.add((interview, schema.inLanguage, Literal(row["language"])))
 
-    # INSTITUTION / COLLECTION / CURRENT LOCATION
-
-    g.add((renzi_interview, crm.P52_has_current_owner, cineteca_di_bologna))
-    g.add((renzi_collection, dcterms.hasPart, renzi_interview))
-    g.add((renzi_interview, dcterms.location, renzi_library))
-
-    if row.get("institution"):
-        g.add((renzi_interview, dcterms.publisher, Literal(row["institution"])))
-
-    if row.get("collection"):
-        g.add((renzi_collection, dcterms.title, Literal(row["collection"])))
-
-    if row.get("current_location"):
-        g.add((renzi_interview, dcterms.location, Literal(row["current_location"])))
-
-    if row.get("institution_uri"):
-        g.add((renzi_interview, dcterms.relation, Literal(row["institution_uri"], datatype=XSD.anyURI)))
-
-    # RIGHTS, DESCRIPTION, NOTES
-
+    # Rights
     if row.get("rights"):
-        g.add((renzi_interview, dcterms.rights, Literal(row["rights"])))
+        g.add((interview, dcterms.rights, Literal(row["rights"])))
 
+    # Description
     if row.get("description"):
-        g.add((renzi_interview, dcterms.description, Literal(row["description"])))
+        g.add((interview, dcterms.description, Literal(row["description"])))
 
     if row.get("notes"):
-        g.add((renzi_interview, dcterms.description, Literal(row["notes"])))
+        g.add((interview, dcterms.description, Literal(row["notes"])))
+
+    # COLLECTION & LOCATION
+    g.add((interview, dcterms.isPartOf, renzi_collection))
+    g.add((renzi_collection, dcterms.hasPart, interview))
+    g.add((interview, crm.P52_has_current_owner, cineteca))
+    g.add((interview, schema.location, renzi_library))
 
 
 # SERIALIZATION
-
 g.serialize(format="turtle", destination="../ttl/renzi_interview_2000.ttl")
-print("CSV converted to TTL!")
+print("renzi_interview_2000.ttl generated successfully!")
