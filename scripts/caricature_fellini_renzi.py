@@ -19,7 +19,7 @@ g.bind("dcterms", dcterms)
 g.bind("dc", dc)
 g.bind("crm", crm)
 
-# ENTITIES ALREADY DEFINED IN THE MAIN DATASET
+# ENTITIES
 artwork = URIRef(rrr + "caricature_fellini_renzi")
 fellini = URIRef(rrr + "federico_fellini")
 renzi = URIRef(rrr + "renzo_renzi")
