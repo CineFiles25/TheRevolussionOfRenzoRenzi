@@ -4,32 +4,31 @@
 @prefix rrr: <https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/> .
 @prefix schema: <https://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-
-rrr:bologna owl:sameAs <http://viaf.org/viaf/257723025> .
-
-rrr:cineteca_di_bologna owl:sameAs <http://viaf.org/viaf/124960346> .
-
-rrr:giulietta_masina owl:sameAs <http://viaf.org/viaf/96166248> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
 
 rrr:photo_la_strada_fighter a schema:Photograph ;
     dcterms:alternative "Gelsomina and Zampanò during a circus act" ;
     dcterms:created "1954"^^xsd:gYear ;
     dcterms:description "Set photograph from Federico Fellini’s film 'La Strada', showing a circus performance scene." ;
-    dcterms:extent "Vintage gelatin silver print; physical description not fully provided." ;
-    dcterms:identifier "" ;
-    dcterms:isPartOf rrr:la_strada_film,
-        "Fondo Fotografie Cineteca" ;
-    dcterms:language "" ;
+    dcterms:extent "Vintage gelatin silver print" ;
+    dcterms:isPartOf rrr:la_strada_film ;
     dcterms:medium "Gelatin silver print" ;
-    dcterms:relation "la_strada_film" ;
     dcterms:rights "© Reporters Associati & Archivi — All rights reserved" ;
-    dcterms:spatial "" ;
-    dcterms:subject "Giulietta Masina; Anthony Quinn",
-        "Production still from the film 'La Strada' (1954)" ;
     dcterms:title "Circus performance scene from 'La Strada'" ;
     dcterms:type "Photograph" ;
-    rdfs:subClassOf schema:CreativeWork ;
+    foaf:depicts rrr:giulietta_masina ;
     schema:color "black and white" .
 
-rrr:la_strada_film owl:sameAs <https://www.wikidata.org/wiki/Q18402> .
+rrr:la_strada_film a schema:Movie ;
+    owl:sameAs <https://www.wikidata.org/wiki/Q18402> .
 
+rrr:giulietta_masina a foaf:Person ;
+    owl:sameAs <http://viaf.org/viaf/96166248> .
+
+rrr:cineteca_di_bologna a schema:Organization ;
+    owl:sameAs <http://viaf.org/viaf/124960346> .
+
+rrr:bologna a schema:Place ;
+    owl:sameAs <https://www.geonames.org/3181928/bologna.html> .
+
+schema:Photograph rdfs:subClassOf schema:CreativeWork .
