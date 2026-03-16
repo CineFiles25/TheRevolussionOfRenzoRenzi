@@ -1,178 +1,81 @@
-# ============================================================================
-# IMPORTS
-# ============================================================================
-# Import pandas for CSV reading and data manipulation
-# pandas is the standard library for working with tabular data in Python
-import pandas as pd
 from pandas import read_csv
+from rdflib import Namespace, Graph, RDF, URIRef, Literal, XSD
 
-# Import RDFLib components for creating RDF graphs and handling semantic web data
-# RDFLib is the primary Python library for working with RDF (Resource Description Framework)
-from rdflib import Namespace, Graph, RDF, URIRef, OWL, Literal, XSD, RDFS, FOAF
+# NAMESPACES
 
-# ============================================================================
-# NAMESPACE DEFINITIONS
-# ============================================================================
-# Namespaces are like vocabularies that define the meaning of terms in RDF
-# Each namespace represents a different standard or ontology
-# Using multiple namespaces allows us to express concepts precisely and enable data interoperability
-
-# Custom namespace for this project - "The Revolution of Renzo Renzi"
-rrr = Namespace("https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/") # This is YOUR namespace where you define your own entities and relationships
-rdf = Namespace("http://www.w3.org/1999/02/22-rdf-syntax-ns#")  
-rdfs = Namespace("http://www.w3.org/2000/01/rdf-schema#")  
-owl = Namespace("http://www.w3.org/2002/07/owl#")  
+rrr = Namespace("https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/")
 schema = Namespace("https://schema.org/")
-dc = Namespace("http://purl.org/dc/elements/1.1/")  
-dcterms = Namespace("http://purl.org/dc/terms/")  
-dbo = Namespace("http://dbpedia.org/ontology/")
+dcterms = Namespace("http://purl.org/dc/terms/")
+dc = Namespace("http://purl.org/dc/elements/1.1/")
 crm = Namespace("http://www.cidoc-crm.org/cidoc-crm/")
 foaf = Namespace("http://xmlns.com/foaf/0.1/")
-fiaf = Namespace("https://fiaf.github.io/film-related-materials/objects/")
-skos = Namespace("http://www.w3.org/2004/02/skos/core#")
 
-# ============================================================================
-# ADDITIONAL RECOMMENDED NAMESPACES (currently commented out)
-# ============================================================================
-# Consider adding these for richer descriptions:
-
-# BIBFRAME - Bibliographic Framework Initiative (Library of Congress)
-# Modern replacement for MARC records in libraries
-# bf = Namespace("http://id.loc.gov/ontologies/bibframe/")
-
-# EDM - Europeana Data Model
-# Used by European cultural heritage aggregator
-# edm = Namespace("http://www.europeana.eu/schemas/edm/")
-
-# PROV-O - Provenance Ontology
-# For tracking the origin and history of resources
-# prov = Namespace("http://www.w3.org/ns/prov#")
-
-# ============================================================================
-# GRAPH INITIALIZATION
-# ============================================================================
-# Create an empty RDF graph - this is the container for all your triples
-# A triple is a subject-predicate-object statement (e.g., "Fellini directed La Strada")
+# GRAPH
 g = Graph()
 
-# Create a dictionary to store all namespaces for easy management
-# This makes it easier to add/remove namespaces and bind them to the graph
-ns_dict = { 
-    "rrr": rrr,   
-    "rdf": rdf,
-    "rdfs": rdfs,
-    "owl": owl,
-    "schema": schema,
-    "dc": dc,
-    "dcterms": dcterms,
-    "dbo": dbo,
-    "crm": crm,
-    "foaf": foaf,
-    "fiaf": fiaf,
-    "skos": skos
-}
+# Bindings
+g.bind("rrr", rrr)
+g.bind("schema", schema)
+g.bind("dcterms", dcterms)
+g.bind("dc", dc)
+g.bind("crm", crm)
+g.bind("foaf", foaf)
 
-def graph_bindings(): # Define a function to bind namespaces to the graph
+# ENTITIES (to be customized per script)
+item = URIRef(rrr + "ITEM_ID_HERE")
 
-    for prefix, ns in ns_dict.items(): # Iterate over all namespace prefixes and URIs
-        g.bind(prefix, ns)  # Bind each prefix to its namespace URI
-    return g # return the graph with bindings
+# Common entities already defined in the main dataset
+renzi = URIRef(rrr + "renzo_renzi")
+renzi_collection = URIRef(rrr + "renzi_collection")
+cineteca = URIRef(rrr + "cineteca_di_bologna")
+bologna = URIRef(rrr + "bologna")
 
-# ============================================================================
-# ENTITY DEFINITIONS
-# ============================================================================
-# Create URIRefs for all entities (people, places, organizations, works)
-# URIRef creates a unique identifier for each resource in your knowledge graph
-# These are the "nodes" in your graph that will be connected by "edges" (predicates)
+# LOAD CSV (customize filename)
+df = read_csv("../csv/ITEM_CSV_FILENAME.csv", keep_default_na=False, encoding="utf-8")
 
-# The main item you're describing (film, book, photograph, etc.)
-# SUGGESTION: Make this dynamic based on what you're cataloging
-item = URIRef(rrr + "item")
+# RESOURCE TYPE (customize)
+g.add((item, RDF.type, schema.CreativeWork))
 
-# Key person: Renzo Renzi (film critic, historian, archivist)
-renzo_renzi = URIRef(rrr + "renzo_renzi")
+# CSV → RDF MAPPING
+for _, row in df.iterrows():
 
-# SUGGESTED ADDITIONAL ENTITIES:
-# Add these as needed based on your CSV data:
-# federico_fellini = URIRef(rrr + "federico_fellini")
-# cineteca_di_bologna = URIRef(rrr + "cineteca_di_bologna")
-# renzi_collection = URIRef(rrr + "renzi_collection")
-# bologna = URIRef(rrr + "bologna")
+    # Identifier
+    if row.get("id"):
+        g.add((item, dcterms.identifier, Literal(row["id"])))
 
-# ============================================================================
-# AUTHORITY CONTROL - EXTERNAL IDENTIFIERS
-# ============================================================================
-# Link your entities to external authority files using owl:sameAs
-# This is CRUCIAL for:
-# 1. Data interoperability - your data can be linked with other datasets
-# 2. Disambiguation - clarifies which "Renzo Renzi" you mean
-# 3. Authority - provides authoritative identification
-# 4. Discovery - enables finding related information across the web
+    # Title
+    if row.get("title"):
+        g.add((item, dcterms.title, Literal(row["title"])))
 
-# VIAF (Virtual International Authority File) - aggregates authority records from libraries worldwide
-g.add((renzo_renzi, OWL.sameAs, URIRef("http://viaf.org/viaf/40486517")))
+    # Alternative title
+    if row.get("other_title_information"):
+        g.add((item, dcterms.alternative, Literal(row["other_title_information"])))
 
-# SUGGESTED ADDITIONAL AUTHORITY LINKS:
-# Consider adding links to:
-# - Wikidata: Universal identifiers (e.g., "https://www.wikidata.org/wiki/Q...")
-# - ISNI: International Standard Name Identifier for creative people
-# - ORCID: For researchers and scholars
-# - Library of Congress: lccn identifiers
-# - Getty vocabularies: For art, architecture, artists
-# - IMDb: For film industry
+    # Creator (example)
+    g.add((item, dcterms.creator, renzi))
 
-# Example:
-# g.add((renzo_renzi, OWL.sameAs, URIRef("https://www.wikidata.org/wiki/Q...")))
-# g.add((renzo_renzi, OWL.sameAs, URIRef("https://isni.org/isni/...")))
+    # Description
+    if row.get("description"):
+        g.add((item, dcterms.description, Literal(row["description"])))
 
-# ============================================================================
-# CSV DATA IMPORT
-# ============================================================================
-# Read the CSV file containing your metadata
-# keep_default_na=False: Prevents pandas from converting empty strings to NaN
-#   This is important because empty strings and NaN are treated differently
-# encoding="utf-8": Ensures proper handling of special characters (accents, etc.)
-#   Essential for Italian text: è, à, ò, ù, etc.
+    # Date
+    if row.get("date"):
+        g.add((item, dcterms.created, Literal(row["date"], datatype=XSD.date)))
 
-item_df = pd.read_csv("../csv/item.csv", keep_default_na=False, encoding="utf-8")
+    # Language
+    if row.get("language"):
+        g.add((item, dcterms.language, Literal(row["language"])))
 
-g = graph_bindings()
+    # Rights
+    if row.get("rights"):
+        g.add((item, dcterms.rights, Literal(row["rights"])))
 
-# ============================================================================
-# CSV TO RDF TRANSFORMATION
-# ============================================================================
-# Iterate through each row in the CSV and convert to RDF triples
-# iterrows() returns (index, Series) pairs for each row
+    # COLLECTION & LOCATION
+    g.add((item, dcterms.isPartOf, renzi_collection))
+    g.add((renzi_collection, dcterms.hasPart, item))
+    g.add((item, crm.P52_has_current_owner, cineteca))
+    g.add((item, schema.location, bologna))
 
-for idx, row in item_df.iterrows():
-    
-    # ========================================================================
-    # TYPE DECLARATIONS
-    # ========================================================================
-    # Declare what kind of thing this item is (its rdf:type)
-    # Multiple types are allowed and recommended for richer description
-    
-    g.add((item, RDF.type, fiaf.FilmRelatedMaterial))    
-    g.add((item, OWL.sameAs, URIRef(row["ExternalAuthority"])))   
-    g.add((item, dcterms.creator, renzo_renzi))
-
-    # ========================================================================
-    # RELATIONSHIPS TO OTHER RESOURCES
-    # ========================================================================
-    # SUGGESTED: Link to related works, collections, places
-    # g.add((item, dcterms.isPartOf, renzi_collection))
-    # g.add((item, schema.about, la_strada_film))
-    # g.add((item, schema.locationCreated, bologna))
-    # g.add((item, crm.P52_has_current_owner, cineteca_di_bologna))
-
-
-# ============================================================================
-# SERIALIZATION TO TURTLE FORMAT
-# ============================================================================
-# Save the RDF graph to a .ttl file in Turtle format
-# Turtle is a human-readable RDF serialization format
-# Other formats available: 'xml' (RDF/XML), 'n3' (Notation3), 'nt' (N-Triples), 'json-ld' (JSON-LD)
-
-g.serialize(format="turtle", destination="../ttl/output_file.ttl")
-
-print("CSV converted to TTL!")
+# SERIALIZATION
+g.serialize(format="turtle", destination="../ttl/ITEM_OUTPUT_FILENAME.ttl")
+print("TTL file generated successfully!")
