@@ -1,86 +1,100 @@
 from pandas import read_csv
-from rdflib import Namespace, Graph, RDF, URIRef, OWL, Literal, XSD, RDFS, FOAF
+from rdflib import Namespace, Graph, RDF, URIRef, Literal, XSD
 
 # NAMESPACES
 
 rrr = Namespace("https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/")
-rdf = Namespace("http://www.w3.org/1999/02/22-rdf-syntax-ns#")
-rdfs = Namespace("http://www.w3.org/2000/01/rdf-schema#")
-owl = Namespace("http://www.w3.org/2002/07/owl#")
 schema = Namespace("https://schema.org/")
-dc = Namespace("http://purl.org/dc/elements/1.1/")
 dcterms = Namespace("http://purl.org/dc/terms/")
-dbo = Namespace("http://dbpedia.org/ontology/")
+dc = Namespace("http://purl.org/dc/elements/1.1/")
 crm = Namespace("http://www.cidoc-crm.org/cidoc-crm/")
 foaf = Namespace("http://xmlns.com/foaf/0.1/")
-fiaf = Namespace("https://fiaf.github.io/film-related-materials/objects/")
-skos = Namespace("http://www.w3.org/2004/02/skos/core#")
 
-# GRAPH CREATION
-
+# GRAPH
 g = Graph()
 
-ns_dict = { 
-    "rrr": rrr,   
-    "rdf": rdf,
-    "rdfs": rdfs,
-    "owl": owl,
-    "schema": schema,
-    "dc": dc,
-    "dcterms": dcterms,
-    "dbo": dbo,
-    "crm": crm,
-    "foaf": foaf,
-    "fiaf": fiaf,
-    "skos": skos
-}
-
-def graph_bindings():
-    for prefix, ns in ns_dict.items():
-        g.bind(prefix, ns)
-    return g
-
-g = graph_bindings()
+# Bindings
+g.bind("rrr", rrr)
+g.bind("schema", schema)
+g.bind("dcterms", dcterms)
+g.bind("dc", dc)
+g.bind("crm", crm)
+g.bind("foaf", foaf)
 
 # ENTITIES
-
-ferrari_set_photo = URIRef(rrr + "ferrari_set_photo")
-renzo_renzi = URIRef(rrr + "renzo_renzi")
+photo = URIRef(rrr + "ferrari_set_photo")
+renzi = URIRef(rrr + "renzo_renzi")
 aldo_ferrari = URIRef(rrr + "aldo_ferrari")
-cineteca_di_bologna = URIRef(rrr + "cineteca_di_bologna")
+cineteca = URIRef(rrr + "cineteca_di_bologna")
 bologna = URIRef(rrr + "bologna")
+renzi_collection = URIRef(rrr + "renzi_collection")
 
-# SAMEAS
+# LOAD CSV
+df = read_csv("../csv/ferrari_set_photo.csv", keep_default_na=False, encoding="utf-8")
 
-g.add((renzo_renzi, OWL.sameAs, URIRef("http://viaf.org/viaf/40486517")))
-g.add((aldo_ferrari, OWL.sameAs, URIRef("https://www.wikidata.org/wiki/Q3609208")))
-g.add((cineteca_di_bologna, OWL.sameAs, URIRef("http://viaf.org/viaf/124960346")))
-g.add((bologna, OWL.sameAs, URIRef("http://viaf.org/viaf/257723025")))
+# RESOURCE TYPE
+g.add((photo, RDF.type, schema.Photograph))
 
-set_photo = read_csv("../csv/ferrari_set_photo.csv", keep_default_na=False, encoding="utf-8")
+# CSV → RDF MAPPING
+for _, row in df.iterrows():
 
-for idx, row in set_photo.iterrows():
-    g.add((ferrari_set_photo, RDF.type, schema.Photograph))
-    g.add((schema.Photograph, RDFS.subClassOf, schema.CreativeWork))
-    g.add((ferrari_set_photo, schema.identifier, Literal(row["inventory_number"], datatype=XSD.anyURI)))
-    g.add((ferrari_set_photo, dc.title, Literal(row["title"])))
-    g.add((ferrari_set_photo, dcterms.creator, aldo_ferrari))
-    g.add((aldo_ferrari, RDF.type, foaf.Person))
-    g.add((ferrari_set_photo, FOAF.depicts, renzo_renzi))
-    g.add((ferrari_set_photo, schema.dateCreated, Literal(row["creation_year"], datatype=XSD.gYear)))
-    g.add((ferrari_set_photo, schema.locationCreated, Literal(row["depicted_event"])))
-    g.add((ferrari_set_photo, schema.color, Literal(row["colour"], datatype=XSD.string)))
-    g.add((ferrari_set_photo, schema.material, Literal(row["material_technique"])))
-    g.add((ferrari_set_photo, schema.artform, Literal(row["physical_description"])))
-    g.add((ferrari_set_photo, crm.P45_consists_of, Literal(row["carrier_type"])))
-    g.add((ferrari_set_photo, schema.fileFormat, Literal(row["format"])))
-    g.add((ferrari_set_photo, dcterms.isPartOf, Literal(row["collection"])))
-    g.add((ferrari_set_photo, crm.P52_has_current_owner, cineteca_di_bologna))
-    g.add((cineteca_di_bologna, RDF.type, schema.Organization))
-    g.add((cineteca_di_bologna, schema.location, bologna))
-    g.add((ferrari_set_photo, schema.description, Literal(row["notes"])))
-    g.add((ferrari_set_photo, dcterms.rights, Literal(row["rights"])))
+    # Identifier
+    if row.get("inventory_number"):
+        g.add((photo, schema.identifier, Literal(row["inventory_number"])))
 
+    # Title
+    if row.get("title"):
+        g.add((photo, dcterms.title, Literal(row["title"])))
+
+    # Creator (resource)
+    g.add((photo, dcterms.creator, aldo_ferrari))
+
+    # Depicted person
+    g.add((photo, foaf.depicts, renzi))
+
+    # Creation year
+    if row.get("creation_year"):
+        g.add((photo, schema.dateCreated, Literal(row["creation_year"], datatype=XSD.gYear)))
+
+    # Location created (literal description)
+    if row.get("depicted_event"):
+        g.add((photo, dcterms.description, Literal(row["depicted_event"])))
+
+    # Color
+    if row.get("colour"):
+        g.add((photo, schema.color, Literal(row["colour"])))
+
+    # Material / technique
+    if row.get("material_technique"):
+        g.add((photo, dcterms.material, Literal(row["material_technique"])))
+
+    # Physical description
+    if row.get("physical_description"):
+        g.add((photo, dcterms.extent, Literal(row["physical_description"])))
+
+    # Carrier type
+    if row.get("carrier_type"):
+        g.add((photo, crm.P45_consists_of, Literal(row["carrier_type"])))
+
+    # File format
+    if row.get("format"):
+        g.add((photo, schema.fileFormat, Literal(row["format"])))
+
+    # Rights
+    if row.get("rights"):
+        g.add((photo, dcterms.rights, Literal(row["rights"])))
+
+    # Notes
+    if row.get("notes"):
+        g.add((photo, dcterms.description, Literal(row["notes"])))
+
+    # COLLECTION & LOCATION
+    g.add((photo, dcterms.isPartOf, renzi_collection))
+    g.add((renzi_collection, dcterms.hasPart, photo))
+    g.add((photo, crm.P52_has_current_owner, cineteca))
+    g.add((photo, schema.location, bologna))
+
+
+# SERIALIZATION
 g.serialize(format="turtle", destination="../ttl/ferrari_set_photo.ttl")
-
-print("CSV converted to TTL!")
+print("ferrari_set_photo.ttl generated successfully!")
