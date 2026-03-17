@@ -13,31 +13,43 @@ html {
 body {
   margin: 0;
   font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  background: radial-gradient(circle at top left, #fdf7ee 0, #f6f1e8 30%, #efe5d8 100%);
+  background: #f7f5f2; /* più pulito, più Cineteca */
   color: #2b2520;
-  line-height: 1.6;
+  line-height: 1.7;
   transition: background-color 0.4s ease, color 0.4s ease, background 0.4s ease;
+  position: relative;
+}
+
+/* leggerissimo film grain */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQIW2P4//8/AwAI/AL+fZMhNwAAAABJRU5ErkJggg==");
+  opacity: 0.05;
+  mix-blend-mode: multiply;
+  z-index: 0;
 }
 
 .page {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 2.5rem 1.5rem 4rem;
+  padding: 3rem 1.5rem 5rem; /* più arioso */
 }
 
 h1, h2, h3 {
-  font-family: "Playfair Display", "Georgia", "Times New Roman", serif;
+  font-family: "Playfair Display", "Georgia", serif;
 }
 
 /* ---------- Header & hero ---------- */
 
 .site-header {
-  background: linear-gradient(135deg, #e9ddcf 0%, #e7dfd2 40%, #f4ece0 100%);
+  background: #ece7df; /* più neutro, più istituzionale */
   border-bottom: 1px solid #d2c5b4;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
   position: relative;
   z-index: 20;
-  transition: background-color 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
 }
 
 .header-inner {
@@ -46,7 +58,6 @@ h1, h2, h3 {
   padding: 1.75rem 1.5rem 1.25rem;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
   gap: 1.4rem;
 }
 
@@ -63,20 +74,20 @@ h1, h2, h3 {
 }
 
 .site-title {
-  font-size: clamp(2.2rem, 3.4vw, 2.9rem);
+  font-size: clamp(3rem, 4.5vw, 3.8rem); /* più manifesto cinematografico */
   margin: 0 0 0.35rem;
   color: #332318;
-  letter-spacing: 0.02em;
+  letter-spacing: -0.02em;
 }
 
 .site-subtitle {
   margin: 0;
   max-width: 100%;
-  font-size: 0.96rem;
+  font-size: 1rem;
   color: #4e4337;
 }
 
-/* Decorative chips under subtitle */
+/* Decorative chip */
 
 .site-branding::after {
   content: "Digital Humanities · LOD · TEI";
@@ -84,14 +95,14 @@ h1, h2, h3 {
   align-items: center;
   gap: 0.45rem;
   margin-top: 0.9rem;
-  padding: 0.15rem 0.7rem;
+  padding: 0.2rem 0.8rem;
   border-radius: 999px;
-  border: 1px solid rgba(180, 90, 43, 0.25);
-  background: rgba(244, 236, 224, 0.9);
+  border: 1px solid rgba(156, 47, 47, 0.25); /* rosso Cineteca */
+  background: rgba(255, 255, 255, 0.8);
   font-size: 0.72rem;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  color: #7c4a2b;
+  color: #9c2f2f; /* rosso Cineteca */
 }
 
 /* Hero call-to-actions */
@@ -112,42 +123,39 @@ h1, h2, h3 {
   justify-content: center;
   padding: 0.6rem 1.2rem;
   border-radius: 999px;
-  font-size: 0.88rem;
-  font-weight: 500;
+  font-size: 0.9rem;
+  font-weight: 600;
   text-decoration: none;
   cursor: pointer;
   border: 1px solid transparent;
-  transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease, color 0.18s ease, border-color 0.18s ease;
+  transition: 0.2s ease;
 }
 
 /* Primary button */
 
 .btn-primary {
-  background: #b45a2b;
+  background: #9c2f2f; /* rosso Cineteca */
   color: #fffaf3;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
 }
 
 .btn-primary:hover,
 .btn-primary:focus {
-  transform: translateY(-1px);
-  box-shadow: 0 16px 38px rgba(0, 0, 0, 0.22);
-  background: #c16733;
+  background: #a63a3a;
 }
 
 /* Ghost button */
 
 .btn-ghost {
-  background: rgba(244, 236, 224, 0.75);
+  background: rgba(255, 255, 255, 0.7);
   color: #5b4733;
-  border-color: rgba(180, 90, 43, 0.4);
+  border-color: rgba(156, 47, 47, 0.4);
 }
 
 .btn-ghost:hover,
 .btn-ghost:focus {
-  background: #f4ece0;
-  border-color: #b45a2b;
-  color: #b45a2b;
+  background: #fff;
+  border-color: #9c2f2f;
+  color: #9c2f2f;
 }
 
 
@@ -155,46 +163,47 @@ h1, h2, h3 {
 
 .site-nav {
   margin-top: 0.8rem;
-  align-self: center;               
   width: 100%;
-  max-width: 900px;                 
+  max-width: 900px;
   display: flex;
-  justify-content: center;          
+  justify-content: center;
   flex-wrap: wrap;
   gap: 0.6rem 1.4rem;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   position: sticky;
   top: 0;
   z-index: 30;
   padding: 0.65rem 1.1rem 0.55rem;
-  background: linear-gradient(135deg, #e9ddcf 0%, #e7dfd2 40%, #f4ece0 100%);
+  background: #ece7df;
   backdrop-filter: blur(6px);
   border-radius: 12px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
 }
 
 .site-nav a {
+  position: relative;
   text-decoration: none;
   color: #5b4733;
   padding: 0.25rem 0;
-  border-bottom: 2px solid transparent;
   font-weight: 500;
-  transition: color 0.2s ease, border-color 0.2s ease, opacity 0.2s ease;
 }
 
-.site-nav a:hover,
-.site-nav a:focus {
-  border-color: #b45a2b;
-  color: #b45a2b;
+/* underline animato stile Cineteca */
+.site-nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0%;
+  height: 2px;
+  background: #9c2f2f;
+  transition: width 0.25s ease;
 }
 
-/* link attivo (sezione corrente) */
-.site-nav a.is-active {
-  border-color: #b45a2b;
-  color: #b45a2b;
-  opacity: 1;
+.site-nav a:hover::after,
+.site-nav a.is-active::after {
+  width: 100%;
 }
-
 
 /* ---------- Hero photo ---------- */
 
@@ -205,13 +214,13 @@ h1, h2, h3 {
 }
 
 .hero-photo figure {
-  max-width: 900px;
+  max-width: 1000px;
   margin: 0 auto;
   position: relative;
-  border-radius: 18px;
+  border-radius: 0; /* stile poster */
   overflow: hidden;
-  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.18);
-  background: #201714;
+  box-shadow: none; /* più pulito, più Cineteca */
+  background: #1a1412;
 }
 
 .hero-photo img {
@@ -219,17 +228,18 @@ h1, h2, h3 {
   width: 100%;
   height: auto;
   object-fit: cover;
+  filter: contrast(1.1) brightness(0.97) saturate(1.05); /* effetto filmico */
 }
 
 .hero-photo figcaption {
-  font-size: 0.75rem;
-  padding: 0.55rem 0.7rem 0.7rem;
+  font-size: 0.8rem;
+  padding: 0.6rem 0.8rem;
   color: #f7f0e7;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent 70%);
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.75), transparent 70%);
   position: absolute;
-  inset-inline: 0.3rem;
-  bottom: 0.3rem;
-  border-radius: 12px;
+  inset-inline: 0.5rem;
+  bottom: 0.5rem;
+  border-radius: 6px;
 }
 
 
@@ -237,61 +247,57 @@ h1, h2, h3 {
 
 .section {
   background: #ffffff;
-  margin-top: 2.1rem;
-  padding: 2.3rem 1.9rem 1.7rem;
+  margin-top: 3rem;
+  padding: 3rem 2.2rem 2.4rem;
   border-radius: 18px;
-  border-top: 4px solid #b45a2b;
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.06);
+  border-top: 4px solid #9c2f2f; /* rosso Cineteca */
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.08);
   position: relative;
   overflow: hidden;
   opacity: 0;
   animation: fadeInUpSoft 0.7s ease-out forwards;
-  transition: background-color 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
 }
 
-/* corner glow */
-.section::before {
-  content: "";
-  position: absolute;
-  inset: -40px auto auto -40px;
-  width: 110px;
-  height: 110px;
-  background: radial-gradient(circle at 30% 30%, rgba(180, 90, 43, 0.18), transparent 60%);
-  opacity: 0.9;
-  pointer-events: none;
-}
+/* rimosso il corner glow per un look più museale */
 
+
+/* Titoli sezione */
 .section h2 {
-  font-size: 1.4rem;
-  margin-top: 0;
-  margin-bottom: 0.5rem;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  margin-bottom: 1.2rem;
   color: #3b2b1d;
-  letter-spacing: 0.03em;
 }
 
-/* Intro paragraphs slightly more prominent & narrower */
-
+/* Intro paragraphs */
 .section-intro {
   margin-top: 0.4rem;
-  margin-bottom: 0.9rem;
+  margin-bottom: 1.2rem;
+  font-size: 1.1rem;
   color: #4e4337;
+  line-height: 1.7;
 }
 
 .section p {
-  margin-top: 0.4rem;
+  margin-top: 0.6rem;
   position: relative;
   z-index: 1;
+  font-size: 1.05rem;
+  line-height: 1.7;
 }
 
 .section ul {
-  padding-left: 1.1rem;
+  padding-left: 1.2rem;
   position: relative;
   z-index: 1;
 }
 
 .section ul li {
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.4rem;
+  font-size: 1.02rem;
 }
+
 
 /* anim delay per sezioni */
 .section:nth-of-type(1) { animation-delay: 0.05s; }
@@ -308,99 +314,102 @@ h1, h2, h3 {
 .section-split {
   display: grid;
   grid-template-columns: minmax(0, 2fr) minmax(0, 1.1fr);
-  gap: 1.7rem;
+  gap: 2rem; /* più arioso */
 }
 
 .box-muted {
-  background: #f4ece0;
+  background: #f7f4ef;
   border-radius: 14px;
-  padding: 1.25rem 1.35rem;
-  border: 1px solid #ddcfbd;
-  font-size: 0.9rem;
+  padding: 1.5rem 1.6rem;
+  border: 1px solid #d8cfc4;
+  font-size: 0.95rem;
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.6);
-  transition: background-color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
 }
 
-/* --- Team supervision box: refined style --- */
+
+/* --- Team supervision box --- */
+
 .team-supervision {
-  background: #f4e9dc;
-  padding: 1.2rem 1.5rem;
+  background: #f3ebe2;
+  padding: 1.5rem 1.7rem;
   border-radius: 18px;
-  border-left: 4px solid #b46838;
-  max-width: 350px;
+  border-left: 4px solid #9c2f2f; /* rosso Cineteca */
+  max-width: 360px;
   margin: 0 auto;
 }
 
 .team-supervision h3 {
   margin-top: 0;
-  font-size: 1.25rem;
+  font-size: 1.35rem;
+  font-weight: 700;
   color: #7a4b2a;
 }
 
 .team-supervision p {
-  margin: 0.4rem 0;
-  line-height: 1.4;
+  margin: 0.5rem 0;
+  line-height: 1.5;
+  font-size: 1rem;
 }
-
 
 /* ---------- Item list as cards ---------- */
 
 .item-list {
   list-style: none;
   padding-left: 0;
-  margin-top: 1rem;
+  margin-top: 1.2rem;
 }
 
 .item-list li {
-  background: #f8f3eb;
-  border-radius: 12px;
-  padding: 0.75rem 0.9rem;
-  margin-bottom: 0.6rem;
-  border: 1px solid rgba(210, 197, 180, 0.7);
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.04);
+  background: #faf7f3; /* più neutro, più museale */
+  border-radius: 14px;
+  padding: 0.9rem 1.1rem;
+  margin-bottom: 0.8rem;
+  border: 1px solid #d8cfc4;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
   display: flex;
   align-items: baseline;
-  gap: 0.35rem;
-  transition: background-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+  gap: 0.5rem;
+  transition: 0.25s ease;
 }
 
 .item-list li::before {
   content: "●";
-  font-size: 0.6rem;
-  margin-top: 0.16rem;
-  color: #b45a2b;
+  font-size: 0.65rem;
+  margin-top: 0.2rem;
+  color: #9c2f2f; /* rosso Cineteca */
 }
 
 .item-list li:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.07);
+  transform: translateY(-2px);
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.08);
 }
 
 
 /* ---------- Code & links ---------- */
 
 code {
-  font-family: "SF Mono", "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
+  font-family: "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
   font-size: 0.9em;
-  background: #f3ede4;
-  padding: 0.12rem 0.3rem;
+  background: #f1ece4;
+  padding: 0.15rem 0.35rem;
   border-radius: 4px;
+  color: #3b2b1d;
 }
 
 .cta-link {
-  margin-top: 0.9rem;
+  margin-top: 1rem;
 }
 
 .cta-link a {
   font-weight: 600;
   text-decoration: none;
-  color: #b45a2b;
-  border-bottom: 1px solid rgba(180, 90, 43, 0.45);
-  transition: border-color 0.2s ease, color 0.2s ease;
+  color: #9c2f2f; /* rosso Cineteca */
+  border-bottom: 1px solid rgba(156, 47, 47, 0.45);
+  transition: 0.2s ease;
 }
 
 .cta-link a:hover {
-  border-color: #b45a2b;
+  border-color: #9c2f2f;
 }
 
 
@@ -408,17 +417,16 @@ code {
 
 .site-footer {
   border-top: 1px solid #d2c5b4;
-  padding: 1.3rem 1.5rem 1.6rem;
-  margin-top: 2.5rem;
-  font-size: 0.85rem;
+  padding: 1.6rem 1.5rem 1.8rem;
+  margin-top: 3rem;
+  font-size: 0.9rem;
   color: #7c6b57;
   text-align: center;
-  background: #e7dfd2;
-  transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease;
+  background: #ece7df; /* più istituzionale */
 }
 
 .site-footer a {
-  color: #7c4a2b;
+  color: #9c2f2f;
   text-decoration: none;
 }
 
@@ -426,15 +434,16 @@ code {
   text-decoration: underline;
 }
 
+
 /* ---------- Global link styles ---------- */
 
 a {
-  color: #7c4a2b;
+  color: #9c2f2f;
   transition: color 0.2s ease;
 }
 
 a:hover {
-  color: #b45a2b;
+  color: #a63a3a;
 }
 
 
@@ -464,7 +473,7 @@ a:hover {
   }
 
   .site-nav {
-    font-size: 0.88rem;
+    font-size: 0.9rem;
     gap: 0.4rem 1.1rem;
     align-self: stretch;
     justify-content: flex-start;
@@ -473,12 +482,12 @@ a:hover {
 
 @media (max-width: 780px) {
   .page {
-    padding: 2rem 1.1rem 3.2rem;
+    padding: 2.2rem 1.2rem 3.4rem;
   }
 
   .section {
-    padding: 1.5rem 1.25rem 1.2rem;
-    border-radius: 14px;
+    padding: 2rem 1.4rem 1.6rem;
+    border-radius: 16px;
   }
 
   .section-split {
@@ -486,13 +495,13 @@ a:hover {
   }
 
   .hero-photo figcaption {
-    font-size: 0.72rem;
+    font-size: 0.75rem;
   }
 }
 
 @media (max-width: 520px) {
   .site-title {
-    font-size: 1.8rem;
+    font-size: 2.2rem;
   }
 
   .site-nav {
@@ -501,7 +510,7 @@ a:hover {
   }
 
   .hero-photo figure {
-    border-radius: 14px;
+    border-radius: 10px;
   }
 
   .hero-actions {
@@ -510,46 +519,46 @@ a:hover {
   }
 }
 
-
 /* ---------- Photo gallery ---------- */
 
 .section-photos {
-  margin-top: 2.1rem;
+  margin-top: 3rem;
 }
 
 .section-photos .photo-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1.3rem;
-  margin-top: 1.2rem;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.6rem;
+  margin-top: 1.6rem;
 }
 
 .section-photos .photo-card {
   margin: 0;
-  background: #f8f3eb;
+  background: #faf7f3; /* più neutro, più museale */
   border-radius: 14px;
   overflow: hidden;
-  border: 1px solid rgba(210, 197, 180, 0.9);
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+  border: 1px solid #d8cfc4;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.06);
   display: flex;
   flex-direction: column;
   height: 100%;
-  transition: box-shadow 0.25s ease, transform 0.25s ease, background-color 0.25s ease;
+  transition: 0.25s ease;
 }
 
 .section-photos .photo-card img {
   display: block;
   width: 100%;
-  height: 190px;
+  height: 240px; /* più grande, più espositivo */
   object-fit: cover;
   cursor: zoom-in;
   transition: transform 0.25s ease;
 }
 
 .section-photos .photo-card figcaption {
-  padding: 0.7rem 0.9rem 0.9rem;
-  font-size: 0.88rem;
+  padding: 0.9rem 1rem 1.1rem;
+  font-size: 0.95rem;
   color: #4e4337;
+  line-height: 1.45;
 }
 
 .section-photos .photo-card:hover img {
@@ -557,13 +566,13 @@ a:hover {
 }
 
 .section-photos .photo-card:hover {
-  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.1);
   transform: translateY(-2px);
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.1);
 }
 
 @media (max-width: 600px) {
   .section-photos .photo-card img {
-    height: 170px;
+    height: 200px;
   }
 }
 
@@ -573,7 +582,7 @@ a:hover {
 .lightbox-backdrop {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.82);
+  background: rgba(0, 0, 0, 0.88); /* più sala cinematografica */
   display: none;
   align-items: center;
   justify-content: center;
@@ -596,15 +605,16 @@ a:hover {
   max-width: 100%;
   max-height: 76vh;
   object-fit: contain;
-  border-radius: 16px;
-  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.7);
+  border-radius: 10px;
+  box-shadow: 0 22px 55px rgba(0, 0, 0, 0.75);
 }
 
 .lightbox-caption {
-  margin-top: 0.7rem;
-  font-size: 0.9rem;
+  margin-top: 0.9rem;
+  font-size: 1rem;
   color: #f5f0e6;
   text-align: center;
+  line-height: 1.5;
 }
 
 .lightbox-close {
@@ -614,17 +624,17 @@ a:hover {
   border: none;
   background: rgba(0, 0, 0, 0.65);
   color: #f5f0e6;
-  font-size: 1.6rem;
+  font-size: 1.7rem;
   line-height: 1;
-  padding: 0.25rem 0.7rem;
+  padding: 0.3rem 0.75rem;
   border-radius: 999px;
   cursor: pointer;
-  transition: background-color 0.2s ease, transform 0.2s ease;
+  transition: 0.2s ease;
 }
 
 .lightbox-close:hover {
   background: rgba(0, 0, 0, 0.9);
-  transform: scale(1.05);
+  transform: scale(1.08);
 }
 
 
@@ -632,18 +642,18 @@ a:hover {
 
 @media (prefers-color-scheme: dark) {
   body {
-    background: radial-gradient(circle at top left, #18110d 0, #130f0d 30%, #0c0907 100%);
+    background: #0f0c0a;
     color: #f5f0e6;
   }
 
   .site-header {
-    background: linear-gradient(135deg, #201510 0%, #241813 40%, #2c1c14 100%);
+    background: #1a1412;
     border-bottom-color: #3a2519;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
   }
 
   .site-nav {
-    background: linear-gradient(135deg, #201510 0%, #241813 40%, #2c1c14 100%);
+    background: #1a1412;
   }
 
   .site-kicker {
@@ -660,7 +670,7 @@ a:hover {
 
   .site-branding::after {
     background: rgba(47, 29, 21, 0.9);
-    border-color: rgba(211, 136, 77, 0.5);
+    border-color: rgba(156, 47, 47, 0.5);
     color: #f1d2b8;
   }
 
@@ -672,17 +682,12 @@ a:hover {
   .site-nav a:focus,
   .site-nav a.is-active {
     color: #ffb27b;
-    border-color: #ffb27b;
   }
 
   .section {
     background: #1b130f;
-    border-top-color: #d18a54;
+    border-top-color: #9c2f2f; /* rosso Cineteca */
     box-shadow: 0 18px 45px rgba(0, 0, 0, 0.7);
-  }
-
-  .section::before {
-    background: radial-gradient(circle at 30% 30%, rgba(209, 138, 84, 0.4), transparent 60%);
   }
 
   .section h2 {
@@ -696,7 +701,6 @@ a:hover {
   .box-muted {
     background: #231710;
     border-color: #4a3222;
-    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.06);
   }
 
   .item-list li {
@@ -722,7 +726,6 @@ a:hover {
 
   .cta-link a {
     color: #ffb27b;
-    border-bottom-color: rgba(255, 178, 123, 0.6);
   }
 
   .site-footer {
@@ -736,141 +739,152 @@ a:hover {
   }
 
   .btn-primary {
-    background: #d18a54;
-    color: #1b130f;
+    background: #9c2f2f;
+    color: #fffaf3;
   }
 
-  .btn-primary:hover,
-  .btn-primary:focus {
-    background: #e2975c;
+  .btn-primary:hover {
+    background: #b33a3a;
   }
 
   .btn-ghost {
     background: rgba(35, 23, 17, 0.9);
-    border-color: rgba(234, 169, 115, 0.6);
+    border-color: rgba(156, 47, 47, 0.6);
     color: #f3ddc5;
   }
 
-  .btn-ghost:hover,
-  .btn-ghost:focus {
+  .btn-ghost:hover {
     background: #2c1c14;
     color: #ffb27b;
   }
 }
-
 
 /* --- Tables for documentation pages --- */
 
 .meta-table {
   width: 100%;
   border-collapse: collapse;
-  margin: 1.2rem 0 2rem;
-  font-size: 0.95rem;
+  margin: 1.6rem 0 2.4rem;
+  font-size: 1rem;
+  background: #ffffff;
+  border: 1px solid #d8cfc4;
+  border-radius: 8px;
+  overflow: hidden;
 }
 
 .meta-table th,
 .meta-table td {
-  padding: 0.6rem 0.8rem;
-  border-bottom: 1px solid #e0d5c5;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #e3dbd2;
   text-align: left;
 }
 
 .meta-table thead th {
-  font-weight: 600;
-  color: #4e4337;
+  font-weight: 700;
+  color: #3b2b1d;
+  background: #f2ede7;
 }
 
 .meta-table tbody tr:nth-child(even) {
-  background: #f8f3eb;
+  background: #faf7f3;
 }
 
 .note {
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   color: #6a5a4c;
-  margin-top: -0.5rem;
+  margin-top: -0.4rem;
   font-style: italic;
 }
 
+
 /* ---------- Items table (index) ---------- */
 
-.table-wrap{
-  overflow-x:auto;
-  -webkit-overflow-scrolling:touch;
+.table-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
-.items-table{
-  width:100%;
-  border-collapse:collapse;
-  font-size:0.95rem;
-  margin-top:1rem;
+.items-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 1rem;
+  margin-top: 1.4rem;
   min-width: 760px;
+  background: #ffffff;
+  border: 1px solid #d8cfc4;
+  border-radius: 10px;
+  overflow: hidden;
 }
 
 .items-table th,
-.items-table td{
-  padding:0.65rem 0.75rem;
-  border-bottom:1px solid #e0d5c5;
-  vertical-align:top;
+.items-table td {
+  padding: 0.8rem 1rem;
+  border-bottom: 1px solid #e3dbd2;
+  vertical-align: top;
 }
 
-.items-table thead th{
-  font-weight:600;
-  color:#4e4337;
-  background:#f4ece0;
-  position:sticky;
-  top:0;
+.items-table thead th {
+  font-weight: 700;
+  color: #3b2b1d;
+  background: #f2ede7;
+  position: sticky;
+  top: 0;
+  z-index: 2;
 }
 
-.items-table tbody tr:nth-child(even){
-  background:#f8f3eb;
+.items-table tbody tr:nth-child(even) {
+  background: #faf7f3;
 }
 
-.muted{
-  opacity:0.8;
+.muted {
+  opacity: 0.75;
 }
 
-.note-muted{
-  margin-top:0.9rem;
-  font-size:0.9rem;
-  color:#6a5a4c;
-  font-style:italic;
+.note-muted {
+  margin-top: 1rem;
+  font-size: 0.95rem;
+  color: #6a5a4c;
+  font-style: italic;
 }
 
-.download-row{
-  display:flex;
-  flex-wrap:wrap;
-  gap:0.6rem;
-  margin-top:1rem;
+.download-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin-top: 1.2rem;
 }
 
-.hub-card{
-  align-self:start;
+.hub-card {
+  align-self: start;
 }
 
-.hub-links{
-  list-style:none;
-  padding-left:0;
-  margin:0.75rem 0 0;
+.hub-links {
+  list-style: none;
+  padding-left: 0;
+  margin: 0.9rem 0 0;
 }
 
-.hub-links li{
-  margin-bottom:0.35rem;
+.hub-links li {
+  margin-bottom: 0.45rem;
 }
 
-@media (max-width: 780px){
-  .items-table{ min-width: 640px; }
+@media (max-width: 780px) {
+  .items-table {
+    min-width: 640px;
+  }
 }
+
 
 /* ---------- Miro embed (responsive) ---------- */
 
 .embed-wrap {
   position: relative;
-  margin-top: 1.1rem;
+  margin-top: 1.4rem;
   border-radius: 16px;
   overflow: hidden;
-  border: 1px solid rgba(210, 197, 180, 0.9);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
-  background: #f8f3eb;
+  border: 1px solid #d8cfc4;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.08);
+  background: #faf7f3;
 }
 
 /* 16:9 responsive ratio */
