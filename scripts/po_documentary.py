@@ -78,7 +78,7 @@ for _, row in df.iterrows():
         g.add((po_documentary, dcterms.medium, Literal(row["film_type"])))
 
     if row.get("format"):
-        g.add((po_documentary, dcterms["format"], Literal(row["format"])))  # FIX QUI
+        g.add((po_documentary, dcterms.format, Literal(row["format"])))  # FIX QUI
 
     # Sound
     if row.get("sound"):
