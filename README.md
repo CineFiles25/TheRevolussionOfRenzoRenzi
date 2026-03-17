@@ -116,25 +116,43 @@ For each item, the project includes:
 
 ## Scripts Included
 
-### ```build_rrr_rdf.py```  
-Transforms CSV metadata into **individual Turtle files**, one per cultural heritage item.
+### `scripts/`  
+This folder contains all Python scripts used to transform CSV metadata into RDF/Turtle files and to validate the resulting dataset.
 
-### ```compare_ttl.py```  
-Compares two TTL serializations to track changes.
+### `*_item.py` (one per cultural heritage item)  
+Each script converts a single CSV file into a corresponding Turtle file.  
+Examples:  
+- `po_documentary.py`  
+- `drawing_gelsomina_lastrada.py`  
+- `photo_la_strada_fighter.py`  
+- `portrait_of_renzo_renzi.py`  
 
-### ```tei2html_lastrada.xsl```  
-Generates the HTML version of the TEI-encoded text.
+### `merging.py`  
+Merges all individual Turtle files into a unified RDF graph (`full_dataset.ttl`).
+
+### `test_sparql.py`  
+Runs technical validation tests (types, missing properties, duplicates, non-numeric years).
+
+### `test_sparql_C.py`  
+Runs conceptual and narrative validation tests (coherence of relations, temporal logic, place modelling, entity completeness).
+
+These scripts ensure that the final RDF dataset is both **technically valid** and **semantically coherent**.
 
 ---
 
 ## RDF Dataset
 
-The RDF dataset consists of **15 modular Turtle files**, each representing a single cultural heritage item or entity group.
-All files are available in the ```ttl/``` directory:
+The RDF dataset is composed of modular Turtle files, each representing a single cultural heritage item, person, place, or institutional entity.  
+All files are stored in the `ttl/` directory:
 
-→ https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/tree/main/ttl  
+→ https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/tree/main/ttl
 
-This modular structure reflects the distributed nature of the archive and keeps the modelling transparent and comprehensible.  
+Alongside the modular files, the project includes a unified graph:
+
+- **`full_dataset.ttl`** — the complete integrated RDF dataset  
+  (generated automatically via `merging.py`)
+
+This structure reflects the distributed nature of the archive while ensuring transparency, modularity, and ease of reuse.  
 
 ---
 
