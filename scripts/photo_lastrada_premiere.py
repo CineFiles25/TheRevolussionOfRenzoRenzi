@@ -2,7 +2,6 @@ from pandas import read_csv
 from rdflib import Namespace, Graph, RDF, URIRef, Literal, XSD
 
 # NAMESPACES
-
 rrr = Namespace("https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/")
 schema = Namespace("https://schema.org/")
 dcterms = Namespace("http://purl.org/dc/terms/")
@@ -30,6 +29,10 @@ cinema_fulgor = URIRef(rrr + "cinema_fulgor")
 cineteca = URIRef(rrr + "cineteca_di_bologna")
 bologna = URIRef(rrr + "bologna")
 renzi_collection = URIRef(rrr + "renzi_collection")
+
+# TYPES FOR ENTITIES
+g.add((cinema_fulgor, RDF.type, schema.Place))
+g.add((bologna, RDF.type, schema.Place))
 
 # LOAD CSV
 df = read_csv("../csv/photo_lastrada_premiere.csv", keep_default_na=False, encoding="utf-8")
@@ -68,7 +71,7 @@ for _, row in df.iterrows():
     if row.get("notes"):
         g.add((photo, dcterms.description, Literal(row["notes"])))
 
-    # Creator (literal only)
+    # Creator (literal)
     if row.get("creator"):
         g.add((photo, dcterms.creator, Literal(row["creator"])))
 
@@ -86,7 +89,7 @@ for _, row in df.iterrows():
 
     # Depicted place (literal)
     if row.get("depicted_place"):
-        g.add((photo, dcterms.spatial, Literal(row["depicted_place"])))
+        g.add((photo, schema.location, Literal(row["depicted_place"])))
 
     # Content location (resource)
     g.add((photo, schema.contentLocation, cinema_fulgor))

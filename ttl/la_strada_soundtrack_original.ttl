@@ -1,36 +1,29 @@
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix foaf: <http://xmlns.com/foaf/0.1/> .
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix rrr: <https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/> .
 @prefix schema: <https://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 rrr:la_strada_soundtrack_original a schema:MusicRecording ;
-    dc:description "Music by Nino Rota; performed by Grand Orchestre Jo Moutet" ;
+    dc:subject "Film music; Italian cinema" ;
     dcterms:conformsTo "ISBD(NBM)" ;
-    dcterms:description "From the original soundtrack of the 1954 film. Contains: Side A — 'Gelsomina', 'Dona-Manolita'. Side B — 'La strada', 'Comprate i miei fiori'." ;
+    dcterms:contributor "Grand Orchestre Jo Moutet" ;
+    dcterms:description " \"Music by Nino Rota; performed by Grand Orchestre Jo Moutet\"",
+        "From the original soundtrack of the 1954 film. Contains: Side A — 'Gelsomina', 'Dona-Manolita'. Side B — 'La strada', 'Comprate i miei fiori'." ;
     dcterms:extent "1 sound disc : 45 rpm ; 17.5 cm" ;
-    dcterms:identifier "460V084" ,
-                       "UBO02159840" ;
-    dcterms:issued "circa 1954" ;
+    dcterms:identifier "460V084",
+        "UBO02159840",
+        "la_strada_soundtrack_original" ;
+    dcterms:issued 1954 ;
     dcterms:medium "1 sound disc" ;
+    dcterms:publisher "Ducretet Thomson" ;
     dcterms:relation rrr:la_strada_film ;
     dcterms:rights "© Ducretet Thomson; © Nino Rota Estate" ;
-    dcterms:spatial "[France]" ;
     dcterms:title "La strada : [musique du film]" ;
-    dcterms:type "Music recording" ;
+    dcterms:type "SoundRecording" ;
     schema:about rrr:la_strada_film ;
-    schema:byArtist "Grand Orchestre Jo Moutet" ;
     schema:composer rrr:nino_rota ;
     schema:inLanguage "fr" ;
+    schema:location "[France]" ;
     schema:publisher "Ducretet Thomson" .
 
-rrr:nino_rota a foaf:Person ;
-    owl:sameAs <http://viaf.org/viaf/88980189> .
-
-rrr:la_strada_film a schema:Movie ;
-    owl:sameAs <https://www.wikidata.org/wiki/Q18402> .
-
-schema:MusicRecording rdfs:subClassOf schema:CreativeWork .

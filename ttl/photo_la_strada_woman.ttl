@@ -1,0 +1,31 @@
+@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix rrr: <https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/> .
+@prefix schema: <https://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+rrr:photo_la_strada_woman a schema:Photograph ;
+    dc:subject "Gelsomina eating bread (scene)" ;
+    dcterms:alternative "Set photograph featuring Giulietta Masina as Gelsomina" ;
+    dcterms:created "1954"^^xsd:gYear ;
+    dcterms:description "Set photograph from Federico Fellini’s film 'La Strada', showing Gelsomina in a rural environment; exact location unknown. Creation year circa 1954." ;
+    dcterms:extent "Gelatin silver print; original physical description not provided." ;
+    dcterms:identifier "OLA309977" ;
+    dcterms:isPartOf rrr:renzi_collection ;
+    dcterms:language "und" ;
+    dcterms:medium "Gelatin silver print" ;
+    dcterms:relation "la_strada_film" ;
+    dcterms:rights "© Farabola / Bridgeman Images" ;
+    dcterms:title "Gelsomina eating bread in rural landscape" ;
+    dcterms:type "Photograph" ;
+    crm:P52_has_current_owner rrr:cineteca_di_bologna ;
+    foaf:depicts rrr:giulietta_masina ;
+    schema:about rrr:la_strada_film ;
+    schema:color "black and white" ;
+    schema:location rrr:bologna,
+        "Rural landscape (unknown location)" .
+
+rrr:renzi_collection dcterms:hasPart rrr:photo_la_strada_woman .
+

@@ -107,7 +107,8 @@ for _, row in df.iterrows():
 
     # Current location (literal)
     if row.get("current_location"):
-        g.add((letter, dcterms.spatial, Literal(row["current_location"])))
+        g.add((letter, schema.location, Literal(row["current_location"])))
+
 
     # Access conditions
     if row.get("conditions_governing_access"):

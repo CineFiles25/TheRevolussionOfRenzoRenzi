@@ -1,40 +1,27 @@
 @prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
-@prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix rrr: <https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/> .
 @prefix schema: <https://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 rrr:ferrari_set_photo a schema:Photograph ;
-    dc:title "FAF01878.001" ;
     dcterms:creator rrr:aldo_ferrari ;
+    dcterms:description "Digital surrogate available on the Cineteca di Bologna website.",
+        "Set of the documentary 'Le Notti del Melodramma'" ;
+    dcterms:extent "Vintage gelatin silver print. Original analog photograph." ;
+    dcterms:isPartOf rrr:renzi_collection ;
+    dcterms:material "Gelatin silver print" ;
     dcterms:rights "© Cineteca di Bologna" ;
+    dcterms:title "Ferrari on set during the documentary 'Le Notti del Melodramma'" ;
     crm:P45_consists_of "Analog photographic print" ;
     crm:P52_has_current_owner rrr:cineteca_di_bologna ;
     foaf:depicts rrr:renzo_renzi ;
-    schema:artform "photography" ;
     schema:color "black and white" ;
     schema:dateCreated "1959"^^xsd:gYear ;
-    schema:description "Vintage gelatin silver print. Original analog photograph. Digital surrogate available on the Cineteca di Bologna website." ;
     schema:fileFormat "Digital JPEG surrogate" ;
     schema:identifier "FAF01878.001" ;
-    schema:material "Gelatin silver print" ;
-    schema:location rrr:renzo_renzi_library .
-
-rrr:aldo_ferrari a foaf:Person ;
-    owl:sameAs <https://www.wikidata.org/wiki/Q3609208> .
-
-rrr:bologna a schema:Place ;
-    owl:sameAs <https://www.geonames.org/3181928/bologna.html> .
-
-rrr:cineteca_di_bologna a schema:Organization ;
-    owl:sameAs <http://viaf.org/viaf/124960346> ;
     schema:location rrr:bologna .
 
-rrr:renzo_renzi a foaf:Person ;
-    owl:sameAs <http://viaf.org/viaf/40486517> .
+rrr:renzi_collection dcterms:hasPart rrr:ferrari_set_photo .
 
-schema:Photograph rdfs:subClassOf schema:CreativeWork .

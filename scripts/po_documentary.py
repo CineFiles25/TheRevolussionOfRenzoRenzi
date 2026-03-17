@@ -2,7 +2,6 @@ from pandas import read_csv
 from rdflib import Namespace, Graph, RDF, URIRef, Literal, XSD
 
 # NAMESPACES
-
 rrr = Namespace("https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/")
 schema = Namespace("https://schema.org/")
 dcterms = Namespace("http://purl.org/dc/terms/")
@@ -10,7 +9,6 @@ dc = Namespace("http://purl.org/dc/elements/1.1/")
 foaf = Namespace("http://xmlns.com/foaf/0.1/")
 
 # GRAPH
-
 g = Graph()
 
 g.bind("rrr", rrr)
@@ -20,22 +18,18 @@ g.bind("dc", dc)
 g.bind("foaf", foaf)
 
 # ENTITIES
-
-po_documentary = URIRef(rrr + "quando_il_po_è_dolce")
+po_documentary = URIRef(rrr + "quando_il_po_e_dolce")   # niente accenti negli URI
 renzo_renzi = URIRef(rrr + "renzo_renzi")
 enzo_masetti = URIRef(rrr + "enzo_masetti")
 delta_po_river = URIRef(rrr + "delta_po_river")
 
 # LOAD CSV
-
 df = read_csv("../csv/po_documentary.csv", keep_default_na=False, encoding="utf-8")
 
 # RESOURCE TYPE
-
 g.add((po_documentary, RDF.type, schema.Movie))
 
 # CSV → RDF MAPPING
-
 for _, row in df.iterrows():
 
     # Titles
@@ -84,7 +78,7 @@ for _, row in df.iterrows():
         g.add((po_documentary, dcterms.medium, Literal(row["film_type"])))
 
     if row.get("format"):
-        g.add((po_documentary, dcterms.format, Literal(row["format"])))
+        g.add((po_documentary, dcterms["format"], Literal(row["format"])))  # FIX QUI
 
     # Sound
     if row.get("sound"):
@@ -97,6 +91,5 @@ for _, row in df.iterrows():
     g.add((po_documentary, schema.musicBy, enzo_masetti))
 
 # SERIALIZATION
-
 g.serialize(format="turtle", destination="../ttl/po_documentary.ttl")
 print("po_documentary.ttl generated successfully!")

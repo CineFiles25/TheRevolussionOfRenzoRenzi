@@ -78,10 +78,10 @@ for _, row in df.iterrows():
 
     # Production place (literal)
     if row.get("production_place"):
-        g.add((interview, dcterms.spatial, Literal(row["production_place"])))
-
+        g.add((interview, schema.location, Literal(row["production_place"])))
+        
     # Production place (resource)
-    g.add((interview, schema.locationCreated, bologna))
+    g.add((interview, schema.location, bologna))
 
     # Production year
     if row.get("production_year"):
@@ -94,14 +94,14 @@ for _, row in df.iterrows():
     # Color
     if row.get("colour"):
         g.add((interview, schema.color, Literal(row["colour"])))
-
+        
     # Sound
     if row.get("sound"):
-        g.add((interview, dcterms.format, Literal(row["sound"])))
-
+        g.add((interview, dcterms["format"], Literal(row["sound"])))
+    
     # Format
     if row.get("format"):
-        g.add((interview, dcterms.format, Literal(row["format"])))
+        g.add((interview, dcterms["format"], Literal(row["format"])))
 
     # Language
     if row.get("language"):

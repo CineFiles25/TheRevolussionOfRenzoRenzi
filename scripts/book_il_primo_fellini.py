@@ -2,7 +2,6 @@ from pandas import read_csv
 from rdflib import Namespace, Graph, RDF, URIRef, Literal, XSD
 
 # NAMESPACES
-
 rrr = Namespace("https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/")
 schema = Namespace("https://schema.org/")
 dc = Namespace("http://purl.org/dc/elements/1.1/")
@@ -23,7 +22,7 @@ fellini = URIRef(rrr + "federico_fellini")
 renzi = URIRef(rrr + "renzo_renzi")
 series = URIRef(rrr + "series_il_primo_fellini")
 
-# FILMS referenced in the book (already defined in the dataset)
+# FILMS referenced in the book
 lo_sceicco = URIRef(rrr + "lo_sceicco_bianco_film")
 i_vitelloni = URIRef(rrr + "i_vitelloni_film")
 la_strada = URIRef(rrr + "la_strada_film")
@@ -66,10 +65,15 @@ for _, row in df.iterrows():
     if row.get("other_contributors"):
         g.add((book, dcterms.contributor, Literal(row["other_contributors"])))
 
-    # Publication
+    # Publication place → FIX HERE
+    if row.get("publication_place"):
+        g.add((book, schema.location, Literal(row["publication_place"])))
+
+    # Publisher
     if row.get("publisher"):
         g.add((book, dcterms.publisher, Literal(row["publisher"])))
 
+    # Publication year
     if row.get("publication_year"):
         g.add((book, dcterms.issued, Literal(row["publication_year"], datatype=XSD.gYear)))
 
@@ -90,7 +94,7 @@ for _, row in df.iterrows():
     if row.get("subjects"):
         g.add((book, dc.subject, Literal(row["subjects"])))
 
-    # Related works (resources, not literals)
+    # Related works
     g.add((book, dcterms.relation, lo_sceicco))
     g.add((book, dcterms.relation, i_vitelloni))
     g.add((book, dcterms.relation, la_strada))
@@ -108,8 +112,6 @@ for _, row in df.iterrows():
     if row.get("standard"):
         g.add((book, dcterms.conformsTo, Literal(row["standard"])))
 
-
 # SERIALIZATION
 g.serialize(format="turtle", destination="../ttl/book_il_primo_fellini.ttl")
 print("book_il_primo_fellini.ttl generated successfully!")
-

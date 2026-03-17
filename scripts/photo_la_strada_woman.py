@@ -55,7 +55,8 @@ for _, row in df.iterrows():
 
     # Depicted place (literal description)
     if row.get("depicted_place"):
-        g.add((photo, dcterms.spatial, Literal(row["depicted_place"])))
+        g.add((photo, schema.location, Literal(row["depicted_place"])))
+
 
     # Creation year
     if row.get("creation_year"):

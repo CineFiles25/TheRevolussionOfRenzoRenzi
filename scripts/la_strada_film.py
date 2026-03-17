@@ -2,7 +2,6 @@ from pandas import read_csv
 from rdflib import Namespace, Graph, RDF, URIRef, Literal, XSD
 
 # NAMESPACES
-
 rrr = Namespace("https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/")
 schema = Namespace("https://schema.org/")
 dcterms = Namespace("http://purl.org/dc/terms/")
@@ -43,9 +42,9 @@ for _, row in df.iterrows():
     if row.get("production_company"):
         g.add((film, schema.productionCompany, Literal(row["production_company"])))
 
-    # Country of origin
+    # Country of origin → FIX HERE (schema.location)
     if row.get("country"):
-        g.add((film, schema.countryOfOrigin, Literal(row["country"])))
+        g.add((film, schema.location, Literal(row["country"])))
 
     # Language
     if row.get("language"):
@@ -70,7 +69,7 @@ for _, row in df.iterrows():
     if row.get("sound"):
         g.add((film, schema.sound, Literal(row["sound"])))
 
-    # Resource type (kept as literal)
+    # Resource type
     if row.get("resource_type"):
         g.add((film, dcterms.type, Literal(row["resource_type"])))
 

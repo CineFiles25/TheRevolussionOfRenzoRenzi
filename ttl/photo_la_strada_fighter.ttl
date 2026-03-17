@@ -1,0 +1,31 @@
+@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix rrr: <https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/> .
+@prefix schema: <https://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+rrr:photo_la_strada_fighter a schema:Photograph ;
+    dc:subject "Circus performance scene" ;
+    dcterms:alternative "Gelsomina and Zampanò during a circus act" ;
+    dcterms:created "1954"^^xsd:gYear ;
+    dcterms:description "Set photograph from Federico Fellini’s film 'La Strada', showing a circus performance scene." ;
+    dcterms:extent "Vintage gelatin silver print; physical description not fully provided." ;
+    dcterms:identifier "26004-11" ;
+    dcterms:isPartOf rrr:renzi_collection ;
+    dcterms:language "und" ;
+    dcterms:medium "Gelatin silver print" ;
+    dcterms:relation "la_strada_film" ;
+    dcterms:rights "© Reporters Associati & Archivi — All rights reserved" ;
+    dcterms:title "Circus performance scene from 'La Strada'" ;
+    dcterms:type "Photograph" ;
+    crm:P52_has_current_owner rrr:cineteca_di_bologna ;
+    foaf:depicts rrr:giulietta_masina ;
+    schema:about rrr:la_strada_film ;
+    schema:color "black and white" ;
+    schema:location rrr:bologna,
+        "Film set" .
+
+rrr:renzi_collection dcterms:hasPart rrr:photo_la_strada_fighter .
+

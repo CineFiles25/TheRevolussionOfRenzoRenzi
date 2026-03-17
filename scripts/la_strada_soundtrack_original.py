@@ -68,7 +68,7 @@ for _, row in df.iterrows():
 
     # Publication place
     if row.get("publication_place"):
-        g.add((soundtrack, dcterms.spatial, Literal(row["publication_place"])))
+        g.add((soundtrack, schema.location, Literal(row["publication_place"])))
 
     # Publisher / label
     if row.get("publisher"):
