@@ -13,14 +13,14 @@ html {
 body {
   margin: 0;
   font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  background: #f7f5f2; /* più pulito, più Cineteca */
+  background: #f7f5f2;
   color: #2b2520;
   line-height: 1.7;
   transition: background-color 0.4s ease, color 0.4s ease, background 0.4s ease;
   position: relative;
 }
 
-/* leggerissimo film grain */
+/* Subtle film‑grain texture */
 body::before {
   content: "";
   position: fixed;
@@ -35,17 +35,18 @@ body::before {
 .page {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 3rem 1.5rem 5rem; /* più arioso */
+  padding: 3rem 1.5rem 5rem;
 }
 
 h1, h2, h3 {
   font-family: "Playfair Display", "Georgia", serif;
 }
 
+
 /* ---------- Header & hero ---------- */
 
 .site-header {
-  background: #ece7df; /* più neutro, più istituzionale */
+  background: #ece7df;
   border-bottom: 1px solid #d2c5b4;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
   position: relative;
@@ -74,7 +75,7 @@ h1, h2, h3 {
 }
 
 .site-title {
-  font-size: clamp(3rem, 4.5vw, 3.8rem); /* più manifesto cinematografico */
+  font-size: clamp(3rem, 4.5vw, 3.8rem);
   margin: 0 0 0.35rem;
   color: #332318;
   letter-spacing: -0.02em;
@@ -87,8 +88,7 @@ h1, h2, h3 {
   color: #4e4337;
 }
 
-/* Decorative chip */
-
+/* Project descriptor chip */
 .site-branding::after {
   content: "Digital Humanities · LOD · TEI";
   display: inline-flex;
@@ -97,16 +97,15 @@ h1, h2, h3 {
   margin-top: 0.9rem;
   padding: 0.2rem 0.8rem;
   border-radius: 999px;
-  border: 1px solid rgba(156, 47, 47, 0.25); /* rosso Cineteca */
+  border: 1px solid rgba(156, 47, 47, 0.25);
   background: rgba(255, 255, 255, 0.8);
   font-size: 0.72rem;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  color: #9c2f2f; /* rosso Cineteca */
+  color: #9c2f2f;
 }
 
 /* Hero call-to-actions */
-
 .hero-actions {
   margin-top: 1.3rem;
   display: flex;
@@ -115,7 +114,6 @@ h1, h2, h3 {
 }
 
 /* Base button style */
-
 .btn-primary,
 .btn-ghost {
   display: inline-flex;
@@ -132,9 +130,8 @@ h1, h2, h3 {
 }
 
 /* Primary button */
-
 .btn-primary {
-  background: #9c2f2f; /* rosso Cineteca */
+  background: #9c2f2f;
   color: #fffaf3;
 }
 
@@ -144,7 +141,6 @@ h1, h2, h3 {
 }
 
 /* Ghost button */
-
 .btn-ghost {
   background: rgba(255, 255, 255, 0.7);
   color: #5b4733;
@@ -188,7 +184,7 @@ h1, h2, h3 {
   font-weight: 500;
 }
 
-/* underline animato stile Cineteca */
+/* Animated underline */
 .site-nav a::after {
   content: "";
   position: absolute;
@@ -205,6 +201,7 @@ h1, h2, h3 {
   width: 100%;
 }
 
+
 /* ---------- Hero photo ---------- */
 
 .hero-photo {
@@ -217,9 +214,9 @@ h1, h2, h3 {
   max-width: 1000px;
   margin: 0 auto;
   position: relative;
-  border-radius: 0; /* stile poster */
+  border-radius: 0;
   overflow: hidden;
-  box-shadow: none; /* più pulito, più Cineteca */
+  box-shadow: none;
   background: #1a1412;
 }
 
@@ -228,7 +225,7 @@ h1, h2, h3 {
   width: 100%;
   height: auto;
   object-fit: cover;
-  filter: contrast(1.1) brightness(0.97) saturate(1.05); /* effetto filmico */
+  filter: contrast(1.1) brightness(0.97) saturate(1.05);
 }
 
 .hero-photo figcaption {
@@ -250,7 +247,7 @@ h1, h2, h3 {
   margin-top: 3rem;
   padding: 3rem 2.2rem 2.4rem;
   border-radius: 18px;
-  border-top: 4px solid #9c2f2f; /* rosso Cineteca */
+  border-top: 4px solid #9c2f2f;
   box-shadow: 0 18px 45px rgba(0, 0, 0, 0.08);
   position: relative;
   overflow: hidden;
@@ -258,10 +255,6 @@ h1, h2, h3 {
   animation: fadeInUpSoft 0.7s ease-out forwards;
 }
 
-/* rimosso il corner glow per un look più museale */
-
-
-/* Titoli sezione */
 .section h2 {
   font-size: 2rem;
   font-weight: 700;
@@ -270,7 +263,6 @@ h1, h2, h3 {
   color: #3b2b1d;
 }
 
-/* Intro paragraphs */
 .section-intro {
   margin-top: 0.4rem;
   margin-bottom: 1.2rem;
@@ -298,8 +290,7 @@ h1, h2, h3 {
   font-size: 1.02rem;
 }
 
-
-/* anim delay per sezioni */
+/* Section animation delays */
 .section:nth-of-type(1) { animation-delay: 0.05s; }
 .section:nth-of-type(2) { animation-delay: 0.1s; }
 .section:nth-of-type(3) { animation-delay: 0.15s; }
@@ -314,7 +305,7 @@ h1, h2, h3 {
 .section-split {
   display: grid;
   grid-template-columns: minmax(0, 2fr) minmax(0, 1.1fr);
-  gap: 2rem; /* più arioso */
+  gap: 2rem;
 }
 
 .box-muted {
@@ -333,7 +324,7 @@ h1, h2, h3 {
   background: #f3ebe2;
   padding: 1.5rem 1.7rem;
   border-radius: 18px;
-  border-left: 4px solid #9c2f2f; /* rosso Cineteca */
+  border-left: 4px solid #9c2f2f;
   max-width: 360px;
   margin: 0 auto;
 }
@@ -351,6 +342,7 @@ h1, h2, h3 {
   font-size: 1rem;
 }
 
+
 /* ---------- Item list as cards ---------- */
 
 .item-list {
@@ -360,7 +352,7 @@ h1, h2, h3 {
 }
 
 .item-list li {
-  background: #faf7f3; /* più neutro, più museale */
+  background: #faf7f3;
   border-radius: 14px;
   padding: 0.9rem 1.1rem;
   margin-bottom: 0.8rem;
@@ -376,7 +368,7 @@ h1, h2, h3 {
   content: "●";
   font-size: 0.65rem;
   margin-top: 0.2rem;
-  color: #9c2f2f; /* rosso Cineteca */
+  color: #9c2f2f;
 }
 
 .item-list li:hover {
@@ -403,7 +395,7 @@ code {
 .cta-link a {
   font-weight: 600;
   text-decoration: none;
-  color: #9c2f2f; /* rosso Cineteca */
+  color: #9c2f2f;
   border-bottom: 1px solid rgba(156, 47, 47, 0.45);
   transition: 0.2s ease;
 }
@@ -422,7 +414,7 @@ code {
   font-size: 0.9rem;
   color: #7c6b57;
   text-align: center;
-  background: #ece7df; /* più istituzionale */
+  background: #ece7df;
 }
 
 .site-footer a {
@@ -519,6 +511,7 @@ a:hover {
   }
 }
 
+
 /* ---------- Photo gallery ---------- */
 
 .section-photos {
@@ -534,7 +527,7 @@ a:hover {
 
 .section-photos .photo-card {
   margin: 0;
-  background: #faf7f3; /* più neutro, più museale */
+  background: #faf7f3;
   border-radius: 14px;
   overflow: hidden;
   border: 1px solid #d8cfc4;
@@ -548,7 +541,7 @@ a:hover {
 .section-photos .photo-card img {
   display: block;
   width: 100%;
-  height: 240px; /* più grande, più espositivo */
+  height: 240px;
   object-fit: cover;
   cursor: zoom-in;
   transition: transform 0.25s ease;
@@ -582,7 +575,7 @@ a:hover {
 .lightbox-backdrop {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.88); /* più sala cinematografica */
+  background: rgba(0, 0, 0, 0.88);
   display: none;
   align-items: center;
   justify-content: center;
@@ -686,7 +679,7 @@ a:hover {
 
   .section {
     background: #1b130f;
-    border-top-color: #9c2f2f; /* rosso Cineteca */
+    border-top-color: #9c2f2f;
     box-shadow: 0 18px 45px rgba(0, 0, 0, 0.7);
   }
 
@@ -759,7 +752,8 @@ a:hover {
   }
 }
 
-/* --- Tables for documentation pages --- */
+
+/* ---------- Tables for documentation pages ---------- */
 
 .meta-table {
   width: 100%;
@@ -887,7 +881,7 @@ a:hover {
   background: #faf7f3;
 }
 
-/* 16:9 responsive ratio */
+/* 16:9 ratio */
 .embed-wrap::before {
   content: "";
   display: block;
