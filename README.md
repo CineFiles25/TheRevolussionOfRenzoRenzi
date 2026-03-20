@@ -171,15 +171,17 @@ The website presents:
 
 The project was developed by:
 
-- **Laura Bortoli**
-  laura.bortoli@studio.unibo.it
+- **Laura Bortoli**  
+  laura.bortoli@studio.unibo.it  
   GitHub: https://github.com/lauraaa13
-- **Claudia Romanello**
-  claudia.romanello@studio.unibo.it
+
+- **Claudia Romanello**  
+  claudia.romanello@studio.unibo.it  
   GitHub: https://github.com/claudiarom
-- **Qinghao Chen**
-  qinghao.chen@studio.unibo.it
-  GitHub: https://github.com/River-Qinghao  
+
+- **Qinghao Chen**  
+  qinghao.chen@studio.unibo.it  
+  GitHub: https://github.com/River-Qinghao
 
 All project members contributed collaboratively to metadata extraction, TEI encoding, RDF modelling, Python scripting, and interface development.
 
