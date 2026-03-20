@@ -1,62 +1,81 @@
-<header class="site-header">
-  <div class="header-inner" style="text-align:center;">
-    <div class="site-kicker">INFORMATION SCIENCE AND CULTURAL HERITAGE · UNIBO</div>
-    <h1 class="site-title">README</h1>
-    <p class="site-subtitle">The “Revolussion” of Renzo Renzi — Project Overview</p>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>README – The "Revolussion" of Renzo Renzi</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-    <div class="hero-actions" style="justify-content:center; margin-top:1rem;">
-      <a href="index.html" class="btn-ghost">← Back to the main site</a>
-    </div>
+  <body>
 
-    <div class="site-branding" style="margin-top:1rem;">
-      <span class="chip">DIGITAL HUMANITIES · LOD · TEI</span>
-    </div>
-  </div>
-</header>
+    <!-- HEADER -->
+    <header class="site-header">
+      <div class="header-inner">
+        <div class="site-branding">
+          <p class="site-kicker">Information Science and Cultural Heritage · UniBo</p>
+          <h1 class="site-title">README</h1>
+          <p class="site-subtitle">The "Revolussion" of Renzo Renzi · Project Overview</p>
 
-<main class="page">
+          <div class="hero-actions">
+            <a href="index.html" class="btn-ghost">← Back to the main site</a>
+          </div>
+        </div>
+      </div>
+    </header>
 
-  <section class="section">
-    <h2>Project Overview</h2>
+    <main class="page">
 
-    <p class="section-intro">
-      <em>A Digital Humanities & Linked Open Data Project</em><br />
-      <strong>Information Science and Cultural Heritage – University of Bologna (2024–2025)</strong>
-    </p>
+      <!-- INTRO BOX -->
+      <section class="section">
+        <h1>README</h1>
+        <p class="section-intro">
+          <strong>The "Revolussion" of Renzo Renzi</strong><br />
+          <em>Information Science and Cultural Heritage – University of Bologna (2024–2025)</em>
+        </p>
+      </section>
 
-    <p>
-      The <em>“Revolussion” of Renzo Renzi</em> is a digital humanities project dedicated to exploring the archival
-      and cultural ecosystem built by <strong>Renzo Renzi</strong> (1919–2004): film critic, curator, writer, and one
-      of the key figures behind the creation of the <strong>Cineteca di Bologna</strong>.
-    </p>
+      <!-- OVERVIEW -->
+      <section class="section">
+        <h2>Overview</h2>
 
-    <p>
-      The project investigates Renzi’s analogue “web of cinema knowledge” by studying
-      <strong>15 heterogeneous cultural heritage items</strong> conserved at — or connected to — the
-      <strong>Renzo Renzi Collection</strong>.
-    </p>
+        <p>
+          The <em>“Revolussion” of Renzo Renzi</em> is a digital humanities project dedicated to exploring the archival
+          and cultural ecosystem built by <strong>Renzo Renzi</strong> (1919–2004): film critic, curator, writer, and one
+          of the key figures behind the creation of the <strong>Cineteca di Bologna</strong>.
+        </p>
 
-    <p>The project integrates:</p>
+        <p>
+          The project investigates Renzi’s analogue “web of cinema knowledge” by studying
+          <strong>15 heterogeneous cultural heritage items</strong> conserved at — or connected to — the
+          <strong>Renzo Renzi Collection</strong>.
+        </p>
 
-    <ul class="item-list">
-      <li><strong>TEI/XML scholarly encoding</strong> of a textual item</li>
-      <li><strong>XSLT transformation</strong> for online publication</li>
-      <li><strong>CSV-based metadata extraction</strong> from institutional standards</li>
-      <li><strong>Semantic modelling and LOD / RDF production</strong></li>
-      <li><strong>Reuse of CH standards and ontologies</strong></li>
-      <li><strong>Unified web interface</strong> published with GitHub Pages</li>
-    </ul>
+        <p>The project integrates:</p>
 
-    <p>
-      The goal is to transform an analogue archive into a <strong>Linked Open Data ecosystem</strong>, while
-      documenting the methodological steps behind data modelling in DH.
-    </p>
-  </section>
+        <ul class="item-list">
+          <li><strong>TEI/XML scholarly encoding</strong> of a textual item</li>
+          <li><strong>XSLT transformation</strong> for online publication</li>
+          <li><strong>CSV-based metadata extraction</strong> from institutional standards</li>
+          <li><strong>Semantic modelling and LOD / RDF production</strong></li>
+          <li><strong>Reuse of CH standards and ontologies</strong></li>
+          <li><strong>Unified web interface</strong> published with GitHub Pages</li>
+        </ul>
 
-  <section class="section">
-    <h2>Project Structure</h2>
+        <p>
+          The goal is to transform an analogue archive into a <strong>Linked Open Data ecosystem</strong>, while
+          documenting the methodological steps behind data modelling in DH.
+        </p>
+      </section>
 
-    <pre class="code-block"><code>csv/                  → Metadata tables for all items
+      <!-- STRUCTURE -->
+      <section class="section">
+        <h2>Project Structure</h2>
+
+        <pre class="code-block"><code>csv/                  → Metadata tables for all items
 script/               → Python scripts (CSV → RDF transformation)
 tei_xslt/             → TEI XML + XSLT stylesheet
 ttl/                  → RDF dataset (rrr.ttl)
@@ -68,101 +87,109 @@ style.css
 README.md
 </code></pre>
 
-    <p>
-      A full explanation of the workflow is provided in
-      <strong><a href="project-documentation.html">Project Documentation</a></strong>.
-    </p>
-  </section>
+        <p>
+          A full explanation of the workflow is provided in
+          <strong><a href="project-documentation.html">Project Documentation</a></strong>.
+        </p>
+      </section>
 
-  <section class="section">
-    <h2>Objectives</h2>
+      <!-- OBJECTIVES -->
+      <section class="section">
+        <h2>Objectives</h2>
 
-    <ol>
-      <li>
-        <strong>Define a coherent thematic scope</strong> (Renzo Renzi and his network around
-        <em>La Strada</em> and the Renzo Renzi Collection).
-      </li>
+        <ol>
+          <li>
+            <strong>Define a coherent thematic scope</strong> (Renzo Renzi and his network around
+            <em>La Strada</em> and the Renzo Renzi Collection).
+          </li>
 
-      <li>
-        <strong>Extract metadata</strong> using authoritative CH standards:
-        <ul>
-          <li>ISBD(G), ISBD(NBM)</li>
-          <li>ICCD Scheda F, ICCD Scheda OA</li>
-          <li>FIAF rules for audiovisual items</li>
-          <li>ISAD(G) for archival documents</li>
+          <li>
+            <strong>Extract metadata</strong> using authoritative CH standards:
+            <ul>
+              <li>ISBD(G), ISBD(NBM)</li>
+              <li>ICCD Scheda F, ICCD Scheda OA</li>
+              <li>FIAF rules for audiovisual items</li>
+              <li>ISAD(G) for archival documents</li>
+            </ul>
+          </li>
+
+          <li><strong>Encode a text item in TEI P5</strong> and publish it through <strong>XSLT</strong>.</li>
+
+          <li>
+            <strong>Develop a conceptual model</strong> by reusing:
+            Dublin Core Terms, Schema.org, FOAF, SKOS
+            (<em>RiC-O and CIDOC CRM used as conceptual references</em>)
+          </li>
+
+          <li><strong>Generate an integrated RDF dataset</strong> (<code>rrr.ttl</code>).</li>
+
+          <li><strong>Publish the whole project on the web</strong> via GitHub Pages.</li>
+        </ol>
+      </section>
+
+      <!-- ITEMS -->
+      <section class="section">
+        <h2>Selected Cultural Heritage Items</h2>
+
+        <p>The dataset includes <strong>15 items</strong>, structured as:</p>
+
+        <ul class="item-list">
+          <li><strong>Book / full text</strong> — <em>Il primo Fellini</em> (ISBD(G))</li>
+          <li><strong>TEI-encoded screenplay excerpt</strong></li>
+          <li><strong>4 photographs</strong> (ICCD Scheda F)</li>
+          <li><strong>2 drawings / caricatures</strong> (ICCD Scheda OA)</li>
+          <li><strong>Sound recording</strong> — <em>La Strada</em> soundtrack (ISBD NBM)</li>
+          <li><strong>Audiovisual interview</strong> (FIAF)</li>
+          <li><strong>Documentary film</strong> — <em>Quando il Po è dolce</em></li>
+          <li><strong>Renzo Renzi Library</strong> (ICCU / ISIL identification)</li>
+          <li><strong>Family photo / set photo</strong> (Scheda F)</li>
         </ul>
-      </li>
 
-      <li><strong>Encode a text item in TEI P5</strong> and publish it through <strong>XSLT</strong>.</li>
+        <p>For each item, the project includes:</p>
 
-      <li>
-        <strong>Develop a conceptual model</strong> by reusing:
-        Dublin Core Terms, Schema.org, FOAF, SKOS
-        (<em>RiC-O and CIDOC CRM used as conceptual references</em>)
-      </li>
+        <ul class="item-list">
+          <li>CSV metadata</li>
+          <li>Source standard</li>
+          <li>Holding institution</li>
+          <li>URI references (VIAF/Wikidata)</li>
+          <li>RDF representation</li>
+          <li>Links to related items (interlinking)</li>
+        </ul>
+      </section>
 
-      <li><strong>Generate an integrated RDF dataset</strong> (<code>rrr.ttl</code>).</li>
+      <!-- CONTRIBUTORS -->
+      <section class="section">
+        <h2>Contributors</h2>
 
-      <li><strong>Publish the whole project on the web</strong> via GitHub Pages.</li>
-    </ol>
-  </section>
+        <ul class="item-list">
+          <li><strong>Laura Bortoli</strong><br />laura.bortoli@studio.unibo.it<br />GitHub: <a href="https://github.com/lauraaa13">lauraaa13</a></li>
+          <li><strong>Claudia Romanello</strong><br />claudia.romanello@studio.unibo.it<br />GitHub: <a href="https://github.com/claudiarom">claudiarom</a></li>
+          <li><strong>Qinghao Chen</strong><br />qinghao.chen@studio.unibo.it<br />GitHub: <a href="https://github.com/River-Qinghao">River-Qinghao</a></li>
+        </ul>
 
-  <section class="section">
-    <h2>Selected Cultural Heritage Items</h2>
+        <p>
+          All project members contributed collaboratively to metadata extraction, TEI encoding, RDF modelling, Python
+          scripting, and interface development.
+        </p>
+      </section>
 
-    <p>The dataset includes <strong>15 items</strong>, structured as:</p>
+      <!-- ACKNOWLEDGMENTS -->
+      <section class="section">
+        <h2>Acknowledgments</h2>
 
-    <ul class="item-list">
-      <li><strong>Book / full text</strong> — <em>Il primo Fellini</em> (ISBD(G))</li>
-      <li><strong>TEI-encoded screenplay excerpt</strong></li>
-      <li><strong>4 photographs</strong> (ICCD Scheda F)</li>
-      <li><strong>2 drawings / caricatures</strong> (ICCD Scheda OA)</li>
-      <li><strong>Sound recording</strong> — <em>La Strada</em> soundtrack (ISBD NBM)</li>
-      <li><strong>Audiovisual interview</strong> (FIAF)</li>
-      <li><strong>Documentary film</strong> — <em>Quando il Po è dolce</em></li>
-      <li><strong>Renzo Renzi Library</strong> (ICCU / ISIL identification)</li>
-      <li><strong>Family photo / set photo</strong> (Scheda F)</li>
-    </ul>
+        <p>
+          The authors warmly thank <strong>Anna Fiaccarini</strong>, Head of the Cineteca di Bologna Library since 1997,
+          for her guidance, availability, and support throughout the project.
+        </p>
+      </section>
 
-    <p>For each item, the project includes:</p>
+      <!-- LICENSE -->
+      <section class="section">
+        <h2>License</h2>
+        <p>This project is released under a <strong>CC BY-SA 4.0</strong> license.</p>
+      </section>
 
-    <ul class="item-list">
-      <li>CSV metadata</li>
-      <li>Source standard</li>
-      <li>Holding institution</li>
-      <li>URI references (VIAF/Wikidata)</li>
-      <li>RDF representation</li>
-      <li>Links to related items (interlinking)</li>
-    </ul>
-  </section>
+    </main>
 
-  <section class="section">
-    <h2>Contributors</h2>
-
-    <ul class="item-list">
-      <li><strong>Laura Bortoli</strong><br />laura.bortoli@studio.unibo.it<br />GitHub: <a href="https://github.com/lauraaa13">lauraaa13</a></li>
-      <li><strong>Claudia Romanello</strong><br />claudia.romanello@studio.unibo.it<br />GitHub: <a href="https://github.com/claudiarom">claudiarom</a></li>
-      <li><strong>Qinghao Chen</strong><br />qinghao.chen@studio.unibo.it<br />GitHub: <a href="https://github.com/River-Qinghao">River-Qinghao</a></li>
-    </ul>
-
-    <p>
-      All project members contributed collaboratively to metadata extraction, TEI encoding, RDF modelling, Python
-      scripting, and interface development.
-    </p>
-  </section>
-
-  <section class="section">
-    <h2>Acknowledgments</h2>
-
-    <p>
-      The authors warmly thank <strong>Anna Fiaccarini</strong>, Head of the Cineteca di Bologna Library since 1997,
-      for her guidance, availability, and support throughout the project.
-    </p>
-  </section>
-
-  <section class="section">
-    <h2>License</h2>
-    <p>This project is released under a <strong>CC BY-SA 4.0</strong> license.</p>
-  </section>
-
-</main>
+  </body>
+</html>
