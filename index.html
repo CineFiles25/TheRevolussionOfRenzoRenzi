@@ -328,9 +328,8 @@
 
         <div class="download-row">
           <a class="btn-primary" href="ttl/full_dataset.ttl">Download full dataset (Turtle)</a>
-          <a class="btn-ghost" href="https://raw.githubusercontent.com/CineFiles25/TheRevolussionOfRenzoRenzi/main/ttl/full_dataset.ttl" target="_blank" rel="noopener">Raw mirror</a>
+          <a class="btn-ghost" href="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/tree/main/ttl" target="_blank" rel="noopener">Browse TTL files on GitHub</a>
         </div>
-        <p class="note-muted">The "full dataset" file aggregates the project triples for easier inspection and evaluation.</p>
 
         <div class="box-muted" style="margin-top: 1.8rem;">
           <h3>Hub entity: Renzo Renzi</h3>
@@ -403,17 +402,17 @@
           <ul class="team-list">
             <li>
               <strong>Laura Bortoli</strong><br />
-              <a href="mailto:laura.bortoli@studio.unibo.it">laura.bortoli@studio.unibo.it</a><br />
+              <a href="/cdn-cgi/l/email-protection#b2ded3c7c0d39cd0ddc0c6dddedbf2c1c6c7d6dbdd9cc7dcdbd0dd9cdbc6"><span class="__cf_email__" data-cfemail="3b575a4e495a155954494f5457527b484f4e5f5254154e5552595415524f">[email&#160;protected]</span></a><br />
               GitHub: <a href="https://github.com/lauraaa13" target="_blank" rel="noopener">lauraaa13</a>
             </li>
             <li>
               <strong>Claudia Romanello</strong><br />
-              <a href="mailto:claudia.romanello@studio.unibo.it">claudia.romanello@studio.unibo.it</a><br />
+              <a href="/cdn-cgi/l/email-protection#d3b0bfb2a6b7bab2fda1bcbeb2bdb6bfbfbc93a0a7a6b7babcfda6bdbab1bcfdbaa7"><span class="__cf_email__" data-cfemail="d7b4bbb6a2b3beb6f9a5b8bab6b9b2bbbbb897a4a3a2b3beb8f9a2b9beb5b8f9bea3">[email&#160;protected]</span></a><br />
               GitHub: <a href="https://github.com/claudiarom" target="_blank" rel="noopener">claudiarom</a>
             </li>
             <li>
               <strong>Qinghao (River) Chen</strong><br />
-              <a href="mailto:qinghao.chen@studio.unibo.it">qinghao.chen@studio.unibo.it</a><br />
+              <a href="/cdn-cgi/l/email-protection#493820272e212826672a212c27093a3d3c2d2026673c27202b2667203d"><span class="__cf_email__" data-cfemail="1e6f777079767f71307d767b705e6d6a6b7a7771306b70777c7130776a">[email&#160;protected]</span></a><br />
               GitHub: <a href="https://github.com/River-Qinghao" target="_blank" rel="noopener">River-Qinghao</a>
             </li>
           </ul>
@@ -436,12 +435,10 @@
           <li><a href="project-documentation.html">Project Documentation (workflow &amp; metadata analysis)</a></li>
           <li><a href="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/tree/main/csv" target="_blank" rel="noopener">CSV metadata (all items)</a></li>
           <li>
-            <strong>RDF dataset (full):</strong>
-            <a href="ttl/full_dataset.ttl">full_dataset.ttl</a>
+            <strong>RDF dataset:</strong>
+            <a href="ttl/full_dataset.ttl">Download full_dataset.ttl</a>
             &middot;
-            <a href="https://raw.githubusercontent.com/CineFiles25/TheRevolussionOfRenzoRenzi/main/ttl/full_dataset.ttl" target="_blank" rel="noopener">Raw mirror</a>
-            &middot;
-            <a href="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/tree/main/ttl" target="_blank" rel="noopener">TTL directory</a>
+            <a href="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/tree/main/ttl" target="_blank" rel="noopener">Browse on GitHub</a>
           </li>
           <li>
             <strong>TEI/XML source for <em>La Strada</em>:</strong>
@@ -472,7 +469,7 @@
       </div>
     </div>
 
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
       document.addEventListener("DOMContentLoaded", function () {
         /* ---- Nav active section ---- */
         const sections = document.querySelectorAll("main .section[id]");
@@ -513,20 +510,4 @@
               const figcap = figure ? figure.querySelector("figcaption") : null;
               lbCaption.textContent = figcap ? figcap.innerText : "";
               lb.classList.add("is-visible");
-              lb.setAttribute("aria-hidden", "false");
-            });
-          });
-          const closeLightbox = () => {
-            lb.classList.remove("is-visible");
-            lb.setAttribute("aria-hidden", "true");
-          };
-          lbClose.addEventListener("click", closeLightbox);
-          lb.addEventListener("click", (event) => { if (event.target === lb) closeLightbox(); });
-          document.addEventListener("keydown", (event) => {
-            if (event.key === "Escape" && lb.classList.contains("is-visible")) closeLightbox();
-          });
-        }
-      });
-    </script>
-  </body>
-</html>
+              lb.setAttribute("aria-hi
