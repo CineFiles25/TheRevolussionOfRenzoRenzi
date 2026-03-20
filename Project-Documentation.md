@@ -7,19 +7,21 @@
 
 # Part I — Study of the Domain
 
-## 1. Idea
+## 1. Idea and Rationale
 
-*The "Revolussion" of Renzo Renzi* is a Digital Humanities and Linked Open Data project centred on **Renzo Renzi** (1919–2004), a central figure in Italian film culture: critic, filmmaker, researcher, and long-time curator of the Cineteca di Bologna.
+The *“Revolussion”* of Renzo Renzi is a Digital Humanities and Linked Open Data project dedicated to the archival, bibliographic, and audiovisual ecosystem built by **Renzo Renzi** (1919–2004). Renzi was a critic, filmmaker, researcher, and one of the foundational figures of the **Cineteca di Bologna**, where he curated and shaped film culture for decades.
 
-Renzi's work produced an analogue network of interrelated objects — books, drawings, photographs, interviews, film materials — that anticipates the logic of Linked Open Data. His collection, held at the **Cineteca di Bologna**, is the institutional ground for this project.
+His work produced an analogue network of interconnected materials—books, drawings, photographs, interviews, film documents—that anticipates the logic of Linked Open Data. Long before LOD became a methodological paradigm, Renzi was already constructing a relational archive where each object illuminated the others through themes, stories, production histories, and personal memories.
 
-The project goal is to **model, encode, and publish** a selection of these materials using cultural heritage standards, TEI/XML, RDF, and a public web interface, turning analogue archival materials into a structured, interoperable digital dataset aligned with LODLAM best practices.
+The **Renzo Renzi Collection** at the Cineteca di Bologna is the institutional foundation of this project. Our goal is to **model, encode, and publish** a selection of these materials using cultural heritage standards, TEI/XML, RDF, and a public web interface, transforming analogue archival materials into a structured, interoperable digital dataset aligned with LODLAM best practices.
 
 ---
 
-## 2. Items
+## 2. Selection of Items
 
-The project selects **15 heterogeneous items** from the Renzo Renzi Collection and related holdings at the Cineteca di Bologna, mixing archival documents, bibliographic records, photographs, drawings, moving images, and sound recordings. One item (*La Strada*, Sequence I) is a full-text document encoded in TEI.
+The project selects **15 heterogeneous items** from the Renzo Renzi Collection and related holdings at the Cineteca di Bologna. The selection includes archival documents, bibliographic records, photographs, drawings, moving images, sound recordings, and one full-text item encoded in TEI.
+
+The table below summarises the items, their type, holding institution, institutional standard, and encoding format:
 
 | # | Item | Type | Holding Institution | Institutional Standard | Encoding Format |
 |---|------|------|---------------------|------------------------|-----------------|
@@ -41,30 +43,30 @@ The project selects **15 heterogeneous items** from the Renzo Renzi Collection a
 
 ---
 
-# Part II — Knowledge Organization: Elaborate Models
+# Part II — Knowledge Organization
 
 ## 3. Metadata Analysis
 
-For each item we identified the descriptive standard adopted by the holding institution and used it as the starting point of our analysis.
+For each item, we identified the descriptive standard adopted by the holding institution and used it as the foundation for our analysis. This step ensured that our modelling respected institutional practices while enabling interoperability across heterogeneous materials.
 
 ### Bibliographic standards:
-- **ISBD(G)** — general bibliographic description (book)
+- **ISBD(G)** — general bibliographic description
 - **ISBD(NBM)** — non-book materials (film, soundtrack, documentary)
-- **SBN-MARC** — Italian national bibliography (book, sound recording, library)
+- **SBN-MARC** — Italian national bibliography
 
 ### Archival standards:
-- **ISAD(G)** — general archival description (screenplay manuscript, letter)
+- **ISAD(G)** — general archival description
 
 ### Visual / museum standards:
 - **ICCD Scheda F** — photographs
 - **ICCD Scheda OA** — drawings and caricatures
 
 ### Audiovisual standards:
-- **FIAF Cataloguing Rules** — film-related materials (film, documentary, video interview)
+- **FIAF Cataloguing Rules** — film-related materials
 
 ### Encoding formats used to produce the metadata files:
 - **MODS** — bibliographic items, sound recordings, films, documentary, video interview
-- **EAD** — archival records (screenplay, letter)
+- **EAD** — archival records
 - **VRA Core** — photographs, drawings, caricatures
 - **Schema.org (JSON-LD)** — institution (Biblioteca Renzo Renzi)
 
@@ -72,12 +74,12 @@ For each item we identified the descriptive standard adopted by the holding inst
 
 ## 4. Theoretical Model
 
-Each item was described in natural language starting from the original institutional description, enriched with additional relevant information including authority control and subject/classification data.
+The theoretical model describes each item in natural language, starting from the institutional description and enriching it with additional information such as authority control, subject classification, and contextual relationships.
 
 For each object the analysis identifies:
 - **Intrinsic features**: title, date, format, technique, language, extent…
 - **Roles and agents**: creators, performers, contributors, editors, directors…
-- **Relationships to other entities**: about, depicts, documents, is part of, was produced during…
+- **Relationships**: about, depicts, documents, is part of, was produced during…
 - **Institutional context**: holding institution, collection, physical location, shelf mark…
 - **Authority control**: VIAF, Wikidata, ISIL, ISNI…
 
@@ -184,7 +186,7 @@ Dedicated Python scripts in `scripts/` (one per item, e.g. `la_strada_film.py`, 
 2. Map the CSV fields to RDF triples according to the conceptual model, using **RDFLib**.
 3. Serialize the output as an individual Turtle file in the `ttl/` directory.
 
-The script `scripts/merging.py` merges all individual Turtle files into `ttl/full_dataset.ttl` for easier inspection and evaluation.
+The script `merging.py` merges all individual Turtle files into `full_dataset.ttl` for easier inspection and evaluation.
 
 The dataset as a whole integrates:
 - creative works (books, films, drawings, photographs, sound recordings…)
@@ -194,10 +196,6 @@ The dataset as a whole integrates:
 - inter-item relationships expressed as RDF triples
 
 The dataset is modular by design: files can be loaded as separate named graphs or merged into a single RDF graph for SPARQL querying.
-
-**Downloads:**
-- Full dataset: [ttl/full_dataset.ttl](ttl/full_dataset.ttl)
-- TTL directory: <https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/tree/main/ttl>
 
 ---
 
@@ -212,13 +210,18 @@ The site includes: project overview, item list with metadata, conceptual and the
 
 ---
 
-## 12. Team
+## 12. Contributors
 
 The project was developed within the course *Information Science and Cultural Heritage* (a.y. 2024–2025), University of Bologna – DHDK.
 
-- **Laura Bortoli** — Metadata for book, caricature, photograph, soundtrack and interview; TEI/XML encoding and XSLT transformation; website. 
-- **Claudia Romanello** — Metadata for documentary, Renzo Renzi Library, additional photographs and screenplay; conceptual graph; TEI/XML to RDF transformation; contribution to website content. 
-- **Qinghao (River) Chen** — Metadata for film, family photos and additional visual materials; theoretical graph; contribution to site structure and RDF checks.
+- **Laura Bortoli** — laura.bortoli@studio.unibo.it — GitHub: https://github.com/lauraaa13
+- **Claudia Romanello** — claudia.romanello@studio.unibo.it — GitHub: https://github.com/claudiarom
+- **Qinghao Chen** — qinghao.chen@studio.unibo.it — GitHub: https://github.com/River-Qinghao
+
+All project members contributed collaboratively to metadata extraction, TEI encoding, RDF modelling, Python scripting, and interface development.
+
+**Acknowledgments:**
+The authors warmly thank Anna Fiaccarini, Head of the Cineteca di Bologna Library since 1997, for her guidance, availability, and support throughout the project.
 
 **Supervision:**
 - *Text Encoding & Semantic Representation*: Marilena Daquino
