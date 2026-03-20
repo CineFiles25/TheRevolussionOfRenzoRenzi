@@ -7,19 +7,283 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="style.css" />
+    <style>
+/* ---------- Base layout ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #f7f5f2;
+  color: #2b2520;
+  line-height: 1.7;
+  transition: background-color 0.4s ease, color 0.4s ease;
+  position: relative;
+}
+.page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 5rem;
+}
+h1, h2, h3 { font-family: "Playfair Display", "Georgia", serif; }
+
+/* ---------- Header ---------- */
+.site-header {
+  background: #ece7df;
+  border-bottom: 1px solid #d2c5b4;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+  position: relative;
+  z-index: 20;
+}
+.header-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1.75rem 1.5rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+.site-branding {
+  position: relative;
+  text-align: center;
+}
+.site-kicker {
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.7rem;
+  color: #7c6b57;
+  margin: 0 0 0.6rem;
+}
+.site-title {
+  font-size: clamp(3rem, 4.5vw, 3.8rem);
+  margin: 0 0 0.35rem;
+  color: #332318;
+  letter-spacing: -0.02em;
+}
+.site-subtitle {
+  margin: 0;
+  font-size: 1rem;
+  color: #4e4337;
+}
+.site-branding::after {
+  content: "Digital Humanities · LOD · TEI";
+  display: inline-flex;
+  margin-left: auto;
+  margin-right: auto;
+  align-items: center;
+  gap: 0.45rem;
+  margin-top: 0.9rem;
+  padding: 0.2rem 0.8rem;
+  border-radius: 999px;
+  border: 1px solid rgba(156,47,47,0.25);
+  background: rgba(255,255,255,0.8);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #9c2f2f;
+}
+.hero-actions {
+  margin-top: 1.3rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  justify-content: center;
+}
+.btn-primary, .btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.6rem 1.2rem;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: 0.2s ease;
+}
+.btn-primary { background: #9c2f2f; color: #fffaf3; }
+.btn-primary:hover { background: #a63a3a; }
+.btn-ghost {
+  background: rgba(255,255,255,0.7);
+  color: #5b4733;
+  border-color: rgba(156,47,47,0.4);
+}
+.btn-ghost:hover { background: #fff; border-color: #9c2f2f; color: #9c2f2f; }
+
+/* ---------- Sections ---------- */
+.section {
+  background: #ffffff;
+  margin-top: 3rem;
+  padding: 3rem 2.2rem 2.4rem;
+  border-radius: 18px;
+  border-top: 4px solid #9c2f2f;
+  box-shadow: 0 18px 45px rgba(0,0,0,0.08);
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  animation: fadeInUpSoft 0.7s ease-out forwards;
+}
+.section:nth-child(1) { animation-delay: 0.05s; }
+.section:nth-child(2) { animation-delay: 0.12s; }
+.section:nth-child(3) { animation-delay: 0.19s; }
+.section:nth-child(4) { animation-delay: 0.26s; }
+.section:nth-child(5) { animation-delay: 0.33s; }
+.section:nth-child(6) { animation-delay: 0.40s; }
+.section:nth-child(7) { animation-delay: 0.47s; }
+.section:nth-child(8) { animation-delay: 0.54s; }
+.section h1 { font-size: 2.4rem; margin-top: 0; margin-bottom: 0.6rem; color: #332318; }
+.section h2 { font-size: 2rem; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 1.2rem; color: #3b2b1d; }
+.section h3 { font-size: 1.2rem; color: #5b3a22; margin-top: 1.4rem; margin-bottom: 0.4rem; }
+.section-intro { margin-top: 0.4rem; margin-bottom: 1.2rem; font-size: 1.1rem; color: #4e4337; line-height: 1.7; }
+.section p { margin-top: 0.6rem; position: relative; z-index: 1; font-size: 1.05rem; line-height: 1.7; }
+.section ul, .section ol { padding-left: 1.4rem; }
+.section ul li, .section ol li { margin-bottom: 0.4rem; font-size: 1.02rem; }
+
+/* ---------- Item list ---------- */
+.item-list {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 1.2rem;
+}
+.item-list li {
+  background: #faf7f3;
+  border-radius: 14px;
+  padding: 0.9rem 1.1rem;
+  margin-bottom: 0.8rem;
+  border: 1px solid #d8cfc4;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  transition: 0.25s ease;
+}
+.item-list li::before { content: "●"; font-size: 0.65rem; color: #9c2f2f; flex-shrink: 0; }
+.item-list li:hover { transform: translateY(-2px); box-shadow: 0 14px 32px rgba(0,0,0,0.08); }
+
+/* ---------- Code ---------- */
+code {
+  font-family: "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
+  font-size: 0.9em;
+  background: #f1ece4;
+  padding: 0.15rem 0.35rem;
+  border-radius: 4px;
+  color: #3b2b1d;
+}
+pre.code-block {
+  background: #f1ece4;
+  border-radius: 10px;
+  padding: 1.2rem 1.4rem;
+  overflow-x: auto;
+  font-size: 0.92rem;
+  line-height: 1.7;
+  border: 1px solid #d8cfc4;
+  margin-top: 1rem;
+}
+pre.code-block code { background: none; padding: 0; }
+
+/* ---------- Box muted ---------- */
+.box-muted {
+  background: #f7f4ef;
+  border-radius: 14px;
+  padding: 1.5rem 1.6rem;
+  border: 1px solid #d8cfc4;
+  font-size: 0.95rem;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.6);
+}
+.box-muted h3 { margin-top: 1rem; font-size: 1.1rem; color: #5b3a22; }
+.box-muted h3:first-child { margin-top: 0; }
+.box-muted p { margin: 0.3rem 0 0; font-size: 0.97rem; }
+
+/* ---------- Contributor list ---------- */
+.contributor-list {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 1.2rem;
+}
+.contributor-list li {
+  background: #faf7f3;
+  border-radius: 14px;
+  padding: 0.9rem 1.2rem;
+  margin-bottom: 0.8rem;
+  border: 1px solid #d8cfc4;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  transition: 0.25s ease;
+}
+.contributor-list li:hover { transform: translateY(-2px); box-shadow: 0 14px 32px rgba(0,0,0,0.08); }
+.contributor-list li strong { font-size: 1.05rem; color: #3b2b1d; }
+.contributor-list li span { font-size: 0.97rem; color: #5b4733; }
+
+/* ---------- Links ---------- */
+a { color: #9c2f2f; transition: color 0.2s ease; }
+a:hover { color: #a63a3a; }
+
+/* ---------- Animation ---------- */
+@keyframes fadeInUpSoft {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- Footer ---------- */
+.site-footer {
+  border-top: 1px solid #d2c5b4;
+  padding: 1.6rem 1.5rem 1.8rem;
+  margin-top: 3rem;
+  font-size: 0.9rem;
+  color: #7c6b57;
+  text-align: center;
+  background: #ece7df;
+}
+.site-footer a { color: #9c2f2f; text-decoration: none; }
+.site-footer a:hover { text-decoration: underline; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 780px) {
+  .page { padding: 2.2rem 1.2rem 3.4rem; }
+  .section { padding: 2rem 1.4rem 1.6rem; border-radius: 16px; }
+}
+@media (max-width: 520px) {
+  .site-title { font-size: 2.2rem; }
+  .hero-actions { flex-direction: column; align-items: center; }
+}
+
+/* ---------- Dark mode ---------- */
+@media (prefers-color-scheme: dark) {
+  body { background: #0f0c0a; color: #f5f0e6; }
+  .site-header { background: #1a1412; border-bottom-color: #3a2519; box-shadow: 0 10px 30px rgba(0,0,0,0.6); }
+  .site-kicker { color: #c1b09c; }
+  .site-title { color: #f1e2d4; }
+  .site-subtitle { color: #d4c4b3; }
+  .site-branding::after { background: rgba(47,29,21,0.9); border-color: rgba(156,47,47,0.5); color: #f1d2b8; }
+  .section { background: #1b130f; border-top-color: #9c2f2f; box-shadow: 0 18px 45px rgba(0,0,0,0.7); }
+  .section h1, .section h2 { color: #f2dfc7; }
+  .section h3 { color: #f1d2b8; }
+  .section-intro { color: #e2d0bf; }
+  .box-muted { background: #231710; border-color: #4a3222; }
+  .box-muted h3 { color: #f1d2b8; }
+  .item-list li { background: #231813; border-color: #3c2920; }
+  code, pre.code-block { background: #2b1b14; color: #f3e1cf; border-color: #4a3222; }
+  .btn-ghost { background: rgba(35,23,17,0.9); border-color: rgba(156,47,47,0.6); color: #f3ddc5; }
+  .btn-ghost:hover { background: #2c1c14; color: #ffb27b; }
+  .site-footer { background: #21150f; border-top-color: #3a2519; color: #c4b19c; }
+  .site-footer a { color: #ffb27b; }
+  a { color: #ffb27b; }
+  a:hover { color: #ffc89a; }
+}
+    </style>
   </head>
 
   <body>
 
-    <!-- HEADER -->
     <header class="site-header">
       <div class="header-inner">
         <div class="site-branding">
           <p class="site-kicker">Information Science and Cultural Heritage · UniBo</p>
           <h1 class="site-title">README</h1>
           <p class="site-subtitle">The "Revolussion" of Renzo Renzi · Project Overview</p>
-
           <div class="hero-actions">
             <a href="index.html" class="btn-ghost">← Back to the main site</a>
           </div>
@@ -29,33 +293,28 @@
 
     <main class="page">
 
-      <!-- INTRO BOX -->
       <section class="section">
         <h1>README</h1>
         <p class="section-intro">
           <strong>The "Revolussion" of Renzo Renzi</strong><br />
-          <em>Information Science and Cultural Heritage – University of Bologna (2024–2025)</em>
+          <em>Information Science and Cultural Heritage – University of Bologna (2024–2025)</em><br />
+          Instructors: Marilena Daquino and Francesca Tomasi
         </p>
       </section>
 
-      <!-- OVERVIEW -->
-      <section class="section">
+      <section class="section" id="overview">
         <h2>Overview</h2>
-
         <p>
-          The <em>“Revolussion” of Renzo Renzi</em> is a digital humanities project dedicated to exploring the archival
+          The <em>"Revolussion" of Renzo Renzi</em> is a digital humanities project dedicated to exploring the archival
           and cultural ecosystem built by <strong>Renzo Renzi</strong> (1919–2004): film critic, curator, writer, and one
           of the key figures behind the creation of the <strong>Cineteca di Bologna</strong>.
         </p>
-
         <p>
-          The project investigates Renzi’s analogue “web of cinema knowledge” by studying
+          The project investigates Renzi's analogue "web of cinema knowledge" by studying
           <strong>15 heterogeneous cultural heritage items</strong> conserved at — or connected to — the
           <strong>Renzo Renzi Collection</strong>.
         </p>
-
         <p>The project integrates:</p>
-
         <ul class="item-list">
           <li><strong>TEI/XML scholarly encoding</strong> of a textual item</li>
           <li><strong>XSLT transformation</strong> for online publication</li>
@@ -64,17 +323,14 @@
           <li><strong>Reuse of CH standards and ontologies</strong></li>
           <li><strong>Unified web interface</strong> published with GitHub Pages</li>
         </ul>
-
         <p>
           The goal is to transform an analogue archive into a <strong>Linked Open Data ecosystem</strong>, while
           documenting the methodological steps behind data modelling in DH.
         </p>
       </section>
 
-      <!-- STRUCTURE -->
-      <section class="section">
+      <section class="section" id="structure">
         <h2>Project Structure</h2>
-
         <pre class="code-block"><code>csv/                  → Metadata tables for all items
 script/               → Python scripts (CSV → RDF transformation)
 tei_xslt/             → TEI XML + XSLT stylesheet
@@ -84,25 +340,20 @@ img/                  → Photographs, stills, visual materials
 index.html            → Website home
 project-documentation.html
 style.css
-README.md
-</code></pre>
-
+README.md</code></pre>
         <p>
           A full explanation of the workflow is provided in
           <strong><a href="project-documentation.html">Project Documentation</a></strong>.
         </p>
       </section>
 
-      <!-- OBJECTIVES -->
-      <section class="section">
+      <section class="section" id="objectives">
         <h2>Objectives</h2>
-
         <ol>
           <li>
             <strong>Define a coherent thematic scope</strong> (Renzo Renzi and his network around
             <em>La Strada</em> and the Renzo Renzi Collection).
           </li>
-
           <li>
             <strong>Extract metadata</strong> using authoritative CH standards:
             <ul>
@@ -112,27 +363,20 @@ README.md
               <li>ISAD(G) for archival documents</li>
             </ul>
           </li>
-
           <li><strong>Encode a text item in TEI P5</strong> and publish it through <strong>XSLT</strong>.</li>
-
           <li>
             <strong>Develop a conceptual model</strong> by reusing:
             Dublin Core Terms, Schema.org, FOAF, SKOS
             (<em>RiC-O and CIDOC CRM used as conceptual references</em>)
           </li>
-
           <li><strong>Generate an integrated RDF dataset</strong> (<code>rrr.ttl</code>).</li>
-
           <li><strong>Publish the whole project on the web</strong> via GitHub Pages.</li>
         </ol>
       </section>
 
-      <!-- ITEMS -->
-      <section class="section">
+      <section class="section" id="items">
         <h2>Selected Cultural Heritage Items</h2>
-
         <p>The dataset includes <strong>15 items</strong>, structured as:</p>
-
         <ul class="item-list">
           <li><strong>Book / full text</strong> — <em>Il primo Fellini</em> (ISBD(G))</li>
           <li><strong>TEI-encoded screenplay excerpt</strong></li>
@@ -144,9 +388,7 @@ README.md
           <li><strong>Renzo Renzi Library</strong> (ICCU / ISIL identification)</li>
           <li><strong>Family photo / set photo</strong> (Scheda F)</li>
         </ul>
-
         <p>For each item, the project includes:</p>
-
         <ul class="item-list">
           <li>CSV metadata</li>
           <li>Source standard</li>
@@ -157,39 +399,40 @@ README.md
         </ul>
       </section>
 
-      <!-- CONTRIBUTORS -->
-      <section class="section">
+      <section class="section" id="team">
         <h2>Contributors</h2>
-
-        <ul class="item-list">
-          <li><strong>Laura Bortoli</strong><br />laura.bortoli@studio.unibo.it<br />GitHub: <a href="https://github.com/lauraaa13">lauraaa13</a></li>
-          <li><strong>Claudia Romanello</strong><br />claudia.romanello@studio.unibo.it<br />GitHub: <a href="https://github.com/claudiarom">claudiarom</a></li>
-          <li><strong>Qinghao Chen</strong><br />qinghao.chen@studio.unibo.it<br />GitHub: <a href="https://github.com/River-Qinghao">River-Qinghao</a></li>
+        <ul class="contributor-list">
+          <li>
+            <strong>Laura Bortoli</strong>
+            <span>laura.bortoli@studio.unibo.it</span>
+            <span>GitHub: <a href="https://github.com/lauraaa13" target="_blank" rel="noopener">lauraaa13</a></span>
+          </li>
+          <li>
+            <strong>Claudia Romanello</strong>
+            <span>claudia.romanello@studio.unibo.it</span>
+            <span>GitHub: <a href="https://github.com/claudiarom" target="_blank" rel="noopener">claudiarom</a></span>
+          </li>
+          <li>
+            <strong>Qinghao Chen</strong>
+            <span>qinghao.chen@studio.unibo.it</span>
+            <span>GitHub: <a href="https://github.com/River-Qinghao" target="_blank" rel="noopener">River-Qinghao</a></span>
+          </li>
         </ul>
-
         <p>
           All project members contributed collaboratively to metadata extraction, TEI encoding, RDF modelling, Python
           scripting, and interface development.
         </p>
+        <div class="box-muted" style="margin-top:1.5rem">
+          <h3>Acknowledgments</h3>
+          <p>
+            The authors warmly thank <strong>Anna Fiaccarini</strong>, Head of the Cineteca di Bologna Library since 1997,
+            for her guidance, availability, and support throughout the project.
+          </p>
+          <h3>Supervision</h3>
+          <p><strong>Text Encoding &amp; Semantic Representation</strong><br />Marilena Daquino</p>
+          <p><strong>Knowledge Organization in Libraries &amp; Archives</strong><br />Francesca Tomasi</p>
+        </div>
       </section>
 
-      <!-- ACKNOWLEDGMENTS -->
-      <section class="section">
-        <h2>Acknowledgments</h2>
-
-        <p>
-          The authors warmly thank <strong>Anna Fiaccarini</strong>, Head of the Cineteca di Bologna Library since 1997,
-          for her guidance, availability, and support throughout the project.
-        </p>
-      </section>
-
-      <!-- LICENSE -->
-      <section class="section">
-        <h2>License</h2>
-        <p>This project is released under a <strong>CC BY-SA 4.0</strong> license.</p>
-      </section>
-
-    </main>
-
-  </body>
-</html>
+      <section class="section" id="license">
+        <h2>
