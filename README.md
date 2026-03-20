@@ -11,8 +11,6 @@ The *“Revolussion” of Renzo Renzi* is a digital humanities project dedicated
 The project investigates Renzi’s analogue “web of cinema knowledge” by studying **15 heterogeneous cultural heritage items** conserved at — or connected to — the **Renzo Renzi Collection**.
 The project integrates:
 
-It integrates:
-
 - **TEI/XML scholarly encoding** of a textual item
 - **XSLT transformation** for online publication
 - **CSV-based metadata extraction** from institutional standards
@@ -58,8 +56,8 @@ A full explanation of the workflow is provided in **Project-Documentation.md**.
    - Schema.org
    - FOAF
    - SKOS
-     (RiC-O and CIDOC CRM used as conceptual references)
-5. **Generate an integrated RDF dataset** (rrr.ttl).  
+     (*RiC-O and CIDOC CRM used as conceptual references*)
+5. **Generate an integrated RDF dataset** (`rrr.ttl`).  
 6. **Publish the whole project on the web** via GitHub Pages.
 
 ---
@@ -72,9 +70,9 @@ The dataset includes **15 items**, structured as:
 - **TEI-encoded screenplay excerpt**
 - **4 photographs** (ICCD Scheda F)
 - **2 drawings / caricatures** (ICCD Scheda OA)
-- **Sound recording: La Strada soundtrack** (ISBD NBM)
+- **Sound recording** — *La Strada soundtrack* (ISBD NBM)
 - **Audiovisual interview** (FIAF)
-- **Documentary film “Quando il Po è dolce”** (ISBD NBM + FIAF)
+- **Documentary film** — *Quando il Po è dolce* (ISBD NBM + FIAF)
 - **Renzo Renzi Library** (ICCU / ISIL identification)
 - **Family photo / set photo** (Scheda F)
 
@@ -114,29 +112,28 @@ For each item, the project includes:
 
 ---
 
-## Scripts Included
+## Scripts
 
 ### `scripts/`  
 This folder contains all Python scripts used to transform CSV metadata into RDF/Turtle files and to validate the resulting dataset.
 
-### `*_item.py` (one per cultural heritage item)  
+### Item-level scripts (`*_item.py`)  
 Each script converts a single CSV file into a corresponding Turtle file.  
 Examples:  
 - `po_documentary.py`  
 - `drawing_gelsomina_lastrada.py`  
 - `photo_la_strada_fighter.py`  
-- `portrait_of_renzo_renzi.py`  
+- `book_il_primo_fellini.py`
 
-### `merging.py`  
-Merges all individual Turtle files into a unified RDF graph (`full_dataset.ttl`).
-
-### `test_sparql.py`  
-Runs technical validation tests (types, missing properties, duplicates, non-numeric years).
-
-### `test_sparql_C.py`  
-Runs conceptual and narrative validation tests (coherence of relations, temporal logic, place modelling, entity completeness).
-
-These scripts ensure that the final RDF dataset is both **technically valid** and **semantically coherent**.
+### Core scripts
+- `base.py`
+  Shared functions and utilities reused across item scripts.
+- `merging.py`
+  Merges all individual Turtle files into a unified RDF graph (`full_dataset.ttl`).
+- `xml_to_html.py`
+  Transforms TEI XML into HTML using the project’s XSLT stylesheet.
+- `xml_to_rdf.py`
+  Converts selected XML materials into RDF triples.
 
 ---
 
@@ -174,11 +171,23 @@ The website presents:
 
 The project was developed by:
 
-- **Laura Bortoli** – TEI encoding, XSLT design, RDF generation, CSV creation, metadata harmonization
-- **Claudia Romanello** – Photograph metadata, documentary and screenplay analysis, Python scripts
-- **Qinghao Chen** – Additional metadata extraction, interface work, RDF validation
+- **Laura Bortoli**
+  laura.bortoli@studio.unibo.it
+  GitHub: https://github.com/lauraaa13
+- **Claudia Romanello**
+  claudia.romanello@studio.unibo.it
+  GitHub: https://github.com/claudiarom
+- **Qinghao Chen**
+  qinghao.chen@studio.unibo.it
+  GitHub: https://github.com/River-Qinghao  
 
-Full breakdown in **Project-Documentation.md**.
+All project members contributed collaboratively to metadata extraction, TEI encoding, RDF modelling, Python scripting, and interface development.
+
+---
+
+## Acknowledgments
+The authors warmly thank **Anna Fiaccarini**, Head of the Cineteca di Bologna Library since 1997, for her guidance, availability, and support throughout the project.
+Her expertise and historical knowledge of the Renzo Renzi Collection were essential to shaping the research and ensuring its cultural accuracy.
 
 ---
 
