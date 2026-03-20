@@ -1,5 +1,7 @@
 <article class="section">
+
   <h1>The “Revolussion” of Renzo Renzi</h1>
+
   <p class="section-intro">
     <em>A Digital Humanities & Linked Open Data Project</em><br />
     <strong>Information Science and Cultural Heritage – University of Bologna (2024–2025)</strong>
@@ -7,6 +9,7 @@
 
   <hr />
 
+  <!-- OVERVIEW -->
   <h2 id="overview">Overview</h2>
 
   <p>
@@ -22,7 +25,8 @@
   </p>
 
   <p>The project integrates:</p>
-  <ul>
+
+  <ul class="item-list">
     <li><strong>TEI/XML scholarly encoding</strong> of a textual item</li>
     <li><strong>XSLT transformation</strong> for online publication</li>
     <li><strong>CSV-based metadata extraction</strong> from institutional standards</li>
@@ -38,6 +42,7 @@
 
   <hr />
 
+  <!-- STRUCTURE -->
   <h2 id="structure">Project Structure</h2>
 
   <pre class="code-block"><code>csv/                  → Metadata tables for all items
@@ -54,11 +59,12 @@ README.md
 
   <p>
     A full explanation of the workflow is provided in
-    <strong><a href="project-documentation.html">Project-Documentation.md</a></strong>.
+    <strong><a href="project-documentation.html">Project Documentation</a></strong>.
   </p>
 
   <hr />
 
+  <!-- OBJECTIVES -->
   <h2 id="objectives">Objectives</h2>
 
   <ol>
@@ -92,24 +98,26 @@ README.md
 
   <hr />
 
+  <!-- ITEMS -->
   <h2 id="data">Selected Cultural Heritage Items</h2>
 
   <p>The dataset includes <strong>15 items</strong>, structured as:</p>
 
-  <ul>
+  <ul class="item-list">
     <li><strong>Book / full text</strong> — <em>Il primo Fellini</em> (ISBD(G))</li>
     <li><strong>TEI-encoded screenplay excerpt</strong></li>
     <li><strong>4 photographs</strong> (ICCD Scheda F)</li>
     <li><strong>2 drawings / caricatures</strong> (ICCD Scheda OA)</li>
     <li><strong>Sound recording</strong> — <em>La Strada</em> soundtrack (ISBD NBM)</li>
     <li><strong>Audiovisual interview</strong> (FIAF)</li>
-    <li><strong>Documentary film</strong> — <em>Quando il Po è dolce</em> (ISBD NBM + FIAF)</li>
+    <li><strong>Documentary film</strong> — <em>Quando il Po è dolce</em></li>
     <li><strong>Renzo Renzi Library</strong> (ICCU / ISIL identification)</li>
     <li><strong>Family photo / set photo</strong> (Scheda F)</li>
   </ul>
 
   <p>For each item, the project includes:</p>
-  <ul>
+
+  <ul class="item-list">
     <li>CSV metadata</li>
     <li>Source standard</li>
     <li>Holding institution</li>
@@ -120,6 +128,7 @@ README.md
 
   <hr />
 
+  <!-- STANDARDS -->
   <h2 id="standards">Standards & Ontologies</h2>
 
   <h3>Metadata Standards</h3>
@@ -151,6 +160,7 @@ README.md
 
   <hr />
 
+  <!-- SCRIPTS -->
   <h2 id="scripts">Scripts</h2>
 
   <p>
@@ -159,9 +169,8 @@ README.md
   </p>
 
   <h3>Item-level scripts (<code>*_item.py</code>)</h3>
-  <p>Each script converts a single CSV file into a corresponding Turtle file.</p>
 
-  <ul>
+  <ul class="item-list">
     <li><code>po_documentary.py</code></li>
     <li><code>drawing_gelsomina_lastrada.py</code></li>
     <li><code>photo_la_strada_fighter.py</code></li>
@@ -169,7 +178,8 @@ README.md
   </ul>
 
   <h3>Core scripts</h3>
-  <ul>
+
+  <ul class="item-list">
     <li><code>base.py</code> — shared functions and utilities reused across item scripts.</li>
     <li><code>merging.py</code> — merges all individual Turtle files into <code>full_dataset.ttl</code>.</li>
     <li><code>xml_to_html.py</code> — transforms TEI XML into HTML using the project’s XSLT stylesheet.</li>
@@ -178,10 +188,12 @@ README.md
 
   <hr />
 
+  <!-- WEBSITE -->
   <h2 id="website">Website</h2>
 
   <p>The website presents:</p>
-  <ul>
+
+  <ul class="item-list">
     <li>The TEI edition of the selected text</li>
     <li>All metadata tables</li>
     <li>Complete RDF dataset</li>
@@ -196,12 +208,13 @@ README.md
 
   <hr />
 
+  <!-- CONTRIBUTORS -->
   <h2 id="contributors">Contributors</h2>
 
-  <ul>
-    <li><strong>Laura Bortoli</strong><br />laura.bortoli@studio.unibo.it<br />GitHub: https://github.com/lauraaa13</li>
-    <li><strong>Claudia Romanello</strong><br />claudia.romanello@studio.unibo.it<br />GitHub: https://github.com/claudiarom</li>
-    <li><strong>Qinghao Chen</strong><br />qinghao.chen@studio.unibo.it<br />GitHub: https://github.com/River-Qinghao</li>
+  <ul class="item-list">
+    <li><strong>Laura Bortoli</strong><br />laura.bortoli@studio.unibo.it<br />GitHub: <a href="https://github.com/lauraaa13">lauraaa13</a></li>
+    <li><strong>Claudia Romanello</strong><br />claudia.romanello@studio.unibo.it<br />GitHub: <a href="https://github.com/claudiarom">claudiarom</a></li>
+    <li><strong>Qinghao Chen</strong><br />qinghao.chen@studio.unibo.it<br />GitHub: <a href="https://github.com/River-Qinghao">River-Qinghao</a></li>
   </ul>
 
   <p>
@@ -211,6 +224,7 @@ README.md
 
   <hr />
 
+  <!-- ACKNOWLEDGMENTS -->
   <h2 id="acknowledgments">Acknowledgments</h2>
 
   <p>
@@ -221,6 +235,7 @@ README.md
 
   <hr />
 
+  <!-- REFERENCES -->
   <h2 id="references">References</h2>
 
   <ul>
@@ -232,6 +247,8 @@ README.md
 
   <hr />
 
+  <!-- LICENSE -->
   <h2 id="license">License</h2>
   <p>This project is released under a <strong>CC BY-SA 4.0</strong> license.</p>
+
 </article>
