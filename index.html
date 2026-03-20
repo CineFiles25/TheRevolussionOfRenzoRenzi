@@ -5,7 +5,7 @@
     <title>The “Revolussion” of Renzo Renzi</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <!-- Google Fonts for typography -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -20,27 +20,25 @@
     <header class="site-header">
       <div class="header-inner">
         <div class="site-branding">
-          <p class="site-kicker">
-            Information Science and Cultural Heritage · UniBo
-          </p>
+          <p class="site-kicker">Information Science and Cultural Heritage · UniBo</p>
           <h1 class="site-title">The “Revolussion” of Renzo Renzi</h1>
           <p class="site-subtitle">
-            A Digital Humanities &amp; Linked Open Data project on the Renzo Renzi Collection at the <strong>Cineteca di Bologna</strong>.
+            A Digital Humanities &amp; Linked Open Data project on the Renzo Renzi Collection at the
+            <strong>Cineteca di Bologna</strong>.
           </p>
 
-          <!-- Hero call-to-actions -->
           <div class="hero-actions">
             <a href="#items" class="btn-primary">Explore the collection</a>
             <a href="#metadata" class="btn-ghost">Methods &amp; standards</a>
           </div>
         </div>
-        
+
         <nav class="site-nav">
           <a href="#overview">Overview</a>
           <a href="#items">Items</a>
           <a href="#conceptual-graph">Conceptual Graph</a>
           <a href="#theoretical-graph">Theoretical Graph</a>
-          <a href="#metadata">Metadata &amp; Standards</a>
+          <a href="#descriptive">Metadata &amp; Standards</a>
           <a href="#tei">TEI &amp; HTML</a>
           <a href="#rdf">RDF &amp; LOD</a>
           <a href="#gallery">Photo Gallery</a>
@@ -50,13 +48,9 @@
 
         <div class="hero-photo">
           <figure>
-            <img
-              src="img/renzi_camera.jpg"
-              alt="Archival film set photograph from the Renzo Renzi Collection"
-            />
+            <img src="img/renzi_camera.jpg" alt="Archival film set photograph from the Renzo Renzi Collection" />
             <figcaption>
-              Archival film set photograph from the Renzo Renzi Collection,
-              Cineteca di Bologna.
+              Archival film set photograph from the Renzo Renzi Collection, Cineteca di Bologna.
             </figcaption>
           </figure>
         </div>
@@ -68,7 +62,8 @@
       <section id="overview" class="section">
         <h2>Overview</h2>
         <p class="section-intro">
-          <em>The “Revolussion” of Renzo Renzi</em> is a digital humanities project that explores the archival universe of <strong>Renzo Renzi</strong> (1919–2004), an exemplary figure in Italy as a film critic, writer, cultural communicator, and organizer.
+          <em>The “Revolussion” of Renzo Renzi</em> is a digital humanities project exploring the archival universe of
+          <strong>Renzo Renzi</strong> (1919–2004), a film critic, writer, cultural communicator, and organizer.
         </p>
 
         <p>The project integrates:</p>
@@ -77,18 +72,14 @@
           <li>XSLT transformation for web publication</li>
           <li>CSV–based metadata extraction and analysis</li>
           <li>Linked Open Data modelling (RDF/Turtle)</li>
-          <li>
-            Reuse of major cultural heritage standards (ISBD, ICCD, FIAF, ISAD(G))
-          </li>
-          <li>
-            A conceptual model inspired by existing ontologies (DC Terms, Schema.org, FOAF, RiC-O, CIDOC CRM)
-          </li>
+          <li>Reuse of major cultural heritage standards (ISBD, ICCD, FIAF, ISAD(G))</li>
+          <li>A conceptual model inspired by DC Terms, Schema.org, FOAF, RiC-O, CIDOC CRM</li>
           <li>A web interface presenting all deliverables</li>
         </ul>
 
         <p>
-          The dataset includes
-          <strong>15 heterogeneous cultural heritage items</strong> (books, photographs, drawings, sound recordings, interviews, documents) described, encoded and semantically linked.
+          The dataset includes <strong>15 heterogeneous cultural heritage items</strong> (books, photographs, drawings,
+          sound recordings, interviews, documents) described, encoded and semantically linked.
         </p>
       </section>
 
@@ -96,265 +87,225 @@
       <section id="items" class="section">
         <h2>Items &amp; Selection</h2>
         <p class="section-intro">
-          The project focuses on objects connected to <em>La Strada</em> and to Renzo Renzi’s critical and curatorial work.
-          Below you can explore the full selection (15 items), with the main descriptive standards and source links.
+          The project focuses on objects connected to <em>La Strada</em> and to Renzo Renzi’s critical and curatorial
+          work. Below you can explore the full selection.
         </p>
-        
+
         <div class="table-wrap">
           <table class="items-table">
             <thead>
               <tr>
-                <th scope="col">#</th>
-                <th scope="col">Item</th>
-                <th scope="col">Type</th>
-                <th scope="col">Holding institution / provider</th>
-                <th scope="col">Instution / Chosen metadata</th>
-                <th scope="col">Source link</th>
+                <th>#</th>
+                <th>Item</th>
+                <th>Type</th>
+                <th>Holding institution / provider</th>
+                <th>Institution / Chosen metadata</th>
+                <th>Source link</th>
               </tr>
             </thead>
-            
+
             <tbody>
-      
-      <!-- 1 -->
-      <tr>
-          <td>1</td>
-          <td><strong><em>Il primo Fellini</em></strong> (Renzo Renzi)</td>
-          <td>Book (full text)</td>
-          <td>Cineteca di Bologna / Biblioteca Renzo Renzi</td>
-          <td>SBN-MARC / MODS</td>
-          <td>
-            <a href="metadata/book_il_primo_fellini_mods.xml" target="_blank" rel="noopener">XML</a>
-          </td>
-        </tr>
 
-        <!-- 2 -->
-        <tr>
-          <td>2</td>
-          <td><strong>Sceneggiatura manoscritta di "Guida per camminare all'ombra"</strong></td>
-          <td>Screenplay / archival record</td>
-          <td>Cineteca di Bologna / Renzo Renzi Library</td>
-          <td>- / EAD</td>
-          <td>
-            <a href="metadata/guida_screenplay_ead.xml" target="_blank" rel="noopener">XML</a>
-          </td>
-        </tr>
+              <!-- 1 -->
+              <tr>
+                <td>1</td>
+                <td><strong><em>Il primo Fellini</em></strong> (Renzo Renzi)</td>
+                <td>Book (full text)</td>
+                <td>Cineteca di Bologna / Biblioteca Renzo Renzi</td>
+                <td>SBN-MARC / MODS</td>
+                <td><a href="metadata/book_il_primo_fellini_mods.xml" target="_blank">XML</a></td>
+              </tr>
 
-        <!-- 3 -->
-        <tr>
-          <td>3</td>
-          <td><strong>Bologna. Cinema Fulgor. Premiere of <em>La Strada</em></strong></td>
-          <td>Photograph</td>
-          <td>Cineteca di Bologna / Fondo Iniziative Cineteca</td>
-          <td>- / VRA Core</td>
-          <td>
-            <a href="metadata/photo_lastrada_premiere_vra.xml" target="_blank" rel="noopener">XML</a>
-          </td>
-        </tr>
+              <!-- 2 -->
+              <tr>
+                <td>2</td>
+                <td><strong>Sceneggiatura manoscritta di "Guida per camminare all'ombra"</strong></td>
+                <td>Screenplay / archival record</td>
+                <td>Cineteca di Bologna / Renzo Renzi Library</td>
+                <td>- / EAD</td>
+                <td><a href="metadata/guida_screenplay_ead.xml" target="_blank">XML</a></td>
+              </tr>
 
-        <!-- 4 -->
-        <tr>
-          <td>4</td>
-          <td><strong>La Strada: Gelsomina col tamburo</strong></td>
-          <td>Drawing</td>
-          <td>Cineteca di Bologna / Renzo Renzi Collection</td>
-          <td>- / VRA Core</td>
-          <td>
-            <a href="metadata/drawing_gelsomina_lastrada_vra.xml" target="_blank" rel="noopener">XML</a>
-          </td>
-        </tr>
+              <!-- 3 -->
+              <tr>
+                <td>3</td>
+                <td><strong>Bologna. Cinema Fulgor. Premiere of <em>La Strada</em></strong></td>
+                <td>Photograph</td>
+                <td>Cineteca di Bologna / Fondo Iniziative Cineteca</td>
+                <td>- / VRA Core</td>
+                <td><a href="metadata/photo_lastrada_premiere_vra.xml" target="_blank">XML</a></td>
+              </tr>
 
-        <!-- 5 -->
-        <tr>
-          <td>5</td>
-          <td><strong>Caricature “Perché Federico non fa la rivolussione?”</strong></td>
-          <td>Drawing / caricature</td>
-          <td>Cineteca di Bologna / Renzo Renzi Fund</td>
-          <td>- / VRA Core</td>
-          <td>
-            <a href="metadata/caricature_fellini_renzi_vra.xml" target="_blank" rel="noopener">XML</a>
-          </td>
-        </tr>
+              <!-- 4 -->
+              <tr>
+                <td>4</td>
+                <td><strong>La Strada: Gelsomina col tamburo</strong></td>
+                <td>Drawing</td>
+                <td>Cineteca di Bologna / Renzo Renzi Collection</td>
+                <td>- / VRA Core</td>
+                <td><a href="metadata/drawing_gelsomina_lastrada_vra.xml" target="_blank">XML</a></td>
+              </tr>
 
-        <!-- 6 -->
-        <tr>
-          <td>6</td>
-          <td><strong>Set photograph from <em>Le notti del Melodramma</em></strong></td>
-          <td>Photograph</td>
-          <td>Cineteca di Bologna</td>
-          <td>- / VRA Core</td>
-          <td>
-            <a href="metadata/ferrari_set_photo_vra.xml" target="_blank" rel="noopener">XML</a>
-          </td>
-        </tr>
+              <!-- 5 -->
+              <tr>
+                <td>5</td>
+                <td><strong>Caricature “Perché Federico non fa la rivolussione?”</strong></td>
+                <td>Drawing / caricature</td>
+                <td>Cineteca di Bologna / Renzo Renzi Fund</td>
+                <td>- / VRA Core</td>
+                <td><a href="metadata/caricature_fellini_renzi_vra.xml" target="_blank">XML</a></td>
+              </tr>
 
-        <!-- 7 -->
-        <tr>
-          <td>7</td>
-          <td><strong>Circus performance scene from <em>La Strada</em></strong></td>
-          <td>Photograph</td>
-          <td>Cineteca di Bologna / Fondo Fotografie Cineteca</td>
-          <td>- / VRA Core</td>
-          <td>
-            <a href="metadata/photo_la_strada_fighter_vra.xml" target="_blank" rel="noopener">XML</a>
-          </td>
-        </tr>
+              <!-- 6 -->
+              <tr>
+                <td>6</td>
+                <td><strong>Set photograph from <em>Le notti del Melodramma</em></strong></td>
+                <td>Photograph</td>
+                <td>Cineteca di Bologna</td>
+                <td>- / VRA Core</td>
+                <td><a href="metadata/ferrari_set_photo_vra.xml" target="_blank">XML</a></td>
+              </tr>
 
-        <!-- 8 -->
-        <tr>
-          <td>8</td>
-          <td><strong>Gelsomina eating bread in rural landscape</strong></td>
-          <td>Photograph</td>
-          <td>Cineteca di Bologna / Fondo Fotografie Cineteca</td>
-          <td>- / VRA Core</td>
-          <td>
-            <a href="metadata/photo_la_strada_woman_vra.xml" target="_blank" rel="noopener">XML</a>
-          </td>
-        </tr>
+              <!-- 7 -->
+              <tr>
+                <td>7</td>
+                <td><strong>Circus performance scene from <em>La Strada</em></strong></td>
+                <td>Photograph</td>
+                <td>Cineteca di Bologna / Fondo Fotografie Cineteca</td>
+                <td>- / VRA Core</td>
+                <td><a href="metadata/photo_la_strada_fighter_vra.xml" target="_blank">XML</a></td>
+              </tr>
 
-        <!-- 9 -->
-        <tr>
-          <td>9</td>
-          <td><strong>Il cinema a Bologna: Renzo Renzi e la Columbus film</strong> (2000)</td>
-          <td>Video interview</td>
-          <td>Cineteca di Bolognay</td>
-          <td>- / MODS</td>
-          <td>
-            <a href="metadata/renzi_interview_2000_mods.xml" target="_blank" rel="noopener">XML</a>
-          </td>
-        </tr>
+              <!-- 8 -->
+              <tr>
+                <td>8</td>
+                <td><strong>Gelsomina eating bread in rural landscape</strong></td>
+                <td>Photograph</td>
+                <td>Cineteca di Bologna / Fondo Fotografie Cineteca</td>
+                <td>- / VRA Core</td>
+                <td><a href="metadata/photo_la_strada_woman_vra.xml" target="_blank">XML</a></td>
+              </tr>
 
-        <!-- 10 -->
-        <tr>
-          <td>10</td>
-          <td><strong><em>La strada</em></strong> (film)</td>
-          <td>Film</td>
-          <td>Cineteca di Bologna</td>
-          <td>- / MODS</td>
-          <td>
-            <a href="metadata/la_strada_film_mod.xml" target="_blank" rel="noopener">XML</a>
-          </td>
-        </tr>
+              <!-- 9 -->
+              <tr>
+                <td>9</td>
+                <td><strong>Il cinema a Bologna: Renzo Renzi e la Columbus film</strong> (2000)</td>
+                <td>Video interview</td>
+                <td>Cineteca di Bologna</td>
+                <td>- / MODS</td>
+                <td><a href="metadata/renzi_interview_2000_mods.xml" target="_blank">XML</a></td>
+              </tr>
 
-        <!-- 11 -->
-        <tr>
-          <td>11</td>
-          <td><strong><em>La strada: musique du film</em></strong> (Nino Rota)</td>
-          <td>Sound recording</td>
-          <td>Cineteca di Bologna</td>
-          <td>SBN-MARC / MODS</td>
-          <td>
-            <a href="metadata/la_strada_soundtrack_original_mods.xml" target="_blank" rel="noopener">XML</a>
-          </td>
-        </tr>
+              <!-- 10 -->
+              <tr>
+                <td>10</td>
+                <td><strong><em>La strada</em></strong> (film)</td>
+                <td>Film</td>
+                <td>Cineteca di Bologna</td>
+                <td>- / MODS</td>
+                <td><a href="metadata/la_strada_film_mod.xml" target="_blank">XML</a></td>
+              </tr>
 
-        <!-- 12 -->
-        <tr>
-          <td>12</td>
-          <td><strong>Portrait of Renzo Renzi</strong></td>
-          <td>Photograph</td>
-          <td>Cineteca di Bologna | Renzo Renzi Fund</td>
-          <td>- / VRA Core</td>
-          <td>
-            <a href="metadata/renzi_portrait_vra.xml" target="_blank" rel="noopener">XML</a>
-          </td>
-        </tr>
+              <!-- 11 -->
+              <tr>
+                <td>11</td>
+                <td><strong><em>La strada: musique du film</em></strong> (Nino Rota)</td>
+                <td>Sound recording</td>
+                <td>Cineteca di Bologna</td>
+                <td>SBN-MARC / MODS</td>
+                <td><a href="metadata/la_strada_soundtrack_original_mods.xml" target="_blank">XML</a></td>
+              </tr>
 
-        <!-- 13 -->
-        <tr>
-          <td>13</td>
-          <td><strong><em>Quando il Po è dolce</em></strong> (1952)</td>
-          <td>Documentary film</td>
-          <td>Cineteca di Bologna</td>
-          <td>- / MODS</td>
-          <td>
-            <a href="metadata/po_documentary_mods.xml" target="_blank" rel="noopener">XML</a>
-          </td>
-        </tr>
+              <!-- 12 -->
+              <tr>
+                <td>12</td>
+                <td><strong>Portrait of Renzo Renzi</strong></td>
+                <td>Photograph</td>
+                <td>Cineteca di Bologna / Renzo Renzi Fund</td>
+                <td>- / VRA Core</td>
+                <td><a href="metadata/renzi_portrait_vra.xml" target="_blank">XML</a></td>
+              </tr>
 
-        <!-- 14 -->
-        <tr>
-          <td>14</td>
-          <td><strong>Biblioteca Renzo Renzi</strong></td>
-          <td>Institution / Library</td>
-          <td>Cineteca di Bologna</td>
-          <td>SBN-MARC / Schema.org</td>
-          <td>
-            <a href="metadata/renzi_library_schema.jsonld" target="_blank" rel="noopener">JSON‑LD</a>
-          </td>
-        </tr>
+              <!-- 13 -->
+              <tr>
+                <td>13</td>
+                <td><strong><em>Quando il Po è dolce</em></strong> (1952)</td>
+                <td>Documentary film</td>
+                <td>Cineteca di Bologna</td>
+                <td>- / MODS</td>
+                <td><a href="metadata/po_documentary_mods.xml" target="_blank">XML</a></td>
+              </tr>
 
-        <!-- 15 -->
-        <tr>
-          <td>15</td>
-          <td><strong>Letter to his father (24 July 1942)</strong></td>
-          <td>Letter / archival record</td>
-          <td>Cineteca di Bologna / Renzo Renzi Library</td>
-          <td>- / EAD</td>
-          <td>
-            <a href="metadata/renzo_renzi_letter_ead.xml" target="_blank" rel="noopener">XML</a>
-          </td>
-        </tr>
-            
+              <!-- 14 -->
+              <tr>
+                <td>14</td>
+                <td><strong>Biblioteca Renzo Renzi</strong></td>
+                <td>Institution / Library</td>
+                <td>Cineteca di Bologna</td>
+                <td>SBN-MARC / Schema.org</td>
+                <td><a href="metadata/renzi_library_schema.jsonld" target="_blank">JSON‑LD</a></td>
+              </tr>
+
+              <!-- 15 -->
+              <tr>
+                <td>15</td>
+                <td><strong>Letter to his father (24 July 1942)</strong></td>
+                <td>Letter / archival record</td>
+                <td>Cineteca di Bologna / Renzo Renzi Library</td>
+                <td>- / EAD</td>
+                <td><a href="metadata/renzo_renzi_letter_ead.xml" target="_blank">XML</a></td>
+              </tr>
+
             </tbody>
           </table>
         </div>
-      </section>
 
         <p class="note-muted">
           Each object is described in CSV, mapped to cultural heritage standards, and transformed into RDF according to the project’s conceptual model.
         </p>
       </section>
-      
+
       <!-- Theoretical graph -->
       <section id="theoretical-graph" class="section">
         <h2>Theoretical Graph</h2>
-        
         <p class="section-intro">
-          Theoretical model describing entities and their relationships within
-          the Renzo Renzi domain.
+          Theoretical model describing entities and their relationships within the Renzo Renzi domain.
         </p>
-        
+
         <div class="embed-wrap">
           <iframe
             class="embed-frame"
             src="https://miro.com/app/live-embed/uXjVGXlSL-Q=/?embedMode=view_only_without_ui&moveToViewport=7434,-4804,7989,3978&embedId=453874381080"
             frameborder="0"
             scrolling="no"
-            allow="fullscreen; clipboard-read; clipboard-write"
             allowfullscreen
             title="Theoretical graph – Miro board"
-            ></iframe>
+          ></iframe>
         </div>
-        
-        <p class="note-muted">
-          Interactive theoretical graph created with Miro.
-        </p>
+
+        <p class="note-muted">Interactive theoretical graph created with Miro.</p>
       </section>
 
-            <!-- Conceptual graph -->
+      <!-- Conceptual graph -->
       <section id="conceptual-graph" class="section">
         <h2>Conceptual Graph</h2>
-        
         <p class="section-intro">
-          Conceptual representation of classes and relationships used in the project,
-          based on ontological reuse (DCTerms, Schema.org, FOAF, CIDOC CRM, RiC-O).
+          Conceptual representation of classes and relationships used in the project, based on ontological reuse
+          (DCTerms, Schema.org, FOAF, CIDOC CRM, RiC-O).
         </p>
-        
+
         <div class="embed-wrap">
           <iframe
             class="embed-frame"
             src="https://miro.com/app/live-embed/uXjVP6NqGhY=/?embedMode=view_only_without_ui&moveToViewport=-3847,-3748,7268,3299&embedId=184519133447"
             frameborder="0"
             scrolling="no"
-            allow="fullscreen; clipboard-read; clipboard-write"
             allowfullscreen
             title="Conceptual graph – Miro board"
-            ></iframe>
+          ></iframe>
         </div>
-        
-        <p class="note-muted">
-          Interactive conceptual graph created with Miro.
-        </p>
+
+        <p class="note-muted">Interactive conceptual graph created with Miro.</p>
       </section>
 
       <!-- Standards -->
@@ -362,20 +313,15 @@
         <div>
           <h2>Descriptive Standards</h2>
           <p class="section-intro">
-            For each item we identified the descriptive practice adopted by the holding institution and reused it as the starting point of our modelling.
+            For each item we identified the descriptive practice adopted by the holding institution and reused it as the
+            starting point of our modelling.
           </p>
 
           <ul>
-            <li>
-              <strong>ISBD(G), ISBD(NBM)</strong> · bibliographic items and non-book materials
-            </li>
-            <li>
-              <strong>Scheda F / Scheda OA (ICCD)</strong> · photographs, drawings, caricatures
-            </li>
+            <li><strong>ISBD(G), ISBD(NBM)</strong> · bibliographic items and non-book materials</li>
+            <li><strong>Scheda F / Scheda OA (ICCD)</strong> · photographs, drawings, caricatures</li>
             <li><strong>ISAD(G)</strong> · archival records</li>
-            <li>
-              <strong>FIAF Cataloguing Rules</strong> · film related materials
-            </li>
+            <li><strong>FIAF Cataloguing Rules</strong> · film-related materials</li>
           </ul>
         </div>
 
@@ -386,6 +332,7 @@
             <li>Schema.org</li>
             <li>FOAF</li>
             <li>CIDOC CRM (reference model)</li>
+            <li>RiC‑O (archival conceptual reference)</li>
           </ul>
         </div>
       </section>
@@ -394,49 +341,42 @@
       <section id="tei" class="section">
         <h2>TEI Edition &amp; HTML</h2>
         <p class="section-intro">
-          The project includes a TEI P5 encoding of a portion of the screenplay of <em>La Strada</em>, taken from <em>Il primo Fellini</em>. The encoding provides:
+          The project includes a TEI P5 encoding of a portion of the screenplay of <em>La Strada</em>, taken from
+          <em>Il primo Fellini</em>.
         </p>
 
         <ul>
-          <li>
-            a complete <code>&lt;teiHeader&gt;</code> with bibliographic and archival metadata
-          </li>
-          <li>
-            semantic tags for people, places, and film-specific structures
-          </li>
+          <li>a complete <code>&lt;teiHeader&gt;</code> with bibliographic and archival metadata</li>
+          <li>semantic tags for people, places, and film-specific structures</li>
           <li>a transformation pipeline from TEI/XML to HTML via XSLT and RDF via Python</li>
         </ul>
 
         <p>The HTML version can be consulted in the “La Strada” edition page.</p>
 
         <p class="cta-link">
-          <a href="html/lastrada.html"
-            >→ Open the TEI-based edition of <em>La Strada</em></a
-          >
+          <a href="https://cinefiles25.github.io/TheRevolussionOfRenzoRenzi/html/lastrada.html" target="_blank">
+            → Open the TEI-based edition of <em>La Strada</em>
+          </a>
         </p>
       </section>
 
-      <!-- RDF -->
+            <!-- RDF -->
       <section id="rdf" class="section">
         <h2>RDF Dataset &amp; Linked Open Data</h2>
         <p class="section-intro">
-          CSV metadata are transformed into RDF using a set of dedicated Python scripts
-          (based on <code>rdflib</code>).
-          Each cultural heritage item is exported as an individual Turtle file, resulting in a
-          modular Linked Open Data dataset.
+          CSV metadata are transformed into RDF using dedicated Python scripts (based on <code>rdflib</code>). Each
+          cultural heritage item is exported as an individual Turtle file, resulting in a modular Linked Open Data dataset.
         </p>
 
         <div class="section-split">
           <div>
-            <p>
-              The RDF representation includes:
-            </p>
+            <p>The RDF representation includes:</p>
 
             <ul>
               <li>creative works, photographs, drawings, sound and moving images</li>
               <li>agents and institutions (Renzo Renzi, Federico Fellini, Cineteca di Bologna…)</li>
               <li>events such as productions, interviews and film-related activities</li>
-              <li>links to external authority files (VIAF, Wikidata, GeoNames) where available</li>
+              <li>links to external authority files (VIAF, Wikidata, GeoNames)</li>
             </ul>
 
             <p>
@@ -496,25 +436,17 @@
         <div class="photo-grid">
           <!-- Fellini -->
           <figure class="photo-card">
-            <img
-              src="img/fellini_portrait.jpg"
-              alt="Federico Fellini portrait"
-            />
+            <img src="img/fellini_portrait.jpg" alt="Federico Fellini portrait" />
             <figcaption>
-              Federico Fellini, one of the most influential directors in Italian
-              cinema.
+              Federico Fellini, one of the most influential directors in Italian cinema.
             </figcaption>
           </figure>
 
           <!-- La Strada -->
           <figure class="photo-card">
-            <img
-              src="img/la_strada_still.webp"
-              alt="Still or poster from La Strada (1954)"
-            />
+            <img src="img/la_strada_still.webp" alt="Still or poster from La Strada (1954)" />
             <figcaption>
-              <em>La Strada</em> (1954), the film at the core of the project’s
-              TEI edition.
+              <em>La Strada</em> (1954), the film at the core of the project’s TEI edition.
             </figcaption>
           </figure>
 
@@ -522,17 +454,13 @@
           <figure class="photo-card">
             <img src="img/bologna.jpg" alt="Historic view of Bologna" />
             <figcaption>
-              Bologna, home of the Cineteca di Bologna and the Renzo Renzi
-              Collection.
+              Bologna, home of the Cineteca di Bologna and the Renzo Renzi Collection.
             </figcaption>
           </figure>
 
           <!-- Renzi + Fellini -->
           <figure class="photo-card">
-            <img
-              src="img/renzi_fellini.webp"
-              alt="Renzo Renzi and Federico Fellini together"
-            />
+            <img src="img/renzi_fellini.webp" alt="Renzo Renzi and Federico Fellini together" />
             <figcaption>
               Renzo Renzi, Federico Fellini, and Giulietta Masina after a screening.
             </figcaption>
@@ -548,10 +476,7 @@
 
           <!-- Banner -->
           <figure class="photo-card">
-            <img
-              src="img/banner.jpg"
-              alt="Archival banner related to La Strada or Cinema Fulgor"
-            />
+            <img src="img/banner.jpg" alt="Archival banner related to La Strada or Cinema Fulgor" />
             <figcaption>
               From left to right: Rossellini, Renzi, and Zavattini in Gorino (Ferrara), 29 October 1952.
             </figcaption>
@@ -559,10 +484,7 @@
 
           <!-- Renzo Renzi Portrait -->
           <figure class="photo-card">
-            <img
-              src="img/renzo_renzi.jpg"
-              alt="Portrait of Renzo Renzi"
-            />
+            <img src="img/renzo_renzi.jpg" alt="Portrait of Renzo Renzi" />
             <figcaption>
               Renzo Renzi, filmmaker, critic, and an essential figure in the cultural scene of Bologna.
             </figcaption>
@@ -570,53 +492,46 @@
 
           <!-- Cineteca di Bologna Building -->
           <figure class="photo-card">
-            <img
-              src="img/cineteca_di_bologna.jpg"
-              alt="Cineteca di Bologna building"
-            />
+            <img src="img/cineteca_di_bologna.jpg" alt="Cineteca di Bologna building" />
             <figcaption>
               The Cineteca di Bologna, home of the Renzo Renzi Collection.
             </figcaption>
           </figure>
 
-      <!-- Renzi Unione Militare -->
-      <figure class="photo-card">
-        <img
-          src="img/Renzo_Renzi_jail_pic.webp"
-          alt="Renzo Renzi during the military proceedings related to his article L’Armata s’Agapò"
-        />
-        <figcaption>
-          Renzo Renzi during the military proceedings related to his article <em>L’Armata s’Agapò</em> (1951–52).
-        </figcaption>
-      </figure>
-        
-    </div>
-  </section>
+          <!-- Renzi Unione Militare -->
+          <figure class="photo-card">
+            <img
+              src="img/Renzo_Renzi_jail_pic.webp"
+              alt="Renzo Renzi during the military proceedings related to his article L’Armata s’Agapò"
+            />
+            <figcaption>
+              Renzo Renzi during the military proceedings related to his article <em>L’Armata s’Agapò</em> (1951–52).
+            </figcaption>
+          </figure>
+        </div>
+      </section>
 
       <!-- Team -->
       <section id="team" class="section section-split">
         <div>
           <h2>Team</h2>
           <p class="section-intro">
-            The project was developed within the course <em>Information Science and Cultural Heritage</em> (2024–2025), held by Marilena Daquino and Francesca Tomasi at the University of Bologna.
+            The project was developed within the course <em>Information Science and Cultural Heritage</em> (2024–2025),
+            held by Marilena Daquino and Francesca Tomasi at the University of Bologna.
           </p>
 
           <ul>
             <li>
-              <strong>Laura Bortoli</strong> – TEI/XML encoding, XSLT
-              transformation, RDF generation scripts, CSV metadata for book,
-              caricature, photograph, soundtrack and interview; entities and
-              triples modelling.
+              <strong>Laura Bortoli</strong> – TEI/XML encoding, XSLT transformation, RDF generation scripts, CSV metadata
+              for book, caricature, photograph, soundtrack and interview; entities and triples modelling.
             </li>
             <li>
-              <strong>Claudia Romanello</strong> – Metadata for documentary,
-              Renzo Renzi Library, additional photographs and screenplay;
-              contribution to website content.
+              <strong>Claudia Romanello</strong> – Metadata for documentary, Renzo Renzi Library, additional photographs
+              and screenplay; contribution to website content.
             </li>
             <li>
-              <strong>Qinghao Chen</strong> – Metadata for film, family photos
-              and additional visual materials; contribution to site structure and
-              RDF checks.
+              <strong>Qinghao Chen</strong> – Metadata for film, family photos and additional visual materials;
+              contribution to site structure and RDF checks.
             </li>
           </ul>
         </div>
@@ -630,8 +545,7 @@
           </p>
 
           <p>
-            <strong>Knowledge Organization in Libraries &amp; Archives</strong
-            ><br />
+            <strong>Knowledge Organization in Libraries &amp; Archives</strong><br />
             Francesca Tomasi
           </p>
         </div>
@@ -644,14 +558,8 @@
           Core project documentation, data files, and code used to generate the TEI edition and RDF dataset.
         </p>
         <ul>
-          <li>
-            <a href="readme.html">README (project overview)</a>
-          </li>
-          <li>
-            <a href="project-documentation.html">
-              Project Documentation (workflow &amp; metadata analysis)
-            </a>
-          </li>
+          <li><a href="readme.html">README (project overview)</a></li>
+          <li><a href="project-documentation.html">Project Documentation (workflow &amp; metadata analysis)</a></li>
           <li>
             <a
               href="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/tree/main/csv"
@@ -681,14 +589,11 @@
           </li>
           <li>
             TEI/XML source for <em>La Strada</em>:
-            <a href="tei_xslt/lastrada.xml">XML</a> &middot;
-            <a href="html/lastrada.html">HTML edition</a>
-          </li>
-          <li>
-            TEI/XML source for <em>La Strada</em>:
             <a href="tei_xslt/lastrada.xml">XML</a>
             &middot;
-            <a href="html/lastrada.html">HTML edition</a>
+            <a href="https://cinefiles25.github.io/TheRevolussionOfRenzoRenzi/html/lastrada.html" target="_blank" rel="noopener">
+              HTML edition
+            </a>
             &middot;
             <a
               href="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/blob/main/tei_xslt/lastrada_screenplay.ttl"
@@ -699,7 +604,11 @@
             </a>
           </li>
           <li>
-            <a href="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi" target="_blank" rel="noopener">
+            <a
+              href="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi"
+              target="_blank"
+              rel="noopener"
+            >
               GitHub repository
             </a>
           </li>
@@ -769,18 +678,14 @@
         const lbClose = document.getElementById("lightbox-close");
 
         if (lb && lbImg && lbCaption && lbClose) {
-          const imgs = document.querySelectorAll(
-            ".section-photos .photo-card img"
-          );
+          const imgs = document.querySelectorAll(".section-photos .photo-card img");
 
           imgs.forEach((img) => {
             img.addEventListener("click", () => {
               lbImg.src = img.src;
               lbImg.alt = img.alt || "";
               const figure = img.closest("figure");
-              const figcap = figure
-                ? figure.querySelector("figcaption")
-                : null;
+              const figcap = figure ? figure.querySelector("figcaption") : null;
               lbCaption.textContent = figcap ? figcap.innerText : "";
               lb.classList.add("is-visible");
               lb.setAttribute("aria-hidden", "false");
@@ -801,10 +706,7 @@
           });
 
           document.addEventListener("keydown", (event) => {
-            if (
-              event.key === "Escape" &&
-              lb.classList.contains("is-visible")
-            ) {
+            if (event.key === "Escape" && lb.classList.contains("is-visible")) {
               closeLightbox();
             }
           });
