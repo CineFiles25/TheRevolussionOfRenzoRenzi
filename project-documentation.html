@@ -7,7 +7,237 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="style.css" />
+    <style>
+/* ---------- Base ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #f7f5f2;
+  color: #2b2520;
+  line-height: 1.7;
+  position: relative;
+}
+.page { max-width: 1100px; margin: 0 auto; padding: 3rem 1.5rem 5rem; }
+h1, h2, h3 { font-family: "Playfair Display", "Georgia", serif; }
+
+/* ---------- Header ---------- */
+.site-header {
+  background: #ece7df;
+  border-bottom: 1px solid #d2c5b4;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+  position: relative; z-index: 20;
+}
+.header-inner {
+  max-width: 1100px; margin: 0 auto;
+  padding: 1.75rem 1.5rem 1.25rem;
+  display: flex; flex-direction: column; gap: 1.4rem;
+}
+.site-branding { position: relative; text-align: center; }
+.site-kicker {
+  text-transform: uppercase; letter-spacing: 0.14em;
+  font-size: 0.7rem; color: #7c6b57; margin: 0 0 0.6rem;
+}
+.site-title {
+  font-size: clamp(2.6rem, 4.5vw, 3.8rem);
+  margin: 0 0 0.35rem; color: #332318; letter-spacing: -0.02em;
+}
+.site-subtitle { margin: 0; font-size: 1rem; color: #4e4337; }
+.site-branding::after {
+  content: "Digital Humanities · LOD · TEI";
+  display: inline-flex; margin: 0.9rem auto 0;
+  align-items: center; gap: 0.45rem;
+  padding: 0.2rem 0.8rem; border-radius: 999px;
+  border: 1px solid rgba(156,47,47,0.25);
+  background: rgba(255,255,255,0.8);
+  font-size: 0.72rem; text-transform: uppercase;
+  letter-spacing: 0.12em; color: #9c2f2f;
+}
+.hero-actions {
+  margin-top: 1.3rem; display: flex;
+  flex-wrap: wrap; gap: 0.6rem; justify-content: center;
+}
+.btn-primary, .btn-ghost {
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: 0.6rem 1.2rem; border-radius: 999px;
+  font-size: 0.9rem; font-weight: 600; text-decoration: none;
+  cursor: pointer; border: 1px solid transparent; transition: 0.2s ease;
+}
+.btn-primary { background: #9c2f2f; color: #fffaf3; }
+.btn-primary:hover { background: #a63a3a; }
+.btn-ghost { background: rgba(255,255,255,0.7); color: #5b4733; border-color: rgba(156,47,47,0.4); }
+.btn-ghost:hover { background: #fff; border-color: #9c2f2f; color: #9c2f2f; }
+
+/* ---------- Sections ---------- */
+.section {
+  background: #ffffff; margin-top: 3rem;
+  padding: 3rem 2.2rem 2.4rem; border-radius: 18px;
+  border-top: 4px solid #9c2f2f;
+  box-shadow: 0 18px 45px rgba(0,0,0,0.08);
+  position: relative; overflow: hidden;
+  opacity: 0; animation: fadeInUpSoft 0.7s ease-out forwards;
+}
+.section:nth-child(1) { animation-delay: 0.05s; }
+.section:nth-child(2) { animation-delay: 0.10s; }
+.section:nth-child(3) { animation-delay: 0.15s; }
+.section:nth-child(4) { animation-delay: 0.20s; }
+.section:nth-child(5) { animation-delay: 0.25s; }
+.section:nth-child(6) { animation-delay: 0.30s; }
+.section:nth-child(7) { animation-delay: 0.35s; }
+.section:nth-child(8) { animation-delay: 0.40s; }
+.section:nth-child(9) { animation-delay: 0.45s; }
+.section:nth-child(10) { animation-delay: 0.50s; }
+.section:nth-child(11) { animation-delay: 0.55s; }
+.section:nth-child(12) { animation-delay: 0.60s; }
+.section:nth-child(13) { animation-delay: 0.65s; }
+.section:nth-child(14) { animation-delay: 0.70s; }
+.section:nth-child(15) { animation-delay: 0.75s; }
+.section:nth-child(16) { animation-delay: 0.80s; }
+
+.section h1 { font-size: 2.4rem; margin: 0 0 0.6rem; color: #332318; }
+.section h2 { font-size: 1.9rem; font-weight: 700; letter-spacing: -0.5px; margin: 0 0 1.2rem; color: #3b2b1d; }
+.section h3 { font-size: 1.15rem; color: #5b3a22; margin: 1.6rem 0 0.5rem; font-weight: 600; }
+.section h3:first-of-type { margin-top: 1rem; }
+
+/* Part divider heading */
+.part-label {
+  display: inline-block;
+  background: #9c2f2f;
+  color: #fff;
+  font-family: "Inter", sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.9rem;
+  border-radius: 999px;
+  margin-bottom: 0.5rem;
+}
+.section.part-divider {
+  background: #f3ebe2;
+  border-top-color: #9c2f2f;
+  padding: 1.6rem 2.2rem;
+}
+.section.part-divider h2 {
+  font-size: 1.5rem;
+  color: #7a4b2a;
+  margin: 0;
+}
+
+.section-intro { margin: 0 0 1.2rem; font-size: 1.1rem; color: #4e4337; line-height: 1.7; }
+.section p { margin-top: 0.6rem; font-size: 1.05rem; line-height: 1.7; }
+.section ul, .section ol { padding-left: 1.5rem; }
+.section ul li, .section ol li { margin-bottom: 0.4rem; font-size: 1.02rem; }
+
+/* ---------- Table ---------- */
+.table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin-top: 1.4rem; }
+.items-table {
+  width: 100%; border-collapse: collapse;
+  font-size: 0.95rem; min-width: 760px;
+  background: #ffffff; border: 1px solid #d8cfc4;
+  border-radius: 10px; overflow: hidden;
+}
+.items-table th, .items-table td {
+  padding: 0.75rem 0.9rem;
+  border-bottom: 1px solid #e3dbd2;
+  vertical-align: top; text-align: left;
+}
+.items-table thead th {
+  font-weight: 700; color: #3b2b1d;
+  background: #f2ede7;
+}
+.items-table tbody tr:nth-child(even) { background: #faf7f3; }
+.items-table tbody tr:hover { background: #f3ede5; }
+.items-table em { font-style: italic; }
+
+/* ---------- Code ---------- */
+code {
+  font-family: "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
+  font-size: 0.88em; background: #f1ece4;
+  padding: 0.15rem 0.35rem; border-radius: 4px; color: #3b2b1d;
+}
+
+/* ---------- Download row ---------- */
+.download-row { display: flex; flex-wrap: wrap; gap: 0.7rem; margin-top: 1.2rem; }
+
+/* ---------- CTA link ---------- */
+.cta-link { margin-top: 1rem; }
+.cta-link a {
+  font-weight: 600; text-decoration: none; color: #9c2f2f;
+  border-bottom: 1px solid rgba(156,47,47,0.45); transition: 0.2s ease;
+}
+.cta-link a:hover { border-color: #9c2f2f; }
+
+/* ---------- Box muted ---------- */
+.box-muted {
+  background: #f7f4ef; border-radius: 14px;
+  padding: 1.5rem 1.6rem; border: 1px solid #d8cfc4;
+  font-size: 0.95rem; box-shadow: inset 0 0 0 1px rgba(255,255,255,0.6);
+}
+.box-muted h3 { margin-top: 1rem; font-size: 1.1rem; color: #5b3a22; }
+.box-muted h3:first-child { margin-top: 0; }
+.box-muted p { margin: 0.3rem 0 0; font-size: 0.97rem; }
+
+/* ---------- Links ---------- */
+a { color: #9c2f2f; transition: color 0.2s ease; }
+a:hover { color: #a63a3a; }
+
+/* ---------- Footer ---------- */
+.site-footer {
+  border-top: 1px solid #d2c5b4; padding: 1.6rem 1.5rem 1.8rem;
+  margin-top: 3rem; font-size: 0.9rem; color: #7c6b57;
+  text-align: center; background: #ece7df;
+}
+.site-footer a { color: #9c2f2f; text-decoration: none; }
+.site-footer a:hover { text-decoration: underline; }
+
+/* ---------- Animation ---------- */
+@keyframes fadeInUpSoft {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 780px) {
+  .page { padding: 2.2rem 1.2rem 3.4rem; }
+  .section { padding: 2rem 1.4rem 1.6rem; border-radius: 16px; }
+  .section.part-divider { padding: 1.2rem 1.4rem; }
+}
+@media (max-width: 520px) {
+  .site-title { font-size: 2rem; }
+  .hero-actions { flex-direction: column; align-items: center; }
+}
+
+/* ---------- Dark mode ---------- */
+@media (prefers-color-scheme: dark) {
+  body { background: #0f0c0a; color: #f5f0e6; }
+  .site-header { background: #1a1412; border-bottom-color: #3a2519; box-shadow: 0 10px 30px rgba(0,0,0,0.6); }
+  .site-kicker { color: #c1b09c; }
+  .site-title { color: #f1e2d4; }
+  .site-subtitle { color: #d4c4b3; }
+  .site-branding::after { background: rgba(47,29,21,0.9); border-color: rgba(156,47,47,0.5); color: #f1d2b8; }
+  .section { background: #1b130f; border-top-color: #9c2f2f; box-shadow: 0 18px 45px rgba(0,0,0,0.7); }
+  .section.part-divider { background: #231510; }
+  .section h1, .section h2 { color: #f2dfc7; }
+  .section.part-divider h2 { color: #f1d2b8; }
+  .section h3 { color: #f1d2b8; }
+  .section-intro { color: #e2d0bf; }
+  .box-muted { background: #231710; border-color: #4a3222; }
+  .box-muted h3 { color: #f1d2b8; }
+  code { background: #2b1b14; color: #f3e1cf; }
+  .items-table { background: #1b130f; border-color: #3c2920; }
+  .items-table thead th { background: #2b1810; color: #f2dfc7; }
+  .items-table th, .items-table td { border-bottom-color: #3c2920; }
+  .items-table tbody tr:nth-child(even) { background: #221410; }
+  .items-table tbody tr:hover { background: #2e1a10; }
+  .btn-ghost { background: rgba(35,23,17,0.9); border-color: rgba(156,47,47,0.6); color: #f3ddc5; }
+  .btn-ghost:hover { background: #2c1c14; color: #ffb27b; }
+  .site-footer { background: #21150f; border-top-color: #3a2519; color: #c4b19c; }
+  .site-footer a, a { color: #ffb27b; }
+  a:hover { color: #ffc89a; }
+}
+    </style>
   </head>
 
   <body>
@@ -26,7 +256,7 @@
 
     <main class="page">
 
-      <!-- PART I -->
+      <!-- INTRO -->
       <section class="section">
         <h1>Project Documentation</h1>
         <p class="section-intro">
@@ -36,32 +266,43 @@
         </p>
       </section>
 
-      <section class="section">
-        <h2 class="part-heading">Part I — Study of the Domain</h2>
+      <!-- PART I DIVIDER -->
+      <section class="section part-divider">
+        <span class="part-label">Part I</span>
+        <h2>Study of the Domain</h2>
       </section>
 
+      <!-- 1. Idea and Rationale -->
       <section class="section" id="idea">
         <h2>1. Idea and Rationale</h2>
         <p>
-          <em>The "Revolussion" of Renzo Renzi</em> is a Digital Humanities and Linked Open Data project dedicated to the archival, bibliographic, and audiovisual ecosystem built by
-          <strong>Renzo Renzi</strong> (1919–2004), a central figure in Italian film culture: critic, filmmaker, researcher, and long-time curator of the Cineteca di Bologna.
+          <em>The "Revolussion" of Renzo Renzi</em> is a Digital Humanities and Linked Open Data project dedicated to the archival,
+          bibliographic, and audiovisual ecosystem built by <strong>Renzo Renzi</strong> (1919–2004). Renzi was a critic, filmmaker,
+          researcher, and one of the foundational figures of the <strong>Cineteca di Bologna</strong>, where he curated and shaped
+          film culture for decades.
         </p>
         <p>
-          Renzi’s work produced an analogue network of interrelated objects — books, drawings, photographs, interviews, film materials — that anticipates the logic of Linked Open Data. His collection, held at the
-          <strong>Cineteca di Bologna</strong>, is the institutional ground for this project.
+          His work produced an analogue network of interconnected materials — books, drawings, photographs, interviews, film documents —
+          that anticipates the logic of Linked Open Data. Long before LOD became a methodological paradigm, Renzi was already constructing
+          a relational archive where each object illuminated the others through themes, stories, production histories, and personal memories.
         </p>
         <p>
-          The goal of the project is to <strong>model, encode, and publish</strong> a selection of these materials using cultural heritage standards, TEI/XML, RDF, and a public web interface, turning analogue archival materials into a structured, interoperable digital dataset aligned with LODLAM best practices.
+          The <strong>Renzo Renzi Collection</strong> at the Cineteca di Bologna is the institutional foundation of this project.
+          Our goal is to <strong>model, encode, and publish</strong> a selection of these materials using cultural heritage standards,
+          TEI/XML, RDF, and a public web interface, transforming analogue archival materials into a structured, interoperable digital
+          dataset aligned with LODLAM best practices.
         </p>
       </section>
 
+      <!-- 2. Selection of Items -->
       <section class="section" id="items">
         <h2>2. Selection of Items</h2>
         <p>
-          The project selects <strong>15 heterogeneous items</strong> from the Renzo Renzi Collection and related holdings at the Cineteca di Bologna, mixing archival documents, bibliographic records, photographs, drawings, moving images, and sound recordings. One item (<em>La Strada</em>, Sequence I) is a full-text document encoded in TEI.
+          The project selects <strong>15 heterogeneous items</strong> from the Renzo Renzi Collection and related holdings at the
+          Cineteca di Bologna. The selection includes archival documents, bibliographic records, photographs, drawings, moving images,
+          sound recordings, and one full-text item encoded in TEI.
         </p>
 
-        <!-- TABLE OF ITEMS -->
         <div class="table-wrap">
           <table class="items-table">
             <thead>
@@ -75,27 +316,150 @@
               </tr>
             </thead>
             <tbody>
-              <!-- (TABLE CONTENT UNCHANGED — already perfect) -->
-              <!-- I keep your exact table rows here -->
-              <!-- ... -->
+              <tr>
+                <td>1</td>
+                <td><em>Il primo Fellini</em> (Renzo Renzi)</td>
+                <td>Book</td>
+                <td>Cineteca di Bologna / Biblioteca Renzo Renzi</td>
+                <td>ISBD(G) / SBN-MARC</td>
+                <td>MODS</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>Sceneggiatura manoscritta di <em>Guida per camminare all'ombra</em></td>
+                <td>Screenplay / archival record</td>
+                <td>Cineteca di Bologna / Renzo Renzi Library</td>
+                <td>ISAD(G)</td>
+                <td>EAD</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>Bologna. Cinema Fulgor. Premiere of <em>La Strada</em></td>
+                <td>Photograph</td>
+                <td>Cineteca di Bologna / Fondo Iniziative Cineteca</td>
+                <td>ICCD Scheda F</td>
+                <td>VRA Core</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td><em>La Strada</em>: Gelsomina col tamburo</td>
+                <td>Drawing</td>
+                <td>Cineteca di Bologna / Renzo Renzi Collection</td>
+                <td>ICCD Scheda OA</td>
+                <td>VRA Core</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td>Caricature "Perché Federico non fa la rivolussione?"</td>
+                <td>Drawing / caricature</td>
+                <td>Cineteca di Bologna / Renzo Renzi Fund</td>
+                <td>ICCD Scheda OA</td>
+                <td>VRA Core</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td>Set photograph from <em>Le notti del Melodramma</em></td>
+                <td>Photograph</td>
+                <td>Cineteca di Bologna</td>
+                <td>ICCD Scheda F</td>
+                <td>VRA Core</td>
+              </tr>
+              <tr>
+                <td>7</td>
+                <td>Circus performance scene from <em>La Strada</em></td>
+                <td>Photograph</td>
+                <td>Cineteca di Bologna / Fondo Fotografie Cineteca</td>
+                <td>ICCD Scheda F</td>
+                <td>VRA Core</td>
+              </tr>
+              <tr>
+                <td>8</td>
+                <td>Gelsomina eating bread in rural landscape</td>
+                <td>Photograph</td>
+                <td>Cineteca di Bologna / Fondo Fotografie Cineteca</td>
+                <td>ICCD Scheda F</td>
+                <td>VRA Core</td>
+              </tr>
+              <tr>
+                <td>9</td>
+                <td><em>Il cinema a Bologna: Renzo Renzi e la Columbus film</em> (2000)</td>
+                <td>Video interview</td>
+                <td>Cineteca di Bologna</td>
+                <td>FIAF Cataloguing Rules</td>
+                <td>MODS</td>
+              </tr>
+              <tr>
+                <td>10</td>
+                <td><em>La strada</em> (1954), Federico Fellini</td>
+                <td>Film</td>
+                <td>Cineteca di Bologna</td>
+                <td>ISBD(NBM) / FIAF</td>
+                <td>MODS</td>
+              </tr>
+              <tr>
+                <td>11</td>
+                <td><em>La strada: musique du film</em> (Nino Rota)</td>
+                <td>Sound recording</td>
+                <td>Cineteca di Bologna</td>
+                <td>ISBD(NBM) / SBN-MARC</td>
+                <td>MODS</td>
+              </tr>
+              <tr>
+                <td>12</td>
+                <td>Portrait of Renzo Renzi</td>
+                <td>Photograph</td>
+                <td>Cineteca di Bologna / Renzo Renzi Fund</td>
+                <td>ICCD Scheda F</td>
+                <td>VRA Core</td>
+              </tr>
+              <tr>
+                <td>13</td>
+                <td><em>Quando il Po è dolce</em> (1952)</td>
+                <td>Documentary film</td>
+                <td>Cineteca di Bologna</td>
+                <td>ISBD(NBM) / FIAF</td>
+                <td>MODS</td>
+              </tr>
+              <tr>
+                <td>14</td>
+                <td>Biblioteca Renzo Renzi</td>
+                <td>Institution / Library</td>
+                <td>Cineteca di Bologna</td>
+                <td>ICCU / ISBD(G) / SBN-MARC</td>
+                <td>Schema.org (JSON-LD)</td>
+              </tr>
+              <tr>
+                <td>15</td>
+                <td>Letter to his father (24 July 1942)</td>
+                <td>Letter / archival record</td>
+                <td>Cineteca di Bologna / Renzo Renzi Library</td>
+                <td>ISAD(G)</td>
+                <td>EAD</td>
+              </tr>
             </tbody>
           </table>
         </div>
       </section>
 
-      <!-- PART II -->
-      <section class="section">
-        <h2 class="part-heading">Part II — Knowledge Organization</h2>
+      <!-- PART II DIVIDER -->
+      <section class="section part-divider">
+        <span class="part-label">Part II</span>
+        <h2>Knowledge Organization</h2>
       </section>
 
+      <!-- 3. Metadata Analysis -->
       <section class="section" id="metadata-analysis">
         <h2>3. Metadata Analysis</h2>
-        <p>For each item, we identified the descriptive standard adopted by the holding institution and used it as the foundation for our analysis.</p>
+        <p>
+          For each item, we identified the descriptive standard adopted by the holding institution and used it as the foundation
+          for our analysis. This step ensured that our modelling respected institutional practices while enabling interoperability
+          across heterogeneous materials.
+        </p>
 
         <h3>Bibliographic standards</h3>
         <ul>
           <li><strong>ISBD(G)</strong> — general bibliographic description</li>
-          <li><strong>ISBD(NBM)</strong> — non-book materials</li>
+          <li><strong>ISBD(NBM)</strong> — non-book materials (film, soundtrack, documentary)</li>
           <li><strong>SBN-MARC</strong> — Italian national bibliography</li>
         </ul>
 
@@ -124,48 +488,50 @@
         </ul>
       </section>
 
+      <!-- 4. Theoretical Model -->
       <section class="section" id="theoretical-model">
         <h2>4. Theoretical Model</h2>
         <p>
-          The theoretical model describes each item in natural language, starting from the institutional description and enriching it with additional information such as authority control, subject classification, and contextual relationships.
+          The theoretical model describes each item in natural language, starting from the institutional description and enriching
+          it with additional information such as authority control, subject classification, and contextual relationships.
         </p>
-
-        <p>For each object, the analysis identifies:</p>
+        <p>For each object the analysis identifies:</p>
         <ul>
-          <li><strong>Intrinsic features</strong>: title, date, format, technique, language, extent</li>
-          <li><strong>Roles and agents</strong>: creators, performers, contributors, editors, directors</li>
-          <li><strong>Relationships</strong>: about, depicts, documents, is part of, produced during</li>
-          <li><strong>Institutional context</strong>: holding institution, collection, physical location</li>
-          <li><strong>Authority control</strong>: VIAF, Wikidata, ISIL, ISNI</li>
+          <li><strong>Intrinsic features</strong>: title, date, format, technique, language, extent…</li>
+          <li><strong>Roles and agents</strong>: creators, performers, contributors, editors, directors…</li>
+          <li><strong>Relationships</strong>: about, depicts, documents, is part of, was produced during…</li>
+          <li><strong>Institutional context</strong>: holding institution, collection, physical location, shelf mark…</li>
+          <li><strong>Authority control</strong>: VIAF, Wikidata, ISIL, ISNI…</li>
         </ul>
-
         <p>This analysis maps the domain narrative connecting:</p>
         <ul>
-          <li><strong>People</strong>: Renzo Renzi, Federico Fellini, Giulietta Masina, Nino Rota, Anthony Quinn</li>
-          <li><strong>Works</strong>: film, documentary, book, soundtrack, screenplay, interview</li>
-          <li><strong>Images</strong>: photographs, drawings, caricatures</li>
-          <li><strong>Events</strong>: film premiere, documentary production, military trial</li>
-          <li><strong>Institutions</strong>: Cineteca di Bologna, Biblioteca Renzo Renzi</li>
-          <li><strong>Places</strong>: Bologna, Po River Delta, Cinema Fulgor</li>
+          <li><strong>People</strong>: Renzo Renzi, Federico Fellini, Giulietta Masina, Nino Rota, Anthony Quinn…</li>
+          <li><strong>Works</strong>: film, documentary, book, soundtrack, screenplay, video interview…</li>
+          <li><strong>Images</strong>: photographs, drawings, caricatures…</li>
+          <li><strong>Events</strong>: film premiere at Cinema Fulgor, documentary production along the Po, military trial…</li>
+          <li><strong>Institutions</strong>: Cineteca di Bologna, Biblioteca Renzo Renzi…</li>
+          <li><strong>Places</strong>: Bologna, Po River Delta, Cinema Fulgor…</li>
         </ul>
-
         <p>The theoretical model is represented as an interactive diagram on the <a href="index.html#theoretical-graph">project website</a>.</p>
       </section>
 
+      <!-- 5. Conceptual Model -->
       <section class="section" id="conceptual-model">
         <h2>5. Conceptual Model</h2>
-
         <p>
-          The conceptual model formally represents the theoretical model by reusing existing schemas, vocabularies, and ontologies. No new ontology was created; <strong>CIDOC CRM</strong> and <strong>RiC‑O</strong> were consulted as conceptual references, while <strong>Dublin Core Terms</strong>, <strong>Schema.org</strong>, <strong>FOAF</strong>, and <strong>SKOS</strong> were actively reused in the RDF dataset.
+          The conceptual model formally represents the theoretical model by reusing existing schemas, vocabularies, and ontologies —
+          no new ontology was created. <strong>CIDOC CRM</strong> and <strong>RiC‑O</strong> were consulted as conceptual references,
+          while <strong>Dublin Core Terms</strong>, <strong>Schema.org</strong>, <strong>FOAF</strong>, and <strong>SKOS</strong>
+          were actively reused in the RDF dataset.
         </p>
 
         <h3>Ontologies and vocabularies reused</h3>
         <ul>
-          <li><strong>Dublin Core Terms (DCTerms)</strong></li>
-          <li><strong>Schema.org</strong></li>
-          <li><strong>FOAF</strong></li>
-          <li><strong>SKOS</strong></li>
-          <li><strong>CIDOC CRM</strong> — conceptual reference</li>
+          <li><strong>Dublin Core Terms (DCTerms)</strong> — general metadata (creator, title, date, subject, publisher…)</li>
+          <li><strong>Schema.org</strong> — creative works, agents, places, events</li>
+          <li><strong>FOAF</strong> — agents and depictions</li>
+          <li><strong>SKOS</strong> — subject classification and authority control</li>
+          <li><strong>CIDOC CRM</strong> — conceptual reference model for cultural heritage</li>
           <li><strong>RiC‑O</strong> — archival conceptual reference</li>
         </ul>
 
@@ -183,63 +549,71 @@
         </ul>
 
         <p>The conceptual model is represented as an interactive diagram on the <a href="index.html#conceptual-graph">project website</a>.</p>
+
+        <h3>Authority URIs used</h3>
+        <ul>
+          <li>Renzo Renzi — VIAF: <a href="http://viaf.org/viaf/40486517" target="_blank" rel="noopener">40486517</a> · Wikidata: <a href="https://www.wikidata.org/wiki/Q56179169" target="_blank" rel="noopener">Q56179169</a></li>
+          <li>Federico Fellini — VIAF: <a href="http://viaf.org/viaf/76315386" target="_blank" rel="noopener">76315386</a></li>
+          <li>Cineteca di Bologna — VIAF: <a href="http://viaf.org/viaf/124960346" target="_blank" rel="noopener">124960346</a></li>
+          <li>Bologna — Wikidata: <a href="https://www.wikidata.org/wiki/Q1891" target="_blank" rel="noopener">Q1891</a></li>
+          <li>Cinema Fulgor — Wikidata: <a href="https://www.wikidata.org/wiki/Q36839368" target="_blank" rel="noopener">Q36839368</a></li>
+        </ul>
       </section>
 
-      <!-- PART III -->
-      <section class="section">
-        <h2 class="part-heading">Part III — Knowledge Representation</h2>
+      <!-- PART III DIVIDER -->
+      <section class="section part-divider">
+        <span class="part-label">Part III</span>
+        <h2>Knowledge Representation: Create Data</h2>
       </section>
 
+      <!-- 6. CSV Files -->
       <section class="section" id="csv">
         <h2>6. CSV Files</h2>
         <p>
-          A dedicated CSV file was created for each of the 15 items, structuring metadata according to the relevant institutional standard and placing items in dialogue through shared entities and relationships.
+          A dedicated CSV file was created for each of the 15 items, structuring metadata according to the relevant institutional
+          standard and placing items in dialogue through shared entities and relationships.
         </p>
-
         <p>Two global files handle the semantic layer:</p>
         <ul>
-          <li><code>rrr_entities.csv</code> — all domain entities with identifiers and authority URIs</li>
-          <li><code>rrr_triples.csv</code> — explicit relationships expressed as subject–predicate–object triples</li>
+          <li><code>rrr_entities.csv</code> — all domain entities (people, places, works, institutions…) with identifiers and authority URIs</li>
+          <li><code>rrr_triples.csv</code> — explicit relationships between entities, expressed as subject–predicate–object triples</li>
         </ul>
-
         <p>
           All local identifiers use the shared prefix <code>rrr:</code> (namespace:
           <code>https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/</code>).
         </p>
-
         <p>
-          The CSV files are the starting point for the RDF generation performed by the dedicated Python scripts. All files are available in the
+          The CSV files are the starting point for the RDF generation. All files are available in the
           <a href="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/tree/main/csv" target="_blank" rel="noopener">CSV directory on GitHub</a>.
         </p>
       </section>
 
+      <!-- 7. TEI -->
       <section class="section" id="tei">
         <h2>7. XML/TEI Document</h2>
         <p>
-          One item — Sequence I of the screenplay of <em>La Strada</em>, taken from the book <em>Il primo Fellini</em> — was encoded as a full-text document using <strong>TEI P5</strong>.
+          One item — Sequence I of the screenplay of <em>La Strada</em>, taken from the book <em>Il primo Fellini</em> — was encoded
+          as a full-text document using <strong>TEI P5</strong>.
         </p>
-
         <p>The TEI file (<code>tei_xslt/lastrada.xml</code>) includes:</p>
         <ul>
-          <li>a complete <code>&lt;teiHeader&gt;</code> with bibliographic and archival metadata</li>
-          <li>a <code>&lt;particDesc&gt;</code> listing all named characters with VIAF links</li>
+          <li>a complete <code>&lt;teiHeader&gt;</code> with bibliographic and archival metadata (title, author, editor, publisher, date, language)</li>
+          <li>a <code>&lt;particDesc&gt;</code> listing all named characters with their actors linked to VIAF authority records</li>
           <li>a <code>&lt;settingDesc&gt;</code> with all places appearing in the sequence</li>
-          <li>semantic tagging of dialogues, stage directions, characters, and places</li>
+          <li>semantic tagging of dialogues, stage directions, characters, and places within the text body</li>
           <li>logical structuring of scenes into labelled segments</li>
         </ul>
-
         <p class="cta-link"><a href="tei_xslt/lastrada.xml">→ View TEI/XML source</a></p>
       </section>
 
+      <!-- 8. XML to HTML -->
       <section class="section" id="xml-html">
         <h2>8. XML to HTML Transformation</h2>
         <p>The TEI file is transformed into a web-publishable HTML edition through an <strong>XSLT</strong> pipeline:</p>
-
         <ul>
-          <li>The stylesheet <code>tei_xslt/tei2html_lastrada.xsl</code> defines the transformation rules.</li>
-          <li>The Python script <code>scripts/xml_to_html.py</code> applies the stylesheet using <code>lxml</code>.</li>
+          <li>The stylesheet <code>tei_xslt/tei2html_lastrada.xsl</code> defines the transformation rules from TEI elements to HTML.</li>
+          <li>The Python script <code>scripts/xml_to_html.py</code> applies the stylesheet using the <code>lxml</code> library (<code>etree.XSLT</code>), writing the result to <code>html/lastrada.html</code>.</li>
         </ul>
-
         <p class="cta-link">
           <a href="https://cinefiles25.github.io/TheRevolussionOfRenzoRenzi/html/lastrada.html" target="_blank" rel="noopener">
             → Open the TEI-based HTML edition of <em>La Strada</em>
@@ -247,49 +621,52 @@
         </p>
       </section>
 
+      <!-- 9. XML to RDF -->
       <section class="section" id="xml-rdf">
         <h2>9. XML/TEI to RDF Transformation</h2>
         <p>The TEI file is also transformed into RDF using a dedicated <strong>Python</strong> script:</p>
-
         <ul>
-          <li><code>scripts/xml_to_rdf.py</code> parses the TEI/XML source and extracts structured metadata.</li>
-          <li>Extracted data is mapped to RDF triples using <strong>RDFLib</strong>.</li>
-          <li>The output is serialized as Turtle and RDF/XML.</li>
+          <li><code>scripts/xml_to_rdf.py</code> uses <code>xml.etree.ElementTree</code> to parse the TEI/XML source and extract structured metadata: title, author, editor, publisher, date, language, characters, and places.</li>
+          <li>Extracted data is mapped to RDF triples using <strong>RDFLib</strong>, reusing Schema.org, Dublin Core Terms, FOAF, and CIDOC-CRM vocabularies.</li>
+          <li>The output is serialized as a Turtle file (<code>tei_xslt/lastrada_screenplay.ttl</code>) and as RDF/XML (<code>tei_xslt/lastrada_screenplay.rdf</code>).</li>
         </ul>
       </section>
 
+      <!-- 10. RDF Dataset -->
       <section class="section" id="rdf-dataset">
         <h2>10. RDF Dataset (CSV → RDF via Python)</h2>
-        <p>The full RDF dataset is produced as a <strong>set of modular Turtle files</strong> (<code>ttl/*.ttl</code>), one per cultural heritage item.</p>
-
+        <p>
+          The full RDF dataset is produced as a <strong>set of modular Turtle files</strong> (<code>ttl/*.ttl</code>), one per cultural heritage item.
+          Dedicated Python scripts in <code>scripts/</code> each:
+        </p>
         <ol>
           <li>Read the item-specific CSV file.</li>
-          <li>Map the CSV fields to RDF triples using <strong>RDFLib</strong>.</li>
-          <li>Serialize the output as a Turtle file.</li>
+          <li>Map the CSV fields to RDF triples according to the conceptual model, using <strong>RDFLib</strong>.</li>
+          <li>Serialize the output as an individual Turtle file in the <code>ttl/</code> directory.</li>
         </ol>
-
-        <p>The script <code>scripts/merging.py</code> merges all individual Turtle files into <code>ttl/full_dataset.ttl</code>.</p>
-
+        <p>The script <code>scripts/merging.py</code> merges all individual Turtle files into <code>ttl/full_dataset.ttl</code> for easier inspection and evaluation.</p>
         <p>The dataset integrates:</p>
         <ul>
-          <li>creative works</li>
-          <li>agents and institutions</li>
-          <li>events</li>
-          <li>authority links</li>
-          <li>inter-item relationships</li>
+          <li>creative works (books, films, drawings, photographs, sound recordings…)</li>
+          <li>agents and institutions (Renzi, Fellini, Masina, Rota, Cineteca di Bologna…)</li>
+          <li>events (premiere, documentary production, film-related activities…)</li>
+          <li>links to external authority files (VIAF, Wikidata, GeoNames)</li>
+          <li>inter-item relationships expressed as RDF triples</li>
         </ul>
-
+        <p>The dataset is modular by design: files can be loaded as separate named graphs or merged into a single RDF graph for SPARQL querying.</p>
         <div class="download-row">
           <a class="btn-primary" href="ttl/full_dataset.ttl">Download full dataset (Turtle)</a>
           <a class="btn-ghost" href="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/tree/main/ttl" target="_blank" rel="noopener">TTL directory (GitHub)</a>
         </div>
       </section>
 
-      <!-- PART IV -->
-      <section class="section">
-        <h2 class="part-heading">Part IV — Project Information</h2>
+      <!-- PART IV DIVIDER -->
+      <section class="section part-divider">
+        <span class="part-label">Part IV</span>
+        <h2>Project Information</h2>
       </section>
 
+      <!-- 11. Website -->
       <section class="section" id="website">
         <h2>11. Website</h2>
         <p>
@@ -299,30 +676,41 @@
           </a>
         </p>
         <p>
-          The site includes: project overview, item list with metadata, conceptual and theoretical graphs, TEI-based HTML edition, RDF dataset downloads, photo gallery, team, and full documentation.
+          The site includes: project overview, item list with metadata, conceptual and theoretical graphs, TEI-based HTML edition,
+          RDF dataset downloads, photo gallery, team, and full documentation.
         </p>
       </section>
 
+      <!-- 12. Team -->
       <section class="section" id="team">
         <h2>12. Team</h2>
         <p>
-          The project was developed within the course <em>Information Science and Cultural Heritage</em> (a.y. 2024–2025), University of Bologna – DHDK.
+          The project was developed within the course <em>Information Science and Cultural Heritage</em> (a.y. 2024–2025),
+          University of Bologna – DHDK.
         </p>
-        
         <ul>
           <li><strong>Laura Bortoli</strong> — laura.bortoli@studio.unibo.it — GitHub: <a href="https://github.com/lauraaa13" target="_blank" rel="noopener">lauraaa13</a></li>
           <li><strong>Claudia Romanello</strong> — claudia.romanello@studio.unibo.it — GitHub: <a href="https://github.com/claudiarom" target="_blank" rel="noopener">claudiarom</a></li>
           <li><strong>Qinghao Chen</strong> — qinghao.chen@studio.unibo.it — GitHub: <a href="https://github.com/River-Qinghao" target="_blank" rel="noopener">River-Qinghao</a></li>
         </ul>
-        
         <p>All project members contributed collaboratively to metadata extraction, TEI encoding, RDF modelling, Python scripting, and interface development.</p>
-        
+
         <div class="box-muted" style="margin-top:1.5rem">
           <h3>Acknowledgments</h3>
           <p>The authors warmly thank <strong>Anna Fiaccarini</strong>, Head of the Cineteca di Bologna Library since 1997, for her guidance, availability, and support throughout the project.</p>
-          
           <h3>Supervision</h3>
           <p><strong>Text Encoding &amp; Semantic Representation</strong><br />Marilena Daquino</p>
           <p><strong>Knowledge Organization in Libraries &amp; Archives</strong><br />Francesca Tomasi</p>
         </div>
       </section>
+
+    </main>
+
+    <footer class="site-footer">
+      © 2024–2025 · The "Revolussion" of Renzo Renzi ·
+      <a href="https://cinetecadibologna.it/" target="_blank" rel="noopener">Cineteca di Bologna</a>
+      · University of Bologna – DHDK.
+    </footer>
+
+  </body>
+</html>
