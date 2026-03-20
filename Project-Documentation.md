@@ -163,7 +163,7 @@ The TEI file is transformed into a web-publishable HTML edition through an **XSL
 - The stylesheet `tei_xslt/tei2html_lastrada.xsl` defines the transformation rules from TEI elements to HTML.
 - The Python script `scripts/xml_to_html.py` applies the stylesheet using the `lxml` library (`etree.XSLT`), parsing both the XML source and the XSL stylesheet and writing the result to `html/lastrada.html`.
 
-The resulting HTML edition can be consulted at: [html/lastrada.html](html/lastrada.html)
+The resulting HTML edition can be consulted at: [html/lastrada.html](https://cinefiles25.github.io/TheRevolussionOfRenzoRenzi/html/lastrada.html)
 
 ---
 
