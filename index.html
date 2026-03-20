@@ -402,17 +402,17 @@
           <ul class="team-list">
             <li>
               <strong>Laura Bortoli</strong><br />
-              <a href="/cdn-cgi/l/email-protection#b2ded3c7c0d39cd0ddc0c6dddedbf2c1c6c7d6dbdd9cc7dcdbd0dd9cdbc6"><span class="__cf_email__" data-cfemail="3b575a4e495a155954494f5457527b484f4e5f5254154e5552595415524f">[email&#160;protected]</span></a><br />
+              laura.bortoli@studio.unibo.it<br />
               GitHub: <a href="https://github.com/lauraaa13" target="_blank" rel="noopener">lauraaa13</a>
             </li>
             <li>
               <strong>Claudia Romanello</strong><br />
-              <a href="/cdn-cgi/l/email-protection#d3b0bfb2a6b7bab2fda1bcbeb2bdb6bfbfbc93a0a7a6b7babcfda6bdbab1bcfdbaa7"><span class="__cf_email__" data-cfemail="d7b4bbb6a2b3beb6f9a5b8bab6b9b2bbbbb897a4a3a2b3beb8f9a2b9beb5b8f9bea3">[email&#160;protected]</span></a><br />
+              claudia.romanello@studio.unibo.it<br />
               GitHub: <a href="https://github.com/claudiarom" target="_blank" rel="noopener">claudiarom</a>
             </li>
             <li>
               <strong>Qinghao (River) Chen</strong><br />
-              <a href="/cdn-cgi/l/email-protection#493820272e212826672a212c27093a3d3c2d2026673c27202b2667203d"><span class="__cf_email__" data-cfemail="1e6f777079767f71307d767b705e6d6a6b7a7771306b70777c7130776a">[email&#160;protected]</span></a><br />
+              qinghao.chen@studio.unibo.it<br />
               GitHub: <a href="https://github.com/River-Qinghao" target="_blank" rel="noopener">River-Qinghao</a>
             </li>
           </ul>
@@ -510,4 +510,20 @@
               const figcap = figure ? figure.querySelector("figcaption") : null;
               lbCaption.textContent = figcap ? figcap.innerText : "";
               lb.classList.add("is-visible");
-              lb.setAttribute("aria-hi
+              lb.setAttribute("aria-hidden", "false");
+            });
+          });
+          const closeLightbox = () => {
+            lb.classList.remove("is-visible");
+            lb.setAttribute("aria-hidden", "true");
+          };
+          lbClose.addEventListener("click", closeLightbox);
+          lb.addEventListener("click", (event) => { if (event.target === lb) closeLightbox(); });
+          document.addEventListener("keydown", (event) => {
+            if (event.key === "Escape" && lb.classList.contains("is-visible")) closeLightbox();
+          });
+        }
+      });
+    </script>
+  </body>
+</html>
