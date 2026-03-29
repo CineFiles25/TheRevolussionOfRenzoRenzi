@@ -2,13 +2,13 @@ import xml.etree.ElementTree as ET
 from rdflib import Namespace, Graph, RDF, URIRef, Literal, XSD
 
 # NAMESPACES
-
 rrr = Namespace("https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/")
 schema = Namespace("https://schema.org/")
 dcterms = Namespace("http://purl.org/dc/terms/")
 dc = Namespace("http://purl.org/dc/elements/1.1/")
 foaf = Namespace("http://xmlns.com/foaf/0.1/")
 crm = Namespace("http://www.cidoc-crm.org/cidoc-crm/")
+owl = Namespace("http://www.w3.org/2002/07/owl#")
 
 # TEI namespace (XML only, not used as RDF vocabulary)
 tei_ns = {'tei': 'http://www.tei-c.org/ns/1.0'}
@@ -23,6 +23,7 @@ g.bind("dcterms", dcterms)
 g.bind("dc", dc)
 g.bind("foaf", foaf)
 g.bind("crm", crm)
+g.bind("owl", owl)
 
 # MAIN ENTITY
 screenplay = URIRef(rrr + "lastrada_screenplay_seq1")
@@ -83,10 +84,10 @@ for person in root.findall(".//tei:person", tei_ns):
         g.add((actor_uri, foaf.name, Literal(actor_name.text)))
         g.add((character_uri, schema.actor, actor_uri))
 
-        # VIAF
+        # VIAF — uniformato a owl:sameAs
         viaf_ref = actor_name.get("ref")
         if viaf_ref:
-            g.add((actor_uri, schema.sameAs, URIRef(viaf_ref)))
+            g.add((actor_uri, owl.sameAs, URIRef(viaf_ref)))
 
 # PLACES
 for place in root.findall(".//tei:place", tei_ns):
