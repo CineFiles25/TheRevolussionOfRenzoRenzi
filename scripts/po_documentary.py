@@ -7,18 +7,21 @@ schema = Namespace("https://schema.org/")
 dcterms = Namespace("http://purl.org/dc/terms/")
 dc = Namespace("http://purl.org/dc/elements/1.1/")
 foaf = Namespace("http://xmlns.com/foaf/0.1/")
+owl = Namespace("http://www.w3.org/2002/07/owl#")
+skos = Namespace("http://www.w3.org/2004/02/skos/core#")
 
 # GRAPH
 g = Graph()
-
 g.bind("rrr", rrr)
 g.bind("schema", schema)
 g.bind("dcterms", dcterms)
 g.bind("dc", dc)
 g.bind("foaf", foaf)
+g.bind("owl", owl)
+g.bind("skos", skos)
 
 # ENTITIES
-po_documentary = URIRef(rrr + "quando_il_po_e_dolce")   # niente accenti negli URI
+po_documentary = URIRef(rrr + "quando_il_po_e_dolce")
 renzo_renzi = URIRef(rrr + "renzo_renzi")
 enzo_masetti = URIRef(rrr + "enzo_masetti")
 delta_po_river = URIRef(rrr + "delta_po_river")
@@ -31,64 +34,61 @@ g.add((po_documentary, RDF.type, schema.Movie))
 
 # CSV → RDF MAPPING
 for _, row in df.iterrows():
-
     # Titles
     if row.get("title"):
         g.add((po_documentary, dcterms.title, Literal(row["title"])))
-
     if row.get("other_title_information"):
         g.add((po_documentary, dcterms.alternative, Literal(row["other_title_information"])))
-
     # Edition / publication year
     if row.get("edition"):
         g.add((po_documentary, dcterms.issued, Literal(row["edition"], datatype=XSD.gYear)))
-
     if row.get("publication_year"):
         g.add((po_documentary, dcterms.issued, Literal(row["publication_year"], datatype=XSD.gYear)))
-
     # Director / creator
     g.add((po_documentary, schema.director, renzo_renzi))
     g.add((po_documentary, dcterms.creator, renzo_renzi))
-
     # Country
     if row.get("country"):
         g.add((po_documentary, schema.countryOfOrigin, Literal(row["country"])))
-
     # Language
     if row.get("language"):
         g.add((po_documentary, schema.inLanguage, Literal(row["language"])))
-
     # Production company
     if row.get("production_company"):
         g.add((po_documentary, dcterms.publisher, Literal(row["production_company"])))
-
     # Length / duration
     if row.get("length"):
         g.add((po_documentary, dcterms.extent, Literal(row["length"])))
-
     if row.get("duration"):
         g.add((po_documentary, schema.duration, Literal(row["duration"])))
-
     # Color
     if row.get("colour"):
         g.add((po_documentary, schema.color, Literal(row["colour"])))
-
     # Film type / format
     if row.get("film_type"):
         g.add((po_documentary, dcterms.medium, Literal(row["film_type"])))
-
     if row.get("format"):
-        g.add((po_documentary, dcterms.format, Literal(row["format"])))  # FIX QUI
-
+        g.add((po_documentary, dcterms.format, Literal(row["format"])))
     # Sound
     if row.get("sound"):
         g.add((po_documentary, schema.sound, Literal(row["sound"])))
-
     # About / place
     g.add((po_documentary, schema.about, delta_po_river))
-
     # Music
     g.add((po_documentary, schema.musicBy, enzo_masetti))
+
+    # Authority files — VIAF
+    if row.get("viaf_uri"):
+        g.add((po_documentary, owl.sameAs, URIRef(row["viaf_uri"])))
+    # Authority files — Wikidata
+    if row.get("wikidata_uri"):
+        g.add((po_documentary, owl.sameAs, URIRef(row["wikidata_uri"])))
+    # Authority files — LCNAF / altre authority
+    if row.get("authority_uri"):
+        g.add((po_documentary, owl.sameAs, URIRef(row["authority_uri"])))
+    # Concetto SKOS
+    if row.get("skos_concept_uri"):
+        g.add((po_documentary, skos.closeMatch, URIRef(row["skos_concept_uri"])))
 
 # SERIALIZATION
 g.serialize(format="turtle", destination="../ttl/po_documentary.ttl")
