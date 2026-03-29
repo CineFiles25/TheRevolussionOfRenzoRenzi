@@ -515,49 +515,51 @@ a:hover { color: #a63a3a; }
         <p>The theoretical model is represented as an interactive diagram on the <a href="index.html#theoretical-graph">project website</a>.</p>
       </section>
 
-      <!-- 5. Conceptual Model -->
+    <!-- 5. Conceptual Model -->
       <section class="section" id="conceptual-model">
         <h2>5. Conceptual Model</h2>
         <p>
           The conceptual model formally represents the theoretical model by reusing existing schemas, vocabularies, and ontologies —
           no new ontology was created. <strong>CIDOC CRM</strong> and <strong>RiC‑O</strong> were consulted as conceptual references,
-          while <strong>Dublin Core Terms</strong>, <strong>Schema.org</strong>, <strong>FOAF</strong>, and <strong>SKOS</strong>
-          were actively reused in the RDF dataset.
+          while <strong>Dublin Core Terms</strong>, <strong>Schema.org</strong>, <strong>FOAF</strong>, <strong>SKOS</strong>,
+          and <strong>OWL</strong> were actively reused in the RDF dataset.
         </p>
-
+        
         <h3>Ontologies and vocabularies reused</h3>
         <ul>
           <li><strong>Dublin Core Terms (DCTerms)</strong> — general metadata (creator, title, date, subject, publisher…)</li>
           <li><strong>Schema.org</strong> — creative works, agents, places, events</li>
           <li><strong>FOAF</strong> — agents and depictions</li>
           <li><strong>SKOS</strong> — subject classification and authority control</li>
+          <li><strong>OWL</strong> — <code>owl:sameAs</code> for linking project entities to external authority files</li>
           <li><strong>CIDOC CRM</strong> — conceptual reference model for cultural heritage</li>
           <li><strong>RiC‑O</strong> — archival conceptual reference</li>
         </ul>
-
-        <h3>Core classes</h3>
-        <ul>
-          <li><code>schema:CreativeWork</code>, <code>schema:ImageObject</code>, <code>schema:VideoObject</code>, <code>schema:MusicRecording</code></li>
-          <li><code>schema:Person</code>, <code>schema:Organization</code>, <code>schema:Place</code>, <code>schema:Event</code></li>
-        </ul>
-
-        <h3>Core properties</h3>
-        <ul>
-          <li><code>dcterms:creator</code>, <code>dcterms:contributor</code>, <code>dcterms:subject</code>, <code>dcterms:date</code>, <code>dcterms:publisher</code></li>
-          <li><code>schema:about</code>, <code>schema:locationCreated</code>, <code>schema:hasPart</code></li>
-          <li><code>foaf:depicts</code></li>
-        </ul>
-
-        <p>The conceptual model is represented as an interactive diagram on the <a href="index.html#conceptual-graph">project website</a>.</p>
-
-        <h3>Authority URIs used</h3>
-        <ul>
-          <li>Renzo Renzi — VIAF: <a href="http://viaf.org/viaf/40486517" target="_blank" rel="noopener">40486517</a> · Wikidata: <a href="https://www.wikidata.org/wiki/Q56179169" target="_blank" rel="noopener">Q56179169</a></li>
-          <li>Federico Fellini — VIAF: <a href="http://viaf.org/viaf/76315386" target="_blank" rel="noopener">76315386</a></li>
-          <li>Cineteca di Bologna — VIAF: <a href="http://viaf.org/viaf/124960346" target="_blank" rel="noopener">124960346</a></li>
-          <li>Bologna — Wikidata: <a href="https://www.wikidata.org/wiki/Q1891" target="_blank" rel="noopener">Q1891</a></li>
-          <li>Cinema Fulgor — Wikidata: <a href="https://www.wikidata.org/wiki/Q36839368" target="_blank" rel="noopener">Q36839368</a></li>
-        </ul>
+        
+      <h3>Core classes</h3>
+      <ul>
+        <li><code>schema:CreativeWork</code>, <code>schema:ImageObject</code>, <code>schema:VideoObject</code>, <code>schema:MusicRecording</code></li>
+        <li><code>schema:Person</code>, <code>schema:Organization</code>, <code>schema:Place</code>, <code>schema:Event</code></li>
+      </ul>
+      
+      <h3>Core properties</h3>
+      <ul>
+        <li><code>dcterms:creator</code>, <code>dcterms:contributor</code>, <code>dcterms:subject</code>, <code>dcterms:date</code>, <code>dcterms:publisher</code></li>
+        <li><code>schema:about</code>, <code>schema:locationCreated</code>, <code>schema:hasPart</code></li>
+        <li><code>foaf:depicts</code></li>
+        <li><code>owl:sameAs</code> — linking project entities to VIAF, Wikidata, GeoNames, and OPAC SBN</li>
+      </ul>
+        
+      <p>The conceptual model is represented as an interactive diagram on the <a href="index.html#conceptual-graph">project website</a>.</p>
+        
+      <h3>Authority URIs used</h3>
+      <ul>
+        <li>Renzo Renzi — VIAF: <a href="http://viaf.org/viaf/40486517" target="_blank" rel="noopener">40486517</a> · Wikidata: <a href="https://www.wikidata.org/wiki/Q56179169" target="_blank" rel="noopener">Q56179169</a></li>
+        <li>Federico Fellini — VIAF: <a href="http://viaf.org/viaf/76315386" target="_blank" rel="noopener">76315386</a></li>
+        <li>Cineteca di Bologna — VIAF: <a href="http://viaf.org/viaf/124960346" target="_blank" rel="noopener">124960346</a></li>
+        <li>Bologna — Wikidata: <a href="https://www.wikidata.org/wiki/Q1891" target="_blank" rel="noopener">Q1891</a> · GeoNames: <a href="https://www.geonames.org/3181928/bologna.html" target="_blank" rel="noopener">3181928</a></li>
+        <li>Cinema Fulgor — Wikidata: <a href="https://www.wikidata.org/wiki/Q36839368" target="_blank" rel="noopener">Q36839368</a></li>
+      </ul>
       </section>
 
       <!-- PART III DIVIDER -->
@@ -644,16 +646,35 @@ a:hover { color: #a63a3a; }
           <li>Map the CSV fields to RDF triples according to the conceptual model, using <strong>RDFLib</strong>.</li>
           <li>Serialize the output as an individual Turtle file in the <code>ttl/</code> directory.</li>
         </ol>
-        <p>The script <code>scripts/merging.py</code> merges all individual Turtle files into <code>ttl/full_dataset.ttl</code> for easier inspection and evaluation.</p>
-        <p>The dataset integrates:</p>
+        <p>All item scripts declare the following shared namespaces: Dublin Core Terms, Dublin Core Elements, Schema.org, FOAF, CIDOC-CRM, OWL, and SKOS.</p>
+        
+      <h3>Authority linking pipeline</h3>
+      <p>
+        External authority URIs (VIAF, Wikidata, GeoNames, OPAC SBN) are centralised in <code>csv/rrr_entities.csv</code>,
+        in the <code>sameAs</code> column. Rather than distributing authority references across individual item scripts,
+        the project adopts a single-point-of-truth approach: <code>merging.py</code> reads <code>rrr_entities.csv</code>
+        at merge time and automatically generates <code>owl:sameAs</code> triples for every entity that carries an external URI.
+        This ensures that authority links are consistent, maintainable, and decoupled from item-level scripting.
+      </p>
+        
+      <h3>Merging</h3>
+      <p>The script <code>scripts/merging.py</code>:</p>
+        <ol>
+          <li>Parses all individual Turtle files in <code>ttl/</code>.</li>
+          <li>Reads <code>csv/rrr_entities.csv</code> and injects <code>owl:sameAs</code> triples for all entities with an external authority URI.</li>
+          <li>Serializes the complete unified graph as <code>ttl/full_dataset.ttl</code>.</li>
+        </ol>
+        
+      <p>The dataset integrates:</p>
         <ul>
           <li>creative works (books, films, drawings, photographs, sound recordings…)</li>
           <li>agents and institutions (Renzi, Fellini, Masina, Rota, Cineteca di Bologna…)</li>
           <li>events (premiere, documentary production, film-related activities…)</li>
-          <li>links to external authority files (VIAF, Wikidata, GeoNames)</li>
+          <li><code>owl:sameAs</code> links to external authority files (VIAF, Wikidata, GeoNames, OPAC SBN)</li>
           <li>inter-item relationships expressed as RDF triples</li>
         </ul>
-        <p>The dataset is modular by design: files can be loaded as separate named graphs or merged into a single RDF graph for SPARQL querying.</p>
+        
+      <p>The dataset is modular by design: files can be loaded as separate named graphs or merged into a single RDF graph for SPARQL querying.</p>
         <div class="download-row">
           <a class="btn-primary" href="ttl/full_dataset.ttl">Download full dataset (Turtle)</a>
           <a class="btn-ghost" href="https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/tree/main/ttl" target="_blank" rel="noopener">TTL directory (GitHub)</a>
