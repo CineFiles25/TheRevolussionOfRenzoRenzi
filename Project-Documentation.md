@@ -1,4 +1,4 @@
-﻿# Project Documentation
+# Project Documentation
 ## The "Revolussion" of Renzo Renzi
 *Information Science and Cultural Heritage – University of Bologna (2024–2025)*
 *Instructors: Marilena Daquino and Francesca Tomasi*
@@ -9,7 +9,7 @@
 
 ## 1. Idea and Rationale
 
-The *“Revolussion”* of Renzo Renzi is a Digital Humanities and Linked Open Data project dedicated to the archival, bibliographic, and audiovisual ecosystem built by **Renzo Renzi** (1919–2004). Renzi was a critic, filmmaker, researcher, and one of the foundational figures of the **Cineteca di Bologna**, where he curated and shaped film culture for decades.
+The *"Revolussion"* of Renzo Renzi is a Digital Humanities and Linked Open Data project dedicated to the archival, bibliographic, and audiovisual ecosystem built by **Renzo Renzi** (1919–2004). Renzi was a critic, filmmaker, researcher, and one of the foundational figures of the **Cineteca di Bologna**, where he curated and shaped film culture for decades.
 
 His work produced an analogue network of interconnected materials—books, drawings, photographs, interviews, film documents—that anticipates the logic of Linked Open Data. Long before LOD became a methodological paradigm, Renzi was already constructing a relational archive where each object illuminated the others through themes, stories, production histories, and personal memories.
 
@@ -104,8 +104,8 @@ The conceptual model formally represents the theoretical model by reusing existi
 - **Schema.org** — creative works, agents, places, events
 - **FOAF** — agents and depictions
 - **SKOS** — subject classification and authority control
+- **OWL** — `owl:sameAs` for linking project entities to external authority files
 - **CIDOC CRM** — conceptual reference model for cultural heritage
-
 
 ### Core classes:
 - `schema:CreativeWork`, `schema:ImageObject`, `schema:VideoObject`, `schema:MusicRecording`
@@ -115,14 +115,15 @@ The conceptual model formally represents the theoretical model by reusing existi
 - `dcterms:creator`, `dcterms:contributor`, `dcterms:subject`, `dcterms:date`, `dcterms:publisher`
 - `schema:about`, `schema:locationCreated`, `schema:hasPart`
 - `foaf:depicts`
+- `owl:sameAs` — linking project entities to VIAF, Wikidata, GeoNames, and OPAC SBN
 
-The conceptual model is represented with as an interactive diagram (Miro board), available on the project website (interactive Miro board).
+The conceptual model is represented as an interactive diagram (Miro board), available on the project website.
 
 ### Authority URIs used:
 - Renzo Renzi — VIAF: <http://viaf.org/viaf/40486517> · Wikidata: <https://www.wikidata.org/wiki/Q56179169>
 - Federico Fellini — VIAF: <http://viaf.org/viaf/76315386>
 - Cineteca di Bologna — VIAF: <http://viaf.org/viaf/124960346>
-- Bologna — Wikidata: <https://www.wikidata.org/wiki/Q1891>
+- Bologna — Wikidata: <https://www.wikidata.org/wiki/Q1891> · GeoNames: <https://www.geonames.org/3181928/bologna.html>
 - Cinema Fulgor — Wikidata: <https://www.wikidata.org/wiki/Q36839368>
 
 ---
@@ -134,8 +135,8 @@ The conceptual model is represented with as an interactive diagram (Miro board),
 A dedicated CSV file was created for each of the 15 items, structuring metadata according to the relevant institutional standard and placing items in dialogue through shared entities and relationships.
 
 Two global files handle the semantic layer:
-- `rrr_entities.csv` — all domain entities (people, places, works, institutions…) with their identifiers and authority URIs
-- `rrr_triples.csv` — explicit relationships between entities, expressed as subject–predicate–object triples
+- `rrr_entities.csv` — all domain entities (people, places, works, institutions…) with their identifiers and external authority URIs in the `sameAs` column (VIAF, Wikidata, GeoNames, OPAC SBN). This file is the single point of truth for all authority references across the dataset.
+- `rrr_triples.csv` — explicit relationships between entities, expressed as subject–predicate–object triples.
 
 All local identifiers use the shared project prefix `rrr` (namespace: `https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/`).
 
@@ -173,6 +174,7 @@ The TEI file is also transformed into RDF using a dedicated **Python** script:
 
 - `scripts/xml_to_rdf.py` uses `xml.etree.ElementTree` to parse the TEI/XML source and extract structured metadata: title, author, editor, publisher, date, language, characters (with actor VIAF links), and places.
 - Extracted data is mapped to RDF triples using **RDFLib**, reusing Schema.org, Dublin Core Terms, FOAF, and CIDOC-CRM vocabularies.
+- Actor VIAF references encoded in the TEI (`@ref` attribute on `<persName>`) are extracted and serialized as `owl:sameAs` triples, consistent with the authority linking approach used across the rest of the dataset.
 - The output is serialized as a Turtle file (`tei_xslt/lastrada_screenplay.ttl`) and also as RDF/XML (`tei_xslt/lastrada_screenplay.rdf`).
 
 ---
@@ -186,13 +188,24 @@ Dedicated Python scripts in `scripts/` (one per item, e.g. `la_strada_film.py`, 
 2. Map the CSV fields to RDF triples according to the conceptual model, using **RDFLib**.
 3. Serialize the output as an individual Turtle file in the `ttl/` directory.
 
-The script `merging.py` merges all individual Turtle files into `full_dataset.ttl` for easier inspection and evaluation.
+All item scripts declare the following shared namespaces: Dublin Core Terms, Dublin Core Elements, Schema.org, FOAF, CIDOC-CRM, OWL, and SKOS.
+
+### Authority linking pipeline
+
+External authority URIs (VIAF, Wikidata, GeoNames, OPAC SBN) are centralised in `csv/rrr_entities.csv`, in the `sameAs` column. Rather than distributing authority references across individual item scripts, the project adopts a single-point-of-truth approach: `merging.py` reads `rrr_entities.csv` at merge time and automatically generates `owl:sameAs` triples for every entity that carries an external URI. This ensures that authority links are consistent, maintainable, and decoupled from item-level scripting.
+
+### Merging
+
+The script `merging.py`:
+1. Parses all individual Turtle files in `ttl/`.
+2. Reads `csv/rrr_entities.csv` and injects `owl:sameAs` triples for all entities with an external authority URI.
+3. Serializes the complete unified graph as `ttl/full_dataset.ttl`.
 
 The dataset as a whole integrates:
 - creative works (books, films, drawings, photographs, sound recordings…)
 - agents and institutions (Renzi, Fellini, Masina, Rota, Cineteca di Bologna…)
 - events (premiere, documentary production, film-related activities…)
-- links to external authority files (VIAF, Wikidata, GeoNames)
+- `owl:sameAs` links to external authority files (VIAF, Wikidata, GeoNames, OPAC SBN)
 - inter-item relationships expressed as RDF triples
 
 The dataset is modular by design: files can be loaded as separate named graphs or merged into a single RDF graph for SPARQL querying.
