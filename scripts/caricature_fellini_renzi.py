@@ -2,12 +2,13 @@ from pandas import read_csv
 from rdflib import Namespace, Graph, RDF, URIRef, Literal, XSD
 
 # NAMESPACES
-
 rrr = Namespace("https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/")
 schema = Namespace("https://schema.org/")
 dcterms = Namespace("http://purl.org/dc/terms/")
 dc = Namespace("http://purl.org/dc/elements/1.1/")
 crm = Namespace("http://www.cidoc-crm.org/cidoc-crm/")
+owl = Namespace("http://www.w3.org/2002/07/owl#")
+skos = Namespace("http://www.w3.org/2004/02/skos/core#")
 
 # GRAPH
 g = Graph()
@@ -18,6 +19,8 @@ g.bind("schema", schema)
 g.bind("dcterms", dcterms)
 g.bind("dc", dc)
 g.bind("crm", crm)
+g.bind("owl", owl)
+g.bind("skos", skos)
 
 # ENTITIES
 artwork = URIRef(rrr + "caricature_fellini_renzi")
@@ -35,64 +38,62 @@ g.add((artwork, RDF.type, schema.VisualArtwork))
 
 # CSV → RDF MAPPING
 for _, row in df.iterrows():
-
     # Identifier
     if row.get("id"):
         g.add((artwork, dcterms.identifier, Literal(row["id"])))
-
     # Titles
     if row.get("title"):
         g.add((artwork, dcterms.title, Literal(row["title"])))
-
     if row.get("other_title_information"):
         g.add((artwork, schema.alternateName, Literal(row["other_title_information"])))
-
     # Description / inscription
     if row.get("inscription"):
         g.add((artwork, dcterms.description, Literal(row["inscription"])))
-
     if row.get("description"):
         g.add((artwork, dcterms.description, Literal(row["description"])))
-
     # Creator (resource)
     g.add((artwork, schema.creator, renzi))
-
     # Depicted person
     g.add((artwork, schema.about, fellini))
-
     # Creation date
     if row.get("creation_date"):
         g.add((artwork, dcterms.created, Literal(row["creation_date"])))
-
     # Technique / material
     if row.get("technique"):
         g.add((artwork, dcterms.medium, Literal(row["technique"])))
-
     if row.get("material"):
         g.add((artwork, dcterms.material, Literal(row["material"])))
-
     # Dimensions
     if row.get("dimensions"):
         g.add((artwork, dcterms.extent, Literal(row["dimensions"])))
-
     # Rights
     if row.get("rights"):
         g.add((artwork, dcterms.rights, Literal(row["rights"])))
-
     # Language
     if row.get("language"):
         g.add((artwork, schema.inLanguage, Literal(row["language"])))
-
     # Standard
     if row.get("standard"):
         g.add((artwork, dcterms.conformsTo, Literal(row["standard"])))
+
+    # Authority files — VIAF
+    if row.get("viaf_uri"):
+        g.add((artwork, owl.sameAs, URIRef(row["viaf_uri"])))
+    # Authority files — Wikidata
+    if row.get("wikidata_uri"):
+        g.add((artwork, owl.sameAs, URIRef(row["wikidata_uri"])))
+    # Authority files — LCNAF / altre authority
+    if row.get("authority_uri"):
+        g.add((artwork, owl.sameAs, URIRef(row["authority_uri"])))
+    # Concetto SKOS
+    if row.get("skos_concept_uri"):
+        g.add((artwork, skos.closeMatch, URIRef(row["skos_concept_uri"])))
 
     # COLLECTION & LOCATION (resources)
     g.add((artwork, dcterms.isPartOf, renzi_collection))
     g.add((renzi_collection, dcterms.hasPart, artwork))
     g.add((artwork, schema.location, renzi_library))
     g.add((artwork, crm.P52_has_current_owner, cineteca))
-
 
 # SERIALIZATION
 g.serialize(format="turtle", destination="../ttl/caricature_fellini_renzi.ttl")
