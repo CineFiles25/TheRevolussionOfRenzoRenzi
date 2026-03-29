@@ -8,6 +8,8 @@ dcterms = Namespace("http://purl.org/dc/terms/")
 dc = Namespace("http://purl.org/dc/elements/1.1/")
 crm = Namespace("http://www.cidoc-crm.org/cidoc-crm/")
 foaf = Namespace("http://xmlns.com/foaf/0.1/")
+owl = Namespace("http://www.w3.org/2002/07/owl#")
+skos = Namespace("http://www.w3.org/2004/02/skos/core#")
 
 # GRAPH
 g = Graph()
@@ -19,6 +21,8 @@ g.bind("dcterms", dcterms)
 g.bind("dc", dc)
 g.bind("crm", crm)
 g.bind("foaf", foaf)
+g.bind("owl", owl)
+g.bind("skos", skos)
 
 # ENTITIES
 photo = URIRef(rrr + "photo_lastrada_premiere")
@@ -42,100 +46,90 @@ g.add((photo, RDF.type, schema.Photograph))
 
 # CSV → RDF MAPPING
 for _, row in df.iterrows():
-
     # Identifiers
     if row.get("id"):
         g.add((photo, dcterms.identifier, Literal(row["id"])))
-
     if row.get("identifiers"):
         for ident in [i.strip() for i in row["identifiers"].split(";") if i.strip()]:
             g.add((photo, dcterms.identifier, Literal(ident)))
-
     # Standard
     if row.get("standard"):
         g.add((photo, dcterms.conformsTo, Literal(row["standard"])))
-
     # Resource type
     if row.get("resource_type"):
         g.add((photo, dcterms.type, Literal(row["resource_type"])))
-
     # Title
     if row.get("title"):
         g.add((photo, dcterms.title, Literal(row["title"])))
-
     # Alternative title
     if row.get("other_title_information"):
         g.add((photo, dcterms.alternative, Literal(row["other_title_information"])))
-
     # Notes
     if row.get("notes"):
         g.add((photo, dcterms.description, Literal(row["notes"])))
-
     # Creator (literal)
     if row.get("creator"):
         g.add((photo, dcterms.creator, Literal(row["creator"])))
-
     # Depicted persons (resources)
     g.add((photo, foaf.depicts, fellini))
     g.add((photo, foaf.depicts, masina))
-
     # Depicted people (literal)
     if row.get("depicted_people"):
         g.add((photo, dc.subject, Literal(row["depicted_people"])))
-
     # Depicted event
     if row.get("depicted_event"):
         g.add((photo, dc.subject, Literal(row["depicted_event"])))
-
     # Depicted place (literal)
     if row.get("depicted_place"):
         g.add((photo, schema.location, Literal(row["depicted_place"])))
-
     # Content location (resource)
     g.add((photo, schema.contentLocation, cinema_fulgor))
     g.add((cinema_fulgor, schema.location, bologna))
-
     # Creation year
     if row.get("creation_year"):
         g.add((photo, dcterms.created, Literal(row["creation_year"], datatype=XSD.gYear)))
-
     # Color
     if row.get("colour"):
         g.add((photo, schema.color, Literal(row["colour"])))
-
     # Material / technique
     if row.get("material_technique"):
         g.add((photo, dcterms.medium, Literal(row["material_technique"])))
-
     # Carrier type
     if row.get("carrier_type"):
         g.add((photo, dcterms.medium, Literal(row["carrier_type"])))
-
     # Physical description
     if row.get("physical_description"):
         g.add((photo, dcterms.extent, Literal(row["physical_description"])))
-
     # Inventory number
     if row.get("inventory_number"):
         g.add((photo, dcterms.identifier, Literal(row["inventory_number"])))
-
     # Rights
     if row.get("rights"):
         g.add((photo, dcterms.rights, Literal(row["rights"])))
-
     # Link to La Strada (resource)
     g.add((photo, schema.about, film))
+    # Language
+    if row.get("language"):
+        g.add((photo, schema.inLanguage, Literal(row["language"])))
+
+    # Authority files — VIAF
+    if row.get("viaf_uri"):
+        g.add((photo, owl.sameAs, URIRef(row["viaf_uri"])))
+    # Authority files — Wikidata
+    if row.get("wikidata_uri"):
+        g.add((photo, owl.sameAs, URIRef(row["wikidata_uri"])))
+    # Authority files — LCNAF / altre authority
+    if row.get("authority_uri"):
+        g.add((photo, owl.sameAs, URIRef(row["authority_uri"])))
+    # Concetto SKOS
+    if row.get("skos_concept_uri"):
+        g.add((photo, skos.closeMatch, URIRef(row["skos_concept_uri"])))
 
     # COLLECTION & LOCATION
     g.add((photo, dcterms.isPartOf, renzi_collection))
     g.add((renzi_collection, dcterms.hasPart, photo))
     g.add((photo, crm.P52_has_current_owner, cineteca))
     g.add((photo, schema.location, bologna))
-
-    # Language
-    if row.get("language"):
-        g.add((photo, schema.inLanguage, Literal(row["language"])))
-
 
 # SERIALIZATION
 g.serialize(format="turtle", destination="../ttl/photo_lastrada_premiere.ttl")
