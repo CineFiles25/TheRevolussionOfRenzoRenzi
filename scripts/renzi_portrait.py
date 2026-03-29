@@ -2,13 +2,14 @@ from pandas import read_csv
 from rdflib import Namespace, Graph, RDF, URIRef, Literal, XSD
 
 # NAMESPACES
-
 rrr = Namespace("https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/")
 schema = Namespace("https://schema.org/")
 dcterms = Namespace("http://purl.org/dc/terms/")
 dc = Namespace("http://purl.org/dc/elements/1.1/")
 crm = Namespace("http://www.cidoc-crm.org/cidoc-crm/")
 foaf = Namespace("http://xmlns.com/foaf/0.1/")
+owl = Namespace("http://www.w3.org/2002/07/owl#")
+skos = Namespace("http://www.w3.org/2004/02/skos/core#")
 
 # GRAPH
 g = Graph()
@@ -20,6 +21,8 @@ g.bind("dcterms", dcterms)
 g.bind("dc", dc)
 g.bind("crm", crm)
 g.bind("foaf", foaf)
+g.bind("owl", owl)
+g.bind("skos", skos)
 
 # ENTITIES
 portrait = URIRef(rrr + "portrait_of_renzo_renzi")
@@ -37,60 +40,60 @@ g.add((portrait, RDF.type, schema.Photograph))
 
 # CSV → RDF MAPPING
 for _, row in df.iterrows():
-
     # Title
     if row.get("title"):
         g.add((portrait, dcterms.title, Literal(row["title"])))
-
     # Creator (literal)
     if row.get("creator"):
         g.add((portrait, dcterms.creator, Literal(row["creator"])))
-
     # Depicted person (resource)
     g.add((portrait, foaf.depicts, renzi))
-
     # Depicted event (literal)
     if row.get("depicted_event"):
         g.add((portrait, dc.subject, Literal(row["depicted_event"])))
-
     # Color
     if row.get("colour"):
         g.add((portrait, schema.color, Literal(row["colour"])))
-
     # Material / technique
     if row.get("material_technique"):
         g.add((portrait, dcterms.medium, Literal(row["material_technique"])))
-
     # Physical description
     if row.get("physical_description"):
         g.add((portrait, dcterms.extent, Literal(row["physical_description"])))
-
     # Carrier type
     if row.get("carrier_type"):
         g.add((portrait, crm.P45_consists_of, Literal(row["carrier_type"])))
-
     # File format
     if row.get("format"):
         g.add((portrait, schema.fileFormat, Literal(row["format"])))
-
     # Collection (literal description only)
     if row.get("collection"):
         g.add((portrait, dcterms.relation, Literal(row["collection"])))
-
     # Notes
     if row.get("notes"):
         g.add((portrait, dcterms.description, Literal(row["notes"])))
-
     # Rights
     if row.get("rights"):
         g.add((portrait, dcterms.rights, Literal(row["rights"])))
+
+    # Authority files — VIAF
+    if row.get("viaf_uri"):
+        g.add((portrait, owl.sameAs, URIRef(row["viaf_uri"])))
+    # Authority files — Wikidata
+    if row.get("wikidata_uri"):
+        g.add((portrait, owl.sameAs, URIRef(row["wikidata_uri"])))
+    # Authority files — LCNAF / altre authority
+    if row.get("authority_uri"):
+        g.add((portrait, owl.sameAs, URIRef(row["authority_uri"])))
+    # Concetto SKOS
+    if row.get("skos_concept_uri"):
+        g.add((portrait, skos.closeMatch, URIRef(row["skos_concept_uri"])))
 
     # COLLECTION & LOCATION
     g.add((portrait, dcterms.isPartOf, renzi_collection))
     g.add((renzi_collection, dcterms.hasPart, portrait))
     g.add((portrait, crm.P52_has_current_owner, cineteca))
     g.add((portrait, schema.location, renzi_library))
-
 
 # SERIALIZATION
 g.serialize(format="turtle", destination="../ttl/renzi_portrait.ttl")
