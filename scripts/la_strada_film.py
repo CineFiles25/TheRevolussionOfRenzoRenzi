@@ -5,6 +5,8 @@ from rdflib import Namespace, Graph, RDF, URIRef, Literal, XSD
 rrr = Namespace("https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/")
 schema = Namespace("https://schema.org/")
 dcterms = Namespace("http://purl.org/dc/terms/")
+owl = Namespace("http://www.w3.org/2002/07/owl#")
+skos = Namespace("http://www.w3.org/2004/02/skos/core#")
 
 # GRAPH
 g = Graph()
@@ -13,6 +15,8 @@ g = Graph()
 g.bind("rrr", rrr)
 g.bind("schema", schema)
 g.bind("dcterms", dcterms)
+g.bind("owl", owl)
+g.bind("skos", skos)
 
 # ENTITY
 film = URIRef(rrr + "la_strada_film")
@@ -26,56 +30,56 @@ g.add((film, RDF.type, schema.Movie))
 
 # CSV → RDF MAPPING
 for _, row in df.iterrows():
-
     # Title
     if row.get("title"):
         g.add((film, dcterms.title, Literal(row["title"])))
-
     # Alternative title
     if row.get("other_title_information"):
         g.add((film, dcterms.alternative, Literal(row["other_title_information"])))
-
     # Director (resource)
     g.add((film, schema.director, fellini))
-
     # Production company
     if row.get("production_company"):
         g.add((film, schema.productionCompany, Literal(row["production_company"])))
-
-    # Country of origin → FIX HERE (schema.location)
+    # Country of origin
     if row.get("country"):
         g.add((film, schema.location, Literal(row["country"])))
-
     # Language
     if row.get("language"):
         g.add((film, schema.inLanguage, Literal(row["language"])))
-
     # Year of release
     if row.get("publication_year"):
         g.add((film, dcterms.issued, Literal(row["publication_year"], datatype=XSD.gYear)))
-
     # Length / duration
     if row.get("length"):
         g.add((film, dcterms.extent, Literal(row["length"])))
-
     if row.get("duration"):
         g.add((film, schema.duration, Literal(row["duration"])))
-
     # Color
     if row.get("colour"):
         g.add((film, schema.color, Literal(row["colour"])))
-
     # Sound
     if row.get("sound"):
         g.add((film, schema.sound, Literal(row["sound"])))
-
     # Resource type
     if row.get("resource_type"):
         g.add((film, dcterms.type, Literal(row["resource_type"])))
-
     # Notes / description
     if row.get("notes"):
         g.add((film, dcterms.description, Literal(row["notes"])))
+
+    # Authority files — VIAF
+    if row.get("viaf_uri"):
+        g.add((film, owl.sameAs, URIRef(row["viaf_uri"])))
+    # Authority files — Wikidata
+    if row.get("wikidata_uri"):
+        g.add((film, owl.sameAs, URIRef(row["wikidata_uri"])))
+    # Authority files — LCNAF / altre authority
+    if row.get("authority_uri"):
+        g.add((film, owl.sameAs, URIRef(row["authority_uri"])))
+    # Concetto SKOS
+    if row.get("skos_concept_uri"):
+        g.add((film, skos.closeMatch, URIRef(row["skos_concept_uri"])))
 
 # SERIALIZATION
 g.serialize(format="turtle", destination="../ttl/la_strada_film.ttl")
