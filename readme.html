@@ -331,16 +331,16 @@ a:hover { color: #a63a3a; }
 
       <section class="section" id="structure">
         <h2>Project Structure</h2>
-        <pre class="code-block"><code>csv/                  → Metadata tables for all items
-script/               → Python scripts (CSV → RDF transformation)
-tei_xslt/             → TEI XML + XSLT stylesheet
-ttl/                  → RDF dataset (rrr.ttl)
-html/                 → Transformed TEI HTML
-img/                  → Photographs, stills, visual materials
-index.html            → Website home
-project-documentation.html
-style.css
-README.md</code></pre>
+        <pre class="code-block"><code>csv/                  → Metadata tables for all items + authority entity registry
+          scripts/              → Python scripts (CSV → RDF transformation and merging)
+          tei_xslt/             → TEI XML + XSLT stylesheet
+          ttl/                  → Individual RDF files + full_dataset.ttl
+          html/                 → Transformed TEI HTML
+          img/                  → Photographs, stills, visual materials
+          index.html            → Website home
+          project-documentation.html
+          style.css
+          README.md</code></pre>
         <p>
           A full explanation of the workflow is provided in
           <strong><a href="project-documentation.html">Project Documentation</a></strong>.
@@ -366,10 +366,10 @@ README.md</code></pre>
           <li><strong>Encode a text item in TEI P5</strong> and publish it through <strong>XSLT</strong>.</li>
           <li>
             <strong>Develop a conceptual model</strong> by reusing:
-            Dublin Core Terms, Schema.org, FOAF, SKOS
+            Dublin Core Terms, Schema.org, FOAF, SKOS, OWL
             (<em>RiC-O and CIDOC CRM used as conceptual references</em>)
           </li>
-          <li><strong>Generate an integrated RDF dataset</strong> (<code>rrr.ttl</code>).</li>
+          <li><strong>Generate an integrated RDF dataset</strong> (<code>full_dataset.ttl</code>).</li>
           <li><strong>Publish the whole project on the web</strong> via GitHub Pages.</li>
         </ol>
       </section>
