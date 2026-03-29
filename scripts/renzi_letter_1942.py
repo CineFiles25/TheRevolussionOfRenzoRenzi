@@ -2,12 +2,13 @@ from pandas import read_csv
 from rdflib import Namespace, Graph, RDF, URIRef, Literal, XSD
 
 # NAMESPACES
-
 rrr = Namespace("https://github.com/CineFiles25/TheRevolussionOfRenzoRenzi/")
 schema = Namespace("https://schema.org/")
 dcterms = Namespace("http://purl.org/dc/terms/")
 dc = Namespace("http://purl.org/dc/elements/1.1/")
 crm = Namespace("http://www.cidoc-crm.org/cidoc-crm/")
+owl = Namespace("http://www.w3.org/2002/07/owl#")
+skos = Namespace("http://www.w3.org/2004/02/skos/core#")
 
 # GRAPH
 g = Graph()
@@ -18,6 +19,8 @@ g.bind("schema", schema)
 g.bind("dcterms", dcterms)
 g.bind("dc", dc)
 g.bind("crm", crm)
+g.bind("owl", owl)
+g.bind("skos", skos)
 
 # ENTITIES
 letter = URIRef(rrr + "renzi_letter_1942")
@@ -33,98 +36,87 @@ g.add((letter, RDF.type, schema.CreativeWork))
 
 # CSV → RDF MAPPING
 for _, row in df.iterrows():
-
     # Identifiers
     if row.get("id"):
         g.add((letter, dcterms.identifier, Literal(row["id"])))
-
     if row.get("identifiers"):
         g.add((letter, dcterms.identifier, Literal(row["identifiers"])))
-
     # Standard
     if row.get("standard"):
         g.add((letter, dcterms.conformsTo, Literal(row["standard"])))
-
     # Titles
     if row.get("title"):
         g.add((letter, dcterms.title, Literal(row["title"])))
-
     if row.get("other_title_information"):
         g.add((letter, dcterms.alternative, Literal(row["other_title_information"])))
-
     # Creator
     g.add((letter, dcterms.creator, renzi))
-
     # Other contributors
     if row.get("other_creators"):
         g.add((letter, dcterms.contributor, Literal(row["other_creators"])))
-
     # Date
     if row.get("date"):
         g.add((letter, dcterms.created, Literal(row["date"], datatype=XSD.date)))
-
     # Level of description
     if row.get("level_of_description"):
         g.add((letter, dcterms.type, Literal(row["level_of_description"])))
-
     # Extent
     if row.get("extent"):
         g.add((letter, dcterms.extent, Literal(row["extent"])))
-
     # Scope and content
     if row.get("scope_and_content"):
         g.add((letter, dcterms.description, Literal(row["scope_and_content"])))
-
     # Physical description
     if row.get("physical_description"):
         g.add((letter, dcterms.medium, Literal(row["physical_description"])))
-
     # Material type
     if row.get("material_type"):
         g.add((letter, dcterms.medium, Literal(row["material_type"])))
-
     # Language
     if row.get("language"):
         g.add((letter, dcterms.language, Literal(row["language"])))
-
     # Number of pages
     if row.get("pages"):
         g.add((letter, schema.numberOfPages, Literal(row["pages"], datatype=XSD.integer)))
-
     # Page URIs (resources)
     if row.get("page_uris"):
         for uri in row["page_uris"].split("|"):
             cleaned = uri.strip()
             if cleaned:
                 g.add((letter, schema.associatedMedia, URIRef(cleaned)))
-
     # Holding archive
     g.add((letter, crm.P52_has_current_owner, cineteca))
-
     # Collection
     g.add((letter, dcterms.isPartOf, renzi_collection))
     g.add((renzi_collection, dcterms.hasPart, letter))
-
     # Current location (literal)
     if row.get("current_location"):
         g.add((letter, schema.location, Literal(row["current_location"])))
-
-
     # Access conditions
     if row.get("conditions_governing_access"):
         g.add((letter, dcterms.accessRights, Literal(row["conditions_governing_access"])))
-
     # Reproduction conditions
     if row.get("conditions_governing_reproduction"):
         g.add((letter, dcterms.rights, Literal(row["conditions_governing_reproduction"])))
-
     # Related works (literal)
     if row.get("related_works"):
         g.add((letter, dcterms.relation, Literal(row["related_works"])))
-
     # Rights
     if row.get("rights"):
         g.add((letter, dcterms.rights, Literal(row["rights"])))
+
+    # Authority files — VIAF
+    if row.get("viaf_uri"):
+        g.add((letter, owl.sameAs, URIRef(row["viaf_uri"])))
+    # Authority files — Wikidata
+    if row.get("wikidata_uri"):
+        g.add((letter, owl.sameAs, URIRef(row["wikidata_uri"])))
+    # Authority files — LCNAF / altre authority
+    if row.get("authority_uri"):
+        g.add((letter, owl.sameAs, URIRef(row["authority_uri"])))
+    # Concetto SKOS
+    if row.get("skos_concept_uri"):
+        g.add((letter, skos.closeMatch, URIRef(row["skos_concept_uri"])))
 
 # SERIALIZATION
 g.serialize(format="turtle", destination="../ttl/renzi_letter_1942.ttl")
